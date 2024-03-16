@@ -24,7 +24,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     font-family: "Inter", sans-serif;
     overflow-x: hidden;
     height: auto;
@@ -178,6 +178,11 @@ body {
 }
 
 @media screen and (max-width: 1050px) {
+
+    html {
+        height: fit-content;
+    }
+
     .hero-section {
         flex-direction: column;
         width: 90%;
@@ -193,7 +198,9 @@ body {
 
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+
+
     .top-header-section {
         width: 100%;
     }
@@ -209,8 +216,8 @@ body {
 
 @media (max-width: 500px) {
 
-    body {
-        padding-bottom: 50px;
+    html {
+        height: 120%;
     }
 
     .hero-section {
