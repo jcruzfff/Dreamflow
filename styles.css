@@ -30,6 +30,21 @@ body {
     height: auto;
 }
 
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .top-header {
     color: #F245DC;
     font-family: "League Spartan";
@@ -55,14 +70,7 @@ body {
     line-height: 33px;
 }
 
-.hero-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-    max-width: 1200px;
-}
+
 
 .top-header-section,
 .hero-image-container {
@@ -179,14 +187,10 @@ body {
 
 @media screen and (max-width: 1050px) {
 
-    html {
-        height: fit-content;
-    }
+
 
     .hero-section {
         flex-direction: column;
-        width: 90%;
-        margin-top: 10%;
     }
 
     .lets-chat,
@@ -203,6 +207,7 @@ body {
 
     .top-header-section {
         width: 100%;
+        height: auto;
     }
 
     .hero-header {
@@ -221,11 +226,15 @@ body {
     }
 
     .hero-section {
-        margin-top: 10%;
+        display: flex;
+        height: auto;
+        width: 90%;
     }
 
     .top-header-section {
         width: 100%;
+        height: auto;
+        margin-bottom: 32px;
     }
 
     .top-header {
