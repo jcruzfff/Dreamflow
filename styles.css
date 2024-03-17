@@ -219,7 +219,7 @@ body {
     }
 }
 
-@media (max-width: 500px) {
+@media screen and (max-width: 500px) {
 
     html {
         height: 120%;
@@ -235,6 +235,7 @@ body {
         width: 100%;
         height: auto;
         margin-bottom: 32px;
+        margin-top: 10%;
     }
 
     .top-header {
