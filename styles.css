@@ -360,6 +360,7 @@ body {
     color: white;
     transition: top 0.8s ease, bottom 0.8s ease, opacity 0.5s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.206);
+    min-width: 436px;
 }
 
 .nav-link {
@@ -2760,7 +2761,7 @@ li {
 
         height: 52px;
         width: 81%;
-        margin-bottom: 24pxx;
+        margin-bottom: 24px;
     }
 
 }
@@ -2769,7 +2770,12 @@ li {
 @media only screen and (max-width: 414px) and (max-height: 896px) {}
 
 
-@media only screen and (max-width: 390px) and (max-height: 844px) {}
+@media only screen and (max-width: 397px) and (max-height: 844px) {
+
+    .hero {
+        margin-bottom: 76px;
+    }
+}
 
 
 
