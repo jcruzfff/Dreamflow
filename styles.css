@@ -978,7 +978,7 @@ body {
 .pricing-cards {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
     flex: 1;
     padding: 0px;
     justify-content: space-between;
