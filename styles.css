@@ -527,6 +527,8 @@ body {
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1px;
+    width: 85%;
+
 }
 
 .testimony-founder-section {
@@ -2309,6 +2311,10 @@ li {
         width: 100%
     }
 
+
+    .testimony-quote {
+        width: 100%;
+    }
 
 }
 
