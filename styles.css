@@ -1018,6 +1018,11 @@ body {
     display: block;
 }
 
+.monthly {
+    font-size: 12px;
+    color: #555555;
+}
+
 
 .left-card {
     display: flex;
