@@ -831,11 +831,18 @@ body {
 }
 
 .sixth-left-container {
+    height: auto;
     width: 100%;
-    height: 300px;
+    overflow: hidden;
     margin-bottom: 32px;
     background-color: rgba(255, 255, 255, 0.124);
     border-radius: 24px;
+    border: 4px solid #20222C;
+    box-sizing: border-box;
+}
+
+.lotties-compare {
+    box-shadow: inset 0 0 0 3px #101017;
 }
 
 .metrics {
@@ -853,7 +860,7 @@ body {
     line-height: normal;
     letter-spacing: -1px;
     text-align: left;
-    margin-bottom: 36px;
+    margin-bottom: 140px;
 }
 
 
@@ -1920,7 +1927,21 @@ li {
 
 @media screen and (max-width: 1191px) {
     .testimony-two {
-        margin-bottom: 2px;
+        margin-bottom: 67px;
+    }
+}
+
+@media screen and (max-width: 1135px) {
+    .testimony-two {
+        font-size: 28px;
+        margin-bottom: 105px;
+    }
+}
+
+@media screen and (max-width: 1035px) {
+    .testimony-two {
+        font-size: 28px;
+        margin-bottom: 52px;
     }
 }
 
@@ -1930,6 +1951,8 @@ li {
         max-height: 100vh;
         margin-bottom: 114px;
     }
+
+
 }
 
 
@@ -2093,7 +2116,10 @@ li {
 
     .sixth-right-section {
         order: 2;
-        /* Keeps the Testimony and Metric Content second */
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
 
@@ -2396,7 +2422,7 @@ li {
     }
 
     .hero-header {
-        font-size: 11vw;
+        font-size: 11.5vw;
     }
 
     .content-header {
@@ -2476,6 +2502,10 @@ li {
 
     .sixth-section {
         padding-top: 0px;
+    }
+
+    .sixth-left-container {
+        border: 2px solid #20222C;
     }
 
     .left-card,
