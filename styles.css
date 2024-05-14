@@ -124,7 +124,7 @@ body {
 .blue-gradient {
     position: absolute;
     width: 100vw !important;
-    top: 914%;
+    top: 820%;
     height: auto;
 }
 
@@ -862,7 +862,7 @@ body {
     line-height: normal;
     letter-spacing: -1px;
     text-align: left;
-    margin-bottom: 140px;
+    margin-bottom: 106px;
 }
 
 
@@ -977,7 +977,7 @@ body {
     flex: 1;
     padding: 0px;
     justify-content: space-between;
-    height: 642px;
+    height: 675px;
 
 
     /* Ensures cards slide in without being visible outside the boundaries */
@@ -1160,11 +1160,27 @@ body {
     transition: background-color 0.3s;
 }
 
-.toggle-btn.active {
+#standardBtn.active {
     background-color: #1FEBC9;
-    border-radius: 32px;
-    color: rgb(0, 0, 0);
+    /* Turquoise background */
+    color: black;
+    /* Black text */
 }
+
+/* Styling for when the pro (Elite) button is active */
+#proBtn.active {
+    background-color: #ECC678;
+    /* Gold background */
+    color: black;
+    /* Black text */
+}
+
+/* Ensure SVG inside the active Elite button changes color to black */
+#proBtn.active svg {
+    fill: black !important;
+    /* Change SVG fill to black when the button is active */
+}
+
 
 #proBtn {
     display: flex;
@@ -1303,13 +1319,13 @@ li {
     transition: opacity 0.9s ease-in-out, transform 0.8s ease-in-out;
     opacity: 0;
     overflow: hidden;
-    padding: 10%;
+    padding: 6%;
     border-radius: 84px;
     align-items: center;
     box-sizing: border-box;
     min-height: 110vh;
     margin-bottom: 100px;
-
+    gap: 86px;
 }
 
 .eigth-section.active {
@@ -1321,7 +1337,7 @@ li {
     display: flex;
     position: relative;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
     height: auto;
     justify-content: flex-start;
     align-items: flex-start;
@@ -1382,26 +1398,58 @@ li {
 }
 
 .schedule-side {
+    position: relative;
     display: flex;
+    background-color: #F6F6F6;
+    border-radius: 42px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40%;
-    height: auto;
+    width: 42%;
+    height: 287px;
+    padding: 42px;
+
 }
 
+.chase-img {
+    position: absolute;
+    top: -28%;
+}
+
+.intro {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 24px;
+
+}
 
 .schedule {
     background-color: #101018;
     color: white;
     white-space: nowrap;
+    width: 100%;
     text-decoration: none;
+    margin-bottom: 0;
 }
 
-.ready,
-.book-consultation {
+.schedule-img {
+    position: absolute;
+    right: 14px;
+    top: 45%;
+}
+
+.schedule-img-two {
+    position: absolute;
+    left: 53.5%;
+    top: 59%;
+}
+
+.ready {
     color: black;
-    margin-bottom: 18px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 300;
+    margin-top: 56px;
 }
 
 .ninth-bottom-container {
@@ -1844,7 +1892,7 @@ li {
 
 @media screen and (max-height: 1150px) {
     .hero {
-        min-height: 90vh;
+        min-height: 100vh;
         margin-bottom: 10px;
     }
 
@@ -1928,25 +1976,30 @@ li {
 }
 
 
-@media screen and (max-width: 1191px) {
+@media screen and (max-width: 1270px) {
     .testimony-two {
-        margin-bottom: 67px;
+        margin-bottom: 60px;
     }
 }
 
-@media screen and (max-width: 1135px) {
+
+
+@media screen and (max-width: 1173px) {
     .testimony-two {
-        font-size: 28px;
-        margin-bottom: 105px;
+        font-size: 30px;
+        margin-bottom: 42px;
     }
 }
 
-@media screen and (max-width: 1035px) {
+
+@media screen and (max-width: 1065px) {
     .testimony-two {
         font-size: 28px;
-        margin-bottom: 52px;
+
     }
 }
+
+
 
 @media screen and (max-height: 1000px) {
     .hero {
@@ -2128,7 +2181,8 @@ li {
 
     .metric-content {
         order: 1;
-        margin-bottom: 24px
+        margin-bottom: 24px;
+        display: none;
     }
 
     .testimony-two {
@@ -2211,7 +2265,7 @@ li {
     .included-content {
         justify-content: space-between;
         box-sizing: border-box;
-        padding-right: 30%;
+        padding-right: 20%;
     }
 
     ul {
@@ -2240,6 +2294,10 @@ li {
     .faqs-side {
         width: 100%;
         margin-bottom: 42px;
+    }
+
+    .schedule-side {
+        width: 100%
     }
 
 
@@ -2610,6 +2668,10 @@ li {
 
     .toggle-switch {
         width: 100%;
+    }
+
+    .toggle-btn {
+        width: 50%;
     }
 
     .join {
