@@ -194,7 +194,7 @@ body {
 
 .hero {
     min-height: 100vh;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     box-sizing: border-box;
 }
 
@@ -1885,7 +1885,7 @@ li {
 
 @media screen and (max-height: 1080px) {
     .hero {
-        min-height: 94vh;
+        min-height: 100vh;
         max-height: 100vh;
         margin-bottom: 114px;
     }
