@@ -120,6 +120,12 @@ body {
     overflow: visible;
 }
 
+.blue-gradient {
+    position: absolute;
+    width: 100vw !important;
+    top: 914%;
+    height: auto;
+}
 
 .df-top-logo {
     display: flex;
@@ -2510,6 +2516,12 @@ li {
 
     .schedule-side {
         width: 100%;
+    }
+
+    .blue-gradient {
+        width: 100vw !important;
+        top: 1091%;
+        height: auto;
     }
 }
 
