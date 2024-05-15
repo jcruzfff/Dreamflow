@@ -982,7 +982,7 @@ body {
     flex: 1;
     padding: 0px;
     justify-content: space-between;
-    height: 675px;
+    height: 703px;
 
 
     /* Ensures cards slide in without being visible outside the boundaries */
@@ -2197,7 +2197,7 @@ li {
 
 
 
-@media screen and (max-width: 1128px) {
+@media screen and (max-width: 1163px) {
 
     .left-card,
     .right-card {
