@@ -30,13 +30,13 @@
 
     <div class="background-gradient">
         <div class="background-image-container">
-            <img class="background-image-gradient" src="./images/background-gradient.png" alt="">
+            <img class="background-image-gradient" src="./images/background-gradient-min.png" alt="">
 
         </div>
     </div>
     <div class="blue-gradient">
         <div class="background-image-container">
-            <img class="background-image-gradient" src="./images/blue-gradient.png" alt="">
+            <img class="background-image-gradient" src="./images/blue-gradient-min.png" alt="">
         </div>
     </div>
 
@@ -77,8 +77,14 @@
 
                     </div>
                 </div>
-                <div class="hero-image-container"><img src="./images/hero-image-small.png" alt="" class="hero-image"
-                        loading="lazy"></div>
+                <!-- <div class="hero-image-container"><img src="./images/hero-image-small.png" alt="" class="hero-image"
+                        loading="lazy"></div> -->
+
+                <picture class="hero-image-container">
+                    <source type="image/avif" srcset="./images/hero-image-small.avif" />
+                    <img src="./images/hero-image-small.png" class="hero-image" loading="lazy" />
+                </picture>
+
             </div>
 
 

@@ -1602,10 +1602,9 @@ li {
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    background-image: url("./images/templates-image.svg");
+    background-image: url("./images/reduced-templates.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 .templates-image-container {
