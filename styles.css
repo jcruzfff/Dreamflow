@@ -196,7 +196,7 @@ body {
 
 
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
@@ -217,7 +217,6 @@ body {
     text-align: center;
     font-family: 'Helvetica Bold';
     font-style: normal;
-
     line-height: 102%;
     letter-spacing: -3px;
     /* Or any other color that fits your design */
@@ -1580,6 +1579,7 @@ li {
     /* 58.632px */
     letter-spacing: -2.443px;
     margin-top: 92px;
+    margin-bottom: 24px;
 }
 
 .templates-subheader {
@@ -1775,47 +1775,60 @@ li {
 
 
 
+
 /* Larger Screens Below */
 
-@media screen and (max-height: 1350px) {
+@media screen and (max-height: 1800px) {
     .hero {
-        min-height: 77vh;
-        margin-bottom: 10px;
+        max-height: 65vh;
     }
 
     .second-section {
         min-height: 30vh;
+
         margin-bottom: 244px
     }
 
     .testimony {
+        height: 27vh;
         margin-bottom: 70px;
     }
 
-    .third-section,
+    .third-section {
+        min-height: 52vh;
+    }
+
     .fourth-section {
-        min-height: 70vh;
+        min-height: 58vh;
     }
 
     .sixth-section {
-        min-height: 53vh;
+        min-height: 44vh;
         margin-top: 140px;
         margin-bottom: 20px;
     }
 
     .seventh-section {
-        min-height: 61vh;
+        min-height: 46vh;
     }
 
     .eigth-section {
-        min-height: 95vh;
+        min-height: 55vh;
+    }
+
+    .ninth-section {
+        min-height: 0;
+    }
+
+    .blue-gradient {
+        top: 520%;
     }
 
 }
 
-@media screen and (max-height: 1300px) {
+@media screen and (max-height: 1500px) {
     .hero {
-        min-height: 77vh;
+        max-height: 71vh;
         margin-bottom: 10px;
     }
 
@@ -1825,21 +1838,71 @@ li {
     }
 
     .testimony {
-        max-height: 30vh;
-        min-height: 30vh;
         margin-bottom: 70px;
     }
 
-    .third-section,
+    .third-section {
+        min-height: 62vh;
+    }
+
     .fourth-section {
-        min-height: 70vh;
+        min-height: 69vh;
+    }
+
+
+    .eigth-section {
+        min-height: 66vh;
+    }
+
+}
+
+@media screen and (max-height: 1400px) {
+    .hero {
+        max-height: 76vh;
+        margin-bottom: 10px;
+    }
+
+    .second-section {
+        min-height: 30vh;
+        margin-bottom: 244px
+    }
+
+    .testimony {
+        margin-bottom: 70px;
+    }
+
+    .third-section {
+        min-height: 71vh;
     }
 
     .fourth-section {
         min-height: 76vh;
     }
 
+}
 
+
+
+@media screen and (max-height: 1350px) {
+    .hero {
+        max-height: 82vh;
+        margin-bottom: 10px;
+    }
+
+    .second-section {
+        min-height: 30vh;
+        margin-bottom: 244px
+    }
+
+    .testimony {
+        margin-bottom: 150px;
+        min-height: 64vh;
+    }
+
+    .third-section,
+    .fourth-section {
+        min-height: 84vh;
+    }
 
     .sixth-section {
         min-height: 53vh;
@@ -1852,8 +1915,58 @@ li {
     }
 
     .eigth-section {
-        min-height: 95vh;
+        min-height: 71vh;
     }
+
+    .ninth-section {
+        min-height: 56vh;
+    }
+
+    .blue-gradient {
+        top: 740%;
+    }
+
+}
+
+
+@media screen and (max-height: 1300px) {
+    .hero {
+        min-height: 86vh;
+        margin-bottom: 10px;
+    }
+
+    .second-section {
+        min-height: 30vh;
+        margin-bottom: 124px
+    }
+
+    .testimony {
+        max-height: 70vh;
+        height: 30vh;
+        margin-bottom: 140px;
+    }
+
+    .third-section {
+        min-height: 77vh;
+    }
+
+    .fourth-section {
+        min-height: 82vh;
+    }
+
+
+
+    .sixth-section {
+        min-height: 53vh;
+        margin-top: 140px;
+        margin-bottom: 20px;
+    }
+
+    .seventh-section {
+        min-height: 61vh;
+    }
+
+
 
 }
 
@@ -1875,32 +1988,52 @@ li {
         margin-bottom: 140px;
     }
 
-    .third-section,
-    .fourth-section {
+    .third-section {
         min-height: 85vh;
         padding-top: 60px;
         margin-bottom: 40px;
     }
 
     .fourth-section {
-
         margin-bottom: 100px;
     }
 
     .sixth-section {
-        min-height: 55vh;
+        min-height: 53vh;
+        margin-top: 228px;
+        margin-bottom: 0px;
     }
 
     .seventh-section {
-        min-height: 79vh;
+        min-height: 75vh;
     }
 
-    .eigth-section {
-        min-height: 100vh;
+
+
+    .ninth-section {
+        min-height: 64vh;
+    }
+
+}
+
+@media screen and (max-height: 1200px) {
+    .hero {
+        min-height: 89vh;
+        margin-bottom: 10px;
+    }
+
+    .third-section {
+        min-height: 83vh;
+        padding-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    .fourth-section {
+        margin-bottom: 100px;
     }
 
     .ninth-section {
-        min-height: 86vh;
+        min-height: 62vh;
     }
 
 }
@@ -1936,12 +2069,17 @@ li {
         min-height: 79vh;
     }
 
-    .eigth-section {
-        min-height: 100vh;
-    }
+
 
     .ninth-section {
-        min-height: 86vh;
+        min-height: 70vh;
+    }
+
+}
+
+@media screen and (max-height: 1100px) {
+    .blue-gradient {
+        top: 840%;
     }
 
 }
@@ -1950,8 +2088,7 @@ li {
 
 @media screen and (max-height: 1080px) {
     .hero {
-        min-height: 100vh;
-        max-height: 100vh;
+        min-height: 92vh;
         margin-bottom: 114px;
     }
 
@@ -1964,13 +2101,14 @@ li {
     }
 
 
-    .third-section,
-    .fourth-section {
+    .third-section {
         min-height: 90vh;
         padding-top: 60px;
     }
 
     .fourth-section {
+        padding-top: 60px;
+        min-height: 100vh;
         margin-bottom: 120px;
     }
 
@@ -1981,15 +2119,56 @@ li {
     }
 
     .seventh-section {
-        min-height: 76vh;
+        min-height: 83vh;
     }
 
     .eigth-section {
         min-height: 100vh;
     }
 
+    .ninth-section {
+        min-height: 77vh;
+    }
+
 }
 
+@media screen and (max-height: 1000px) {
+    .hero {
+        min-height: 92vh;
+        max-height: 108vh;
+        margin-bottom: 114px;
+    }
+
+
+}
+
+
+@media screen and (max-height: 950px) {
+    .fourth-section {
+        padding-top: 60px;
+        min-height: 106vh;
+        margin-bottom: 120px;
+    }
+
+    .testimony-two {
+        margin-bottom: 84px;
+    }
+
+    .blue-gradient {
+        top: 976%;
+    }
+
+}
+
+@media screen and (max-height: 900px) {
+    .hero {
+
+        min-height: 108vh;
+        margin-bottom: 114px;
+    }
+
+
+}
 
 @media screen and (max-width: 1270px) {
     .testimony-two {
@@ -2016,15 +2195,7 @@ li {
 
 
 
-@media screen and (max-height: 1000px) {
-    .hero {
-        min-height: 92vh;
-        max-height: 100vh;
-        margin-bottom: 114px;
-    }
 
-
-}
 
 
 @media screen and (max-width: 1128px) {
@@ -2814,10 +2985,14 @@ li {
 
 
 
-@media only screen and (max-width: 414px) and (max-height: 736px) {}
 
 
-@media only screen and (max-width: 375px) and (max-height: 812px) {}
+@media only screen and (max-width: 646px) and (max-height: 900px) {
+    .hero {
+        min-height: 0;
+        max-height: 84vh;
+    }
+}
 
 @media only screen and (max-width: 360px) and (max-height: 800px) {
     .hero {
@@ -2882,12 +3057,100 @@ li {
     }
 }
 
-@media only screen and (max-width: 388px) and (max-height: 654px) {
+
+@media only screen and (max-width: 390px) and (max-height: 844px) {
+    .hero {
+        min-height: 0;
+        max-height: 91vh;
+    }
+
+    .seventh-section {
+        min-height: 154vh;
+    }
+}
+
+@media only screen and (max-width: 430px) and (max-height: 932px) {
+    .hero {
+        min-height: 0;
+        max-height: 80vh;
+    }
+
+    .seventh-section {
+        height: 140vh;
+    }
+}
+
+@media only screen and (max-width: 430px) and (max-height: 675px) {
+    .seventh-section {
+        height: 193vh;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 430px) and (max-height: 850px) {
+
+    .hero {
+        max-height: 90vh;
+        ;
+    }
+}
+
+@media only screen and (max-width: 430px) and (max-height: 750px) {
+
+    .hero {
+        max-height: 100vh;
+        ;
+    }
+}
+
+
+@media only screen and (max-width: 360px) and (max-height: 740px) {
+    .hero {
+        min-height: 0;
+        max-height: 100vh;
+    }
+
+    .seventh-section {
+        min-height: 174vh;
+    }
+}
+
+@media only screen and (max-width: 390px) and (max-height: 690px) {
+    .hero {
+        min-height: 0;
+        max-height: 106vh;
+        margin-bottom: 156px;
+    }
 
     .seventh-section {
         height: 173vh;
     }
 }
+
+@media only screen and (max-width: 360px) and (max-height: 800px) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .seventh-section {
+        height: 149vh;
+    }
+
+    .templates-title {
+        margin-top: 39%;
+    }
+
+    .download-btn {
+
+        height: 52px;
+        width: 81%;
+        margin-bottom: 24px;
+    }
+
+}
+
 
 
 /* Iphone 15 */
@@ -2910,22 +3173,8 @@ li {
     }
 }
 
-
-@media only screen and (max-width: 430px) and (max-height: 932px) {}
-
-@media only screen and (max-width: 1080px) and (max-height: 2160px) {}
-
-@media only screen and (max-width: 1080px) and (max-height: 2160px) {}
-
-
-
-
-@media only screen and (max-width: 1080px) and (max-height: 2280px) {}
-
-
-@media only screen and (max-width: 1080px) and (max-height: 2520px) {}
-
-
-@media only screen and (max-width: 1440px) and (max-height: 3040px) {}
-
-@media only screen and (max-width: 1440px) and (max-height: 3200px) {}
+@media only screen and (max-width: 415px) and (max-height: 620px) {
+    .seventh-section {
+        height: 203vh;
+    }
+}
