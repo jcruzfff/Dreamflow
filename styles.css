@@ -288,6 +288,12 @@ body {
     margin-bottom: 24px;
 }
 
+.hero-image {
+    will-change: transform;
+    /* Alerts the browser that the transform property will change */
+}
+
+
 
 
 .content-subheader {
@@ -2118,6 +2124,13 @@ li {
 
 
 
+
+
+@media screen and (max-width: 1300px) {
+    .hero-image-container {
+        left: -5.5%;
+    }
+}
 
 
 @media screen and (max-width: 1270px) {

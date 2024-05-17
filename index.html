@@ -1225,28 +1225,35 @@
         //Scrolling effect for hero image
         document.addEventListener('DOMContentLoaded', function () {
             const heroImage = document.querySelector('.hero-image');
-            const heroContainer = heroImage.closest('.hero-image-container'); // Get the container if different from image
+            const heroContainer = heroImage.closest('.hero-image-container');
             const bodySection = document.querySelector('.body-section');
+            let ticking = false; // flag to prevent multiple rAF calls
 
-            window.addEventListener('scroll', function () {
+            function updateScrollEffects() {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const containerTop = heroContainer.getBoundingClientRect().top; // Top position of the image container relative to the viewport
-                const containerHeight = heroContainer.offsetHeight; // Height of the image container
+                const containerRect = heroContainer.getBoundingClientRect();
+                const containerTop = containerRect.top;
+                const containerHeight = containerRect.height;
 
-                // Adjust the scroll ratio to continue until the image is just about to leave the viewport
                 const scrollEnd = containerTop + containerHeight;
                 const scrollRatio = scrollY / (scrollY + scrollEnd);
 
-                // Width difference taking into account the stopping point at the right edge
                 const imageWidth = heroImage.offsetWidth;
                 const maxScrollWidth = imageWidth - bodySection.offsetWidth;
-
-                // Calculate the horizontal position of the image
                 const xPos = maxScrollWidth * scrollRatio;
 
-                // Apply the transform to the image to move it from right to left
                 heroImage.style.transform = `translateX(-${Math.min(xPos, maxScrollWidth)}px)`;
-            });
+                ticking = false; // Reset the ticking flag
+            }
+
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateScrollEffects);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', requestTick);
         });
 
 
