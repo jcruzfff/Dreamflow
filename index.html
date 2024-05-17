@@ -40,7 +40,7 @@
     </div>
     <div class="blue-gradient">
         <div class="background-image-container">
-            <img class="background-image-gradient" src="./images/blue-gradient-min.png" alt="" loading="lazy">
+            <img class="background-image-gradient blue" src="./images/blue-gradient-min.png" alt="" loading="lazy">
         </div>
     </div>
 
@@ -1012,6 +1012,36 @@
 
             animate(); // Start the animation loop
         }
+
+        //Blue-gradient
+        document.addEventListener('DOMContentLoaded', function () {
+            const blueGradient = document.querySelector('.blue-gradient');
+            const faqsSection = document.querySelector('.faqs-side'); // Ensure this is the correct selector for your FAQs section
+
+            function positionGradient() {
+                if (blueGradient && faqsSection) {
+                    const faqsPosition = faqsSection.getBoundingClientRect();
+                    // Set the top of the blue gradient to the top of the FAQs section relative to the viewport
+                    blueGradient.style.top = `${faqsPosition.top + window.scrollY}px`;
+                }
+            }
+
+            // Adjust position on load and on resize
+            positionGradient();
+            window.addEventListener('resize', positionGradient);
+            window.addEventListener('scroll', positionGradient); // If your FAQs section might change position on page scroll
+
+            // Optionally, use a ResizeObserver if the height of the FAQs section changes dynamically
+            const resizeObserver = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    positionGradient(); // Adjust the gradient when FAQs size changes
+                }
+            });
+
+            resizeObserver.observe(faqsSection); // Start observing the FAQs section
+        });
+
+
 
         // Start scrolling the client logos when the page loads
         document.addEventListener('DOMContentLoaded', function () {
