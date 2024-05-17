@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", "Plus Jakarta Sans";
 }
 
 
@@ -30,7 +30,7 @@ body {
     width: 100%;
     height: auto;
     margin: auto;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", "Plus Jakarta Sans";
 }
 
 body {
@@ -973,7 +973,7 @@ body {
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    min-height: 100vh;
+    min-height: auto;
     margin-bottom: 80px;
 }
 
@@ -984,9 +984,7 @@ body {
     flex: 1;
     padding: 0px;
     justify-content: space-between;
-    min-height: 720px;
-
-
+    min-height: 706px;
     /* Ensures cards slide in without being visible outside the boundaries */
 }
 
@@ -994,7 +992,7 @@ body {
 .right-card {
     transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
     opacity: 0;
-
+    max-height: 723px;
 }
 
 .left-card {
