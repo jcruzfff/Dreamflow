@@ -1221,56 +1221,30 @@
 
 
 
-        //Glowing Ctas 
-        document.querySelectorAll('.still-questions, .need-designs').forEach(link => {
-            // Initialize variables to hide the glow
-            link.style.setProperty('--x', '0px');
-            link.style.setProperty('--y', '0px');
-            link.style.setProperty('--opacity', '0');
-
-            link.addEventListener('mousemove', function (e) {
-                var rect = this.getBoundingClientRect();
-                var x = e.clientX - rect.left;
-                var y = e.clientY - rect.top;
-                this.style.setProperty('--x', `${x}px`);
-                this.style.setProperty('--y', `${y}px`);
-            });
-
-            link.addEventListener('mouseenter', function (e) {
-                this.style.setProperty('--opacity', '1');
-            });
-
-            link.addEventListener('mouseleave', function (e) {
-                this.style.setProperty('--opacity', '0');
-            });
-        });
-
-
-
 
         //Scrolling effect for hero image
         document.addEventListener('DOMContentLoaded', function () {
             const heroImage = document.querySelector('.hero-image');
-            const heroSection = document.querySelector('.hero');
+            const heroContainer = heroImage.closest('.hero-image-container'); // Get the container if different from image
             const bodySection = document.querySelector('.body-section');
 
             window.addEventListener('scroll', function () {
                 const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const heroHeight = heroSection.offsetHeight;
-                const sectionWidth = bodySection.offsetWidth;  // Width of the body-section
+                const containerTop = heroContainer.getBoundingClientRect().top; // Top position of the image container relative to the viewport
+                const containerHeight = heroContainer.offsetHeight; // Height of the image container
 
-                // Calculate the ratio of the scroll position within the hero section
-                const scrollRatio = Math.max(0, Math.min(1, scrollY / heroHeight));
+                // Adjust the scroll ratio to continue until the image is just about to leave the viewport
+                const scrollEnd = containerTop + containerHeight;
+                const scrollRatio = scrollY / (scrollY + scrollEnd);
 
                 // Width difference taking into account the stopping point at the right edge
                 const imageWidth = heroImage.offsetWidth;
-                const maxScrollWidth = imageWidth - sectionWidth;
+                const maxScrollWidth = imageWidth - bodySection.offsetWidth;
 
                 // Calculate the horizontal position of the image
                 const xPos = maxScrollWidth * scrollRatio;
 
                 // Apply the transform to the image to move it from right to left
-                // Ensuring the image does not scroll beyond its edge alignment with the body-section
                 heroImage.style.transform = `translateX(-${Math.min(xPos, maxScrollWidth)}px)`;
             });
         });
