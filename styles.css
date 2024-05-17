@@ -947,23 +947,19 @@ body {
     transform: translateY(0);
 }
 
-.metric-detail {
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    margin-top: 2rem;
-    letter-spacing: 0px;
-    color: #dadada;
-}
+
 
 .metric {
     font-size: 60px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 46px;
     letter-spacing: -0.3px;
     text-align: left;
+    background: var(--White-Title-Blur, radial-gradient(100% 65% at 50% 50%, #FFF 20%, rgba(255, 255, 255, 0.40) 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .metric-content {
@@ -974,6 +970,17 @@ body {
     letter-spacing: -1px;
     text-align: left;
     margin-bottom: 120px;
+}
+
+.metric-detail {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin-top: 2rem;
+    letter-spacing: 0px;
+    color: #dadada;
+
 }
 
 .seventh-section {
@@ -992,7 +999,6 @@ body {
     flex: 1;
     padding: 0px;
     justify-content: space-between;
-    min-height: 706px;
     /* Ensures cards slide in without being visible outside the boundaries */
 }
 
@@ -1000,7 +1006,7 @@ body {
 .right-card {
     transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
     opacity: 0;
-    max-height: 723px;
+
 }
 
 .left-card {
@@ -1241,7 +1247,7 @@ body {
 .membership-title {
     font-size: 40px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     line-height: normal;
     margin-top: 16px;
 }
@@ -1298,31 +1304,45 @@ li {
     border-radius: 32px;
 }
 
-.price-btn {
-    position: absolute;
-    bottom: 48px;
-    left: 48px;
-    margin: 0px;
-}
 
 .membership-bottom-btns {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
-.or {
-    position: absolute;
-    bottom: 64px;
-    margin-left: 232px;
+
+.price-btn {
+    bottom: 48px;
+    left: 48px;
+    margin: 0px;
+    display: flex;
+    padding: 20px 64px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 32px;
+    text-decoration: none;
+    width: 50%;
+    white-space: nowrap;
+}
+
+.or-button {
+    display: flex;
+    flex-direction: row;
 }
 
 .book-a-call {
     color: black;
     margin-bottom: 2px;
     margin-left: 5px;
+    width: auto;
     text-decoration: none;
     border-bottom: 1px solid black;
 }
@@ -1457,6 +1477,10 @@ li {
 
 .schedule-img {
     position: absolute;
+    background: var(--White-Title-Blur, radial-gradient(100% 45% at 50% 50%, #FFF 30%, rgba(255, 255, 255, 0.40) 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     right: 14px;
     top: 45%;
 }
@@ -1471,7 +1495,7 @@ li {
     color: black;
     font-size: 30px;
     margin-bottom: 10px;
-    font-weight: 300;
+    font-weight: medium;
     margin-top: 56px;
 }
 
@@ -2147,18 +2171,6 @@ li {
         padding: 36px;
     }
 
-    .price-btn {
-        position: absolute;
-        bottom: 36px;
-        left: 36px;
-        margin: 0px;
-    }
-
-    .or {
-        position: absolute;
-        bottom: 54px;
-        margin-left: 220px;
-    }
 }
 
 
@@ -2181,18 +2193,7 @@ li {
         height: 50%;
     }
 
-    .price-btn {
-        position: absolute;
-        bottom: 32px;
-        left: 32px;
-        margin: 0px;
-    }
 
-    .or {
-        position: absolute;
-        bottom: 48px;
-        margin-left: 220px;
-    }
 
     .metric {
         width: 22%;
@@ -2397,18 +2398,9 @@ li {
     }
 
     ul {
-        margin-bottom: 62px;
+        margin-bottom: 24px;
     }
 
-    .price-btn {
-        width: 35%;
-    }
-
-    .or {
-        position: absolute;
-        bottom: 48px;
-        margin-left: 39%;
-    }
 
     .join-cta {
         width: 100%;
@@ -2441,9 +2433,7 @@ li {
         display: none;
     }
 
-    .metric-detail {
-        white-space: nowrap;
-    }
+
 
     .final-calls {
         flex-direction: column;
@@ -2560,17 +2550,7 @@ li {
         margin-bottom: 42px;
     }
 
-    .price-btn {
-        width: 40%;
-        height: 52px;
-        white-space: nowrap;
-    }
 
-    .or {
-        position: absolute;
-        bottom: 48px;
-        margin-left: 42%;
-    }
 }
 
 @media screen and (max-width: 690px) {
@@ -2747,6 +2727,10 @@ li {
         font-size: 13px;
         width: 60%;
     }
+
+    .testimony-two {
+        font-size: 24px;
+    }
 }
 
 @media screen and (max-width: 475px) {
@@ -2756,14 +2740,7 @@ li {
         padding: 24px
     }
 
-    .price-btn {
-        width: 45%;
 
-    }
-
-    .or {
-        margin-left: 52%;
-    }
 
     .included-content {
         flex-direction: column;
@@ -2776,7 +2753,7 @@ li {
     }
 
     .second-list {
-        margin-bottom: 64px;
+        margin-bottom: 24px;
     }
 
     .included {
@@ -2800,7 +2777,7 @@ li {
     .membership-title {
         font-size: 36px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: bold;
         line-height: normal;
         margin-top: 11px;
     }
@@ -2819,15 +2796,13 @@ li {
         width: 100%;
     }
 
-    .price-btn {
-        position: absolute;
-        bottom: 32px;
-        left: 24px;
-        margin: 0px;
+
+    .membership-bottom-btns {
+        flex-direction: column;
     }
 
-    .or {
-        margin-left: 48%;
+    .price-btn {
+        width: 100%;
     }
 
     .content-header {
@@ -2902,6 +2877,7 @@ li {
 
     .metric-detail {
         font-size: .9rem;
+        width: 70%;
     }
 
 }
