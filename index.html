@@ -950,6 +950,8 @@
             checkPosition(); // Initialize on load
         });
 
+
+
         //Section fade
         document.addEventListener('DOMContentLoaded', function () {
             const targetSections = document.querySelectorAll(' .fifth-section,  .case-container');
@@ -1010,6 +1012,84 @@
         // Start scrolling the client logos when the page loads
         document.addEventListener('DOMContentLoaded', function () {
             scrollClientLogos();
+        });
+
+
+        // Second-section spacing
+        document.addEventListener('DOMContentLoaded', function () {
+            const heroImageContainer = document.querySelector('.hero-image-container');
+            const secondSection = document.querySelector('.second-section');
+
+            function adjustSecondSectionMargin() {
+                if (heroImageContainer && secondSection) {
+                    const heroHeight = heroImageContainer.offsetHeight;
+                    const smallScreenMargin = 100;  // Margin for smaller screens width-wise
+                    const largeScreenMargin = 144;  // Standard margin
+                    const heightConstraintMargin = 100; // Margin for small heights
+                    const breakpointWidth = 768; // Breakpoint for screen width
+                    const breakpointHeight = 500; // Breakpoint for screen height
+
+                    // Determine current margin based on width and height constraints
+                    let currentMargin;
+                    if (window.innerWidth < breakpointWidth) {
+                        currentMargin = smallScreenMargin; // Use smaller margin for narrow screens
+                    } else {
+                        currentMargin = largeScreenMargin; // Use standard margin otherwise
+                    }
+
+                    // Override margin if the screen height is less than 500px
+                    if (window.innerHeight < breakpointHeight) {
+                        currentMargin = heightConstraintMargin; // Use margin for small heights
+                    }
+
+                    secondSection.style.marginTop = heroHeight + currentMargin + 'px';
+                }
+            }
+
+            adjustSecondSectionMargin(); // Adjust on load
+
+            window.addEventListener('resize', adjustSecondSectionMargin); // Adjust on resize
+
+
+            //Seventh Section spacing
+            document.addEventListener('DOMContentLoaded', function () {
+                const pricingCards = document.querySelector('.pricing-cards');
+                const seventhSection = document.querySelector('.seventh-section');
+                const desiredSpacing = 144; // Desired distance between the two sections
+
+                function adjustSeventhSectionMargin() {
+                    if (pricingCards && seventhSection) {
+                        const pricingCardsHeight = pricingCards.offsetHeight;
+
+                        // Set the top margin of the seventh section based on the height of the pricing cards
+                        seventhSection.style.marginTop = pricingCardsHeight + desiredSpacing + 'px';
+                    }
+                }
+
+                // Adjust on load and on resize
+                adjustSeventhSectionMargin();
+                window.addEventListener('resize', adjustSeventhSectionMargin);
+
+                // Use a ResizeObserver to adjust the margin when pricing cards size changes dynamically
+                const resizeObserver = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        adjustSeventhSectionMargin(); // Adjust the margin when pricing cards size changes
+                    }
+                });
+
+                resizeObserver.observe(pricingCards); // Start observing the pricing cards container
+            });
+
+
+
+            // Optional: If the hero section changes size dynamically
+            const resizeObserver = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    adjustSecondSectionMargin(); // Adjust margin when hero size changes
+                }
+            });
+
+            resizeObserver.observe(heroImageContainer); // Start observing the hero container
         });
 
 
