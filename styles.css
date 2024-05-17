@@ -133,7 +133,7 @@ body {
     z-index: -1;
 }
 
-.blue {
+.blue-g {
     width: 100vw;
     max-height: 2400px;
     overflow: visible;
@@ -2715,9 +2715,19 @@ li {
         width: 60%;
     }
 
+
+
+    .testimony-quote,
     .testimony-two {
         font-size: 24px;
     }
+
+    .membership-bottom-btns {
+        gap: 18px;
+        margin-bottom: 12px;
+    }
+
+
 }
 
 @media screen and (max-width: 475px) {
