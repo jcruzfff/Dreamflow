@@ -560,6 +560,7 @@ body {
 .avatar {
     height: 48px;
     width: auto;
+    border-radius: 50%;
 }
 
 .avatar-name {
@@ -821,6 +822,7 @@ body {
     width: 100%;
     height: auto;
     max-width: 547px;
+    border-radius: 38px;
 }
 
 .portfolio-cases .case:nth-last-child(-n+2) {
@@ -1463,6 +1465,9 @@ li {
 .chase-img {
     position: absolute;
     top: -28%;
+    height: 162px;
+    width: auto;
+    border-radius: 50%;
 }
 
 .intro {
@@ -2804,6 +2809,11 @@ li {
 
     .pricing-cards {
         width: 100%;
+    }
+
+    .request {
+        font-size: 13px;
+        margin-top: 8px;
     }
 
 
