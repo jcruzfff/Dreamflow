@@ -1475,21 +1475,6 @@ li {
     margin-bottom: 0;
 }
 
-.schedule-img {
-    position: absolute;
-    background: var(--White-Title-Blur, radial-gradient(100% 45% at 50% 50%, #FFF 30%, rgba(255, 255, 255, 0.40) 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    right: 14px;
-    top: 45%;
-}
-
-.schedule-img-two {
-    position: absolute;
-    left: 53.5%;
-    top: 59%;
-}
 
 .ready {
     color: black;
@@ -2721,7 +2706,9 @@ li {
         width: 100%;
     }
 
-
+    .schedule {
+        width: 100%;
+    }
 
     .metric-detail {
         font-size: 13px;
