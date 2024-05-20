@@ -282,7 +282,6 @@ body {
     font-size: 4.5rem;
     font-style: normal;
     font-weight: normal;
-    font-family: "Helvetica Neue";
     line-height: 100%;
     letter-spacing: -3px;
     margin-bottom: 24px;
@@ -387,7 +386,6 @@ body {
     color: var(--system-white, #FFF);
     letter-spacing: 1px;
     text-align: center;
-    font-family: "Helvetica Neue";
     font-size: 16px;
     font-style: normal;
     font-weight: light;
@@ -624,7 +622,6 @@ body {
 .third-subpoint {
     font-size: 1rem;
     line-height: 120%;
-    font-family: 'Helvetica Neue';
     margin-top: 12px;
     font-weight: 400;
     letter-spacing: 0;
@@ -1090,7 +1087,6 @@ body {
 .join {
     -webkit-text-stroke-width: 0.3009915053844452;
     -webkit-text-stroke-color: var(--system-white, #FFF);
-    font-family: "Helvetica Neue";
     font-size: 4.5rem;
     font-style: normal;
     font-weight: 400;
@@ -1402,7 +1398,6 @@ li {
     color: #000;
     -webkit-text-stroke-width: 0.25;
     -webkit-text-stroke-color: #000;
-    font-family: "Helvetica Neue";
     font-size: 72px;
     font-style: normal;
     font-weight: 400;
@@ -1606,7 +1601,6 @@ li {
     -webkit-text-stroke-width: 0.2;
     -webkit-text-stroke-color: #000;
     color: white;
-    font-family: "Helvetica Neue";
     font-size: 58.632px;
     font-style: normal;
     font-weight: 400;
