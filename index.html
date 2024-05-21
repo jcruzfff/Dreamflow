@@ -1019,6 +1019,14 @@
             animate(); // Start the animation loop
         }
 
+        // Start scrolling the client logos when the page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            scrollClientLogos();
+        });
+
+
+
+
         //Blue-gradient
         document.addEventListener('DOMContentLoaded', function () {
             const blueGradient = document.querySelector('.blue-gradient');
@@ -1048,11 +1056,6 @@
         });
 
 
-
-        // Start scrolling the client logos when the page loads
-        document.addEventListener('DOMContentLoaded', function () {
-            scrollClientLogos();
-        });
 
 
         // Second-section spacing
