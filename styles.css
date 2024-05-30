@@ -961,10 +961,7 @@ body {
     line-height: 64px;
     letter-spacing: -0.3px;
     text-align: left;
-    background: var(--White-Title-Blur, radial-gradient(100% 65% at 50% 50%, #FFF 20%, rgba(255, 255, 255, 0.40) 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
     font-family: "Helvetica Bold";
     height: fit-content;
 }
