@@ -2517,7 +2517,8 @@ li {
     .background-image-gradient {
         width: 100vw;
         max-height: none;
-        height: 2000px;
+        height: 922px;
+        margin-top: 274px;
     }
 
     .metric {
