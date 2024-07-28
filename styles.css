@@ -12,9 +12,6 @@
     font-family: "Helvetica Neue", "Plus Jakarta Sans";
 }
 
-
-
-
 html,
 body {
     height: 100%;
@@ -104,10 +101,6 @@ body {
     font-family: "Helvetica Neue";
     font-weight: bold;
 }
-
-
-
-
 
 
 .background-gradient {
@@ -1669,6 +1662,7 @@ li {
 }
 
 
+
 .footer-subheader {
     display: flex;
     width: 70%;
@@ -2107,17 +2101,18 @@ li {
 }
 
 
-
-
-
-
-
-
+@media screen and (max-width: 2500px) {
+    .blue-g {
+        max-height: 2204px;
+    }
+}
 
 @media screen and (max-width: 1300px) {
     .hero-image-container {
         left: -5.5%;
     }
+
+
 }
 
 @media screen and (max-width: 1275px) {
@@ -2177,7 +2172,7 @@ li {
     }
 }
 
-@media screen and (max-width: 1036px) {
+@media screen and (max-width: 1030px) {
     .testimony-two {
         margin-bottom: 0px;
     }
