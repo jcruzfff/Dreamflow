@@ -882,7 +882,7 @@ body {
     line-height: normal;
     letter-spacing: -1px;
     text-align: left;
-    margin-bottom: 106px;
+    margin-bottom: 36px;
 }
 
 
@@ -2109,19 +2109,6 @@ li {
 
 
 
-@media screen and (max-height: 950px) {
-    .fourth-section {
-        padding-top: 60px;
-        min-height: 106vh;
-        margin-bottom: 120px;
-    }
-
-    .testimony-two {
-        margin-bottom: 84px;
-    }
-
-
-}
 
 
 
@@ -2132,34 +2119,6 @@ li {
         left: -5.5%;
     }
 }
-
-
-@media screen and (max-width: 1270px) {
-    .testimony-two {
-        margin-bottom: 60px;
-    }
-}
-
-
-
-
-@media screen and (max-width: 1173px) {
-    .testimony-two {
-        font-size: 30px;
-        margin-bottom: 42px;
-    }
-}
-
-
-@media screen and (max-width: 1065px) {
-    .testimony-two {
-        font-size: 28px;
-
-    }
-}
-
-
-
 
 
 
