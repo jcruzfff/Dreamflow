@@ -179,12 +179,14 @@ body {
     position: absolute;
     width: 100vw !important;
     top: 36%;
-    height: auto
+    height: auto;
+
 }
+
 
 .background-image-gradient {
     width: 100vw;
-    max-height: 1720px;
+    max-height: 1728px;
     margin-top: 129px;
     opacity: 90%;
     overflow: visible
