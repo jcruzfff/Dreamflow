@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Dreamflow · Dream. Design. Deliver." />
 
-    <meta property="og:description"
+    <meta name="description" property="og:description"
         content="The Go-To Design Subscription for leading Web3, AI, and visionary tech companies." />
 
     <meta property="og:image" content="https://www.dreamflowlabs.com/thumbnail-two.png" />
@@ -931,12 +931,15 @@
             i -= .5, e.offsetWidth, i <= -t.offsetWidth && (i = 0, t.style.left = "0"), t.style.left = `${i}px`, n.style.left = `${i + t.offsetWidth}px`, requestAnimationFrame(o)
         }()
     }
+
     document.addEventListener("DOMContentLoaded", function () {
         let e = document.getElementById("home-link");
         e.addEventListener("click", function (e) {
             e.preventDefault(), window.scrollTo({ top: 0, behavior: "smooth" })
         })
-    }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelectorAll(".nav-link");
         e.forEach(e => {
             e.addEventListener("click", function (e) {
@@ -945,29 +948,39 @@
                 n && window.scrollTo({ behavior: "smooth", top: n.offsetTop })
             })
         })
-    }), window.onload = function () { window.scrollTo(0, 0) }, document.addEventListener("DOMContentLoaded", function () {
+    })
+    
+    window.onload = function () { window.scrollTo(0, 0) }, document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".eigth-section"), t = window.innerHeight; function n() {
             let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.8 * o ? e.classList.add("active") : e.classList.remove("active")
         } window.addEventListener("scroll", n), n()
-    }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelectorAll(".second-section, .testimony, .third-section, .fourth-section, .fifth-section, .ninth-section, .case-container, .membership-content"), t = window.innerHeight; function n() {
             e.forEach(e => {
                 let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.7 * o ? e.classList.add("active") : e.classList.remove("active")
             })
         } window.addEventListener("scroll", n), n()
-    }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelectorAll(" .fifth-section,  .case-container"), t = window.innerHeight; function n() {
             e.forEach(e => {
                 let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.9 * o ? e.classList.add("active") : e.classList.remove("active")
             })
         } window.addEventListener("scroll", n), n()
-    }), document.addEventListener("DOMContentLoaded", function () { scrollClientLogos() }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () { scrollClientLogos() }), document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".blue-gradient"), t = document.querySelector(".faqs-side"); function n() {
             if (e && t) {
                 let n = t.getBoundingClientRect(); e.style.top = `${n.top + window.scrollY}px`
             }
         } n(), window.addEventListener("resize", n), window.addEventListener("scroll", n); let i = new ResizeObserver(e => { for (let t of e) n() }); i.observe(t)
-    }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".hero-image-container"), t = document.querySelector(".second-section"); function n() {
             if (e && t) {
                 let n = e.offsetHeight, i; i = window.innerWidth < 768 ? 100 : 144, window.innerHeight < 500 && (i = 100), t.style.marginTop = n + i + "px"
@@ -979,7 +992,9 @@
                 }
             } n(), window.addEventListener("resize", n); let i = new ResizeObserver(e => { for (let t of e) n() }); i.observe(e)
         }); let i = new ResizeObserver(e => { for (let t of e) n() }); i.observe(e)
-    }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelectorAll(".membership-content"), t = window.innerHeight; function n() {
             e.forEach(e => {
                 let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.8 * o ? e.classList.add("active") : e.classList.remove("active")
@@ -991,24 +1006,36 @@
                 let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.8 * o ? e.classList.add("active") : e.classList.remove("active")
             })
         } window.addEventListener("scroll", n), n()
-    }), document.addEventListener("DOMContentLoaded", function () {
+    }) 
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".pricing-cards"), t = document.querySelector(".left-card"), n = document.querySelector(".right-card"), i = window.innerHeight, o = 0, s = !1; function l() {
             if (s) return; let l = window.pageYOffset, r = e.getBoundingClientRect(), c = r.top; l > o && c <= i && c > -.8 * r.height && (t.classList.add("active"), n.classList.add("active"), s = !0), o = l
         } window.addEventListener("scroll", l), l()
-    }), document.addEventListener("DOMContentLoaded", function () {
+    })
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".hero-image"), t = e.closest(".hero-image-container"), n = document.querySelector(".body-section"), i = !1; function o() {
             let o = window.pageYOffset || document.documentElement.scrollTop, s = t.getBoundingClientRect(), l = s.top, r = s.height, c = e.offsetWidth, a = c - n.offsetWidth; e.style.transform = `translateX(-${Math.min(a * (o / (o + (l + r))), a)}px)`, i = !1
         } window.addEventListener("scroll", function e() { i || (requestAnimationFrame(o), i = !0) })
-    }), document.getElementById("standardBtn").addEventListener("click", function () {
+    })
+    
+    document.getElementById("standardBtn").addEventListener("click", function () {
         var e = document.getElementById("proBtn"); e.querySelector("svg path").setAttribute("fill", "#ECC67B"), this.classList.add("active"), document.getElementById("proContent").classList.remove("active"), document.getElementById("standardContent").classList.add("active"), e.classList.remove("active")
-    }), document.getElementById("proBtn").addEventListener("click", function () {
+    })
+    
+    document.getElementById("proBtn").addEventListener("click", function () {
         document.getElementById("standardBtn").classList.remove("active"), this.classList.add("active"), this.querySelector("svg path").setAttribute("fill", "black"), document.getElementById("standardContent").classList.remove("active"), document.getElementById("proContent").classList.add("active")
-    }), document.addEventListener("DOMContentLoaded", function () {
+    })
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".nav-bar"), t = document.querySelector(".pricing-cards"), n = document.querySelector(".eigth-section"), i = document.querySelector(".ninth-section"), o = document.querySelector(".footer-section"); function s() {
             let s = window.pageYOffset, l = window.innerHeight, r = t.getBoundingClientRect().top, c = n.getBoundingClientRect().bottom, a = i.offsetTop, d = a + i.offsetHeight / 2, f = o.offsetTop;
             r < -(.1 * l) ? e.style.opacity = "0" : e.style.opacity = "1", c < .4 * l && (e.style.opacity = "1"), s + .5 * l > d ? (e.style.position = "absolute", e.style.top = `${s + l - 1.1 * e.offsetHeight}px`, e.style.bottom = "auto") : (e.style.position = "fixed", e.style.bottom = "10%", e.style.top = ""), s + window.innerHeight > f - 1.1 * e.offsetHeight && (e.style.top = `${f - 1.1 * e.offsetHeight}px`)
         } window.addEventListener("scroll", s), s()
-    }), document.addEventListener("DOMContentLoaded", function () {
+    })
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelectorAll(".faq-q"); e.forEach(e => {
             let t = e.nextElementSibling; t.style.maxHeight = "0", t.style.opacity = "0", t.style.paddingBottom = "0", t.style.marginBottom = "0"
         }), e.forEach(e => {
@@ -1016,7 +1043,9 @@
                 let e = this.nextElementSibling, t = this.querySelector(".faq-icon"); "0px" !== e.style.maxHeight ? (e.style.maxHeight = "0", e.style.opacity = "0", e.style.paddingBottom = "0", e.style.marginBottom = "0", t.style.transform = "") : (e.style.maxHeight = e.scrollHeight + "px", e.style.opacity = "1", e.style.paddingBottom = "20px", e.style.marginBottom = "20px", t.style.transform = "rotate(180deg)")
             })
         })
-    }), document.addEventListener("DOMContentLoaded", function () {
+    })
+    
+    document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelectorAll(".nav-link"), t = document.querySelectorAll(".section"); function n() {
             let n = window.pageYOffset, i = window.innerHeight; t.forEach((t, o) => {
                 let s = t.offsetTop, l = t.offsetHeight, r = t.getAttribute("id");
