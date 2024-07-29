@@ -1,45 +1,119 @@
+*,
+body,
+html {
+    font-family: "Helvetica Neue", "Plus Jakarta Sans"
+}
+
+.body-section,
+.section {
+    position: relative
+}
+
+#particles-js,
+body,
+html {
+    width: 100%;
+    background-color: #101018
+}
+
+.button::after,
+.button::before {
+    transition: opacity .2s ease-in-out
+}
+
+*,
+.available-indicator,
+.hero,
+body {
+    box-sizing: border-box
+}
+
+#home-link,
+* {
+    padding: 0
+}
+
+.testimony-quote,
+.testimony-two {
+    font-feature-settings: 'clig' off, 'liga' off
+}
+
+.content-header,
+.join,
+.testimony-quote {
+    -webkit-text-stroke-color: var(--system-white, #FFF)
+}
+
+.avatar-name,
+.content-copy,
+.portfolio-tags,
+.price-btn,
+.schedule {
+    white-space: nowrap
+}
+
+.hero-header,
+.ninth-header {
+    /* leading-trim: both;
+    text-edge: cap; */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.overlay-container::before,
+.portfolio-tags::before {
+    padding: 2px;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+}
+
+
+.book,
+.book-a-call,
+.button,
+.nav-link,
+.price-btn,
+.refer,
+.schedule {
+    text-decoration: none
+}
+
+.faq-q,
+.nav-link,
+.socials,
+.toggle-btn {
+    cursor: pointer
+}
+
 @font-face {
     font-family: "Helvetica Bold";
-    src: url(Helvetica/HelveticaNeueMedium.otf);
+    src: url(Helvetica/HelveticaNeueMedium.otf)
 }
-
-@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55?styles=16008,16020,16022,15981,15983,15985,15986,15987,15990,15991,15994,15996,30128,30134,30130,15997');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Helvetica Neue", "Plus Jakarta Sans";
+    margin: 0
 }
 
-html,
-body {
-    height: 100%;
+body,
+html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    color: white;
+    color: #fff;
     font-size: 16px;
-    background-color: #101018;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
     height: auto;
-    margin: auto;
-    font-family: "Helvetica Neue", "Plus Jakarta Sans";
+    margin: auto
 }
 
 body {
     background-color: transparent;
-    box-sizing: border-box;
     padding-left: 32px;
-    padding-right: 32px;
+    padding-right: 32px
 }
 
-
 .body-section {
-    position: relative;
     display: flex;
     flex-direction: column;
     max-width: 1440px;
@@ -51,63 +125,59 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
-    border-radius: 48px;
-    background: rgba(17, 17, 17, 0.08);
+    background: rgba(17, 17, 17, .08);
     -webkit-backdrop-filter: blur(37.150001525878906px);
     backdrop-filter: blur(38px);
-    overflow: hidden;
+    overflow: hidden
+}
+
+.book:hover,
+.nav-bar,
+.need-designs:hover,
+.refer:hover,
+.still-questions:hover {
+    box-shadow: 0 -2px 19px 5px rgba(255, 255, 255, .06) inset;
+    backdrop-filter: blur(33.75px)
 }
 
 .body-section-content {
     max-width: 1117px;
     width: 90%;
-    height: auto;
+    height: auto
 }
-
-
-
-.section {
-    position: relative;
-}
-
-
 
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
-    background-color: #101018;
     background-image: url("");
     background-size: cover;
     background-position: center;
-    z-index: -4;
+    z-index: -4
 }
 
-
 .count-particles {
-    background: #000022;
+    background: #002;
     position: absolute;
     top: 48px;
     left: 0;
     width: 80px;
-    color: #13E8E9;
+    color: #13e8e9;
     font-size: .8em;
     text-align: left;
     text-indent: 4px;
     line-height: 14px;
     padding-bottom: 2px;
     font-family: "Helvetica Neue";
-    font-weight: bold;
+    font-weight: 700
 }
-
 
 .background-gradient {
     position: absolute;
     width: 100vw !important;
     top: 36%;
-    height: auto;
+    height: auto
 }
 
 .background-image-gradient {
@@ -115,22 +185,20 @@ body {
     max-height: 1720px;
     margin-top: 129px;
     opacity: 90%;
-    overflow: visible;
+    overflow: visible
 }
-
-
 
 .blue-gradient {
     position: absolute;
     width: 100%;
     height: auto;
-    z-index: -1;
+    z-index: -1
 }
 
 .blue-g {
     width: 100vw;
     max-height: 2400px;
-    overflow: visible;
+    overflow: visible
 }
 
 .df-top-logo {
@@ -139,7 +207,13 @@ body {
     justify-content: center;
     margin-bottom: -12px;
     margin-top: 24px;
-    gap: 6px;
+    gap: 6px
+}
+
+.button,
+.line-break-one {
+    display: flex;
+    justify-content: center
 }
 
 .button {
@@ -148,24 +222,20 @@ body {
     margin: auto;
     height: 52px;
     border-radius: 36px;
-    background: #FCFCFD;
+    background: #fcfcfd;
     padding: 16px 40px;
-    display: flex;
-    justify-content: center;
     align-items: center;
     color: #000;
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 400;
     line-height: 1.5;
-    letter-spacing: -0.32px;
+    letter-spacing: -.32px;
     transition: color .2s ease-in-out;
-    position: relative;
-    text-decoration: none;
-
+    position: relative
 }
 
-.button::before,
-.button::after {
+.button::after,
+.button::before {
     content: '';
     width: calc(100% + 4px);
     height: calc(100% + 4px);
@@ -174,148 +244,114 @@ body {
     top: 50%;
     left: 50%;
     z-index: -1;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
 }
 
 .button::before {
-    background: linear-gradient(88deg, #c3aab2 0.66%, #9ec 57.2%, #80c0c8 75.87%, #4b8bfa 98.72%);
-    opacity: 0;
-    transition: opacity .2s ease-in-out;
-}
-
-.button::after {
-
-    transition: opacity .2s ease-in-out;
+    background: linear-gradient(88deg, #c3aab2 .66%, #9ec 57.2%, #80c0c8 75.87%, #4b8bfa 98.72%);
+    opacity: 0
 }
 
 .button:hover::before {
-    opacity: 1;
+    opacity: 1
 }
 
 .button:hover::after {
-    opacity: 0;
+    opacity: 0
 }
-
 
 .hero {
     min-height: 1vh;
     max-height: 130vh;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+    margin-bottom: 10px
 }
-
 
 .line-break-one {
-    display: flex;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
+.content-subheader,
+.hero-header {
+    justify-content: center;
+    display: flex;
+    font-style: normal;
+    text-align: center
+}
 
 .hero-header {
-    display: flex;
     position: relative;
     font-size: 6rem;
-    text-align: center;
     font-family: 'Helvetica Bold';
-    font-style: normal;
     line-height: 102%;
     letter-spacing: -3px;
-    /* Or any other color that fits your design */
-    margin: auto;
-    margin-top: 120px;
-    margin-bottom: 24px;
-    justify-content: center;
+    margin: 120px auto 24px;
     align-items: center;
     height: auto;
-    leading-trim: both;
-    text-edge: cap;
-    background: radial-gradient(35% 75% at 50% 50%, #FFF 30%, rgba(255, 255, 255, 0.40) 100%);
+    background: radial-gradient(35% 75% at 50% 50%, #fff 30%, rgba(255, 255, 255, .4) 100%);
     background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text
 }
 
-
+.content-copy,
+.metric,
+.third-point {
+    font-family: "Helvetica Bold"
+}
 
 .hero-image-container {
     position: absolute;
-    /* Change to absolute for positioning relative to the first positioned ancestor */
     left: -14.5%;
-    /* Adjust this value based on actual padding/margin */
     width: 129%;
-    /* This might need adjustment */
     height: auto;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .hero-image {
     position: relative;
-    /* Default positioning inside the container */
     width: auto;
-    /* Adjust width to be wider than container if needed for scroll effect */
     min-width: 100%;
-    /* Ensure it's wide enough to allow for horizontal scroll effect */
     height: 300px;
-    /* Adjust height as needed */
+    will-change: transform
 }
 
-
-
 .content-header-section {
-    width: 75%;
+    width: 75%
 }
 
 .content-header {
-    font-size: 4.5rem;
-    color: var(--system-white, #FFF);
+    color: var(--system-white, #fff);
     text-align: center;
     -webkit-text-stroke-width: 0.25;
-    -webkit-text-stroke-color: var(--system-white, #FFF);
     font-size: 4.5rem;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     line-height: 100%;
     letter-spacing: -3px;
-    margin-bottom: 24px;
+    margin-bottom: 24px
 }
-
-.hero-image {
-    will-change: transform;
-    /* Alerts the browser that the transform property will change */
-}
-
-
-
 
 .content-subheader {
-    display: flex;
-    margin: auto;
+    margin: auto auto 38px;
     color: #dadada;
-    text-align: center;
-    justify-content: center;
     font-size: 24px;
-    font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    margin-bottom: 38px;
-    width: 40%;
+    width: 40%
+}
+
+.hero-btn,
+ul {
+    margin-bottom: 24px
 }
 
 .hero-subheader {
-    width: 464px;
-}
-
-
-
-.hero-btn {
-    margin-bottom: 24px;
+    width: 464px
 }
 
 .hero-available {
     position: relative;
-    margin-top: 24px;
+    margin-top: 24px
 }
 
 .available-indicator {
@@ -325,11 +361,10 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    box-sizing: border-box;
     justify-content: center;
     align-items: center;
     margin-bottom: 42px;
-    padding-right: 6px;
+    padding-right: 6px
 }
 
 .clients {
@@ -337,16 +372,13 @@ body {
     width: 100%;
     height: 57px;
     position: relative;
-    margin-bottom: 42px;
+    margin-bottom: 42px
 }
 
 .client-logos {
     height: 57px;
-    position: absolute;
+    position: absolute
 }
-
-
-
 
 .nav-bar {
     position: fixed;
@@ -356,28 +388,23 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 20px;
-    z-index: 1000;
-    width: 35%;
-    transition: all 0.3s ease-in-out;
     padding: 6px;
+    width: 35%;
+    transition: .3s ease-in-out;
     border-radius: 84px;
-    border: 2px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset;
-    backdrop-filter: blur(33.75px);
+    border: 1px solid rgba(255, 255, 255, .206);
+    background: rgba(255, 255, 255, .03);
     z-index: 1000;
-    color: white;
-    transition: top 0.8s ease, bottom 0.8s ease, opacity 0.5s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.206);
-    min-width: 436px;
+    color: #fff;
+    transition: top .8s, bottom .8s, opacity .5s ease-in-out;
+    min-width: 436px
 }
 
 .nav-link {
     display: flex;
     flex: 1;
     padding: 8px 24px;
-    color: var(--system-white, #FFF);
+    color: var(--system-white, #fff);
     letter-spacing: 1px;
     text-align: center;
     font-size: 16px;
@@ -386,27 +413,16 @@ body {
     justify-content: center;
     align-items: center;
     line-height: 124%;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color .3s;
     border-radius: 32px;
-    height: 52px;
+    height: 52px
 }
 
-#home-link {
-    padding: 0px;
-}
-
+.nav-link.active,
 .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.799);
-    color: white;
-    border-radius: 32px;
-}
-
-.nav-link.active {
-    background-color: rgba(0, 0, 0, 0.799);
-    color: white;
-    border-radius: 32px;
+    background-color: rgba(0, 0, 0, .799);
+    color: #fff;
+    border-radius: 32px
 }
 
 .second-section {
@@ -420,123 +436,114 @@ body {
     justify-content: center;
     opacity: 0;
     transform: translateY(60px);
-    transition: opacity 1.2s ease-in-out, transform 0.9s ease-in-out;
-    box-sizing: border-box;
+    transition: opacity 1.2s ease-in-out, transform .9s ease-in-out;
+    box-sizing: border-box
 }
 
-
-.second-section.active {
-    opacity: 1;
-    transform: translateY(0);
+.animated-content,
+.content {
+    display: flex;
+    flex-direction: column
 }
 
+.animated-content,
 .membership-content {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.2s ease-in-out, transform 0.9s ease-in-out;
-    box-sizing: border-box;
+    transition: opacity 1.2s ease-in-out, transform .9s ease-in-out;
+    box-sizing: border-box
 }
 
-
-.membership-content.active {
+.animated-content.active,
+.case-container.active,
+.fifth-section.active,
+.fourth-section.active,
+.membership-content.active,
+.ninth-section.active,
+.second-section.active,
+.testimony.active,
+.third-section.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0)
 }
 
 .animated-content {
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1.2s ease-in-out, transform 0.9s ease-in-out;
-    box-sizing: border-box;
     justify-content: center;
-    align-items: center;
-}
-
-
-.animated-content.active {
-    opacity: 1;
-    transform: translateY(0);
+    align-items: center
 }
 
 .scalable {
-    transform: scaleX(-1);
+    transform: scaleX(-1)
+}
+
+.fourth-section,
+.testimony,
+.third-section {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1.2s ease-in-out, transform .5s ease-in-out
 }
 
 .content-subcopy,
 .third-subpoint {
-    color: #dadada;
+    color: #dadada
 }
 
 .sb2 {
     margin-bottom: 36px;
-    width: 57%;
+    width: 57%
 }
-
 
 .animated-content-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 42px;
+    margin-top: 42px
 }
 
-
-
-
 .content {
-    display: flex;
-    flex-direction: column;
     width: 30%;
-    color: white;
+    color: #fff;
     justify-content: center;
-    align-items: center;
+    align-items: center
+}
+
+.testimony,
+.third-left-container {
+    flex-direction: column;
+    display: flex
 }
 
 .content-copy {
-    font-family: "Helvetica Bold";
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 500;
     line-height: 120%;
     letter-spacing: -1px;
-    white-space: nowrap;
-    margin-bottom: 12px;
+    margin-bottom: 12px
 }
 
+.avatar-company,
+.testimony-quote {
+    line-height: normal;
+    font-style: normal
+}
 
 .testimony {
-    display: flex;
-    flex-direction: column;
     min-height: 40vh;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 1.2s ease-in-out, transform 0.5s ease-in-out;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
-
-.testimony.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 
 .testimony-quote {
     text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
     -webkit-text-stroke-width: 0.125;
-    -webkit-text-stroke-color: var(--system-white, #FFF);
     font-size: 36px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     letter-spacing: -1px;
-    width: 85%;
-
+    width: 85%
 }
 
 .testimony-founder-section {
@@ -546,71 +553,61 @@ body {
     align-items: center;
     height: fit-content;
     gap: 1.5rem;
-    margin-top: 42px;
+    margin-top: 42px
 }
 
 .avatar {
     height: 48px;
     width: auto;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
 .avatar-name {
-    text-align: left;
-    white-space: nowrap;
+    text-align: left
 }
-
 
 .avatar-company {
     font-size: 1.2rem;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
-    margin-bottom: 6px;
+    margin-bottom: 6px
 }
 
-.third-section,
-.fourth-section {
+.fourth-section,
+.third-section {
     min-height: 100vh;
     margin-bottom: 40px;
-    opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 1.2s ease-in-out, transform 0.5s ease-in-out;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
-.third-section.active,
-.fourth-section.active {
-    opacity: 1;
-    transform: translateY(0);
+.case-container,
+.fifth-section {
+    transform: translateY(50px);
+    box-sizing: border-box;
+    opacity: 0
 }
 
 .third-bottom-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 62px;
+    margin-top: 62px
 }
 
 .third-left-container {
-    display: flex;
-    flex-direction: column;
     text-align: left;
     width: 45%;
     justify-content: center;
     align-items: center;
     margin-top: 16px;
-    padding-right: 20px;
-
+    padding-right: 20px
 }
 
 .third-point {
     font-size: 1.8rem;
     font-style: normal;
-    font-family: "Helvetica Bold";
     line-height: 120%;
     letter-spacing: -1px;
-    margin-bottom: 32px;
+    margin-bottom: 32px
 }
 
 .third-subpoint {
@@ -618,50 +615,38 @@ body {
     line-height: 120%;
     margin-top: 12px;
     font-weight: 400;
-    letter-spacing: 0;
+    letter-spacing: 0
 }
 
 .third-right-container {
     overflow: hidden;
-    background-color: #12121A;
-    border-radius: 24px;
+    background-color: #12121a;
+    border-radius: 24px
 }
 
 .forget-header {
-    margin: auto;
-    margin-bottom: 38px;
+    margin: auto auto 38px
 }
 
 .sub {
-    width: 65%;
+    width: 65%
 }
-
 
 .animated-membership {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-around
 }
 
 .fifth-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
-    box-sizing: border-box;
+    transition: opacity .9s ease-in-out, transform .9s ease-in-out
 }
 
-.fifth-section.active {
-    opacity: 1;
-    transform: translateY(0);
-
-}
-
-
-.animated-membership-top,
-.animated-membership-bottom {
+.animated-membership-bottom,
+.animated-membership-top {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around
 }
 
 .membership-content {
@@ -671,7 +656,7 @@ body {
     align-items: center;
     text-align: center;
     width: 200px;
-    margin-top: 42px;
+    margin-top: 42px
 }
 
 .tags {
@@ -681,10 +666,9 @@ body {
     justify-content: center;
     gap: 6px;
     width: 75%;
-    margin: auto;
-    margin-bottom: 42px;
+    margin: auto auto 42px;
     font-weight: 300;
-    letter-spacing: .5px;
+    letter-spacing: .5px
 }
 
 .portfolio-tags {
@@ -694,12 +678,10 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    white-space: nowrap;
     border-radius: 30px;
-    background: rgba(65, 65, 65, 0.04);
+    background: rgba(65, 65, 65, .04);
     position: relative;
-    overflow: hidden;
-
+    overflow: hidden
 }
 
 .portfolio-tags::before {
@@ -710,84 +692,42 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 30px;
-
-    padding: 2px;
-
-    background: linear-gradient(to right,
-            #F95580, #F95580 0%,
-            transparent 40%, transparent 100%,
-            #F95580 30%, #F95580 1000%);
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
+    background: linear-gradient(to right, #f95580, #f95580 0, transparent 40%, transparent 100%, #f95580 30%, #f95580 1000%);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    z-index: 0;
+    z-index: 0
 }
 
 .light-blue::before {
-    background: linear-gradient(to right,
-            #56BCEF, #56BCEF 0%,
-            transparent 40%, transparent 100%,
-            #56BCEF 30%, #56BCEF 1000%);
-
+    background: linear-gradient(to right, #56bcef, #56bcef 0, transparent 40%, transparent 100%, #56bcef 30%, #56bcef 1000%)
 }
 
 .purple::before {
-    background: linear-gradient(to right,
-            #7E68E0, #7E68E0 0%,
-            transparent 40%, transparent 100%,
-            #7E68E0 30%, #7E68E0 1000%);
-
+    background: linear-gradient(to right, #7e68e0, #7e68e0 0, transparent 40%, transparent 100%, #7e68e0 30%, #7e68e0 1000%)
 }
 
 .turquoise::before {
-    background: linear-gradient(to right,
-            #1FEBC9, #1FEBC9 0%,
-            transparent 40%, transparent 100%,
-            #1FEBC9 30%, #1FEBC9 1000%);
-
+    background: linear-gradient(to right, #1febc9, #1febc9 0, transparent 40%, transparent 100%, #1febc9 30%, #1febc9 1000%)
 }
 
 .orange::before {
-    background: linear-gradient(to right,
-            #D99D57, #D99D57 0%,
-            transparent 40%, transparent 100%,
-            #D99D57 30%, #D99D57 1000%);
-
+    background: linear-gradient(to right, #d99d57, #d99d57 0, transparent 40%, transparent 100%, #d99d57 30%, #d99d57 1000%)
 }
 
 .lime::before {
-    background: linear-gradient(to right,
-            #88F47E, #88F47E 0%,
-            transparent 40%, transparent 100%,
-            #88F47E 30%, #88F47E 1000%);
-
+    background: linear-gradient(to right, #88f47e, #88f47e 0, transparent 40%, transparent 100%, #88f47e 30%, #88f47e 1000%)
 }
 
 .yellow::before {
-    background: linear-gradient(to right,
-            #F4D25A, #F4D25A 0%,
-            transparent 40%, transparent 100%,
-            #F4D25A 30%, #F4D25A 1000%);
-
+    background: linear-gradient(to right, #f4d25a, #f4d25a 0, transparent 40%, transparent 100%, #f4d25a 30%, #f4d25a 1000%)
 }
 
 .blue::before {
-    background: linear-gradient(to right,
-            #5A73F4, #5A73F4 0%,
-            transparent 40%, transparent 100%,
-            #5A73F4 30%, #5A73F4 1000%);
-
+    background: linear-gradient(to right, #5a73f4, #5a73f4 0, transparent 40%, transparent 100%, #5a73f4 30%, #5a73f4 1000%)
 }
 
 .redish::before {
-    background: linear-gradient(to right,
-            #FF766C, #FF766C 0%,
-            transparent 40%, transparent 100%,
-            #FF766C 30%, #FF766C 1000%);
-
+    background: linear-gradient(to right, #ff766c, #ff766c 0, transparent 40%, transparent 100%, #ff766c 30%, #ff766c 1000%)
 }
 
 .portfolio-cases {
@@ -796,53 +736,49 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: auto;
-    padding: 0;
-    margin-bottom: 38px;
+    margin: auto auto 38px;
+    padding: 0
+}
+
+.case,
+.sixth-section {
+    margin-bottom: 100px;
+    display: flex
 }
 
 .case {
     width: calc(50% - 10px);
-    margin-bottom: 100px;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
 .case img {
     width: 100%;
     height: auto;
     max-width: 547px;
-    border-radius: 38px;
+    border-radius: 38px
 }
 
 .portfolio-cases .case:nth-last-child(-n+2) {
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
 #services {
-    padding-top: 48px;
+    padding-top: 48px
 }
 
 .sixth-section {
     min-height: 78vh;
     margin-top: 120px;
-    margin-bottom: 100px;
-    display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 40px
 }
 
-.sixth-left-section {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
+.sixth-left-section,
 .sixth-right-section {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 50%
 }
 
 .sixth-left-container {
@@ -850,34 +786,44 @@ body {
     width: 100%;
     overflow: hidden;
     margin-bottom: 32px;
-    background-color: rgba(255, 255, 255, 0.124);
+    background-color: rgba(255, 255, 255, .124);
     border-radius: 24px;
-    border: 4px solid #20222C;
-    box-sizing: border-box;
+    border: 4px solid #20222c;
+    box-sizing: border-box
 }
 
 .lotties-compare {
-    box-shadow: inset 0 0 0 3px #101017;
+    box-shadow: inset 0 0 0 3px #101017
 }
 
 .metrics {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .testimony-two {
-    font-feature-settings: 'clig' off, 'liga' off;
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: -1px;
     text-align: left;
-    margin-bottom: 108px;
+    margin-bottom: 108px
 }
 
+.avatar-company-two,
+.founder-name {
+    font-size: 1rem;
+    line-height: normal;
+    font-style: normal
+}
+
+.avatar-founder,
+.founder-name {
+    letter-spacing: 0
+}
 
 .testimony-founder-section-two {
     display: flex;
@@ -886,102 +832,83 @@ body {
     justify-content: flex-start;
     text-align: left;
     align-items: flex-start;
-    margin-top: 42px;
+    margin-top: 42px
 }
 
 .avatar-two {
     width: 48px;
-    height: 48px;
+    height: 48px
 }
 
-.avatar-founder {
-    letter-spacing: 0px;
+#proContent,
+#standardContent,
+li {
+    width: 100%
 }
-
 
 .stars-two {
     position: relative;
     display: flex;
-    gap: 0px;
-    left: -18px;
+    gap: 0;
+    left: -18px
 }
 
 .founder-name {
-    font-size: 1rem;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
-    letter-spacing: 0px;
-    margin-right: 6px;
+    margin-right: 6px
 }
 
 .avatar-company-two {
-    font-size: 1rem;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0px;
-
+    letter-spacing: 0
 }
 
-
 .case-container-one,
-.case-container-two,
-.case-container-three {
+.case-container-three,
+.case-container-two {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 60px
 }
 
 .case-container {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-in-out, transform 0.9s ease-in-out;
-    box-sizing: border-box;
+    transition: opacity .6s ease-in-out, transform .9s ease-in-out
 }
-
-.case-container.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
 
 .metric {
     font-size: 60px;
     font-style: normal;
-
     line-height: 64px;
-    letter-spacing: -0.3px;
+    letter-spacing: -.3px;
     text-align: left;
-    color: white;
-    font-family: "Helvetica Bold";
-    height: fit-content;
+    color: #fff;
+    height: fit-content
+}
+
+.metric-content,
+.metric-detail {
+    font-weight: 400;
+    line-height: 120%;
+    font-style: normal
 }
 
 .metric-content {
     font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
     letter-spacing: -1px;
     text-align: left;
-    margin-bottom: 120px;
+    margin-bottom: 120px
 }
 
 .metric-detail {
     font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
     margin-top: 1rem;
-    letter-spacing: 0px;
-    color: #dadada;
+    letter-spacing: 0;
+    color: #dadada
 }
 
 .metric-two {
-    margin-top: 2rem;
+    margin-top: 2rem
 }
 
 .seventh-section {
@@ -990,7 +917,7 @@ body {
     width: 100%;
     justify-content: space-between;
     min-height: auto;
-    margin-bottom: 80px;
+    margin-bottom: 80px
 }
 
 .pricing-cards {
@@ -998,111 +925,116 @@ body {
     flex-direction: row;
     gap: 20px;
     flex: 1;
-    padding: 0px;
-    justify-content: space-between;
-    /* Ensures cards slide in without being visible outside the boundaries */
+    padding: 0;
+    justify-content: space-between
 }
 
 .left-card,
 .right-card {
-    transition: transform 0.9s ease-in-out, opacity 0.9s ease-in-out;
-    opacity: 0;
-
+    padding: 48px;
+    box-sizing: border-box;
+    transition: transform .9s ease-in-out, opacity .9s ease-in-out;
+    opacity: 0
 }
 
 .left-card {
     transform: translateX(-100%);
-    /* Start left card off-screen to the left */
-    max-width: 50%;
+    max-width: 50%
 }
-
-.right-card {
-    transform: translateX(100%);
-    /* Start right card off-screen to the right */
-    width: 50%;
-}
-
 
 .left-card.active,
 .right-card.active {
     transform: translateX(0);
-    /* Bring cards into view */
-    opacity: 1;
+    opacity: 1
 }
 
 .price-content {
-    display: none;
+    display: none
 }
 
 .price-content.active {
-    display: block;
+    display: block
 }
 
 .monthly {
     font-size: 12px;
-    color: #555555;
-    font-weight: bold;
+    color: #555;
+    font-weight: 700
 }
 
+.book,
+.discover,
+.earn,
+.included,
+.join,
+.refer {
+    font-weight: 400
+}
 
 .left-card {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    box-sizing: border-box;
-    padding: 48px;
     text-align: left;
     justify-content: space-between;
     border-radius: 48px;
-    border: 1px solid #20222C;
+    border: 1px solid #20222c;
     background: #121219;
-    font-family: 'Helvetica Neue';
+    font-family: 'Helvetica Neue'
+}
+
+.join-cta,
+.right-card {
+    display: flex;
+    flex-direction: column
 }
 
 .right-card {
-    display: flex;
-    flex-direction: column;
+    transform: translateX(100%);
+    width: 50%;
     align-items: flex-start;
     justify-content: flex-start;
-    box-sizing: border-box;
-    padding: 48px;
-    color: black;
+    color: #000;
     border-radius: 48px;
-    background-color: white;
-    font-family: 'Helvetica Bold';
+    background-color: #fff;
+    font-family: 'Helvetica Bold'
 }
 
-
-
+.footer-subheader,
+.ninth-header,
+ul {
+    font-family: "Helvetica Neue"
+}
 
 .join {
     -webkit-text-stroke-width: 0.3009915053844452;
-    -webkit-text-stroke-color: var(--system-white, #FFF);
     font-size: 4.5rem;
     font-style: normal;
-    font-weight: 400;
     line-height: 100%;
     letter-spacing: -1.394px;
     margin-top: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 36px
 }
 
+.faqs-title,
+.ninth-header {
+    -webkit-text-stroke-width: 0.25;
+    letter-spacing: -3px
+}
 
 .top-tag {
     border-radius: 32px;
-    background: #6D96FF;
+    background: #6d96ff;
     padding: 16px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     font-size: .75rem;
-    margin-top: 0px;
+    margin-top: 0
 }
 
 .join-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 12px
 }
 
 .book,
@@ -1113,53 +1045,45 @@ body {
     gap: 10px;
     flex-shrink: 0;
     border-radius: 24px;
-    border: 1px solid #20222C;
-    background: rgba(65, 65, 65, 0.04);
+    border: 1px solid #20222c;
+    background: rgba(65, 65, 65, .04);
     font-size: 20px;
-    font-weight: 400;
     font-style: none;
-    text-decoration: none;
-    color: white;
+    color: #fff
 }
 
 .book:hover,
-.refer:hover {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset;
-    backdrop-filter: blur(33.75px);
+.need-designs:hover,
+.refer:hover,
+.still-questions:hover {
+    border: 1px solid rgba(255, 255, 255, .206);
+    background: rgba(255, 255, 255, .03);
     z-index: 1000;
-    color: white;
-    transition: top 0.8s ease, bottom 0.8s ease, opacity 0.5s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.206)1
+    color: #fff;
+    transition: top .8s, bottom .8s, opacity .5s ease-in-out
 }
-
 
 .discover,
 .earn {
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
     line-height: 130%;
-    margin-top: 8px;
-
+    margin-top: 8px
 }
-
-
 
 .arrow {
     position: absolute;
     right: 32px;
     top: 32px;
-    background-color: black;
+    background-color: #000;
     padding: 10px;
     border-radius: 24px;
     width: 44px;
-    height: 44px;
+    height: 44px
 }
 
 .toggle-switch {
-    border: 1px solid #ccc;
+    border: 1px solid #393939;
     width: 300px;
     display: inline-flex;
     padding: 4px;
@@ -1167,8 +1091,12 @@ body {
     gap: 1px;
     flex-shrink: 0;
     border-radius: 32px;
-    border: 1px solid #393939;
-    background: #000;
+    background: #000
+}
+
+#proBtn,
+li {
+    justify-content: center
 }
 
 .toggle-btn {
@@ -1179,77 +1107,74 @@ body {
     text-align: center;
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    color: white;
-    cursor: pointer;
+    color: #fff;
     border-radius: 32px;
-    transition: background-color 0.3s;
+    transition: background-color .3s
+}
+
+.included,
+.membership,
+.membership-title {
+    line-height: normal;
+    font-style: normal
+}
+
+.get-started,
+.price-btn {
+    padding: 20px 64px;
+    color: #fff;
+    background-color: #000
 }
 
 #standardBtn.active {
-    background-color: #1FEBC9;
-    /* Turquoise background */
-    color: black;
-    /* Black text */
+    background-color: #1febc9;
+    color: #000
 }
 
-/* Styling for when the pro (Elite) button is active */
 #proBtn.active {
-    background-color: #ECC678;
-    /* Gold background */
-    color: black;
-    /* Black text */
+    background-color: #ecc678;
+    color: #000
 }
 
-/* Ensure SVG inside the active Elite button changes color to black */
 #proBtn.active svg {
-    fill: black !important;
-    /* Change SVG fill to black when the button is active */
+    fill: black !important
 }
-
 
 #proBtn {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 2px;
-}
-
-#standardContent,
-#proContent {
-    width: 100%;
+    gap: 2px
 }
 
 .included {
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 32px;
+    margin-top: 32px
 }
 
 .included-content {
     display: flex;
     flex-direction: row;
-    text-align: left;
+    text-align: left
 }
 
 .membership {
     font-size: 16px;
-    font-style: normal;
     font-weight: 300;
-    line-height: normal;
     text-align: left;
-    margin-bottom: 16px;
+    margin-bottom: 16px
 }
 
 .membership-title {
     font-size: 40px;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    margin-top: 16px;
+    font-weight: 700;
+    margin-top: 16px
+}
+
+.price,
+ul {
+    margin-top: 24px
 }
 
 .price {
@@ -1257,106 +1182,101 @@ body {
     font-style: normal;
     font-weight: medium;
     line-height: 130%;
-    margin-top: 24px;
-    text-align: left;
+    text-align: left
+}
+
+.faqs-title,
+.request {
+    font-weight: 400;
+    text-align: left
+}
+
+.request,
+li {
+    font-size: 16px;
+    line-height: normal;
+    font-style: normal
 }
 
 .request {
-    text-align: left;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 12px;
+    margin-top: 12px
 }
 
-ul {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    font-family: "Helvetica Neue";
+.ninth-header,
+.templates-title {
+    line-height: 100%;
+    text-align: center
 }
 
 li {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-    justify-content: center;
-    width: 217px;
+    font-weight: 700;
     box-sizing: border-box;
     margin-bottom: 18px;
     margin-left: 16px;
-    padding-right: 24px;
-    width: 100%;
+    padding-right: 24px
 }
-
 
 .get-started {
     display: flex;
-    padding: 20px 64px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    color: white;
-    background-color: black;
     border: none;
-    border-radius: 32px;
+    border-radius: 32px
 }
 
+.membership-bottom-btns,
+.or-button {
+    flex-direction: row;
+    display: flex
+}
 
 .membership-bottom-btns {
-    display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 12px;
+    gap: 12px
 }
-
 
 .price-btn {
     bottom: 48px;
     left: 48px;
-    margin: 0px;
+    margin: 0;
     display: flex;
-    padding: 20px 64px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    color: white;
-    background-color: black;
     border: none;
     border-radius: 32px;
-    text-decoration: none;
-    width: 50%;
-    white-space: nowrap;
+    width: 50%
 }
 
-.or-button {
-    display: flex;
-    flex-direction: row;
+.faq-a,
+.faq-q,
+.faqs-title,
+.intro {
+    color: #000
 }
 
 .book-a-call {
-    color: black;
+    color: #000;
     margin-bottom: 2px;
     margin-left: 5px;
     width: auto;
-    text-decoration: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000
 }
 
 .eigth-section {
     position: relative;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: #fff;
     max-width: none;
     width: 100%;
     left: 50%;
-    transform: translateX(-50%) scale(0.80);
-    transition: opacity 0.9s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateX(-50%) scale(.8);
+    transition: opacity .9s ease-in-out, transform .8s ease-in-out;
     opacity: 0;
     overflow: hidden;
     padding: 6%;
@@ -1365,12 +1285,12 @@ li {
     box-sizing: border-box;
     min-height: 110vh;
     margin-bottom: 100px;
-    gap: 86px;
+    gap: 86px
 }
 
 .eigth-section.active {
     opacity: 1;
-    transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) scale(1)
 }
 
 .faqs-side {
@@ -1381,48 +1301,40 @@ li {
     height: auto;
     justify-content: flex-start;
     align-items: flex-start;
-    text-align: left;
+    text-align: left
 }
 
-
 .faqs-title {
-    color: #000;
-    -webkit-text-stroke-width: 0.25;
     -webkit-text-stroke-color: #000;
     font-size: 72px;
     font-style: normal;
-    font-weight: 400;
     line-height: 100%;
-    letter-spacing: -3px;
-    text-align: left;
-    margin-bottom: 52px;
+    margin-bottom: 52px
 }
 
 .faq-content {
     text-align: left;
-    align-items: center;
+    align-items: center
 }
 
 .faq-a {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 0.7s ease, max-height 0.7s ease, padding 0.5s ease, margin 0.5s ease;
+    transition: opacity .7s, max-height .7s, padding .5s, margin .5s;
     padding-bottom: 0;
-    margin-bottom: 0;
-    color: black;
+    margin-bottom: 0
 }
 
 .faq-icon {
-    transition: transform 0.5s ease-in-out;
+    transition: transform .5s ease-in-out;
     margin-left: 8px;
     min-width: 24px;
-    min-height: 24px;
+    min-height: 24px
 }
 
 .faq-q {
-    cursor: pointer;
-    background: none;
+    background: 0 0;
     border: none;
     width: 100%;
     display: flex;
@@ -1430,27 +1342,25 @@ li {
     align-items: center;
     padding: 15px 0;
     text-align: left;
-    font-size: 1rem;
-    color: black;
+    font-size: 1rem
 }
 
 .faq-content {
     border-bottom: 1px solid #ccc;
-    transition: border-bottom 0.5s ease;
+    transition: border-bottom .5s
 }
 
 .schedule-side {
     position: relative;
     display: flex;
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
     border-radius: 42px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 42%;
     height: 287px;
-    padding: 42px;
-
+    padding: 42px
 }
 
 .chase-img {
@@ -1458,39 +1368,34 @@ li {
     top: -28%;
     height: 162px;
     width: auto;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
 .intro {
     font-size: 16px;
-    color: black;
-    margin-bottom: 24px;
-
+    margin-bottom: 24px
 }
 
 .schedule {
     background-color: #101018;
-    color: white;
-    white-space: nowrap;
+    color: #fff;
     width: 100%;
-    text-decoration: none;
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
-
 .ready {
-    color: black;
+    color: #000;
     font-size: 30px;
     margin-bottom: 10px;
     font-weight: medium;
-    margin-top: 56px;
+    margin-top: 56px
 }
 
 .ninth-bottom-container {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-bottom: 52px;
+    margin-bottom: 52px
 }
 
 .overlay-container {
@@ -1500,7 +1405,7 @@ li {
     border-radius: 42px;
     width: 100%;
     height: auto;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .ninth-section {
@@ -1508,32 +1413,18 @@ li {
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
-    box-sizing: border-box;
-}
-
-.ninth-section.active {
-    opacity: 1;
-    transform: translateY(0);
+    transition: opacity .9s ease-in-out, transform .9s ease-in-out;
+    box-sizing: border-box
 }
 
 .ninth-header {
-    text-align: center;
-    leading-trim: both;
-    text-edge: cap;
-    -webkit-text-stroke-width: 0.25;
     -webkit-text-stroke-color: var(--system-white, #FFF);
-    font-family: "Helvetica Neue";
     font-size: 72px;
     font-style: normal;
     font-weight: 400;
-    line-height: 100%;
-    /* 72px */
-    letter-spacing: -3px;
-    background: radial-gradient(122.35% 55.06% at 50% 50%, #FFF 30%, rgba(255, 255, 255, 0.40) 100%);
+    background: radial-gradient(122.35% 55.06% at 50% 50%, #fff 30%, rgba(255, 255, 255, .4) 100%);
     background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text
 }
 
 .ninth-subheader {
@@ -1541,8 +1432,7 @@ li {
     justify-content: center;
     align-items: center;
     width: 70%;
-    margin: auto;
-    margin-bottom: 38px;
+    margin: auto auto 38px
 }
 
 .overlay-container::before {
@@ -1554,18 +1444,10 @@ li {
     height: 100%;
     box-sizing: border-box;
     border-radius: 42px;
-    padding: 2px;
-    background: linear-gradient(to bottom,
-            #ffffff, #ffffff 10%,
-            transparent 50%, transparent 50%,
-            #f9558100 30%, #f9558100 30%);
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
+    background: linear-gradient(to bottom, #fff, #fff 10%, transparent 50%, transparent 50%, #f9558100 30%, #f9558100 30%);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    z-index: 0;
+    z-index: 0
 }
 
 .best-offer {
@@ -1573,13 +1455,22 @@ li {
     align-items: center;
     right: 0;
     top: 42px;
-    background-color: #6D96FF;
-    color: white;
-    border-radius: 6px 0px 0px 6px;
+    background-color: #6d96ff;
+    color: #fff;
+    border-radius: 6px 0 0 6px;
     font-size: 14px;
     padding: 8px 16px;
-    font-weight: bold;
-    letter-spacing: 1.25px;
+    font-weight: 700;
+    letter-spacing: 1.25px
+}
+
+.need-designs,
+.still-questions,
+.templates-subheader,
+.templates-title {
+    font-weight: 400;
+    font-style: normal;
+    color: #fff
 }
 
 .templates-title {
@@ -1587,31 +1478,22 @@ li {
     width: 100%;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    text-shadow: 0px 3.257px 7.085px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 3.257px 7.085px rgba(0, 0, 0, .25);
     -webkit-text-stroke-width: 0.2;
     -webkit-text-stroke-color: #000;
-    color: white;
     font-size: 58.632px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    /* 58.632px */
     letter-spacing: -2.443px;
     margin-top: 92px;
-    margin-bottom: 24px;
+    margin-bottom: 24px
 }
 
 .templates-subheader {
-    color: #FFF;
     text-align: center;
-    text-shadow: 0px 5.7px 19.707px rgba(0, 0, 0, 0.80);
+    text-shadow: 0 5.7px 19.707px rgba(0, 0, 0, .8);
     font-size: 19.544px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 130%;
     width: 60%;
-    letter-spacing: 0px;
+    letter-spacing: 0
 }
 
 .templates-content {
@@ -1623,24 +1505,20 @@ li {
     width: 100%;
     background-image: url("./images/reduced-templates.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat
 }
 
 .templates-image-container {
     max-width: 100%;
     overflow: hidden;
-    border-radius: 42px;
+    border-radius: 42px
 }
 
 .temmplates-image-container img {
     width: 100%;
-    /* Responsive width */
     height: auto;
-    /* Maintain aspect ratio */
     object-fit: cover;
-    /* Ensures the image covers the container */
-    object-position: center;
-    /* Aligns the image center */
+    object-position: center
 }
 
 .awards {
@@ -1648,123 +1526,85 @@ li {
     height: 100%;
     width: auto;
     justify-content: center;
-    margin-bottom: -32px;
+    margin-bottom: -32px
 }
 
 .awards-image {
     max-width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: contain
 }
 
 .download-btn {
-    margin-bottom: 52px;
+    margin-bottom: 52px
 }
-
-
 
 .footer-subheader {
     display: flex;
     width: 70%;
-    margin: auto;
-    margin-bottom: 38px;
-    font-family: "Helvetica Neue";
+    margin: auto auto 38px
 }
 
-
+.final-calls,
+.footer-bottom {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex
+}
 
 .final-calls {
-    display: flex;
     flex-direction: row;
-    box-sizing: border-box;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
-.footer-bottom {
-    display: flex;
-    width: 100%;
-
-    box-sizing: border-box;
-}
-
-.still-questions,
-.need-designs {
+.need-designs,
+.still-questions {
     padding: 24px;
     text-align: left;
     flex-shrink: 0;
     border-radius: 24px;
-    border: 1px solid #20222C;
-    background: rgba(65, 65, 65, 0.04);
+    border: 1px solid #20222c;
+    background: rgba(65, 65, 65, .04);
     font-size: 20px;
-    font-weight: 400;
-    font-style: normal;
     text-decoration: none;
-    color: white;
     margin-bottom: 8px;
     width: 49%;
     margin-top: 42px;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
+    overflow: hidden
 }
 
-.still-questions::after,
-.need-designs::after {
+.need-designs::after,
+.still-questions::after {
     content: "";
     position: absolute;
     z-index: 2;
     width: 1px;
-    /* Adjust the size of the glow effect here */
     height: 1px;
-    /* Same size as width to keep it circular */
     border-radius: 50%;
-    /* Make it circular */
-    background: transparent;
-    transition: opacity 0.3s, transform 0.3s;
-    /* box-shadow: 0 0 80px 40px rgb(255, 255, 255);
-    left: var(--x);
-    top: var(--y);
-    opacity: var(--opacity);
-    transform: translate(-50%, -50%); */
-
+    background: 0 0;
+    transition: opacity .3s, transform .3s
 }
-
-.still-questions:hover,
-.need-designs:hover {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset;
-    backdrop-filter: blur(33.75px);
-    z-index: 1000;
-    color: white;
-    transition: top 0.8s ease, bottom 0.8s ease, opacity 0.5s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.206);
-}
-
-
 
 .bottom-tags {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 70%;
-    margin-bottom: 32px;
-    margin: auto;
+    margin: auto
 }
 
-
 .footer-border {
-    border-bottom: 1px solid #20222C;
-    margin-top: 32px;
+    border-bottom: 1px solid #20222c;
+    margin-top: 32px
 }
 
 .left-footer-bottom {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 6px;
-
+    gap: 6px
 }
 
 .footer-bottom {
@@ -1772,125 +1612,99 @@ li {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 32px;
-    margin-bottom: 32px;
+    margin-bottom: 32px
 }
 
 .terms {
     font-size: 14px;
     display: flex;
-    gap: 6px;
+    gap: 6px
 }
 
 .socials {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 32px;
-    cursor: pointer;
+    gap: 32px
 }
 
-
-@media (min-height: 1080px) {}
-
-
-
-
-/* Larger Screens Below */
-
-@media screen and (max-height: 1800px) {
-
+@media screen and (max-height:1800px) {
     .second-section {
         min-height: 30vh;
-
         margin-bottom: 244px
     }
 
     .testimony {
         height: 27vh;
-        margin-bottom: 70px;
+        margin-bottom: 70px
     }
 
     .third-section {
-        min-height: 52vh;
+        min-height: 52vh
     }
 
     .fourth-section {
-        min-height: 58vh;
+        min-height: 58vh
     }
 
     .sixth-section {
         min-height: 44vh;
         margin-top: 140px;
-        margin-bottom: 20px;
+        margin-bottom: 20px
     }
 
-
-
     .eigth-section {
-        min-height: 55vh;
+        min-height: 55vh
     }
 
     .ninth-section {
-        min-height: 0;
+        min-height: 0
     }
-
-
-
 }
 
-@media screen and (max-height: 1500px) {
-
+@media screen and (max-height:1500px) {
     .second-section {
         min-height: 30vh;
         margin-bottom: 244px
     }
 
     .testimony {
-        margin-bottom: 70px;
+        margin-bottom: 70px
     }
 
     .third-section {
-        min-height: 62vh;
+        min-height: 62vh
     }
 
     .fourth-section {
-        min-height: 69vh;
+        min-height: 69vh
     }
-
 
     .eigth-section {
-        min-height: 66vh;
+        min-height: 66vh
     }
-
 }
 
-@media screen and (max-height: 1400px) {
-
-
+@media screen and (max-height:1400px) {
     .second-section {
         min-height: 30vh;
         margin-bottom: 244px
     }
 
     .testimony {
-        margin-bottom: 70px;
+        margin-bottom: 70px
     }
 
     .third-section {
-        min-height: 71vh;
+        min-height: 71vh
     }
 
     .fourth-section {
-        min-height: 76vh;
+        min-height: 76vh
     }
-
 }
 
-
-
-@media screen and (max-height: 1350px) {
-
-
+@media screen and (max-height:1350px) {
     .second-section {
         min-height: 30vh;
         margin-bottom: 244px
@@ -1898,34 +1712,30 @@ li {
 
     .testimony {
         margin-bottom: 150px;
-        min-height: 64vh;
+        min-height: 64vh
     }
 
-    .third-section,
-    .fourth-section {
-        min-height: 84vh;
+    .fourth-section,
+    .third-section {
+        min-height: 84vh
     }
 
     .sixth-section {
         min-height: 53vh;
         margin-top: 140px;
-        margin-bottom: 20px;
+        margin-bottom: 20px
     }
 
     .eigth-section {
-        min-height: 71vh;
+        min-height: 71vh
     }
 
     .ninth-section {
-        min-height: 56vh;
+        min-height: 56vh
     }
-
-
 }
 
-
-@media screen and (max-height: 1300px) {
-
+@media screen and (max-height:1300px) {
     .second-section {
         min-height: 30vh;
         margin-bottom: 124px
@@ -1934,38 +1744,25 @@ li {
     .testimony {
         max-height: 70vh;
         height: 30vh;
-        margin-bottom: 140px;
+        margin-bottom: 140px
     }
 
     .third-section {
-        min-height: 77vh;
+        min-height: 77vh
     }
 
     .fourth-section {
-        min-height: 82vh;
+        min-height: 82vh
     }
-
-
 
     .sixth-section {
         min-height: 53vh;
         margin-top: 140px;
-        margin-bottom: 20px;
+        margin-bottom: 20px
     }
-
-    /* 
-    .seventh-section {
-        min-height: 61vh;
-    } */
-
-
-
 }
 
-
-
-@media screen and (max-height: 1250px) {
-
+@media screen and (max-height:1250px) {
     .second-section {
         min-height: 30vh;
         margin-bottom: 244px
@@ -1973,59 +1770,47 @@ li {
 
     .testimony {
         min-height: 33vh;
-        margin-bottom: 140px;
+        margin-bottom: 140px
     }
 
     .third-section {
         min-height: 85vh;
         padding-top: 60px;
-        margin-bottom: 40px;
+        margin-bottom: 40px
     }
 
     .fourth-section {
-        margin-bottom: 100px;
+        margin-bottom: 100px
     }
 
     .sixth-section {
         min-height: 53vh;
         margin-top: 228px;
-        margin-bottom: 0px;
+        margin-bottom: 0
     }
-
-    /* .seventh-section {
-        min-height: 75vh;
-    } */
-
-
 
     .ninth-section {
-        min-height: 64vh;
+        min-height: 64vh
     }
-
 }
 
-@media screen and (max-height: 1200px) {
-
-
+@media screen and (max-height:1200px) {
     .third-section {
         min-height: 83vh;
         padding-top: 60px;
-        margin-bottom: 40px;
+        margin-bottom: 40px
     }
 
     .fourth-section {
-        margin-bottom: 100px;
+        margin-bottom: 100px
     }
 
     .ninth-section {
-        min-height: 62vh;
+        min-height: 62vh
     }
-
 }
 
-@media screen and (max-height: 1150px) {
-
-
+@media screen and (max-height:1150px) {
     .second-section {
         min-height: 30vh;
         margin-bottom: 244px
@@ -2033,547 +1818,466 @@ li {
 
     .testimony {
         min-height: 33vh;
-        margin-bottom: 140px;
+        margin-bottom: 140px
     }
 
-    .third-section,
-    .fourth-section {
-        min-height: 90vh;
-        padding-top: 60px;
-        margin-bottom: 100px;
-    }
-
-    .sixth-section {
-        min-height: 55vh;
-    }
-
-
-
-    .ninth-section {
-        min-height: 70vh;
-    }
-
-}
-
-
-
-@media screen and (max-height: 1080px) {
-
-
-
-    .testimony {
-        padding-top: 120px;
-        margin-bottom: 320px;
-        margin-top: 180px;
-
-    }
-
-
+    .fourth-section,
     .third-section {
         min-height: 90vh;
         padding-top: 60px;
+        margin-bottom: 100px
+    }
+
+    .sixth-section {
+        min-height: 55vh
+    }
+
+    .ninth-section {
+        min-height: 70vh
+    }
+}
+
+@media screen and (max-height:1080px) {
+    .testimony {
+        padding-top: 120px;
+        margin-bottom: 320px;
+        margin-top: 180px
+    }
+
+    .third-section {
+        min-height: 90vh;
+        padding-top: 60px
     }
 
     .fourth-section {
         padding-top: 60px;
         min-height: 100vh;
-        margin-bottom: 120px;
+        margin-bottom: 120px
     }
 
     .sixth-section {
         padding-top: 100px;
         min-height: 70vh;
-        margin-bottom: 12px;
+        margin-bottom: 12px
     }
 
-    /* .seventh-section {
-        min-height: 83vh;
-    } */
-
     .eigth-section {
-        min-height: 100vh;
+        min-height: 100vh
     }
 
     .ninth-section {
-        min-height: 77vh;
+        min-height: 77vh
     }
-
 }
 
-
-@media screen and (max-width: 2500px) {
+@media screen and (max-width:2500px) {
     .blue-g {
-        max-height: 2204px;
+        max-height: 2204px
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width:1300px) {
     .hero-image-container {
-        left: -5.5%;
+        left: -5.5%
     }
-
-
 }
 
-@media screen and (max-width: 1275px) {
+@media screen and (max-width:1275px) {
     .testimony-two {
         font-size: 28px;
-        margin-bottom: 125px;
+        margin-bottom: 125px
     }
 }
 
-@media screen and (max-width: 1175px) {
+@media screen and (max-width:1175px) {
     .testimony-two {
-        margin-bottom: 90px;
+        margin-bottom: 90px
     }
 }
 
-
-
-@media screen and (max-width: 1163px) {
+@media screen and (max-width:1163px) {
 
     .left-card,
     .right-card {
-        padding: 36px;
+        padding: 36px
     }
-
 }
 
-@media screen and (max-width: 1116px) {
+@media screen and (max-width:1116px) {
     .testimony-two {
-        margin-bottom: 41px;
+        margin-bottom: 41px
     }
 }
 
-
-
-
-@media screen and (max-width: 1080px) {
+@media screen and (max-width:1080px) {
 
     .left-card,
     .right-card {
-        padding: 32px;
+        padding: 32px
     }
 
     .third-left-container {
         width: 43%;
-        padding-right: 10px;
+        padding-right: 10px
     }
 
     .third-right-container {
         width: 55%;
-        height: 50%;
+        height: 50%
     }
-
-
 
     .metric {
-        width: 22%;
+        width: 22%
     }
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width:1030px) {
     .testimony-two {
-        margin-bottom: 0px;
+        margin-bottom: 0
     }
 }
 
-
-@media screen and (max-width: 1007px) {
+@media screen and (max-width:1007px) {
     .metric-content {
-        line-height: 95%;
+        line-height: 95%
     }
 }
 
-@media screen and (max-width: 990px) {
-
+@media screen and (max-width:990px) {
     .hero-header {
         font-size: 4.25rem;
         margin-top: 100px;
         height: auto;
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .content-subheader {
-        font-size: 22px;
+        font-size: 22px
     }
 
     .content-header {
-        font-size: 3.75rem;
+        font-size: 3.75rem
     }
 
-    .content-copy {
-        font-size: 1.6rem;
+    .content-copy,
+    .third-point {
+        font-size: 1.6rem
     }
 
     .animated-content-section {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 100%
     }
 
     .content {
         width: 40%;
-        margin-bottom: 42px;
+        margin-bottom: 42px
     }
 
     .third-bottom-container {
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        width: 100%;
+        width: 100%
     }
 
     .third-left-container {
         text-align: center;
         align-items: flex-start;
         width: 100%;
-        order: 2;
+        order: 2
     }
 
     .third-right-container {
         width: 100%;
         height: auto;
         order: 1;
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .third-point {
-        font-size: 1.6rem;
         width: 50%;
-        margin: auto;
-        margin-bottom: auto;
-        margin-bottom: 42px;
+        margin: auto auto 42px
     }
-
-
-
 
     .animated-membership {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         box-sizing: border-box;
-        padding: 0px 50px;
+        padding: 0 50px
     }
 
-    .animated-membership-top,
-    .animated-membership-bottom {
+    .animated-membership-bottom,
+    .animated-membership-top {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-around
     }
 
     .sixth-section {
         display: flex;
-        flex-direction: column;
+        flex-direction: column
     }
 
     .sixth-left-section {
-        order: 1;
-        /* Keeps the Animation and Metrics first */
+        order: 1
     }
 
     .sixth-right-section {
         order: 2;
-        width: 100%;
         box-sizing: border-box;
         padding-left: 6px;
-        padding-right: 6px;
+        padding-right: 6px
     }
-
 
     .metric-content {
         order: 1;
         margin-bottom: 24px;
-        display: none;
+        display: none
     }
 
     .testimony-two {
-        order: 2;
+        order: 2
     }
 
     .founder-name {
-        margin-right: 6px;
+        margin-right: 6px
     }
-
 
     .sixth-left-section,
     .sixth-right-section {
-        width: 100%;
+        width: 100%
     }
 
-
     .left-card {
-        width: 45%;
+        width: 45%
     }
 
     .join {
-        font-size: 4rem;
+        font-size: 4rem
     }
 
     .right-card {
-        width: 55%;
+        width: 55%
     }
 }
 
-@media screen and (max-width: 950px) {
-
-
+@media screen and (max-width:950px) {
 
     .case-container-one,
-    .case-container-two,
-    .case-container-three {
+    .case-container-three,
+    .case-container-two {
         display: flex;
         flex-direction: column;
         margin-bottom: 24px;
-        width: 100%;
+        width: 100%
     }
 
     .case img {
-        max-width: none;
+        max-width: none
     }
 
     .case {
         width: 100%;
-        margin: auto;
+        margin: auto
     }
 
     .portfolio-cases {
-        justify-content: center;
+        justify-content: center
     }
 
+    .eigth-section,
     .pricing-cards {
         display: flex;
-        flex-direction: column;
+        flex-direction: column
     }
-
 
     .left-card,
     .right-card {
         max-width: none;
         width: 100%;
-        height: auto;
+        height: auto
     }
 
     .book,
-    .refer {
-        width: 100%;
+    .join-cta,
+    .refer,
+    .schedule-side,
+    .testimony-quote {
+        width: 100%
     }
-
-    /* .seventh-section {
-        height: 160vh;
-        margin-bottom: 120px;
-    } */
 
     .included-content {
         justify-content: space-between;
         box-sizing: border-box;
-        padding-right: 20%;
+        padding-right: 20%
     }
 
     ul {
-        margin-bottom: 24px;
-    }
-
-
-    .join-cta {
-        width: 100%;
-    }
-
-    .eigth-section {
-        display: flex;
-        flex-direction: column;
+        margin-bottom: 24px
     }
 
     .faqs-side {
         width: 100%;
-        margin-bottom: 42px;
+        margin-bottom: 42px
     }
-
-    .schedule-side {
-        width: 100%
-    }
-
-
-    .testimony-quote {
-        width: 100%;
-    }
-
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width:840px) {
 
+    .final-calls,
+    .footer-bottom,
+    .terms {
+        flex-direction: column
+    }
+
+    .footer-border,
     .nav-bar {
-        display: none;
+        display: none
     }
 
-
-
-    .final-calls {
-        flex-direction: column;
-    }
-
-    .still-questions,
-    .need-designs {
+    .need-designs,
+    .still-questions {
         width: 100%;
         box-sizing: border-box;
         padding-right: 30%;
         margin-top: 24px;
-        margin-bottom: 12px;
+        margin-bottom: 12px
     }
 
     .need-designs {
-        margin-top: 0px;
+        margin-top: 0
     }
 
     .footer-bottom {
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-    }
-
-    .terms {
-        flex-direction: column;
+        align-items: center
     }
 
     .socials {
-        order: 1;
-    }
-
-    .footer-border {
-        display: none;
+        order: 1
     }
 
     .left-footer-bottom {
         order: 3;
-        flex-direction: column;
+        flex-direction: column
     }
 
     .border {
-        border-bottom: 1px solid #20222C;
+        border-bottom: 1px solid #20222c;
         width: 100%;
         order: 2;
         margin-top: 24px;
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .body-section {
-        margin-bottom: 0px;
+        margin-bottom: 0
     }
-
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width:740px) {
     body {
         padding-left: 18px;
-        padding-right: 18px;
+        padding-right: 18px
     }
 
     .hero-header {
         font-size: 9vw;
         margin-top: 55px;
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .line-break {
         display: flex;
-        flex-direction: column;
+        flex-direction: column
     }
 
     .content-subheader {
         font-size: 18px;
         width: 60%;
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .button {
         height: 42px;
-        width: 70%;
+        width: 70%
     }
 
     .background-image-gradient {
         width: 100vw;
         max-height: none;
         height: 922px;
-        margin-top: 274px;
+        margin-top: 274px
     }
 
     .metric {
         font-size: 42px;
-        width: 32%;
+        width: 32%
     }
 
     .metric-detail {
         white-space: wrap;
         margin-top: 12px;
-        width: 50%;
+        width: 50%
     }
 
     .metrics {
-        justify-content: flex-start;
+        justify-content: flex-start
     }
 
     .metric-two {
-        width: 100%;
+        width: 100%
     }
 
     .metric-content {
-        display: none;
+        display: none
     }
 
     .sixth-left-container {
-        margin-bottom: 42px;
+        margin-bottom: 42px
     }
-
-
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width:690px) {
     .included-content {
         justify-content: space-between;
         box-sizing: border-box;
-        padding-right: 12%;
+        padding-right: 12%
     }
-
-
 
     .eigth-section {
         padding: 24px;
-        border-radius: 42px;
+        border-radius: 42px
     }
 
     .faqs-title {
-        font-size: 48px;
-        margin-bottom: 12px;
+        font-size: 2.4rem;
+        margin-bottom: 12px
     }
-
 }
 
-@media screen and (max-width: 640px) {}
-
-@media screen and (max-width: 500px) {
-
+@media screen and (max-width:500px) {
     .body-section-content {
-        width: 95%;
+        width: 95%
     }
 
-
     .hero-header {
-        font-size: 11.5vw;
+        font-size: 11.5vw
     }
 
     .content-header {
         font-size: 2.8rem;
         font-weight: 400;
-        letter-spacing: -2px;
+        letter-spacing: -2px
     }
 
     .content-subheader {
         font-size: 18px;
-        width: 90%;
-
+        width: 90%
     }
 
     .clients {
@@ -2582,55 +2286,51 @@ li {
         margin-bottom: 42px;
         width: 118%;
         height: 57px;
-        position: relative;
+        position: relative
     }
 
-
     .hero-image-container {
-        left: -2.5%;
+        left: -2.5%
     }
 
     .forget-header {
-        margin-bottom: 22px;
+        margin-bottom: 22px
     }
 
+    .content,
+    .eigth-section,
+    .membership-content,
+    .schedule,
+    .schedule-side,
     .sub {
-        width: 100%;
-    }
-
-    .content {
-        width: 100%;
+        width: 100%
     }
 
     .third-left-container {
         text-align: left;
-        margin-top: 0px;
+        margin-top: 0
     }
 
     .third-point {
         width: 100%;
         margin-top: 48px;
-        margin-bottom: 0px;
+        margin-bottom: 0
     }
 
     .animated-membership {
-        flex-direction: column;
-    }
-
-    .membership-content {
-        width: 100%;
+        flex-direction: column
     }
 
     .animated-content-section {
-        margin-top: 32px;
+        margin-top: 32px
     }
 
     .mc1 {
-        margin-top: 0px;
+        margin-top: 0
     }
 
     .content-subcopy {
-        width: 80%;
+        width: 80%
     }
 
     .tags {
@@ -2639,189 +2339,151 @@ li {
     }
 
     .portfolio-tags {
-        font-size: 13px;
+        font-size: 13px
     }
 
     .included-content {
-        padding-right: 0px;
+        padding-right: 0
     }
 
     .sixth-section {
-        padding-top: 0px;
+        padding-top: 0
     }
 
     .sixth-left-container {
-        border: 2px solid #20222C;
+        border: 2px solid #20222c
     }
 
     .left-card,
     .right-card {
-        border-radius: 42px;
+        border-radius: 42px
     }
 
     .templates-title {
         margin-top: 26%;
         font-size: 12vw;
         box-sizing: border-box;
-        padding: 12px;
+        padding: 12px
     }
 
     .templates-content {
-        min-height: 90vh;
+        min-height: 90vh
     }
 
     .templates-subheader {
         margin-top: 16px;
         width: 99%;
-
         box-sizing: border-box;
-        padding: 14px;
+        padding: 14px
     }
 
     .awards-image {
-
         max-width: 136%;
         height: auto;
-        object-fit: contain;
+        object-fit: contain
     }
 
-    .still-questions,
-    .need-designs {
-        padding-right: 9%;
-    }
-
-    .eigth-section {
-        width: 100%;
-    }
-
-    .schedule-side {
-        width: 100%;
-    }
-
-    .schedule {
-        width: 100%;
+    .need-designs,
+    .still-questions {
+        padding-right: 9%
     }
 
     .metric-detail {
         font-size: 13px;
-        width: 60%;
+        width: 60%
     }
-
-
 
     .testimony-quote,
     .testimony-two {
-        font-size: 24px;
+        font-size: 24px
     }
 
     .membership-bottom-btns {
         gap: 18px;
-        margin-bottom: 12px;
+        margin-bottom: 12px
     }
-
-
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width:475px) {
 
     .left-card,
     .right-card {
         padding: 24px
     }
 
-
-
-    .included-content {
-        flex-direction: column;
-
+    .included-content,
+    .membership-bottom-btns {
+        flex-direction: column
     }
 
     ul {
-        margin-bottom: 0px;
-        margin-top: 0px;
+        margin-bottom: 0;
+        margin-top: 0;
+        list-style-type: none
     }
 
     .second-list {
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .included {
-        margin-bottom: 16px;
+        margin-bottom: 16px
     }
 
-
-
+    .price-btn,
+    .pricing-cards,
     .toggle-switch {
-        width: 100%;
+        width: 100%
     }
 
     .toggle-btn {
-        width: 50%;
+        width: 50%
     }
 
     .join {
-        font-size: 48px;
+        font-size: 48px
     }
 
     .membership-title {
         font-size: 36px;
         font-style: normal;
-        font-weight: bold;
+        font-weight: 700;
         line-height: normal;
-        margin-top: 11px;
-    }
-
-    ul {
-        list-style-type: none;
+        margin-top: 11px
     }
 
     li {
-        margin-left: 0px;
-        padding-right: 0px;
-        text-decoration: none;
-    }
-
-    .pricing-cards {
-        width: 100%;
+        margin-left: 0;
+        padding-right: 0;
+        text-decoration: none
     }
 
     .request {
         font-size: 13px;
-        margin-top: 8px;
-    }
-
-
-    .membership-bottom-btns {
-        flex-direction: column;
-    }
-
-    .price-btn {
-        width: 100%;
+        margin-top: 8px
     }
 
     .content-header {
-        font-size: 2.4rem;
+        font-size: 2.4rem
     }
 
     .templates-title {
-        margin-top: 29%;
+        margin-top: 29%
     }
 
     .discover-header {
-        font-size: 2.2rem;
+        font-size: 2.2rem
     }
 }
 
-@media screen and (max-width: 396px) {
+@media screen and (max-width:396px) {
     .forget-header {
         width: 80%;
-        margin: auto;
-        margin-bottom: 22px;
+        margin: auto auto 22px
     }
-
 }
 
-@media screen and (max-width: 368px) {
+@media screen and (max-width:368px) {
     .arrow {
         position: absolute;
         right: 16px;
@@ -2829,75 +2491,61 @@ li {
         padding: 6px;
         border-radius: 24px;
         width: 39px;
-        height: 39px;
+        height: 39px
     }
 
-    .better-than {
-        font-size: 2.2rem;
-    }
-
+    .better-than,
     .discover-header3 {
-        font-size: 2.2rem;
+        font-size: 2.2rem
     }
-
 }
 
-
-@media screen and (max-width: 358px) {
+@media screen and (max-width:358px) {
     .forget-header {
         width: 90%;
-        margin: auto;
-        margin-bottom: 22px;
+        margin: auto auto 22px
     }
-
 }
 
-@media screen and (max-width: 336px) {
+@media screen and (max-width:336px) {
     .templates-title {
         margin-top: 37%;
-        font-size: 42px;
+        font-size: 42px
     }
 
     .download-btn {
         height: 52px;
         width: 84%;
-        margin-bottom: 24px;
+        margin-bottom: 24px
     }
 
     .metric {
         font-size: 32px;
-        width: 50%;
+        width: 50%
     }
 
     .metric-detail {
         font-size: .9rem;
-        width: 70%;
+        width: 70%
     }
-
 }
 
-
-@media screen and (max-width: 312px) {
+@media screen and (max-width:312px) {
     .forget-header {
         width: 100%;
-        margin: auto;
-        margin-bottom: 22px;
+        margin: auto auto 22px
     }
-
-
 }
 
-
-@media only screen and (max-width: 393px) and (max-height: 852px) {
+@media only screen and (max-width:393px) and (max-height:852px) {
     .animated-content-section {
-        margin-top: 32px;
+        margin-top: 32px
     }
-
 
     .templates-subheader {
         margin-top: 16px;
         width: 99%;
         box-sizing: border-box;
-        padding: 14px;
+        padding: 14px
     }
 }

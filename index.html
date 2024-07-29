@@ -24,11 +24,15 @@
     <meta name="msapplication-TileColor" content="#101018">
     <meta name="msapplication-config" content="/browserconfig.xml">
     <meta name="theme-color" content="#101018">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        as="style">
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
@@ -445,7 +449,7 @@
                             <div id="standardContent" class="price-content active">
                                 <h1 class="price">$3995<span class="monthly"> /per month</span></h1>
                                 <p class="request">One request at a time. Pause or cancel anytime</p>
-                                <p class="included">What you get</pclass>
+                                <p class="included">What you get</class>
                                 <div class="included-content">
                                     <ul>
                                         <li>Unlimited design requests</li>
@@ -919,554 +923,111 @@
 
 
 
-    <script>
+<script>
 
-
-        //Nav-link
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const homeLink = document.getElementById('home-link');
-            homeLink.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default anchor behavior
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top of the page
-            });
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            // Smooth scrolling functionality
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-
-                    if (targetSection) {
-                        window.scrollTo({
-                            'behavior': 'smooth',
-                            'top': targetSection.offsetTop
-                        });
-                    }
-                });
-            });
-        });
-
-        //Reload
-        window.onload = function () {
-            window.scrollTo(0, 0);
-        };
-
-        //Faded FAQs
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const faqSection = document.querySelector('.eigth-section');
-            const windowHeight = window.innerHeight;
-
-            function checkPosition() {
-                const rect = faqSection.getBoundingClientRect();
-                const sectionTop = rect.top;
-                const sectionHeight = rect.height;
-
-                // Check if the top of the section is within the viewport
-                if (sectionTop <= windowHeight && sectionTop > -0.8 * sectionHeight) {
-                    faqSection.classList.add('active');
-                } else {
-                    faqSection.classList.remove('active');
-                }
+    function scrollClientLogos() {
+        let e = document.querySelector(".clients"), t = document.getElementById("clientLogos1"), n = document.getElementById("clientLogos2"), i = 0;
+        t.style.left = "0", n.style.left = `${t.offsetWidth}px`, !function o() {
+            i -= .5, e.offsetWidth, i <= -t.offsetWidth && (i = 0, t.style.left = "0"), t.style.left = `${i}px`, n.style.left = `${i + t.offsetWidth}px`, requestAnimationFrame(o)
+        }()
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        let e = document.getElementById("home-link");
+        e.addEventListener("click", function (e) {
+            e.preventDefault(), window.scrollTo({ top: 0, behavior: "smooth" })
+        })
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(".nav-link");
+        e.forEach(e => {
+            e.addEventListener("click", function (e) {
+                e.preventDefault();
+                let t = this.getAttribute("href"), n = document.querySelector(t);
+                n && window.scrollTo({ behavior: "smooth", top: n.offsetTop })
+            })
+        })
+    }), window.onload = function () { window.scrollTo(0, 0) }, document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelector(".eigth-section"), t = window.innerHeight; function n() {
+            let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.8 * o ? e.classList.add("active") : e.classList.remove("active")
+        } window.addEventListener("scroll", n), n()
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(".second-section, .testimony, .third-section, .fourth-section, .fifth-section, .ninth-section, .case-container, .membership-content"), t = window.innerHeight; function n() {
+            e.forEach(e => {
+                let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.7 * o ? e.classList.add("active") : e.classList.remove("active")
+            })
+        } window.addEventListener("scroll", n), n()
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(" .fifth-section,  .case-container"), t = window.innerHeight; function n() {
+            e.forEach(e => {
+                let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.9 * o ? e.classList.add("active") : e.classList.remove("active")
+            })
+        } window.addEventListener("scroll", n), n()
+    }), document.addEventListener("DOMContentLoaded", function () { scrollClientLogos() }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelector(".blue-gradient"), t = document.querySelector(".faqs-side"); function n() {
+            if (e && t) {
+                let n = t.getBoundingClientRect(); e.style.top = `${n.top + window.scrollY}px`
             }
-
-            window.addEventListener('scroll', checkPosition);
-            checkPosition(); // Initialize on load
-        });
-
-        //Section fade
-        document.addEventListener('DOMContentLoaded', function () {
-            const targetSections = document.querySelectorAll('.second-section, .testimony, .third-section, .fourth-section, .fifth-section, .ninth-section, .case-container, .membership-content'); // Add all sections here
-            const windowHeight = window.innerHeight;
-
-            function checkPosition() {
-                targetSections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionTop = rect.top;
-                    const sectionHeight = rect.height;
-
-                    // Trigger fade-in when the top of the section is within the viewport
-                    if (sectionTop <= windowHeight && sectionTop > -0.7 * sectionHeight) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
+        } n(), window.addEventListener("resize", n), window.addEventListener("scroll", n); let i = new ResizeObserver(e => { for (let t of e) n() }); i.observe(t)
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelector(".hero-image-container"), t = document.querySelector(".second-section"); function n() {
+            if (e && t) {
+                let n = e.offsetHeight, i; i = window.innerWidth < 768 ? 100 : 144, window.innerHeight < 500 && (i = 100), t.style.marginTop = n + i + "px"
             }
-
-            window.addEventListener('scroll', checkPosition);
-            checkPosition(); // Initialize on load
-        });
-
-
-
-        //Section fade
-        document.addEventListener('DOMContentLoaded', function () {
-            const targetSections = document.querySelectorAll(' .fifth-section,  .case-container');
-            const windowHeight = window.innerHeight;
-
-            function checkPosition() {
-                targetSections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionTop = rect.top;
-                    const sectionHeight = rect.height;
-
-                    // Trigger fade-in when the top of the section is within the viewport
-                    if (sectionTop <= windowHeight && sectionTop > -0.9 * sectionHeight) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', checkPosition);
-            checkPosition(); // Initialize on load
-        });
-
-        //Infinite scroll
-        // Function to continuously scroll the client logos
-        function scrollClientLogos() {
-            const container = document.querySelector('.clients');
-            const image1 = document.getElementById('clientLogos1');
-            const image2 = document.getElementById('clientLogos2');
-            let xPos = 0;
-
-            // Set initial positions
-            image1.style.left = '0';
-            image2.style.left = `${image1.offsetWidth}px`;
-
-            // Animation loop
-            function animate() {
-                xPos -= .5; // Adjust the speed by changing this value
-                const containerWidth = container.offsetWidth;
-
-                // If the first image has moved out of the container, reset its position
-                if (xPos <= -image1.offsetWidth) {
-                    xPos = 0;
-                    image1.style.left = '0';
+        } n(), window.addEventListener("resize", n), document.addEventListener("DOMContentLoaded", function () {
+            let e = document.querySelector(".pricing-cards"), t = document.querySelector(".seventh-section"); function n() {
+                if (e && t) {
+                    let n = e.offsetHeight; t.style.marginTop = n + 144 + "px"
                 }
+            } n(), window.addEventListener("resize", n); let i = new ResizeObserver(e => { for (let t of e) n() }); i.observe(e)
+        }); let i = new ResizeObserver(e => { for (let t of e) n() }); i.observe(e)
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(".membership-content"), t = window.innerHeight; function n() {
+            e.forEach(e => {
+                let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.8 * o ? e.classList.add("active") : e.classList.remove("active")
+            })
+        } window.addEventListener("scroll", n), n()
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(".animated-content"), t = window.innerHeight; function n() {
+            e.forEach(e => {
+                let n = e.getBoundingClientRect(), i = n.top, o = n.height; i <= t && i > -.8 * o ? e.classList.add("active") : e.classList.remove("active")
+            })
+        } window.addEventListener("scroll", n), n()
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelector(".pricing-cards"), t = document.querySelector(".left-card"), n = document.querySelector(".right-card"), i = window.innerHeight, o = 0, s = !1; function l() {
+            if (s) return; let l = window.pageYOffset, r = e.getBoundingClientRect(), c = r.top; l > o && c <= i && c > -.8 * r.height && (t.classList.add("active"), n.classList.add("active"), s = !0), o = l
+        } window.addEventListener("scroll", l), l()
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelector(".hero-image"), t = e.closest(".hero-image-container"), n = document.querySelector(".body-section"), i = !1; function o() {
+            let o = window.pageYOffset || document.documentElement.scrollTop, s = t.getBoundingClientRect(), l = s.top, r = s.height, c = e.offsetWidth, a = c - n.offsetWidth; e.style.transform = `translateX(-${Math.min(a * (o / (o + (l + r))), a)}px)`, i = !1
+        } window.addEventListener("scroll", function e() { i || (requestAnimationFrame(o), i = !0) })
+    }), document.getElementById("standardBtn").addEventListener("click", function () {
+        var e = document.getElementById("proBtn"); e.querySelector("svg path").setAttribute("fill", "#ECC67B"), this.classList.add("active"), document.getElementById("proContent").classList.remove("active"), document.getElementById("standardContent").classList.add("active"), e.classList.remove("active")
+    }), document.getElementById("proBtn").addEventListener("click", function () {
+        document.getElementById("standardBtn").classList.remove("active"), this.classList.add("active"), this.querySelector("svg path").setAttribute("fill", "black"), document.getElementById("standardContent").classList.remove("active"), document.getElementById("proContent").classList.add("active")
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelector(".nav-bar"), t = document.querySelector(".pricing-cards"), n = document.querySelector(".eigth-section"), i = document.querySelector(".ninth-section"), o = document.querySelector(".footer-section"); function s() {
+            let s = window.pageYOffset, l = window.innerHeight, r = t.getBoundingClientRect().top, c = n.getBoundingClientRect().bottom, a = i.offsetTop, d = a + i.offsetHeight / 2, f = o.offsetTop;
+            r < -(.1 * l) ? e.style.opacity = "0" : e.style.opacity = "1", c < .4 * l && (e.style.opacity = "1"), s + .5 * l > d ? (e.style.position = "absolute", e.style.top = `${s + l - 1.1 * e.offsetHeight}px`, e.style.bottom = "auto") : (e.style.position = "fixed", e.style.bottom = "10%", e.style.top = ""), s + window.innerHeight > f - 1.1 * e.offsetHeight && (e.style.top = `${f - 1.1 * e.offsetHeight}px`)
+        } window.addEventListener("scroll", s), s()
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(".faq-q"); e.forEach(e => {
+            let t = e.nextElementSibling; t.style.maxHeight = "0", t.style.opacity = "0", t.style.paddingBottom = "0", t.style.marginBottom = "0"
+        }), e.forEach(e => {
+            e.addEventListener("click", function () {
+                let e = this.nextElementSibling, t = this.querySelector(".faq-icon"); "0px" !== e.style.maxHeight ? (e.style.maxHeight = "0", e.style.opacity = "0", e.style.paddingBottom = "0", e.style.marginBottom = "0", t.style.transform = "") : (e.style.maxHeight = e.scrollHeight + "px", e.style.opacity = "1", e.style.paddingBottom = "20px", e.style.marginBottom = "20px", t.style.transform = "rotate(180deg)")
+            })
+        })
+    }), document.addEventListener("DOMContentLoaded", function () {
+        let e = document.querySelectorAll(".nav-link"), t = document.querySelectorAll(".section"); function n() {
+            let n = window.pageYOffset, i = window.innerHeight; t.forEach((t, o) => {
+                let s = t.offsetTop, l = t.offsetHeight, r = t.getAttribute("id");
+                if (n >= s - i / 2 && n < s + l + i / 2) {
+                    e.forEach(e => e.classList.remove("active")); let c = document.querySelector(`a[href="#${r}"]`); c && c.classList.add("active")
+                } else { let a = document.querySelector(`a[href="#${r}"]`); a && a.classList.remove("active") }
+            })
+        } window.addEventListener("scroll", n), n()
+    }), window.si = window.si || function () { (window.siq = window.siq || []).push(arguments) };
+</script>
 
-                // Move both images to the left
-                image1.style.left = `${xPos}px`;
-                image2.style.left = `${xPos + image1.offsetWidth}px`;
-
-                requestAnimationFrame(animate);
-            }
-
-            animate(); // Start the animation loop
-        }
-
-        // Start scrolling the client logos when the page loads
-        document.addEventListener('DOMContentLoaded', function () {
-            scrollClientLogos();
-        });
-
-
-
-
-        //Blue-gradient
-        document.addEventListener('DOMContentLoaded', function () {
-            const blueGradient = document.querySelector('.blue-gradient');
-            const faqsSection = document.querySelector('.faqs-side'); // Ensure this is the correct selector for your FAQs section
-
-            function positionGradient() {
-                if (blueGradient && faqsSection) {
-                    const faqsPosition = faqsSection.getBoundingClientRect();
-                    // Set the top of the blue gradient to the top of the FAQs section relative to the viewport
-                    blueGradient.style.top = `${faqsPosition.top + window.scrollY}px`;
-                }
-            }
-
-            // Adjust position on load and on resize
-            positionGradient();
-            window.addEventListener('resize', positionGradient);
-            window.addEventListener('scroll', positionGradient); // If your FAQs section might change position on page scroll
-
-            // Optionally, use a ResizeObserver if the height of the FAQs section changes dynamically
-            const resizeObserver = new ResizeObserver(entries => {
-                for (let entry of entries) {
-                    positionGradient(); // Adjust the gradient when FAQs size changes
-                }
-            });
-
-            resizeObserver.observe(faqsSection); // Start observing the FAQs section
-        });
-
-
-
-
-        // Second-section spacing
-        document.addEventListener('DOMContentLoaded', function () {
-            const heroImageContainer = document.querySelector('.hero-image-container');
-            const secondSection = document.querySelector('.second-section');
-
-            function adjustSecondSectionMargin() {
-                if (heroImageContainer && secondSection) {
-                    const heroHeight = heroImageContainer.offsetHeight;
-                    const smallScreenMargin = 100;  // Margin for smaller screens width-wise
-                    const largeScreenMargin = 144;  // Standard margin
-                    const heightConstraintMargin = 100; // Margin for small heights
-                    const breakpointWidth = 768; // Breakpoint for screen width
-                    const breakpointHeight = 500; // Breakpoint for screen height
-
-                    // Determine current margin based on width and height constraints
-                    let currentMargin;
-                    if (window.innerWidth < breakpointWidth) {
-                        currentMargin = smallScreenMargin; // Use smaller margin for narrow screens
-                    } else {
-                        currentMargin = largeScreenMargin; // Use standard margin otherwise
-                    }
-
-                    // Override margin if the screen height is less than 500px
-                    if (window.innerHeight < breakpointHeight) {
-                        currentMargin = heightConstraintMargin; // Use margin for small heights
-                    }
-
-                    secondSection.style.marginTop = heroHeight + currentMargin + 'px';
-                }
-            }
-
-            adjustSecondSectionMargin(); // Adjust on load
-
-            window.addEventListener('resize', adjustSecondSectionMargin); // Adjust on resize
-
-
-            //Seventh Section spacing
-            document.addEventListener('DOMContentLoaded', function () {
-                const pricingCards = document.querySelector('.pricing-cards');
-                const seventhSection = document.querySelector('.seventh-section');
-                const desiredSpacing = 144; // Desired distance between the two sections
-
-                function adjustSeventhSectionMargin() {
-                    if (pricingCards && seventhSection) {
-                        const pricingCardsHeight = pricingCards.offsetHeight;
-
-                        // Set the top margin of the seventh section based on the height of the pricing cards
-                        seventhSection.style.marginTop = pricingCardsHeight + desiredSpacing + 'px';
-                    }
-                }
-
-                // Adjust on load and on resize
-                adjustSeventhSectionMargin();
-                window.addEventListener('resize', adjustSeventhSectionMargin);
-
-                // Use a ResizeObserver to adjust the margin when pricing cards size changes dynamically
-                const resizeObserver = new ResizeObserver(entries => {
-                    for (let entry of entries) {
-                        adjustSeventhSectionMargin(); // Adjust the margin when pricing cards size changes
-                    }
-                });
-
-                resizeObserver.observe(pricingCards); // Start observing the pricing cards container
-            });
-
-
-
-            // Optional: If the hero section changes size dynamically
-            const resizeObserver = new ResizeObserver(entries => {
-                for (let entry of entries) {
-                    adjustSecondSectionMargin(); // Adjust margin when hero size changes
-                }
-            });
-
-            resizeObserver.observe(heroImageContainer); // Start observing the hero container
-        });
-
-
-
-        //Membership content funtion
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const targetSections = document.querySelectorAll('.membership-content'); // Add all sections here
-            const windowHeight = window.innerHeight;
-
-            function checkPosition() {
-                targetSections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionTop = rect.top;
-                    const sectionHeight = rect.height;
-
-                    // Trigger fade-in when the top of the section is within the viewport
-                    if (sectionTop <= windowHeight && sectionTop > -0.8 * sectionHeight) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', checkPosition);
-            checkPosition(); // Initialize on load
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Select all elements with the class '.animated-content' from all sections
-            const targetElements = document.querySelectorAll('.animated-content');
-
-            const windowHeight = window.innerHeight;
-
-            function checkPosition() {
-                targetElements.forEach(element => {
-                    const rect = element.getBoundingClientRect();
-                    const elementTop = rect.top;
-                    const elementHeight = rect.height;
-
-                    // Trigger the animation when the top of the element is within the viewport
-                    if (elementTop <= windowHeight && elementTop > -0.8 * elementHeight) {
-                        element.classList.add('active');
-                    } else {
-                        element.classList.remove('active');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', checkPosition);
-            checkPosition(); // Initialize on load to check if any elements are in view initially
-        });
-
-
-
-        //Card Slide
-        document.addEventListener('DOMContentLoaded', function () {
-            const pricingSection = document.querySelector('.pricing-cards');
-            const leftCard = document.querySelector('.left-card');
-            const rightCard = document.querySelector('.right-card');
-            const windowHeight = window.innerHeight;
-            let lastScroll = 0;  // Variable to store the last scroll position
-            let animationDone = false;  // Flag to check if animation has been completed
-
-            function checkPosition() {
-                if (animationDone) return;  // Exit function if animation is done
-
-                const currentScroll = window.pageYOffset;  // Get the current scroll position
-                const rect = pricingSection.getBoundingClientRect();
-                const sectionTop = rect.top;
-
-                // Check if scrolling down and the top of the section is within the viewport
-                if (currentScroll > lastScroll && sectionTop <= windowHeight && sectionTop > -0.8 * rect.height) {
-                    leftCard.classList.add('active');
-                    rightCard.classList.add('active');
-                    animationDone = true;  // Set the flag as true after the animation is triggered
-                }
-
-                lastScroll = currentScroll;  // Update the last scroll position
-            }
-
-            window.addEventListener('scroll', checkPosition);
-            checkPosition();  // Initialize on load
-        });
-
-
-
-
-
-
-        //Scrolling effect for hero image
-        document.addEventListener('DOMContentLoaded', function () {
-            const heroImage = document.querySelector('.hero-image');
-            const heroContainer = heroImage.closest('.hero-image-container');
-            const bodySection = document.querySelector('.body-section');
-            let ticking = false; // flag to prevent multiple rAF calls
-
-            function updateScrollEffects() {
-                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-                const containerRect = heroContainer.getBoundingClientRect();
-                const containerTop = containerRect.top;
-                const containerHeight = containerRect.height;
-
-                const scrollEnd = containerTop + containerHeight;
-                const scrollRatio = scrollY / (scrollY + scrollEnd);
-
-                const imageWidth = heroImage.offsetWidth;
-                const maxScrollWidth = imageWidth - bodySection.offsetWidth;
-                const xPos = maxScrollWidth * scrollRatio;
-
-                heroImage.style.transform = `translateX(-${Math.min(xPos, maxScrollWidth)}px)`;
-                ticking = false; // Reset the ticking flag
-            }
-
-            function requestTick() {
-                if (!ticking) {
-                    requestAnimationFrame(updateScrollEffects);
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('scroll', requestTick);
-        });
-
-
-
-
-        // Pricing Cards
-        document.getElementById('standardBtn').addEventListener('click', function () {
-            var proBtn = document.getElementById('proBtn');
-            var proSvgPath = proBtn.querySelector('svg path');  // Get the path element of the proBtn SVG
-            proSvgPath.setAttribute('fill', '#ECC67B');  // Set path fill to default color when not active
-
-            this.classList.add('active');
-            document.getElementById('proContent').classList.remove('active');
-            document.getElementById('standardContent').classList.add('active');
-            proBtn.classList.remove('active');
-        });
-
-        document.getElementById('proBtn').addEventListener('click', function () {
-            var standardBtn = document.getElementById('standardBtn');
-            standardBtn.classList.remove('active');
-
-            this.classList.add('active');
-            var svgPath = this.querySelector('svg path');  // Get the path element of the proBtn SVG
-            svgPath.setAttribute('fill', 'black');  // Change path fill to black when active
-
-            document.getElementById('standardContent').classList.remove('active');
-            document.getElementById('proContent').classList.add('active');
-        });
-
-
-
-        // Nav Location
-        document.addEventListener('DOMContentLoaded', function () {
-            const navBar = document.querySelector('.nav-bar');
-            const pricingCards = document.querySelector('.pricing-cards');
-            const eighthSection = document.querySelector('.eigth-section');
-            const ninthSection = document.querySelector('.ninth-section');
-            const footer = document.querySelector('.footer-section');
-
-            function adjustNavBar() {
-                const scrollY = window.pageYOffset;
-                const viewportHeight = window.innerHeight;
-                const pricingCardsTop = pricingCards.getBoundingClientRect().top;
-                const eighthSectionBottom = eighthSection.getBoundingClientRect().bottom;
-                const ninthSectionStart = ninthSection.offsetTop;
-                const ninthSectionMid = ninthSectionStart + ninthSection.offsetHeight / 2;
-                const footerTop = footer.offsetTop;
-
-                // Fade out the navbar when the pricing cards have scrolled up 10% past the viewport
-                if (pricingCardsTop < -viewportHeight * 0.1) {
-                    navBar.style.opacity = '0';
-                } else {
-                    navBar.style.opacity = '1';
-                }
-
-                // Show the navbar again when the eighth-section (FAQs) has scrolled up 60% past the viewport
-                if (eighthSectionBottom < viewportHeight * 0.4) {
-                    navBar.style.opacity = '1';
-                }
-
-                // Original behavior adjustment for ninth section and footer
-                if (scrollY + viewportHeight * 0.5 > ninthSectionMid) {
-                    navBar.style.position = 'absolute';
-                    navBar.style.top = `${scrollY + viewportHeight - navBar.offsetHeight * 1.1}px`;
-                    navBar.style.bottom = 'auto';
-                } else {
-                    navBar.style.position = 'fixed';
-                    navBar.style.bottom = '10%';
-                    navBar.style.top = '';
-                }
-
-                // When reaching above the footer
-                if (scrollY + window.innerHeight > footerTop - navBar.offsetHeight * 1.1) {
-                    navBar.style.top = `${footerTop - navBar.offsetHeight * 1.1}px`;
-                }
-            }
-
-            window.addEventListener('scroll', adjustNavBar);
-            adjustNavBar(); // Call on initial load to set the right state
-        });
-
-
-
-
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const faqQuestions = document.querySelectorAll('.faq-q');
-
-            // Initialize all answers to be closed properly
-            faqQuestions.forEach(question => {
-                const answer = question.nextElementSibling;
-                answer.style.maxHeight = '0';  // Ensure all are closed on initial load
-                answer.style.opacity = '0';
-                answer.style.paddingBottom = '0';
-                answer.style.marginBottom = '0';
-            });
-
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', function () {
-                    const answer = this.nextElementSibling;
-                    const icon = this.querySelector('.faq-icon');
-
-                    // Toggle the answer open or closed based on its current state
-                    if (answer.style.maxHeight !== '0px') {
-                        // Close the answer
-                        answer.style.maxHeight = '0';
-                        answer.style.opacity = '0';
-                        answer.style.paddingBottom = '0';
-                        answer.style.marginBottom = '0';
-                        icon.style.transform = '';
-                    } else {
-                        // Open the answer
-                        answer.style.maxHeight = answer.scrollHeight + 'px'; // dynamically set to its natural height
-                        answer.style.opacity = '1';
-                        answer.style.paddingBottom = '20px';
-                        answer.style.marginBottom = '20px';
-                        icon.style.transform = 'rotate(180deg)';
-                    }
-                });
-            });
-        });
-
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.section');
-
-            function activateNavLink() {
-                const scrollY = window.pageYOffset;
-                const viewportHeight = window.innerHeight;
-
-                sections.forEach((section, index) => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionBottom = sectionTop + sectionHeight;
-                    const sectionId = section.getAttribute('id');
-
-                    if (scrollY >= sectionTop - viewportHeight / 2 && scrollY < sectionBottom + viewportHeight / 2) {
-                        navLinks.forEach(link => link.classList.remove('active'));
-                        const correspondingLink = document.querySelector(`a[href="#${sectionId}"]`);
-                        if (correspondingLink) {
-                            correspondingLink.classList.add('active');
-                        }
-                    } else {
-                        const correspondingLink = document.querySelector(`a[href="#${sectionId}"]`);
-                        if (correspondingLink) {
-                            correspondingLink.classList.remove('active');
-                        }
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', activateNavLink);
-            activateNavLink(); // Call the function initially to set the correct active state
-        });
-
-    </script>
-
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 
 </body>
 
