@@ -44,6 +44,7 @@
                 alt="Dreamflow Logo"></a>
         <a href="#portfolio" id="" class="nav-link">Portfolio</a>
         <a href="#services" id="" class="nav-link">Services</a>
+        <a href="https://www.dreamflow-pricing-menu.pdf" target="blank" id="" class="nav-link">Pricing</a>
         <a href="#templates" id="" class="nav-link">Templates</a>
     </nav>
 
@@ -939,15 +940,35 @@
     }) 
     
     document.addEventListener("DOMContentLoaded", function () {
-        let e = document.querySelectorAll(".nav-link");
-        e.forEach(e => {
-            e.addEventListener("click", function (e) {
-                e.preventDefault();
-                let t = this.getAttribute("href"), n = document.querySelector(t);
-                n && window.scrollTo({ behavior: "smooth", top: n.offsetTop })
-            })
-        })
-    })
+    let navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            // Check if the link is external (contains target="_blank")
+            if (this.getAttribute("target") === "blank") {
+                return; // Let the browser handle the default action
+            }
+
+            event.preventDefault();
+            let targetId = this.getAttribute("href");
+
+            // If href is just "#", it likely points to the top of the page
+            if (targetId === "#") {
+                window.scrollTo({
+                    behavior: "smooth",
+                    top: 0
+                });
+            } else {
+                let targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        behavior: "smooth",
+                        top: targetElement.offsetTop
+                    });
+                }
+            }
+        });
+    });
+});
     
     window.onload = function () { window.scrollTo(0, 0) }, document.addEventListener("DOMContentLoaded", function () {
         let e = document.querySelector(".eigth-section"), t = window.innerHeight; function n() {
