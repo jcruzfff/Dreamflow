@@ -44,7 +44,7 @@
                 alt="Dreamflow Logo"></a>
         <a href="#portfolio" id="" class="nav-link">Portfolio</a>
         <a href="#services" id="" class="nav-link">Services</a>
-        <a href="https://www.dreamflow-pricing-menu.pdf" target="blank" id="" class="nav-link">Pricing</a>
+        <a href="/Dreamflow_Pricing_Menu.pdf#zoom=100" target="_blank" class="nav-link">Pricing</a>
         <a href="#templates" id="" class="nav-link">Templates</a>
     </nav>
 
@@ -944,7 +944,7 @@
     navLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             // Check if the link is external (contains target="_blank")
-            if (this.getAttribute("target") === "blank") {
+            if (this.getAttribute("target") === "_blank") {
                 return; // Let the browser handle the default action
             }
 
