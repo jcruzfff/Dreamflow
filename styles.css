@@ -13,7 +13,7 @@ html {
 body,
 html {
     width: 100%;
-    background-color: #101018
+    background-color: #101018;
 }
 
 .button::after,
@@ -31,6 +31,11 @@ body {
 #home-link,
 * {
     padding: 0
+}
+
+#home-link {
+    width: 52px;
+    height: 52px;
 }
 
 .testimony-quote,
@@ -393,7 +398,6 @@ ul {
     justify-content: space-around;
     align-items: center;
     padding: 6px;
-    width: 35%;
     transition: .3s ease-in-out;
     border-radius: 84px;
     border: 1px solid rgba(255, 255, 255, .206);
