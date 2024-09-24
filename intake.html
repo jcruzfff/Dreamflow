@@ -142,10 +142,14 @@ body {
 }
 
 .welcome-section p {
-    font-size: 20px;
     margin-bottom: 42px;
-    width: 65%;
+    width: 75%;
     text-align: center;
+    color: #dadada;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-top: 12px;
 }
 
 
@@ -598,275 +602,304 @@ body {
     <!-- Form Container -->
     <div class="form-container">
         <!-- Logo and Welcome Section -->
-        <div class="welcome-section form-step active" id="welcome-section">
-            <img src="./images/intake_logo.svg" alt="Dreamflow Logo" class="dreamflow-logo-intake"> <!-- Replace with your logo path -->
-            <h2 id="welcome-header">Welcome to Dreamflow</h2>
-            <p class="welcome-subheader">Please fill out the information below so that we can evaluate your design needs.</p>
-            <div class="form-buttons welcome-buttons">
-                <button type="button" class="go-btn welcome-btn">Let's go!</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+        <form action="">
+            <div class="welcome-section form-step active" id="welcome-section">
+                <img src="./images/intake_logo.svg" alt="Dreamflow Logo" class="dreamflow-logo-intake"> <!-- Replace with your logo path -->
+                <h2 id="welcome-header">Where Visionaries <br/> Come to Create</h2>
+                <p class="welcome-subheader">At Dreamflow, we’re more than designers. We’re your strategic partner in bringing world-changing ideas to life. Apply now to explore how we can co-create an experience that transforms your brand.</p>
+                <div class="form-buttons welcome-buttons">
+                    <button type="button" class="go-btn welcome-btn">Let's go!</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="time-message">
+                    <span class="clock-icon"><img src="./images/clock.svg" /></span>
+                    <span>Takes 5 mins</span>
+                </div>
             </div>
-            <div class="time-message">
-                <span class="clock-icon"><img src="./images/clock.svg" /></span>
-                <span>Takes 5 mins</span>
+
+            <!-- Form Steps for Each Question -->
+            <div class="form-step hidden-form">
+                <h2 class="question">Let's start with an introduction</h2>
+                <p class="subheader">What's your name?</p>
+                <input type="text" placeholder="Type your name here..." id="name" class="input-field" required>.
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-name">Please fill out required information</div>
             </div>
-        </div>
 
-        <!-- Form Steps for Each Question -->
-        <div class="form-step hidden-form">
-            <h2 class="question">What should we call you?</h2>
-            <p class="subheader">Name</p>
-            <input type="text" placeholder="Type your answer here..." id="name" class="input-field" required>
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+            <div class="form-step hidden-form">
+                <h2 class="question">Where can we reach you with next steps?</h2>
+                <p class="subheader">Enter your email</p>
+                <input type="email" placeholder="Type your email here..." id="email" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-email">Please fill out required information</div>
             </div>
-            <div class="error-message" id="error-name">Please fill out required information</div>
-        </div>
 
-        <div class="form-step hidden-form">
-            <h2 class="question">Where can we reach you?</h2>
-            <p class="subheader">Email</p>
-            <input type="email" placeholder="Type your answer here..." id="email" class="input-field" required>
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+            <div class="form-step hidden-form">
+                <h2 class="question">What should we call this masterpiece in the making?</h2>
+                <p class="subheader">Company/Project Name</p>
+                <input type="text" placeholder="Type your answer here..." id="company" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-company">Please fill out required information</div>
             </div>
-            <div class="error-message" id="error-email">Please fill out required information</div>
-        </div>
 
-        <div class="form-step hidden-form">
-            <h2 class="question">Who are we designing for?</h2>
-            <p class="subheader">Company/Project Name</p>
-            <input type="text" placeholder="Type your answer here..." id="company" class="input-field" required>
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+            <div class="form-step hidden-form">
+                <h2 class="question">Where can we see your brand in action?</h2>
+                <p class="subheader">Website or Social Media Link (optional) </p>
+                <input type="url" placeholder="Type your answer here..." id="website" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-website">Please fill out required information</div>
             </div>
-            <div class="error-message" id="error-company">Please fill out required information</div>
-        </div>
 
-        <div class="form-step hidden-form">
-            <h2 class="question">What have you been up to?</h2>
-            <p class="subheader">Website or Social Media Link</p>
-            <input type="url" placeholder="Type your answer here..." id="website" class="input-field" required>
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+            <!-- Project Overview -->
+            <div class="form-step hidden-form">
+                <h2 class="question">Tell us about your project.</h2>
+                <p class="subheader">What’s the big idea, and what are your goals?</p>
+                <input type="text" placeholder="What's your vision for the future..." id="goals" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-project-overview">Please fill out required information</div>
             </div>
-            <div class="error-message" id="error-website">Please fill out required information</div>
-        </div>
-
-        <!-- Project Overview -->
-        <div class="form-step hidden-form">
-            <h2 class="question">What’s the big idea?</h2>
-            <p class="subheader">Give us a quick overview of your project goals and what you’re looking to achieve.</p>
-            <input type="text" placeholder="Type your answer here..." id="goals" class="input-field" required>
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
-            </div>
-            <div class="error-message" id="error-project-overview">Please fill out required information</div>
-        </div>
 
 
-        <div class="form-step hidden-form">
-            <h2 class="question">Which of our services are you interested in?</h2>
-            <p class="subheader">(Check all that apply)</p>
-            
-            <!-- Custom Checkbox for Brand Identity -->
-            <label class="custom-checkbox">
-                <input type="checkbox" id="brand-identity" class="hidden-checkbox">
-                <span class="custom-checkbox-label">Brand Identity</span>
-                <span class="checkmark">
-                    <!-- SVG for checkmark -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
-                    </svg>
-                </span>
-            </label>
+                <!-- Project Timeline -->
+                <div class="form-step hidden-form">
+                    <h2 class="question">When do you want to launch?</h2>
+                    <p class="subheader">(Select one)</p>
         
-            <!-- Repeat for other checkboxes -->
-            <label class="custom-checkbox">
-                <input type="checkbox" id="ui-ux-design" class="hidden-checkbox">
-                <span class="custom-checkbox-label">UI/UX Design</span>
-                <span class="checkmark">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
-                    </svg>
-                </span>
-            </label>
-
-            <label class="custom-checkbox">
-                <input type="checkbox" id="web-development" class="hidden-checkbox">
-                <span class="custom-checkbox-label">Web Development</span>
-                <span class="checkmark">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
-                    </svg>
-                </span>
-            </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="timeline" value="asap" class="hidden-radio">
+                        <span class="custom-radio-label">Urgent (ASAP)</span>
+                    </label>
         
-            <label class="custom-checkbox">
-                <input type="checkbox" id="design-consulting" class="hidden-checkbox">
-                <span class="custom-checkbox-label">Design Consulting</span>
-                <span class="checkmark">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
-                    </svg>
-                </span>
-            </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="timeline" value="1-2-months" class="hidden-radio">
+                        <span class="custom-radio-label">1 - 2 months</span>
+                    </label>
         
-            <label class="custom-checkbox">
-                <input type="checkbox" id="startup-strategy" class="hidden-checkbox">
-                <span class="custom-checkbox-label">Startup Strategy</span>
-                <span class="checkmark">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
-                    </svg>
-                </span>
-            </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="timeline" value="3-6-months" class="hidden-radio">
+                        <span class="custom-radio-label">3 - 6 months</span>
+                    </label>
+        
+                    <label class="custom-radio">
+                        <input type="radio" name="timeline" value="flexible" class="hidden-radio">
+                        <span class="custom-radio-label">Flexible, let's discuss</span>
+                    </label>
+        
+                    <div class="form-buttons">
+                        <button type="button" class="go-btn">OK</button>
+                        <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                    </div>
+                    <div class="error-message">Please select an option</div>
+                </div>
+
+
+            <div class="form-step hidden-form">
+                <h2 class="question">Which of our services are you interested in?</h2>
+                <p class="subheader">(Check all that apply)</p>
+                
+                <!-- Custom Checkbox for Brand Identity -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="brand-identity" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Brand Identity</span>
+                    <span class="checkmark">
+                        <!-- SVG for checkmark -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+
+
+                <!-- Brand Strategy -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="brand-strategy" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Brand Strategy</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
             
-            <label class="custom-checkbox">
-                <input type="checkbox" id="other-service" class="hidden-checkbox">
-                <span class="custom-checkbox-label">Other</span>
-                <span class="checkmark">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
-                    </svg>
-                </span>
-            </label>
-    
+
+                <!-- Web Design -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="web-design" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Web Design</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+
+                
+                <!-- Repeat for other checkboxes -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="ui-ux-design" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">UI/UX Design</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+                
+                <!-- Repeat for other checkboxes -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="marketing-assets" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Marketing Assets</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
             
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                <!-- Event Design -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="event-design" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Event Design</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+
+                <!-- Development Services -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="web-development" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Development Services</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+                
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="other-service" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Other</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+        
+                
+                
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message">Please select at least one option</div>
             </div>
-        </div>
 
 
 
-        <!-- Project Timeline -->
-        <div class="form-step hidden-form">
-            <h2 class="question">What's your project timeline?</h2>
-            <p class="subheader">(Select one)</p>
+        
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="less-than-1-month" class="hidden-radio">
-                <span class="custom-radio-label">Less than 1 month</span>
-            </label>
+            <!-- Budget Section -->
+            <div class="form-step hidden-form">
+                <h2 class="question">What's your ballpark budget?</h2>
+                <p class="subheader">This helps us create a proposal that fits your vision and resources.</p>
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="1-3-months" class="hidden-radio">
-                <span class="custom-radio-label">1-3 months</span>
-            </label>
+                <label class="custom-radio">
+                    <input type="radio" name="budget" value="2k-5k" class="hidden-radio">
+                    <span class="custom-radio-label">$2k - $5k</span>
+                </label>
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="3-6-months" class="hidden-radio">
-                <span class="custom-radio-label">3-6 months</span>
-            </label>
+                <label class="custom-radio">
+                    <input type="radio" name="budget" value="5k-10k" class="hidden-radio">
+                    <span class="custom-radio-label">$5k - $10k</span>
+                </label>
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="6+-months" class="hidden-radio">
-                <span class="custom-radio-label">6+ months</span>
-            </label>
+                <label class="custom-radio">
+                    <input type="radio" name="budget" value="10k-20k" class="hidden-radio">
+                    <span class="custom-radio-label">$10k - $20k</span>
+                </label>
 
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                <label class="custom-radio">
+                    <input type="radio" name="budget" value="20k-50k" class="hidden-radio">
+                    <span class="custom-radio-label">$20k - $50k</span>
+                </label>
+
+                <label class="custom-radio">
+                    <input type="radio" name="budget" value="50k-100k+" class="hidden-radio">
+                    <span class="custom-radio-label">$50k - $100k+</span>
+                </label>
+
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message">Please select an option</div>
             </div>
-        </div>
-
-        <!-- Budget Section -->
-        <div class="form-step hidden-form">
-            <h2 class="question">What's your ballpark budget?</h2>
-            <p class="subheader">This helps us create a proposal that fits your vision and resources.</p>
-
-            <label class="custom-radio">
-                <input type="radio" name="budget" value="under-5000" class="hidden-radio">
-                <span class="custom-radio-label">Under $5,000</span>
-            </label>
-
-            <label class="custom-radio">
-                <input type="radio" name="budget" value="5000-10000" class="hidden-radio">
-                <span class="custom-radio-label">$5,000 - $10,000</span>
-            </label>
-
-            <label class="custom-radio">
-                <input type="radio" name="budget" value="10000-25000" class="hidden-radio">
-                <span class="custom-radio-label">$10,000 - $25,000</span>
-            </label>
-
-            <label class="custom-radio">
-                <input type="radio" name="budget" value="25000-50000" class="hidden-radio">
-                <span class="custom-radio-label">$25,000 - $50,000</span>
-            </label>
-
-            <label class="custom-radio">
-                <input type="radio" name="budget" value="50000+" class="hidden-radio">
-                <span class="custom-radio-label">$50,000+</span>
-            </label>
-
-            <label class="custom-radio">
-                <input type="radio" name="budget" value="not-sure" class="hidden-radio">
-                <span class="custom-radio-label">Not sure yet, let's discuss</span>
-            </label>
-
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
-            </div>
-        </div>
 
 
 
-        <!-- Connection -->
-        <div class="form-step hidden-form">
-            <h2 class="question">How did you find Dreamflow?</h2>
-            <p class="subheader">(Select one)</p>
-           
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="referral" class="hidden-radio">
-                <span class="custom-radio-label">Referral</span>
-            </label>
+            <!-- Connection -->
+            <div class="form-step hidden-form">
+                <h2 class="question">Where did you hear about us?</h2>
+                <p class="subheader">Who sent you our way? We'd love to know.</p>
             
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="Social Media" class="hidden-radio">
-                <span class="custom-radio-label">Social Media</span>
-            </label>
+                <label class="custom-radio">
+                    <input type="radio" name="source" value="referral" class="hidden-radio">
+                    <span class="custom-radio-label">Referral</span>
+                </label>
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="google" class="hidden-radio">
-                <span class="custom-radio-label">Google Search</span>
-            </label>
+                
+                <label class="custom-radio">
+                    <input type="radio" name="source" value="social-media" class="hidden-radio">
+                    <span class="custom-radio-label">Social Media</span>
+                </label>
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="dreamflow" class="hidden-radio">
-                <span class="custom-radio-label">Dreamflow Website</span>
-            </label>
+                <label class="custom-radio">
+                    <input type="radio" name="source" value="google" class="hidden-radio">
+                    <span class="custom-radio-label">Google Search</span>
+                </label>
 
-            <label class="custom-radio">
-                <input type="radio" name="timeline" value="event" class="hidden-radio">
-                <span class="custom-radio-label">Event or Conference</span>
-            </label>
+        
+                <label class="custom-radio">
+                    <input type="radio" name="source" value="event" class="hidden-radio">
+                    <span class="custom-radio-label">Event or Conference</span>
+                </label>
 
-            <label class="custom-radio" id="other-radio-label">
-                <input type="radio" name="find-source" value="other" class="hidden-radio" id="other-radio-input">
-                <span class="custom-radio-label">Other (please specify)</span>
-            </label>
-            <input type="text" placeholder="Type your answer here..." id="other-find" class="input-field" required style="display: none;">
+                <label class="custom-radio">
+                    <input type="radio" name="source" value="other" class="hidden-radio">
+                    <span class="custom-radio-label">Other (please specify)</span>
+                </label>
+            
 
-            <div class="form-buttons">
-                <button type="button" class="go-btn">OK</button>
-                <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message">Please select an option</div>
             </div>
-        </div>
-    
-
+        
+        </form>
         <!-- Submit Button Page -->
         <div class="form-step hidden-form" id="last-question" >
-            <p class="question last-question">"Thanks for sharing! 🚀 We’ll be in touch shortly to discuss your project and how we can make your vision a reality."</p>
-            <button type="submit" class="submit-btn">Submit</button>
+            <p class="question last-question">Thank you for sharing your vision with us. We handpick the most forward-thinking projects to ensure every partnership is groundbreaking. If your application aligns, we’ll be in touch to schedule a private consultation.</p>
+            <button type="submit" class="submit-btn">Submit & Await Invitation</button>
         </div>
     </div>
 
@@ -1011,123 +1044,218 @@ body {
     const goBtns = document.querySelectorAll('.go-btn');
     let currentStep = 0;
 
-    // Show navigation buttons after the welcome screen
+    let formData = {};
+
     function showNavButtons() {
+        const navButtons = document.querySelector('.nav-buttons');
         if (currentStep > 0) {
-            document.querySelector('.nav-buttons').style.visibility = 'visible';
+            navButtons.style.visibility = 'visible';
+            if (currentStep === formSteps.length - 1) {
+                nextBtn.style.display = 'none';
+                prevBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                prevBtn.style.display = 'inline-block';
+            }
         } else {
-            document.querySelector('.nav-buttons').style.visibility = 'hidden';
+            navButtons.style.visibility = 'hidden';
         }
     }
 
-    // Enable or disable next button based on input or checkbox
-    function updateNextButton() {
-        const input = formSteps[currentStep].querySelector('.input-field');
-        const checkboxes = formSteps[currentStep].querySelectorAll('.hidden-checkbox');
+    function updateButtons() {
+        if (currentStep === 0 || currentStep === formSteps.length - 1) {
+            nextBtn.disabled = false;
+            return;
+        }
 
-        // Check if input field exists and is filled
-        if (input && input.value.trim() !== '') {
-            nextBtn.disabled = false;
-        } 
-        // Check if any checkboxes are checked
-        else if (checkboxes.length > 0 && Array.from(checkboxes).some(checkbox => checkbox.checked)) {
-            nextBtn.disabled = false;
-        } else {
-            nextBtn.disabled = true;
+        const currentForm = formSteps[currentStep];
+        const input = currentForm.querySelector('.input-field');
+        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+        const radios = currentForm.querySelectorAll('.hidden-radio');
+        const goBtn = currentForm.querySelector('.go-btn');
+
+        let isValid = false;
+
+        if (input) {
+            isValid = input.value.trim() !== '';
+        } else if (checkboxes.length > 0) {
+            isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        } else if (radios.length > 0) {
+            isValid = Array.from(radios).some(radio => radio.checked);
+        }
+
+         console.log(`Step ${currentStep}: isValid = ${isValid}`); 
+
+        nextBtn.disabled = !isValid;
+        if (goBtn) goBtn.disabled = !isValid;
+    }
+
+    function focusInput() {
+        const input = formSteps[currentStep].querySelector('.input-field');
+        if (input) {
+            input.focus();
         }
     }
 
-  // Automatically focus the input field when form step is active
-function focusInput() {
-    const input = formSteps[currentStep].querySelector('.input-field');
-    if (input) {
-        input.focus(); // Focus the input field
+    function saveFormData() {
+        const currentForm = formSteps[currentStep];
+        const input = currentForm.querySelector('.input-field');
+        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox:checked');
+        const radios = currentForm.querySelectorAll('.hidden-radio:checked');
+
+        if (input) {
+            formData[input.id] = input.value;
+        } else if (checkboxes.length > 0) {
+            formData[currentStep] = Array.from(checkboxes).map(cb => cb.value);
+        } else if (radios.length > 0) {
+            formData[radios[0].name] = radios[0].value;
+        }
     }
-}
 
-// Modify the event listener to focus the input field on form step activation
-goBtns.forEach((button) => {
-    button.addEventListener('click', () => {
-        const input = formSteps[currentStep].querySelector('.input-field');
-        const checkboxes = formSteps[currentStep].querySelectorAll('.hidden-checkbox');
+    function loadFormData() {
+        const currentForm = formSteps[currentStep];
+        const input = currentForm.querySelector('.input-field');
+        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+        const radios = currentForm.querySelectorAll('.hidden-radio');
 
-        if (input && input.value.trim() === '') {
-            const errorElement = document.getElementById(`error-${input.id}`);
-            if (errorElement) {
-                errorElement.style.display = 'block';
+        if (input && formData[input.id]) {
+            input.value = formData[input.id];
+        } else if (checkboxes.length > 0 && formData[currentStep]) {
+            formData[currentStep].forEach(value => {
+                const checkbox = currentForm.querySelector(`.hidden-checkbox[value="${value}"]`);
+                if (checkbox) {
+                    checkbox.checked = true;
+                    checkbox.closest('.custom-checkbox').classList.add('checked');
+                }
+            });
+        } else if (radios.length > 0) {
+            const radioName = radios[0].name;
+            if (formData[radioName]) {
+                const selectedRadio = currentForm.querySelector(`.hidden-radio[value="${formData[radioName]}"]`);
+                if (selectedRadio) {
+                    selectedRadio.checked = true;
+                    selectedRadio.closest('.custom-radio').classList.add('checked');
+                }
             }
-        } else if (checkboxes.length > 0 && !Array.from(checkboxes).some(checkbox => checkbox.checked)) {
-            const errorElement = document.querySelector('.error-message');
-            if (errorElement) {
-                errorElement.style.display = 'block';
-            }
-        } else {
+        }
+        updateButtons();
+    }
+
+    function moveToNextStep() {
+        console.log(`Attempting to move from step ${currentStep}`);
+        if (currentStep === 0 || validateCurrentStep()) {
+            saveFormData();
             formSteps[currentStep].classList.remove('active');
             currentStep++;
             if (currentStep < formSteps.length) {
                 formSteps[currentStep].classList.add('active');
-                focusInput(); // Focus input field after moving to the next step
-
-                // Hide the error message if it exists
-                if (input) {
-                    const errorElement = document.getElementById(`error-${input.id}`);
-                    if (errorElement) {
-                        errorElement.style.display = 'none';
-                    }
-                }
-
-                updateNextButton();
+                loadFormData();
+                focusInput();
                 showNavButtons();
+                updateButtons();
             }
         }
-    });
-});
+    }
 
-// Ensure input field is focused on form load
-window.addEventListener('DOMContentLoaded', () => {
-    focusInput();
-});
-
-
-    nextBtn.addEventListener('click', () => {
-        if (currentStep < formSteps.length - 1) {
-            formSteps[currentStep].classList.remove('active');
-            currentStep++;
-            formSteps[currentStep].classList.add('active');
-            updateNextButton();
-            showNavButtons();
-        }
-    });
-
-    prevBtn.addEventListener('click', () => {
+    function moveToPrevStep() {
         if (currentStep > 0) {
+            saveFormData();
             formSteps[currentStep].classList.remove('active');
             currentStep--;
             formSteps[currentStep].classList.add('active');
-            updateNextButton();
+            loadFormData();
             showNavButtons();
+            updateButtons();
         }
+    }
+
+    function validateCurrentStep() {
+        if (currentStep === 0 || currentStep === formSteps.length - 1) {
+            return true;
+        }
+
+        const currentForm = formSteps[currentStep];
+        const input = currentForm.querySelector('.input-field');
+        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+        const radios = currentForm.querySelectorAll('.hidden-radio');
+        const errorMessage = currentForm.querySelector('.error-message');
+
+        let isValid = false;
+
+        if (input) {
+            isValid = input.value.trim() !== '';
+        } else if (checkboxes.length > 0) {
+            isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        } else if (radios.length > 0) {
+            isValid = Array.from(radios).some(radio => radio.checked);
+        }
+
+        console.log(`Validating step ${currentStep}: isValid = ${isValid}`); 
+
+        if (!isValid && errorMessage) {
+            errorMessage.style.display = 'block';
+        } else if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+
+        return isValid;
+    }
+
+    goBtns.forEach((button) => {
+        button.addEventListener('click', moveToNextStep);
     });
+
+    nextBtn.addEventListener('click', moveToNextStep);
+    prevBtn.addEventListener('click', moveToPrevStep);
 
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' && currentStep < formSteps.length) {
+        if (event.key === 'Enter' && currentStep < formSteps.length - 1) {
             event.preventDefault();
-            goBtns[currentStep].click();
+            moveToNextStep();
         }
     });
 
-    // Update next button state on input or checkbox change
     document.querySelectorAll('.input-field').forEach(input => {
-        input.addEventListener('input', updateNextButton);
+        input.addEventListener('input', function() {
+            updateButtons();
+            this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+        });
     });
 
     document.querySelectorAll('.hidden-checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', updateNextButton);
+        checkbox.addEventListener('change', function() {
+            updateButtons();
+            this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+        });
     });
 
+    document.querySelectorAll('.hidden-radio').forEach(radio => {
+    radio.addEventListener('change', function() {
+        console.log(`Radio changed: ${this.name} = ${this.value}`);
+        updateButtons();
+        this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+        
+        const name = this.getAttribute('name');
+        document.querySelectorAll(`.hidden-radio[name="${name}"]`).forEach((r) => {
+            r.closest('.custom-radio').classList.remove('checked');
+        });
+
+        this.closest('.custom-radio').classList.add('checked');
+    });
+});
     // Initial state setup
     showNavButtons();
-    updateNextButton();
+    updateButtons();
+
+    // Modify the final submit button event listener
+    const submitBtn = document.querySelector('.submit-btn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            console.log('Form data to be sent to Asana:', formData);
+            // You can add an AJAX call or other logic here to send data to Asana
+        });
+    }
 });
 
 const checkboxes = document.querySelectorAll('.hidden-checkbox');
