@@ -679,13 +679,13 @@ form{
 
             <div class="form-step hidden-form">
                 <h2 class="question">Where can we see your brand in action?</h2>
-                <p class="subheader">Website or Social Media Link (optional) </p>
+                <p class="subheader">Website or Social Media Link (optional)</p>
                 <input type="url" placeholder="Type your answer here..." id="website" class="input-field" required>
                 <div class="form-buttons">
                     <button type="button" class="go-btn">OK</button>
                     <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
                 </div>
-                <div class="error-message" id="error-website">Please fill out required information</div>
+    
             </div>
 
             <!-- Project Overview -->
@@ -1197,11 +1197,14 @@ form{
             return true;
         }
 
+        if (currentStep === 4) return true;
+
         const currentForm = formSteps[currentStep];
         const input = currentForm.querySelector('.input-field');
         const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
         const radios = currentForm.querySelectorAll('.hidden-radio');
         const errorMessage = currentForm.querySelector('.error-message');
+
 
         let isValid = false;
 
@@ -1239,12 +1242,14 @@ form{
         });
 
         document.querySelectorAll('.input-field').forEach(input => {
-            input.addEventListener('input', function() {
-                updateButtons();
-                this.closest('.form-step').querySelector('.error-message').style.display = 'none';
-            });
-        });
-
+    input.addEventListener('input', function() {
+        const errorMessage = this.closest('.form-step')?.querySelector('.error-message');
+        if (errorMessage) {
+            errorMessage.style.display = this.value.trim() !== '' ? 'none' : 'block';
+        }
+        updateButtons();
+    });
+});
         document.querySelectorAll('.hidden-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
                 updateButtons();
