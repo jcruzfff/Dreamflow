@@ -219,6 +219,8 @@ body {
 
 form{
     width: 100%;
+    position: relative;
+    z-index: 1000;
 }
 
 /* Form Step */
@@ -310,9 +312,10 @@ form{
 
 .error-message {
     color: #ff4c4c; /* Red for error message */
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 10px;
     display: none; /* Hidden by default */
+    
 }
 
 #welcome-section{
@@ -459,12 +462,6 @@ form{
         }
 
         .success-message {
-            text-align: center;
-            padding: 20px;
-            font-size: 24px;
-        }
-
-        .error-message {
             text-align: center;
             padding: 20px;
             font-size: 24px;
@@ -626,7 +623,7 @@ form{
 <body>
     <div class="" id="particles-js"></div>
     <!-- Back Button -->
-    <button id="back-btn" class="back-btn">Back</button>
+    <button id="back-btn" class="back-btn">Exit</button>
 
     <!-- Form Container -->
     <!-- Logo and Welcome Section -->
