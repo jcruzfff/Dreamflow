@@ -96,7 +96,7 @@ body {
     left: 4%;
     background: none;
     border-radius: 32px;
-    padding: 10px 24px;
+    padding: 12px 24px 10px 24px;;
     border: 1px solid #242424;
     color: #fff;
     font-size: 18px;
@@ -175,19 +175,18 @@ body {
 .go-btn, .submit-btn {
     position: relative;
     z-index: 1000;
-    padding: 10px 42px;
+    padding: 12px 42px 10px 42px;;
     font-size: 18px;
-    background-color: #fff; /* Button background white */
-    color: #000; /* Button text black */
+    background-color: #fff;
+    color: #000;
     border: none;
-    border-radius: 50px; /* Round buttons */
+    border-radius: 50px;
     cursor: pointer;
     margin-right: 10px;
-    display: inline-block;
 }
 
 .welcome-btn{
-    padding: 10px 42px;
+    padding: 12px 42px 10px 42px;;
 }
 
 .enter-message {
@@ -303,8 +302,8 @@ form{
 
 .nav-buttons {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 24px;
+    right: 24px;
     display: flex;
     visibility: hidden; /* Hidden by default */
     z-index: 1000;
@@ -514,24 +513,12 @@ form{
         font-size: 16px;
     }
 
-    /* Navigation buttons */
-    .nav-buttons {
-        bottom: 10px;
-        right: 10px;
-    }
-
     .nav-btn {
         width: 36px;
         height: 36px;
     }
 
     /* Back button */
-    .back-btn {
-        top: 2%;
-        left: 2%;
-        padding: 8px 16px;
-        font-size: 16px;
-    }
 
     /* Last question */
     #last-question .question {
@@ -562,8 +549,8 @@ form{
     }
 
     .go-btn, .submit-btn {
-        padding: 8px 24px;
-        font-size: 14px;
+        padding: 10px 24px 8px 24px;
+        font-size: 16px;
     }
 
     #last-question .question {
@@ -580,6 +567,12 @@ form{
 
     .back-btn{
         font-size: 12px;
+        top: 4%;
+        left: 6%;
+        padding: 10px 20px 8px 20px;
+        position: absolute;
+        z-index: 1050;
+        box-sizing: border-box;
     }
 
     .go-btn{
