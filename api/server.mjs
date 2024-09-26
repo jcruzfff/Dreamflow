@@ -9,7 +9,7 @@ dotenv.config();
 
 const { json } = pkg;
 const app = express();
-const port = process.env.NODE_ENV === 'production' ? 80 : 3000;
+const port = process.env.NODE_ENV === 'production' ? 443 : 3000;
 const host = process.env.NODE_ENV === 'production' ? 'www.dreamflowlabs.com' : 'localhost';
 
 // Set up body parsing and CORS
