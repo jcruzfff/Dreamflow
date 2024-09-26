@@ -9,8 +9,8 @@ dotenv.config();
 
 const { json } = pkg;
 const app = express();
-const port = 3000;
-
+const port = process.env.NODE_ENV === 'production' ? 80 : 3000;
+const host = process.env.NODE_ENV === 'production' ? 'www.dreamflowlabs.com' : 'localhost';
 
 // Set up body parsing and CORS
 app.use(json());
@@ -117,6 +117,6 @@ app.post('/submit-form', async (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server running on ${port}`);
+app.listen(port, host, () => {
+    console.log(`Server running on http://${host}:${port}`);
 });
