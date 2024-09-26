@@ -1,27 +1,35 @@
-// server.js (Express backend)
 import express from 'express';
 import fetch from 'node-fetch';
-import cors from 'cors'; // Allow CORS for the frontend requests
+import cors from 'cors';
 import pkg from 'body-parser';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-dotenv.config();    
+dotenv.config();
 
 const { json } = pkg;
 const app = express();
 const port = process.env.NODE_ENV === 'production' ? 443 : 3000;
 const host = process.env.NODE_ENV === 'production' ? 'www.dreamflowlabs.com' : 'localhost';
 
+// Define __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Set up body parsing and CORS
 app.use(json());
 app.use(cors());
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 if (!process.env.ASANA_ACCESS_TOKEN && !process.env.PROJECT_ID) {
     console.error('ASANA_ACCESS_TOKEN and PROJECT_ID must be set');
     process.exit(1);
 }
-// Asana API token and Project ID stored in the backend
-const ASANA_ACCESS_TOKEN = process.env.ASANA_ACCESS_TOKEN;  // Keep this secure
+
+const ASANA_ACCESS_TOKEN = process.env.ASANA_ACCESS_TOKEN;
 const PROJECT_ID = process.env.PROJECT_ID;
 
 // Timeline enum_option GIDs mapping
