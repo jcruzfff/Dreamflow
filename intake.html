@@ -1306,7 +1306,7 @@ radios.forEach((radio) => {
 
 async function sendToAsana(formData) {
     const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://www.dreamflowlabs.com';
-            const API_URL = baseURL + '/submit-form';  // Your Express API endpoint
+            const API_URL = baseURL + '/api/submit-form';  // Your Express API endpoint
 
             showLoading();  // Show loading state
 
