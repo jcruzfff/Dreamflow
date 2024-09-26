@@ -3,6 +3,9 @@ import express from 'express';
 import fetch from 'node-fetch';
 import cors from 'cors'; // Allow CORS for the frontend requests
 import pkg from 'body-parser';
+import dotenv from 'dotenv';
+
+dotenv.config();    
 
 const { json } = pkg;
 const app = express();
@@ -13,9 +16,13 @@ const port = 3000;
 app.use(json());
 app.use(cors());
 
+if (!process.env.ASANA_ACCESS_TOKEN && !process.env.PROJECT_ID) {
+    console.error('ASANA_ACCESS_TOKEN and PROJECT_ID must be set');
+    process.exit(1);
+}
 // Asana API token and Project ID stored in the backend
-const ASANA_ACCESS_TOKEN = '2/1207858677518248/1208379325693384:d1ce5a080a43e80ecc4f3ce4e42abe75';  // Keep this secure
-const PROJECT_ID = '1208341997669670';
+const ASANA_ACCESS_TOKEN = process.env.ASANA_ACCESS_TOKEN;  // Keep this secure
+const PROJECT_ID = process.env.PROJECT_ID;
 
 // Timeline enum_option GIDs mapping
 const timelineOptions = {
