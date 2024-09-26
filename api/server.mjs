@@ -63,7 +63,9 @@ const serviceOptions = {
 };
 
 // Endpoint to handle the form submission
-app.post('/submit-form', async (req, res) => {
+app.post('/api/submit-form', async (req, res) => {
+    console.log('Received request:', req.body); // Log the request body
+
     const { name, email, company, website, goals, timeline, budget, source, services } = req.body;
 
     // Get the selected timeline, budget, source GID
@@ -109,9 +111,11 @@ app.post('/submit-form', async (req, res) => {
             return res.status(200).json({ message: 'Task successfully created in Asana' });
         } else {
             const error = await response.json();
+            console.error('Error creating task in Asana:', error); // Log the error
             return res.status(500).json({ message: 'Error creating task in Asana', error });
         }
     } catch (error) {
+        console.error('Server error:', error); // Log the server error
         return res.status(500).json({ message: 'Server error', error });
     }
 });
