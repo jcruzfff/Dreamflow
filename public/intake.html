@@ -622,7 +622,7 @@ form{
     <!-- Logo and Welcome Section -->
     <div class="welcome-section form-step active" id="welcome-section">
         <img src="./images/intake_logo.svg" alt="Dreamflow Logo" class="dreamflow-logo-intake"> <!-- Replace with your logo path -->
-        <h2 id="welcome-header">Where Visionaries <br/> Come to Create</h2>
+        <h2 id="welcome-header">Welcome to Dreamflow</h2>
         <p class="welcome-subheader">At Dreamflow, we’re more than designers. We’re your strategic partner in bringing world-changing ideas to life. Apply now to explore how we can co-create an experience that transforms your brand.</p>
         <div class="form-buttons welcome-buttons">
             <button type="button" class="go-btn welcome-btn">Let's go!</button>
@@ -630,7 +630,7 @@ form{
         </div>
         <div class="time-message">
             <span class="clock-icon"><img src="./images/clock.svg" /></span>
-            <span>Takes 5 mins</span>
+            <span>Takes 2 mins</span>
         </div>
     </div>
     
@@ -1389,167 +1389,6 @@ async function sendToAsana(formData) {
                 </div>
             `;
         }
-
-// async function sendToAsana(formData) {
-//         const projectId = '1208341997669670';  // Replace with your actual Asana Project GID
-//         const ASANA_API_URL = `https://app.asana.com/api/1.0/tasks`;
-//         const ASANA_ACCESS_TOKEN = '2/1207858677518248/1208379325693384:d1ce5a080a43e80ecc4f3ce4e42abe75';  // Replace with your Asana Access Token
-
-//         // Timeline enum_option GIDs mapping
-//         const timelineOptions = {
-//             'asap': '1208369425912600',  // GID for Urgent (ASAP)
-//             '1-2-months': '1208393912239626',  // GID for 1 - 2 months
-//             '3-6-months': '1208369425912634',  // GID for 3 - 6 months
-//             'flexible': '1208393912239627'  // GID for Flexible, let's discuss
-//         };
-
-//         // Budget enum_option GIDs mapping
-//         const budgetOptions = {
-//             '2k-5k': '1208369425912638',  // GID for $2k - $5k
-//             '5k-10k': '1208369425912639',  // GID for $5k - $10k
-//             '10k-20k': '1208369425912640',  // GID for $10k - $20k
-//             '20k-50k': '1208369425912641',  // GID for $20k - $50k
-//             '50k-100k+': '1208369425912642'  // GID for $50k - $100k+
-//         };
-
-//         // Source enum_option GIDs mapping
-//         const sourceOptions = {
-//             'referral': '1208369425912646',  // GID for Referral
-//             'social-media': '1208369425912647',  // GID for Social Media
-//             'google': '1208369425912648',  // GID for Google Search
-//             'event': '1208369425912650',  // GID for Event or Conference
-//             'other': '1208369425912651'  // GID for Other
-//         };
-
-//         // Services checkbox GIDs mapping (assuming multiple GIDs for different services)
-//         const serviceOptions = {
-//             'brand-identity': '1208369425912593',  // GID for Brand Identity
-//             'brand-strategy': '1208369425912597',  // GID for Brand Strategy
-//             'web-design': '1208393912239628',  // GID for Web Design
-//             'ui-ux-design': '1208369425912594',  // GID for UI/UX Design
-//             'marketing-assets': '1208393912239629',  // GID for Marketing Assets
-//             'event-design': '1208393912239630',  // GID for Event Design
-//             'development-services': '1208393912239631',  // GID for Development Services
-//             'other-services': '1208393912239632'  // GID for Other Services
-//         };
-
-//         // Get the selected timeline GID based on the user's selection
-//         const selectedTimelineGID = timelineOptions[formData.timeline];
-//         // Get the selected budget GID based on the user's selection
-//         const selectedBudgetGID = budgetOptions[formData.budget];
-//         // Get the selected source GID based on the user's selection
-//         const selectedSourceGID = sourceOptions[formData.source];
-
-//         // Map selected services (checkboxes) to their respective GIDs
-//         const selectedServicesGIDs = formData.services.map(service => serviceOptions[service]);
-
-//         const taskData = {
-//             data: {
-//                 name: `New Client Submission: ${formData.name}`,  // Task name, client name
-//                 projects: [projectId],  // Asana project ID
-//                 notes: `Email: ${formData.email}\nCompany: ${formData.company}\nWebsite: ${formData.website}\nGoals: ${formData.goals}\nTimeline: ${formData.timeline}\nBudget: ${formData.budget}\nSource: ${formData.source}`,
-//                 custom_fields: {
-//                     '1208369425912572': formData.email,  // Replace with the GID for Email
-//                     '1208369425912570': formData.name,   // Replace with the GID for Name
-//                     '1208369425912574': formData.company,  // Replace with the GID for Company
-//                     '1208369425912576': formData.website,  // Replace with the GID for Website
-//                     '1208369425912590': formData.goals,  // Replace with the GID for Goals
-//                     '1208369425912599': selectedTimelineGID,  // Use the selected GID for Timeline
-//                     '1208369425912637': selectedBudgetGID,  // Use the selected GID for Budget
-//                     '1208369425912645': selectedSourceGID,  // Use the selected GID for Source
-//                     '1208369425912592': selectedServicesGIDs  // Use the selected GIDs for Services (array of GIDs)
-//                 }
-//             }
-//         };
-
-//         showLoading();  // Show loading state
-        
-//         try {
-//         const response = await fetch(ASANA_API_URL, {
-//             method: 'POST',
-//             headers: {
-//                 'Authorization': `Bearer ${ASANA_ACCESS_TOKEN}`,
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(taskData)
-//         });
-
-//         hideLoading();  // Hide loading state
-
-//         if (response.ok) {
-//             showSuccessScreen();  // Show success message
-//         } else {
-//             const errorData = await response.json();
-//             console.error('Error sending form data to Asana:', errorData);
-//             showErrorScreen();  // Show error message
-//         }
-//         } catch (error) {
-//             hideLoading();  // Hide loading state
-//             console.error('Request failed:', error);
-//             showErrorScreen();  // Show error message
-//         }
-//     }
-
-//         // Show loading state
-//         function showLoading() {
-//             document.querySelector('.form-container').innerHTML = `
-//                 <div class="loading-message">
-//                     <p>Submitting your form, please wait...</p>
-//                 </div>
-//             `;
-//         }
-
-//         // Hide loading state (optional, if you want to show the form again after submission)
-//         function hideLoading() {
-//             // You could revert to the original form or leave this empty if you're not showing the form again.
-//         }
-
-//         // Success screen function
-//         function showSuccessScreen() {
-//             document.querySelector('.form-container').innerHTML = `
-//                 <div class="success-message">
-//                     <h2>Congratulations!</h2>
-//                     <p>Your form has been successfully submitted to Dreamflow.</p>
-//                     <p>Redirecting to the homepage...</p>
-//                 </div>
-//             `;
-            
-//             setTimeout(() => {
-//                 window.location.href = 'index.html';
-//             }, 3000);  // Redirect after 3 seconds
-//         }
-
-//         // Error screen function
-//         function showErrorScreen() {
-//             document.querySelector('.form-container').innerHTML = `
-//                 <div class="error-message">
-//                     <h2>Error</h2>
-//                     <p>There was an issue submitting your form. Please try again later.</p>
-//                 </div>
-//             `;
-//         }
-
-
-//     // Attach submit event listener to send form data to Asana
-//     document.querySelector('.submit-btn').addEventListener('click', function(event) {
-//         event.preventDefault();
-
-//         // Gather form data
-//         const formData = {
-//             name: document.getElementById('name').value,
-//             email: document.getElementById('email').value,
-//             company: document.getElementById('company').value,
-//             website: document.getElementById('website').value,
-//             goals: document.getElementById('goals').value,
-//             timeline: document.querySelector('input[name="timeline"]:checked').value,
-//             budget: document.querySelector('input[name="budget"]:checked').value,
-//             source: document.querySelector('input[name="source"]:checked').value,
-//             services: Array.from(document.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value)
-//         };
-
-//         // Call the function to send data to Asana
-//         sendToAsana(formData);
-//     });
 </script>
 
 </body>

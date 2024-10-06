@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamline Newsletter</title>
+    <meta name="description" property="og:description"
+    content="The Go-To Design Subscription for leading Web3, AI, and visionary tech companies." />
+
+    <!-- Thumbnail Images -->
+    <meta property="og:image" content="https://www.dreamflowlabs.com/thumbnail-two.png" />
+    <meta property="og:url" content="https://www.DreamflowLabs.com" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101018">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#101018">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="theme-color" content="#101018">
+
+    <!-- Fonts -->
+    <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+    
+    <!-- Particles and Player -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <!-- Internal CSS for the form page -->
+        <style>
+            /* Basic Styling */
+        /* Basic Styling */
+
+        @font-face {
+        font-family: "Helvetica Bold";
+        src: url(Helvetica/HelveticaNeueMedium.otf)
+    }
+
+*,
+body,
+html {
+    font-family: "Helvetica Neue", "Plus Jakarta Sans"
+}
+body {
+    background-color: #101018;/* Background color black */
+    color: #fff; /* Font color white */
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+    z-index: -4
+}
+
+.count-particles {
+    background: #002;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13e8e9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: "Helvetica Neue";
+    font-weight: 700
+}
+
+
+
+/* Welcome Section */
+.newsletter-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Center alignment for the welcome section */
+    text-align: left;
+    justify-content: center;
+    width: 100%;
+    justify-content: center;
+    height: 100vh; /* Full viewport height to center vertically */
+    box-sizing: border-box;
+    padding-left: 100px;
+}
+
+
+.newsletter-section p {
+    margin-bottom: 48px;
+    width: 86%;
+    text-align: left;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
+    box-sizing: border-box;
+}
+
+.newsletter-content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: left;
+    height: 100%;
+    box-sizing: border-box;
+    padding-right: 80px;
+    justify-content: center;
+    
+}
+
+.newsletter-buttons{
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 528px;
+}
+
+.go-btn{
+    position: absolute;
+    z-index: 1000;
+    padding: 0 32px;
+    font-size: 20px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 42px;
+    cursor: pointer;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(100% - 12px); /* Height of button is input height minus 12px for 6px gap on top and bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#newsletter-header {
+    position: relative;
+    margin-bottom: 24px;
+    width: fit-content;
+    display: flex;
+
+    background: radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-align: center;
+    font-family: "Helvetica Neue";
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 92px */
+    letter-spacing: -3px;
+    box-sizing: border-box;
+    text-align: left;   
+    max-width: 628px;
+}
+
+
+
+.email-input {
+    display: flex;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #242424;
+    border-radius: 48px;
+    padding: 6px 6px 6px 32px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.01);
+    font-size: 20px;
+    box-sizing: border-box;
+    height: 68px; /* Set a fixed height to accommodate the button */
+    flex: 1;
+    color: white;
+    z-index: 1000;
+   
+}
+
+.email-input:focus{
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset;
+    backdrop-filter: blur(33.75px);
+    border: 1px solid #242424;
+    outline: none; /* Remove default focus outline */
+}
+
+.email-input::placeholder {
+    color: #ffffff; /* Gray subtext color */
+    /* Full opacity for the placeholder */
+}
+
+/* Remove Placeholder on Focus */
+.email-input:focus::placeholder {
+    color: transparent; /* Make the placeholder transparent on focus */
+}
+
+.bottom-image {
+    position: fixed;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.bottom-image img {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+}
+
+
+.error-message {
+    color: #ff4c4c; /* Red for error message */
+    font-size: 16px;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
+.success-message {
+    color: #ffffff; 
+    font-size: 20px;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity changes */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Large tablets and small desktops */
+@media screen and (max-width: 1200px) {
+    .newsletter-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .newsletter-content {
+        width: 50%;
+        padding-right: 50px;
+    }
+
+    #newsletter-header {
+        font-size: 64px;
+    }
+
+    .newsletter-section p {
+        font-size: 18px;
+    }
+}
+
+/* Tablets and large mobile phones */
+@media screen and (max-width: 992px) {
+    .newsletter-section {
+        flex-direction: column;
+        padding: 50px 30px;
+        height: auto;
+    }
+    .newsletter-section p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .newsletter-content {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .newsletter-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .newsletter-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #newsletter-header {
+        font-size: 56px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .newsletter-subheader {
+        text-align: center;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .newsletter-buttons {
+        width: 100%;
+    }
+}
+
+/* Small mobile phones */
+@media screen and (max-width: 576px) {
+    .newsletter-section {
+        padding: 30px 20px;
+    }
+
+    #newsletter-header {
+        font-size: 40px;
+    }
+
+    .newsletter-subheader {
+        font-size: 16px;
+    }
+
+    .email-input {
+        font-size: 18px;
+        height: 60px;
+    }
+
+    .go-btn {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="" id="particles-js"></div>
+
+
+    <div class="newsletter-section" id="welcome-section">
+       <div class="newsletter-content">
+
+           <h2 id="newsletter-header">The only newsletter you need to scale your brand. </h2>
+           <p class="newsletter-subheader">Every Saturday, we share one proven, done-for-you system for scaling your brand, community, or event</p>
+           <p class="newsletter-subheader">Join world-class founders who are scaling smarter, and get instant access to the 50 Systems to Generate $1M Per Month Guide</p>
+           <div class="newsletter-buttons">
+               <input type="email" placeholder="Enter your email" class="email-input"> 
+               <button type="button" class="go-btn">Let's go!</button>
+           </div>
+           <div class="error-message"></div>
+           <div class="success-message"></div>
+           
+       </div>
+       <div class="newsletter-image">
+            <img src="./images/newsletter-mockup.png" alt="Decorative Image"> 
+       </div>
+    </div>
+    
+
+
+    <!-- Image spanning across the bottom -->
+    <div class="bottom-image">
+        <img src="./images/intake_bottom.png" alt="Decorative Image"> 
+    </div>
+
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 380,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 60,
+                        "size_min": 1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": .8
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 80,
+                        "duration": 1,
+                        "opacity": 0.8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const emailInput = document.querySelector('.email-input');
+        const goBtn = document.querySelector('.go-btn');
+        const errorMessage = document.querySelector('.error-message');
+        const successMessage = document.querySelector('.success-message');
+        const newsletterButtons = document.querySelector('.newsletter-buttons');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            newsletterButtons.style.display = 'none'; // Hide the newsletter buttons
+        }
+
+        function animateSuccessMessage() {
+            let dots = '';
+            let count = 0;
+            let opacity = 0;
+            successMessage.style.opacity = '0';
+            const interval = setInterval(() => {
+                dots += '.';
+                count++;
+                if (count > 3) {
+                    dots = '';
+                    count = 0;
+                }
+                opacity = Math.min(opacity + 0.1, 1);
+                successMessage.style.opacity = opacity;
+                successMessage.textContent = `Thank you for subscribing! Redirecting to Dreamline${dots}`;
+            }, 300);
+
+            return interval;
+        }
+
+        function handleSubmit() {
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                showError('Email is required');
+            } else if (!validateEmail(email)) {
+                showError('Please enter a valid email address');
+            } else {
+                showSuccess('Thank you for subscribing! Redirecting to Dreamline');
+                // Here you would typically send the email to your server
+                // For example: sendEmailToServer(email);
+                
+                const animationInterval = animateSuccessMessage();
+                
+                // Redirect after 2500ms
+                setTimeout(() => {
+                    clearInterval(animationInterval);
+                    window.location.href = 'intake.html';
+                }, 3000);
+            }
+        }
+
+        goBtn.addEventListener('click', handleSubmit);
+
+        emailInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission if within a form
+                handleSubmit();
+            }
+        });
+
+        emailInput.addEventListener('input', function() {
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+        });
+    });
+</script>
+
+
+</body>
+</html>
