@@ -1049,359 +1049,372 @@ form{
     <!-- Internal JavaScript for the form page -->
     <script>
        document.addEventListener('DOMContentLoaded', function() {
-    // Navigate back
-    document.getElementById('back-btn').addEventListener('click', function() {
-        window.location.href = 'index.html'; // Redirect to homepage
-    });
+           // Browser detection for Firefox
+           const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+           const welcomeHeader = document.getElementById('welcome-header');
+           
+           if (isFirefox) {
+               // Apply solid white style for Firefox
+               welcomeHeader.style.background = 'none';
+               welcomeHeader.style.backgroundClip = 'none';
+               welcomeHeader.style.webkitBackgroundClip = 'none';
+               welcomeHeader.style.webkitTextFillColor = '#ffffff';
+               welcomeHeader.style.color = '#ffffff';
+           }
 
-    const formSteps = document.querySelectorAll('.form-step');
-    const nextBtn = document.querySelector('.nav-btn.next-btn');
-    const prevBtn = document.querySelector('.nav-btn.prev-btn');
-    const goBtns = document.querySelectorAll('.go-btn');
-    let currentStep = 0;
+           // Navigate back
+           document.getElementById('back-btn').addEventListener('click', function() {
+               window.location.href = 'index.html';
+           });
 
-    let formData = {};
+           const formSteps = document.querySelectorAll('.form-step');
+           const nextBtn = document.querySelector('.nav-btn.next-btn');
+           const prevBtn = document.querySelector('.nav-btn.prev-btn');
+           const goBtns = document.querySelectorAll('.go-btn');
+           let currentStep = 0;
 
-    function showNavButtons() {
-        const navButtons = document.querySelector('.nav-buttons');
-        if (currentStep > 0) {
-            navButtons.style.visibility = 'visible';
-            if (currentStep === formSteps.length - 1) {
-                nextBtn.style.display = 'none';
-                prevBtn.style.display = 'inline-block';
-            } else {
-                nextBtn.style.display = 'inline-block';
-                prevBtn.style.display = 'inline-block';
-            }
-        } else {
-            navButtons.style.visibility = 'hidden';
-        }
-    }
+           let formData = {};
 
-    function updateButtons() {
-        if (currentStep === 0 || currentStep === formSteps.length - 1) {
-            nextBtn.disabled = false;
-            return;
-        }
+           function showNavButtons() {
+               const navButtons = document.querySelector('.nav-buttons');
+               if (currentStep > 0) {
+                   navButtons.style.visibility = 'visible';
+                   if (currentStep === formSteps.length - 1) {
+                       nextBtn.style.display = 'none';
+                       prevBtn.style.display = 'inline-block';
+                   } else {
+                       nextBtn.style.display = 'inline-block';
+                       prevBtn.style.display = 'inline-block';
+                   }
+               } else {
+                   navButtons.style.visibility = 'hidden';
+               }
+           }
 
-        const currentForm = formSteps[currentStep];
-        const input = currentForm.querySelector('.input-field');
-        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
-        const radios = currentForm.querySelectorAll('.hidden-radio');
-        const goBtn = currentForm.querySelector('.go-btn');
+           function updateButtons() {
+               if (currentStep === 0 || currentStep === formSteps.length - 1) {
+                   nextBtn.disabled = false;
+                   return;
+               }
 
-        let isValid = false;
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+               const radios = currentForm.querySelectorAll('.hidden-radio');
+               const goBtn = currentForm.querySelector('.go-btn');
 
-        if (input) {
-            isValid = input.value.trim() !== '';
-        } else if (checkboxes.length > 0) {
-            isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
-        } else if (radios.length > 0) {
-            isValid = Array.from(radios).some(radio => radio.checked);
-        }
+               let isValid = false;
 
-         console.log(`Step ${currentStep}: isValid = ${isValid}`); 
+               if (input) {
+                   isValid = input.value.trim() !== '';
+               } else if (checkboxes.length > 0) {
+                   isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
+               } else if (radios.length > 0) {
+                   isValid = Array.from(radios).some(radio => radio.checked);
+               }
 
-        nextBtn.disabled = !isValid;
-        if (goBtn) goBtn.disabled = !isValid;
-    }
+                console.log(`Step ${currentStep}: isValid = ${isValid}`); 
 
-    function focusInput() {
-        const input = formSteps[currentStep].querySelector('.input-field');
-        if (input) {
-            input.focus();
-        }
-    }
+               nextBtn.disabled = !isValid;
+               if (goBtn) goBtn.disabled = !isValid;
+           }
 
-    function saveFormData() {
-        const currentForm = formSteps[currentStep];
-        const input = currentForm.querySelector('.input-field');
-        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox:checked');
-        const radios = currentForm.querySelectorAll('.hidden-radio:checked');
+           function focusInput() {
+               const input = formSteps[currentStep].querySelector('.input-field');
+               if (input) {
+                   input.focus();
+               }
+           }
 
-        if (input) {
-            formData[input.id] = input.value;
-        } else if (checkboxes.length > 0) {
-            formData[currentStep] = Array.from(checkboxes).map(cb => cb.value);
-        } else if (radios.length > 0) {
-            formData[radios[0].name] = radios[0].value;
-        }
-    }
+           function saveFormData() {
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox:checked');
+               const radios = currentForm.querySelectorAll('.hidden-radio:checked');
 
-    function loadFormData() {
-        const currentForm = formSteps[currentStep];
-        const input = currentForm.querySelector('.input-field');
-        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
-        const radios = currentForm.querySelectorAll('.hidden-radio');
+               if (input) {
+                   formData[input.id] = input.value;
+               } else if (checkboxes.length > 0) {
+                   formData[currentStep] = Array.from(checkboxes).map(cb => cb.value);
+               } else if (radios.length > 0) {
+                   formData[radios[0].name] = radios[0].value;
+               }
+           }
 
-        if (input && formData[input.id]) {
-            input.value = formData[input.id];
-        } else if (checkboxes.length > 0 && formData[currentStep]) {
-            formData[currentStep].forEach(value => {
-                const checkbox = currentForm.querySelector(`.hidden-checkbox[value="${value}"]`);
-                if (checkbox) {
-                    checkbox.checked = true;
-                    checkbox.closest('.custom-checkbox').classList.add('checked');
-                }
-            });
-        } else if (radios.length > 0) {
-            const radioName = radios[0].name;
-            if (formData[radioName]) {
-                const selectedRadio = currentForm.querySelector(`.hidden-radio[value="${formData[radioName]}"]`);
-                if (selectedRadio) {
-                    selectedRadio.checked = true;
-                    selectedRadio.closest('.custom-radio').classList.add('checked');
-                }
-            }
-        }
-        updateButtons();
-    }
+           function loadFormData() {
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+               const radios = currentForm.querySelectorAll('.hidden-radio');
 
-    function moveToNextStep() {
-        console.log(`Attempting to move from step ${currentStep}`);
-        if (currentStep === 0 || validateCurrentStep()) {
-            saveFormData();
-            formSteps[currentStep].classList.remove('active');
-            currentStep++;
-            if (currentStep < formSteps.length) {
-                formSteps[currentStep].classList.add('active');
-                loadFormData();
-                focusInput();
-                showNavButtons();
-                updateButtons();
-            }
-        }
-    }
+               if (input && formData[input.id]) {
+                   input.value = formData[input.id];
+               } else if (checkboxes.length > 0 && formData[currentStep]) {
+                   formData[currentStep].forEach(value => {
+                       const checkbox = currentForm.querySelector(`.hidden-checkbox[value="${value}"]`);
+                       if (checkbox) {
+                           checkbox.checked = true;
+                           checkbox.closest('.custom-checkbox').classList.add('checked');
+                       }
+                   });
+               } else if (radios.length > 0) {
+                   const radioName = radios[0].name;
+                   if (formData[radioName]) {
+                       const selectedRadio = currentForm.querySelector(`.hidden-radio[value="${formData[radioName]}"]`);
+                       if (selectedRadio) {
+                           selectedRadio.checked = true;
+                           selectedRadio.closest('.custom-radio').classList.add('checked');
+                       }
+                   }
+               }
+               updateButtons();
+           }
 
-    function moveToPrevStep() {
-        if (currentStep > 0) {
-            saveFormData();
-            formSteps[currentStep].classList.remove('active');
-            currentStep--;
-            formSteps[currentStep].classList.add('active');
-            loadFormData();
-            showNavButtons();
-            updateButtons();
-        }
-    }
+           function moveToNextStep() {
+               console.log(`Attempting to move from step ${currentStep}`);
+               if (currentStep === 0 || validateCurrentStep()) {
+                   saveFormData();
+                   formSteps[currentStep].classList.remove('active');
+                   currentStep++;
+                   if (currentStep < formSteps.length) {
+                       formSteps[currentStep].classList.add('active');
+                       loadFormData();
+                       focusInput();
+                       showNavButtons();
+                       updateButtons();
+                   }
+               }
+           }
 
-    function validateCurrentStep() {
-        if (currentStep === 0 || currentStep === formSteps.length - 1) {
-            return true;
-        }
+           function moveToPrevStep() {
+               if (currentStep > 0) {
+                   saveFormData();
+                   formSteps[currentStep].classList.remove('active');
+                   currentStep--;
+                   formSteps[currentStep].classList.add('active');
+                   loadFormData();
+                   showNavButtons();
+                   updateButtons();
+               }
+           }
 
-        if (currentStep === 4) return true;
+           function validateCurrentStep() {
+               if (currentStep === 0 || currentStep === formSteps.length - 1) {
+                   return true;
+               }
 
-        const currentForm = formSteps[currentStep];
-        const input = currentForm.querySelector('.input-field');
-        const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
-        const radios = currentForm.querySelectorAll('.hidden-radio');
-        const errorMessage = currentForm.querySelector('.error-message');
+               if (currentStep === 4) return true;
 
-
-        let isValid = false;
-
-        if (input) {
-                isValid = input.value.trim() !== '';
-            } else if (checkboxes.length > 0) {
-                isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
-            } else if (radios.length > 0) {
-                isValid = Array.from(radios).some(radio => radio.checked);
-            }
-
-        console.log(`Validating step ${currentStep}: isValid = ${isValid}`); 
-
-        if (!isValid && errorMessage) {
-                errorMessage.style.display = 'block';
-            } else if (errorMessage) {
-                errorMessage.style.display = 'none';
-            }
-
-                return isValid;
-            }
-
-        goBtns.forEach((button) => {
-            button.addEventListener('click', moveToNextStep);
-        });
-
-        nextBtn.addEventListener('click', moveToNextStep);
-        prevBtn.addEventListener('click', moveToPrevStep);
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' && currentStep < formSteps.length - 1) {
-                event.preventDefault();
-                moveToNextStep();
-            }
-        });
-
-        document.querySelectorAll('.input-field').forEach(input => {
-    input.addEventListener('input', function() {
-        const errorMessage = this.closest('.form-step')?.querySelector('.error-message');
-        if (errorMessage) {
-            errorMessage.style.display = this.value.trim() !== '' ? 'none' : 'block';
-        }
-        updateButtons();
-    });
-});
-        document.querySelectorAll('.hidden-checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                updateButtons();
-                this.closest('.form-step').querySelector('.error-message').style.display = 'none';
-            });
-        });
-
-        document.querySelectorAll('.hidden-radio').forEach(radio => {
-            radio.addEventListener('change', function() {
-                console.log(`Radio changed: ${this.name} = ${this.value}`);
-                updateButtons();
-                this.closest('.form-step').querySelector('.error-message').style.display = 'none';
-                
-                const name = this.getAttribute('name');
-                document.querySelectorAll(`.hidden-radio[name="${name}"]`).forEach((r) => {
-                    r.closest('.custom-radio').classList.remove('checked');
-                });
-
-                this.closest('.custom-radio').classList.add('checked');
-            });
-        });
-        // Initial state setup
-        showNavButtons();
-        updateButtons();
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+               const radios = currentForm.querySelectorAll('.hidden-radio');
+               const errorMessage = currentForm.querySelector('.error-message');
 
 
-    });
+               let isValid = false;
 
-        const checkboxes = document.querySelectorAll('.hidden-checkbox');
+               if (input) {
+                       isValid = input.value.trim() !== '';
+                   } else if (checkboxes.length > 0) {
+                       isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                   } else if (radios.length > 0) {
+                       isValid = Array.from(radios).some(radio => radio.checked);
+                   }
 
-        checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener('change', function() {
-                const customCheckbox = this.closest('.custom-checkbox');
-                
-                if (this.checked) {
-                    customCheckbox.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'; // Greyish background
-                    customCheckbox.style.boxShadow = '0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset'; // Inner shadow effect
-                    customCheckbox.style.backdropFilter = 'blur(33.75px)'; // Blurring effect
-                } else {
-                    customCheckbox.style.backgroundColor = 'transparent'; // Reset background
-                    customCheckbox.style.boxShadow = 'none'; // Reset shadow
-                    customCheckbox.style.backdropFilter = 'none'; // Reset blur effect
-                }
-            });
-        });
+               console.log(`Validating step ${currentStep}: isValid = ${isValid}`); 
 
-const radios = document.querySelectorAll('.hidden-radio');
+               if (!isValid && errorMessage) {
+                       errorMessage.style.display = 'block';
+                   } else if (errorMessage) {
+                       errorMessage.style.display = 'none';
+                   }
 
-radios.forEach((radio) => {
-    radio.addEventListener('change', function() {
-        // Remove 'checked' class from all custom radios
-        document.querySelectorAll('.custom-radio').forEach((customRadio) => {
-            customRadio.classList.remove('checked');
-        });
+                       return isValid;
+                   }
 
-        // Add 'checked' class to the clicked custom radio
-        const customRadio = this.closest('.custom-radio');
-        customRadio.classList.add('checked');
-    });
-});
+               goBtns.forEach((button) => {
+                   button.addEventListener('click', moveToNextStep);
+               });
 
-async function sendToAsana(formData) {
-    const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://www.dreamflowlabs.com';
-            const API_URL = baseURL + '/api/submit-form';  // Your Express API endpoint
+               nextBtn.addEventListener('click', moveToNextStep);
+               prevBtn.addEventListener('click', moveToPrevStep);
 
-            showLoading();  // Show loading state
+               document.addEventListener('keydown', function(event) {
+                   if (event.key === 'Enter' && currentStep < formSteps.length - 1) {
+                       event.preventDefault();
+                       moveToNextStep();
+                   }
+               });
 
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
+               document.querySelectorAll('.input-field').forEach(input => {
+           input.addEventListener('input', function() {
+               const errorMessage = this.closest('.form-step')?.querySelector('.error-message');
+               if (errorMessage) {
+                   errorMessage.style.display = this.value.trim() !== '' ? 'none' : 'block';
+               }
+               updateButtons();
+           });
+   });
+           document.querySelectorAll('.hidden-checkbox').forEach(checkbox => {
+               checkbox.addEventListener('change', function() {
+                   updateButtons();
+                   this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+               });
+           });
 
-                hideLoading();  // Hide loading state
+           document.querySelectorAll('.hidden-radio').forEach(radio => {
+               radio.addEventListener('change', function() {
+                   console.log(`Radio changed: ${this.name} = ${this.value}`);
+                   updateButtons();
+                   this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+                   
+                   const name = this.getAttribute('name');
+                   document.querySelectorAll(`.hidden-radio[name="${name}"]`).forEach((r) => {
+                       r.closest('.custom-radio').classList.remove('checked');
+                   });
 
-                if (response.ok) {
-                    showSuccessScreen();  // Show success message
-                } else {
-                    const errorData = await response.json();
-                    console.error('Error:', errorData);
-                    showErrorScreen();  // Show error message
-                }
-            } catch (error) {
-                hideLoading();  // Hide loading state
-                console.error('Request failed:', error);
-                showErrorScreen();  // Show error message
-            }
-        }
+                   this.closest('.custom-radio').classList.add('checked');
+               });
+           });
+           // Initial state setup
+           showNavButtons();
+           updateButtons();
 
-        // Attach submit event listener
-        document.querySelector('.submit-btn').addEventListener('click', function(event) {
-            event.preventDefault();
 
-            // Gather form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                company: document.getElementById('company').value,
-                website: document.getElementById('website').value,
-                goals: document.getElementById('goals').value,
-                timeline: document.querySelector('input[name="timeline"]:checked').value,
-                budget: document.querySelector('input[name="budget"]:checked').value,
-                source: document.querySelector('input[name="source"]:checked').value,
-                services: Array.from(document.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value)
-            };
+       });
 
-            // Call the function to send data to your Express server
-            sendToAsana(formData);
-        });
+           const checkboxes = document.querySelectorAll('.hidden-checkbox');
 
-        function showLoading() {
-            document.querySelector('.form-container').innerHTML = `
-                <div class="loading-message">
-                    <p>Submitting your form, please wait...</p>
-                </div>
-            `;
-        }
+           checkboxes.forEach((checkbox) => {
+               checkbox.addEventListener('change', function() {
+                   const customCheckbox = this.closest('.custom-checkbox');
+                   
+                   if (this.checked) {
+                       customCheckbox.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'; // Greyish background
+                       customCheckbox.style.boxShadow = '0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset'; // Inner shadow effect
+                       customCheckbox.style.backdropFilter = 'blur(33.75px)'; // Blurring effect
+                   } else {
+                       customCheckbox.style.backgroundColor = 'transparent'; // Reset background
+                       customCheckbox.style.boxShadow = 'none'; // Reset shadow
+                       customCheckbox.style.backdropFilter = 'none'; // Reset blur effect
+                   }
+               });
+           });
 
-        function hideLoading() {
-            // Hide or revert back to form after loading
-        }
+   const radios = document.querySelectorAll('.hidden-radio');
 
-        function showSuccessScreen() {
-            document.querySelector('.form-container').innerHTML = `
-                <div class="success-message" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 20px;">
-                    <h2 style="font-size: 36px; margin-bottom: 16px;">Congratulations!</h2>
-                    <p style="font-size: 18px; margin-bottom: 8px;">Your form has been successfully submitted to Dreamflow.</p>
-                    <p style="font-size: 18px; margin-bottom: 24px;">Book your Dream Discovery Call below:</p>
-                    <div class="calendly-inline-widget" 
-                         data-url="https://calendly.com/dreamflowlabs/dream-discovery-call" 
-                         style="min-width:320px; height:500px; margin-bottom: 24px;">
-                    </div>
-                    <a href="index.html" 
-                       class="button return-home" 
-                       style="display: inline-block; margin-top: 20px; padding: 10px 24px; background: #fff; color: #000; text-decoration: none; border-radius: 50px; font-size: 14px;">
-                       Return to Home Page
-                    </a>
-                </div>
-            `;
-            
-            // Load Calendly script
-            const script = document.createElement('script');
-            script.src = 'https://assets.calendly.com/assets/external/widget.js';
-            script.async = true;
-            document.head.appendChild(script);
-        }
+   radios.forEach((radio) => {
+       radio.addEventListener('change', function() {
+           // Remove 'checked' class from all custom radios
+           document.querySelectorAll('.custom-radio').forEach((customRadio) => {
+               customRadio.classList.remove('checked');
+           });
 
-        function showErrorScreen() {
-            document.querySelector('.form-container').innerHTML = `
-                <div class="error-message">
-                    <h2>Error</h2>
-                    <p>There was an issue submitting your form. Please try again later.</p>
-                </div>
-            `;
-        }
-</script>
+           // Add 'checked' class to the clicked custom radio
+           const customRadio = this.closest('.custom-radio');
+           customRadio.classList.add('checked');
+       });
+   });
+
+   async function sendToAsana(formData) {
+       const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://www.dreamflowlabs.com';
+               const API_URL = baseURL + '/api/submit-form';  // Your Express API endpoint
+
+               showLoading();  // Show loading state
+
+               try {
+                   const response = await fetch(API_URL, {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json'
+                       },
+                       body: JSON.stringify(formData)
+                   });
+
+                   hideLoading();  // Hide loading state
+
+                   if (response.ok) {
+                       showSuccessScreen();  // Show success message
+                   } else {
+                       const errorData = await response.json();
+                       console.error('Error:', errorData);
+                       showErrorScreen();  // Show error message
+                   }
+               } catch (error) {
+                   hideLoading();  // Hide loading state
+                   console.error('Request failed:', error);
+                   showErrorScreen();  // Show error message
+               }
+           }
+
+           // Attach submit event listener
+           document.querySelector('.submit-btn').addEventListener('click', function(event) {
+               event.preventDefault();
+
+               // Gather form data
+               const formData = {
+                   name: document.getElementById('name').value,
+                   email: document.getElementById('email').value,
+                   company: document.getElementById('company').value,
+                   website: document.getElementById('website').value,
+                   goals: document.getElementById('goals').value,
+                   timeline: document.querySelector('input[name="timeline"]:checked').value,
+                   budget: document.querySelector('input[name="budget"]:checked').value,
+                   source: document.querySelector('input[name="source"]:checked').value,
+                   services: Array.from(document.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value)
+               };
+
+               // Call the function to send data to your Express server
+               sendToAsana(formData);
+           });
+
+           function showLoading() {
+               document.querySelector('.form-container').innerHTML = `
+                   <div class="loading-message">
+                       <p>Submitting your form, please wait...</p>
+                   </div>
+               `;
+           }
+
+           function hideLoading() {
+               // Hide or revert back to form after loading
+           }
+
+           function showSuccessScreen() {
+               document.querySelector('.form-container').innerHTML = `
+                   <div class="success-message" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 20px;">
+                       <h2 style="font-size: 36px; margin-bottom: 16px;">Congratulations!</h2>
+                       <p style="font-size: 18px; margin-bottom: 8px;">Your form has been successfully submitted to Dreamflow.</p>
+                       <p style="font-size: 18px; margin-bottom: 24px;">Book your Dream Discovery Call below:</p>
+                       <div class="calendly-inline-widget" 
+                            data-url="https://calendly.com/dreamflowlabs/dream-discovery-call" 
+                            style="min-width:320px; height:500px; margin-bottom: 24px;">
+                       </div>
+                       <a href="index.html" 
+                          class="button return-home" 
+                          style="display: inline-block; margin-top: 20px; padding: 10px 24px; background: #fff; color: #000; text-decoration: none; border-radius: 50px; font-size: 14px;">
+                          Return to Home Page
+                       </a>
+                   </div>
+               `;
+               
+               // Load Calendly script
+               const script = document.createElement('script');
+               script.src = 'https://assets.calendly.com/assets/external/widget.js';
+               script.async = true;
+               document.head.appendChild(script);
+           }
+
+           function showErrorScreen() {
+               document.querySelector('.form-container').innerHTML = `
+                   <div class="error-message">
+                       <h2>Error</h2>
+                       <p>There was an issue submitting your form. Please try again later.</p>
+                   </div>
+               `;
+           }
+   </script>
 
 </body>
 </html>
