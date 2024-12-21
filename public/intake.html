@@ -1051,7 +1051,7 @@ form{
        document.addEventListener('DOMContentLoaded', function() {
     // Navigate back
     document.getElementById('back-btn').addEventListener('click', function() {
-        window.history.back(); // Go back to the previous page
+        window.location.href = 'index.html'; // Redirect to homepage
     });
 
     const formSteps = document.querySelectorAll('.form-step');
