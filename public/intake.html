@@ -914,8 +914,8 @@ form{
         </form>
         <!-- Submit Button Page -->
         <div class="form-step hidden-form" id="last-question" >
-            <p class="question last-question">Thank you for sharing your vision with us. We handpick the most forward-thinking projects to ensure every partnership is groundbreaking. If your application aligns, we’ll be in touch to schedule a private consultation.</p>
-            <button type="submit" class="submit-btn">Submit & Await Invitation</button>
+            <p class="question last-question">Thank you for sharing your goals with us. We love partnering with forward-thinking clients to create groundbreaking projects. Book your Dream Discovery Call and let's bring your vision to life!</p>
+            <button type="submit" class="submit-btn">Submit & Book</button>
         </div>
     </div>
 
@@ -1370,15 +1370,27 @@ async function sendToAsana(formData) {
 
         function showSuccessScreen() {
             document.querySelector('.form-container').innerHTML = `
-                <div class="success-message">
-                    <h2>Congratulations!</h2>
-                    <p>Your form has been successfully submitted to Dreamflow.</p>
-                    <p>Redirecting to the homepage...</p>
+                <div class="success-message" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 20px;">
+                    <h2 style="font-size: 36px; margin-bottom: 16px;">Congratulations!</h2>
+                    <p style="font-size: 18px; margin-bottom: 8px;">Your form has been successfully submitted to Dreamflow.</p>
+                    <p style="font-size: 18px; margin-bottom: 24px;">Book your Dream Discovery Call below:</p>
+                    <div class="calendly-inline-widget" 
+                         data-url="https://calendly.com/dreamflowlabs/dream-discovery-call" 
+                         style="min-width:320px; height:500px; margin-bottom: 24px;">
+                    </div>
+                    <a href="index.html" 
+                       class="button return-home" 
+                       style="display: inline-block; margin-top: 20px; padding: 10px 24px; background: #fff; color: #000; text-decoration: none; border-radius: 50px; font-size: 14px;">
+                       Return to Home Page
+                    </a>
                 </div>
             `;
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 3000);
+            
+            // Load Calendly script
+            const script = document.createElement('script');
+            script.src = 'https://assets.calendly.com/assets/external/widget.js';
+            script.async = true;
+            document.head.appendChild(script);
         }
 
         function showErrorScreen() {
