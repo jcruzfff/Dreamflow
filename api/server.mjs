@@ -22,7 +22,7 @@ app.use(json());
 app.use(cors());
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 if (!process.env.ASANA_ACCESS_TOKEN && !process.env.PROJECT_ID) {
     console.error('ASANA_ACCESS_TOKEN and PROJECT_ID must be set');
