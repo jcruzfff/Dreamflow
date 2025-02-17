@@ -423,7 +423,8 @@ ul {
     line-height: 124%;
     transition: background-color .3s;
     border-radius: 32px;
-    height: 52px
+    height: 52px;
+    white-space: nowrap;
 }
 
 .nav-link.active,
