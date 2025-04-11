@@ -1,0 +1,197 @@
+// Spreading cards animation
+  useEffect(() => {
+    if (pathname !== '/') return;
+
+    let ctx: { cleanup?: () => void } = {};
+
+    const initSpreadingAnimation = async () => {
+      const { gsap } = await import('gsap');
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      gsap.registerPlugin(ScrollTrigger);
+
+      const scrollTriggerSettings = {
+        trigger: ".main",
+        start: "top 25%",
+        toggleActions: "play reverse play reverse",
+      };
+
+      // Initial state for center content
+      gsap.set([".logo", ".line p", ".btn button"], {
+        opacity: 0,
+        y: 50,
+        pointerEvents: 'none'
+      });
+
+      const leftXValues = [-800, -900, -400];
+      const rightXValues = [800, 900, 400];
+      const leftRotationValues = [-30, -20, -35];
+      const rightRotationValues = [30, 20, 35];
+      const yValues = [100, -150, -400];
+
+      const mm = gsap.matchMedia();
+
+      // Mobile Animation (below 777px)
+      mm.add("(max-width: 776px)", () => {
+        // Select only the three cards we want to animate
+        const topRight = document.querySelector<HTMLElement>('.row:nth-child(1) .card-right');
+        const middleLeft = document.querySelector<HTMLElement>('.row:nth-child(2) .card-left');
+        const bottomRight = document.querySelector<HTMLElement>('.row:nth-child(3) .card-right');
+
+        // Hide all other cards on mobile
+        gsap.utils.toArray<HTMLElement>('.card-left, .card-right').forEach(card => {
+          if (card !== topRight && card !== middleLeft && card !== bottomRight) {
+            gsap.set(card, { display: 'none' });
+          }
+        });
+
+        // Set initial positions for the three cards - start centered
+        gsap.set([topRight, middleLeft, bottomRight], { 
+          x: 0
+        });
+
+        // Create the synchronized animation - exit to sides
+        gsap.to(topRight, {
+          x: 500,
+          scrollTrigger: {
+            trigger: ".main",
+            start: "top 65%",
+            end: "center center",
+            scrub: 1,
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        gsap.to(middleLeft, {
+          x: -500,
+          scrollTrigger: {
+            trigger: ".main",
+            start: "top 55%",
+            end: "center center",
+            scrub: 1.2,
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        gsap.to(bottomRight, {
+          x: 500,
+          scrollTrigger: {
+            trigger: bottomRight,
+            start: "top bottom",
+            end: "center center",
+            scrub: 1.4,
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Mobile-specific content animation
+        gsap.set([".logo", ".line p"], { 
+          opacity: 0,
+          y: 50
+        });
+
+        // Set initial state for button
+        gsap.set(".btn button", {
+          opacity: 0,
+          y: 20,
+          pointerEvents: 'auto'
+        });
+
+        // Animate text and button
+        gsap.to([".logo", ".line p"], {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: ".main-content",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Separate animation for button with a slight delay
+        gsap.to(".btn button", {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: ".main-content",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+
+      // Desktop Animation (777px and above)
+      mm.add("(min-width: 777px)", () => {
+        gsap.utils.toArray<HTMLElement>(".row").forEach((row, index) => {
+          const cardLeft = row.querySelector<HTMLElement>(".card-left");
+          const cardRight = row.querySelector<HTMLElement>(".card-right");
+
+          if (!cardLeft || !cardRight) return;
+
+          ScrollTrigger.create({
+            trigger: ".main",
+            start: "top center",
+            end: "150% bottom",
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              cardLeft.style.transform = `translateX(${progress * leftXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * leftRotationValues[index]}deg)`;
+              cardRight.style.transform = `translateX(${progress * rightXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * rightRotationValues[index]}deg)`;
+            }
+          });
+        });
+
+        // Desktop content animation with earlier completion
+        gsap.set([".logo", ".line p", ".btn button"], {
+          opacity: 0,
+          y: 50,
+          pointerEvents: 'auto'
+        });
+
+        // Animate text elements
+        gsap.to([".logo", ".line p"], {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: ".main-content",
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        // Separate animation for button
+        gsap.to(".btn button", {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          scrollTrigger: {
+            trigger: ".main-content",
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none reverse"
+          },
+          onComplete: () => {
+            gsap.set(".btn button", { pointerEvents: 'auto' });
+          }
+        });
+      });
+
+      ctx.cleanup = () => {
+        mm.revert();
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    };
+
+    initSpreadingAnimation();
+
+    return () => {
+      if (ctx.cleanup) {
+        ctx.cleanup();
+      }
+    };
+  }, [pathname]);
