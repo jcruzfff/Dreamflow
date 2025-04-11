@@ -953,117 +953,152 @@
 
 
 <script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": {
-                "value": 180,
-                "density": {
-                    "enable": true,
-                    "value_area": 1000
-                }
-            },
-            "color": {
-                "value": "#ffffff"
-            },
-            "shape": {
-                "type": "circle",
-                "stroke": {
-                    "width": 0,
-                    "color": "#000000"
-                },
-                "polygon": {
-                    "nb_sides": 5
-                },
-                "image": {
-                    "src": "img/github.svg",
-                    "width": 100,
-                    "height": 100
-                }
-            },
-            "opacity": {
-                "value": 0.3,
-                "random": true,
-                "anim": {
-                    "enable": true,
-                    "speed": 0.8,
-                    "opacity_min": 0.1,
-                    "sync": false
-                }
-            },
-            "size": {
-                "value": 2,
-                "random": true,
-                "anim": {
-                    "enable": false,
-                    "speed": 40,
-                    "size_min": 0.5,
-                    "sync": false
-                }
-            },
-            "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": "#ffffff",
-                "opacity": 0.15,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 0.5,
-                "direction": "none",
-                "random": false,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false,
-                "attract": {
-                    "enable": false,
-                    "rotateX": 600,
-                    "rotateY": 1200
-                }
-            }
-        },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-                "onhover": {
-                    "enable": true,
-                    "mode": "grab"
-                },
-                "onclick": {
-                    "enable": true,
-                    "mode": "push"
-                },
-                "resize": true
-            },
-            "modes": {
-                "grab": {
-                    "distance": 140,
-                    "line_linked": {
-                        "opacity": 0.3
+    // Force scroll to top on page load/refresh - implemented before DOM is loaded
+    window.scrollTo(0, 0);
+    history.scrollRestoration = 'manual'; // Prevent browser from restoring scroll position
+    
+    if (window.location.hash) {
+        // If there's a hash in the URL, remove it to avoid auto-scrolling
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
+    
+    // Additional scroll to top when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Scroll to top immediately
+        window.scrollTo(0, 0);
+        
+        // Scroll to top after a slight delay to ensure all scripts are loaded
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 50);
+        
+        // Force scroll to top after all resources are loaded
+        window.onload = function() {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'auto' // Use 'auto' instead of 'smooth' for immediate reset
+            });
+            
+            // Final scroll reset after a short delay
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 100);
+        };
+        
+        // Initialize particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 180,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1000
                     }
                 },
-                "bubble": {
-                    "distance": 400,
-                    "size": 40,
-                    "duration": 2,
-                    "opacity": 0.8,
-                    "speed": 3
+                "color": {
+                    "value": "#ffffff"
                 },
-                "repulse": {
-                    "distance": 200,
-                    "duration": 0.4
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
                 },
-                "push": {
-                    "particles_nb": 4
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 0.8,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
                 },
-                "remove": {
-                    "particles_nb": 2
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.5,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.15,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.5,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
                 }
-            }
-        },
-        "retina_detect": true
-    });
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.3
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 0.8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
 
+    });
 </script>
 
 <!-- FAQ Animation Script -->
@@ -1210,11 +1245,11 @@
             });
 
             // Larger spread values for larger cards
-            const leftXValues = [-1000, -1100, -600];
-            const rightXValues = [1000, 1100, 600];
-            const leftRotationValues = [-30, -20, -35];
-            const rightRotationValues = [30, 20, 35];
-            const yValues = [150, -200, -500];
+            const leftXValues = [-800, -900, -400];
+      const rightXValues = [800, 900, 400];
+      const leftRotationValues = [-30, -20, -35];
+      const rightRotationValues = [30, 20, 35];
+      const yValues = [100, -150, -400];
 
             const mm = gsap.matchMedia();
 
@@ -1239,35 +1274,38 @@
 
                 // Create the synchronized animation - exit to sides
                 gsap.to(topRight, {
-                    x: 600,
+                    x: 500,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main",
-                        start: "top 65%",
-                        end: "center center",
+                        start: "top+=650 65%",
+                        end: "center+=650 center",
                         scrub: 1,
-                        toggleActions: "play none none reverse"
+                        toggleActions: "play none none reverse",
+                        markers: true
                     }
                 });
 
                 gsap.to(middleLeft, {
-                    x: -600,
+                    x: -500,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main",
-                        start: "top 55%",
-                        end: "center center",
+                        start: "top+=650 55%",
+                        end: "center+=650 center",
                         scrub: 1.2,
-                        toggleActions: "play none none reverse"
+                        toggleActions: "play none none reverse",
+                        markers: true
                     }
                 });
 
                 gsap.to(bottomRight, {
-                    x: 600,
+                    x: 500,
                     scrollTrigger: {
                         trigger: bottomRight,
-                        start: "top bottom",
-                        end: "center center",
+                        start: "top+=650 bottom",
+                        end: "center+=650 center",
                         scrub: 1.4,
-                        toggleActions: "play none none reverse"
+                        toggleActions: "play none none reverse",
+                        markers: true
                     }
                 });
 
@@ -1292,8 +1330,9 @@
                     stagger: 0.1,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main-content",
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
+                        start: "top+=650 80%",
+                        toggleActions: "play none none reverse",
+                        markers: true
                     }
                 });
 
@@ -1304,8 +1343,9 @@
                     duration: 0.5,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main-content",
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
+                        start: "top+=650 80%",
+                        toggleActions: "play none none reverse",
+                        markers: true
                     }
                 });
             });
@@ -1320,9 +1360,10 @@
 
                     ScrollTrigger.create({
                         trigger: ".spreading-cards-section .main",
-                        start: "top center",
-                        end: "150% bottom",
+                        start: "top+=650 center",
+                        end: "150%+=650 bottom",
                         scrub: true,
+                        markers: true,
                         onUpdate: (self) => {
                             const progress = self.progress;
                             cardLeft.style.transform = `translateX(${progress * leftXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * leftRotationValues[index]}deg)`;
@@ -1347,9 +1388,10 @@
                     stagger: 0.1,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main-content",
-                        start: "top 85%",
-                        end: "top 60%",
-                        toggleActions: "play none none reverse"
+                        start: "top+=650 85%",
+                        end: "top+=650 60%",
+                        toggleActions: "play none none reverse",
+                        markers: true
                     }
                 });
 
@@ -1360,9 +1402,10 @@
                     duration: 0.4,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main-content",
-                        start: "top 85%",
-                        end: "top 60%",
-                        toggleActions: "play none none reverse"
+                        start: "top+=650 85%",
+                        end: "top+=650 60%",
+                        toggleActions: "play none none reverse",
+                        markers: true
                     },
                     onComplete: () => {
                         gsap.set(".spreading-cards-section .btn .apply-now-btn", { pointerEvents: 'auto' });
