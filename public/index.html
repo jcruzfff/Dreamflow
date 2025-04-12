@@ -56,171 +56,9 @@
         <!-- GSAP Library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         
-        <!-- Spreading Cards Animation Styles -->
-        <style>
-            .spreading-cards-section {
-                position: relative;
-                width: 100%;
-                min-height: 1500px;
-                background-color: #000;
-                overflow: visible;
-                padding-top: 100px;
-                padding-bottom: 100px;
-            }
-            
-            .spreading-cards-section .main {
-                position: relative;
-                min-height: 1500px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: visible;
-            }
-            
-            .spreading-cards-section .cards-container {
-                position: relative;
-                width: 100%;
-                max-width: 100%;
-                margin: 0 auto;
-                height: 1200px;
-                overflow: visible;
-            }
-            
-            .spreading-cards-section .row {
-                position: absolute;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                gap: 24px;
-                overflow: visible;
-            }
-            
-            .spreading-cards-section .row:nth-child(1) {
-                top: 0;
-            }
-            
-            .spreading-cards-section .row:nth-child(2) {
-                top: 420px;
-            }
-            
-            .spreading-cards-section .row:nth-child(3) {
-                top: 840px;
-            }
-            
-            .spreading-cards-section .card-left,
-            .spreading-cards-section .card-right {
-                width: 500px;
-                height: 360px;
-                border-radius: 32px;
-                overflow: hidden;
-                transform: translateX(0) translateY(0) rotate(0deg);
-            }
-            
-            .spreading-cards-section .card-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 32px;
-            }
-            
-            .spreading-cards-section .card-placeholder {
-                width: 100%;
-                height: 100%;
-                border-radius: 32px;
-                background-size: cover;
-                background-position: center;
-            }
-            
-            .spreading-cards-section .main-content {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 50;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                color: #ffffff;
-                width: 90%;
-                max-width: 600px;
-                background-color: rgba(0, 0, 0, 0.7);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
-                padding: 40px;
-                border-radius: 24px;
-            }
-            
-            .spreading-cards-section .logo {
-                margin-bottom: 30px;
-            }
-            
-            .spreading-cards-section .logo-img {
-                width: 60px;
-                height: auto;
-            }
-            
-            .spreading-cards-section .line p {
-                font-size: 40px;
-                font-weight: 600;
-                line-height: 1.2;
-                margin: 0;
-            }
-            
-            .spreading-cards-section .subtext {
-                margin-top: 20px;
-                font-size: 18px;
-                opacity: 0.8;
-            }
-            
-            .spreading-cards-section .btn {
-                margin-top: 30px;
-            }
-            
-            .spreading-cards-section .apply-now-btn {
-                background-color: #ffffff;
-                color: #000000;
-                border: none;
-                border-radius: 50px;
-                padding: 12px 30px;
-                font-size: 16px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            
-            .spreading-cards-section .apply-now-btn:hover {
-                opacity: 0.9;
-                transform: translateY(-2px);
-            }
-            
-            @media (max-width: 776px) {
-                .spreading-cards-section {
-                    min-height: 1000px;
-                    overflow: hidden;
-                }
-                
-                .spreading-cards-section .main {
-                    min-height: 1000px;
-                    overflow: hidden;
-                }
-                
-                .spreading-cards-section .cards-container {
-                    height: 800px;
-                }
-                
-                .spreading-cards-section .card-left,
-                .spreading-cards-section .card-right {
-                    width: 350px;
-                    height: 252px;
-                }
-                
-                .spreading-cards-section .line p {
-                    font-size: 30px;
-                }
-            }
-        </style>
+     
 </head>
 
 
@@ -691,9 +529,9 @@
                             <p>Subscription For</p>
                         </div>
                         <div class="line">
-                            <p>Startups</p>
+                            <p>Startups.</p>
                         </div>
-                        <p class="subtext">Apply now and let's bring your vision to life.</p>
+                        <p class="subtext">Let's bring your vision to life.</p>
                         <div class="btn">
                             <button class="apply-now-btn">Apply Now</button>
                         </div>
@@ -701,251 +539,146 @@
                 </div>
             </section>
 
-            <!-- Eigth Section Faqs -->
-            <section class="eigth-section">
-                <div class="faqs-side">
-                    <div class="faqs-title">Your questions, <br />answered.</div>
-                    <div class="faq-content">
-                        <button class="faq-q">What types of design services does Dreamflow offer?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title">What Founders Ask</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How fast are designs delivered?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">
-                            Dreamflow specializes in a wide array of design services, including UI/UX design for
-                            apps,
-                            branding and logo creation, interactive web3 elements, social media content, and
-                            comprehensive brand guidelines.Our expertise is especially focused on enhancing the user
-                            experience in the Web3/blockchain technology space.
+                        <div class="faq-answer">
+                            Most designs are delivered within 2-3 business days. For more complex projects like full websites or apps, we'll break it down into smaller deliverables to maintain quick turnaround times. We also offer same-day delivery for urgent requests when available.
                         </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">How does the subscription model work?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you really do unlimited requests?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Dreamflow offers a flexible subscription model that allows you to access
-                            unlimited design requests with a fixed monthly fee. Choose a plan, submit your design
-                            requests, and receive professionally crafted designs one or two requests at a time. You
-                            can
-                            pause, resume, or cancel your subscription at any time, making it perfectly flexible for
-                            your project's timeline and needs.</div>
-                    </div>
-                    <div class="faq-content">
-                        <button class="faq-q">What is the average turnaround time for design requests?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
-                            </svg>
-                        </button>
-                        <div class="faq-a">Design requests are completed in as little as three business days.
-                            However,
-                            more complex designs may require additional time, which we will communicate upfront. Our
-                            goal is always to deliver high-quality designs as quickly as possible without
-                            compromising on the details that matter.</div>
-                    </div>
-                    <div class="faq-content">
-                        <button class="faq-q">Can I really make unlimited design requests?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
-                            </svg>
-                        </button>
-                        <div class="faq-a">Yes, with Dreamflow, you can submit as many design requests as your
-                            subscription allows. Once a design is completed and delivered, the next design in your
-                            queue
-                            will be activated. This ensures a continuous workflow and maximizes your subscription
-                            value.
+                        <div class="faq-answer">
+                            Yes! You can submit as many design requests as you'd like. We work on them one at a time to ensure the highest quality and fastest delivery. Once a design is completed, we move straight to your next request.
                         </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">What happens if I'm not satisfied with a design?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What if I don't like the result?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Your satisfaction is our top priority. If you're not 100% satisfied with
-                            a
-                            design, we will continue to revise it until it meets your expectations. Our unlimited
-                            revision policy ensures that you always end up with a design that you love and that
-                            truly
-                            represents your vision.</div>
+                        <div class="faq-answer">
+                            We offer unlimited revisions until you're completely satisfied. If you're not happy with the direction, we'll start fresh with a new concept. Plus, we offer a 30-day money-back guarantee if we're not meeting your expectations.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">How do I submit design requests?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Who's designing the work?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Dreamflow uses Trello for all design requests and project management. You
-                            can
-                            submit your requests directly via Trello, where you can also track progress, provide
-                            feedback, and collaborate with our team easily. Alternatives for submission include
-                            sending
-                            details through Google Docs, wireframes, or even brief Loom videos for those who prefer
-                            not
-                            to write out their requests.</div>
+                        <div class="faq-answer">
+                            Your work is designed by our North America-based senior design team. Each designer has 8+ years of experience working with tech startups and major brands. We carefully match designers to projects based on their expertise and your needs.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">Who will be working on my designs?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you handle development?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Your designs will be crafted by Dreamflow's award-winning co-founders,
-                            ensuring that you receive top-tier creative input. For specialized requests like
-                            animations
-                            or custom illustrations, we collaborate with trusted partner designers who share our
-                            commitment to quality and innovation.</div>
+                        <div class="faq-answer">
+                            Yes! Our Full-Stack plan includes both design and development services. We can build responsive websites, web apps, and handle front-end development. For more complex development needs, we can recommend trusted partners from our network.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q"> Are there any types of design work Dreamflow does not cover?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I use it for multiple brands?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Dreamflow focuses on digital design and does not provide services for
-                            extensive print work (like full magazines or large-scale packaging), or complex document
-                            design (such as detailed medical forms). Our core expertise is in creating visually
-                            stunning
-                            and functional digital assets for web3 platforms.</div>
+                        <div class="faq-answer">
+                            Absolutely! You can use your subscription for any number of brands or projects. Many of our clients use us for their main business, side projects, and client work. There's no limit to how you can use the service.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">What design tools does Dreamflow use?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I pause or cancel?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">We primarily design using Figma and Adobe Suite products to ensure
-                            high-quality outputs and industry-standard compatibility. For projects requiring simpler
-                            graphics, tools like Canva may also be used.</div>
+                        <div class="faq-answer">
+                            Yes, you can pause or cancel your subscription at any time. Pausing puts your subscription on hold and saves your spot. When you're ready to resume, just let us know. Canceling is hassle-free with no questions asked.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q"> What if I only have a few design needs?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What's the difference between Essential, Elite and Full-Stack?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Our subscription model is designed to be flexible. If you find yourself
-                            with
-                            fewer design needs, you can pause your subscription and resume it when more tasks
-                            accumulate. This ensures you only pay for what you need, when you need it.</div>
+                        <div class="faq-answer">
+                            Essential includes unlimited design requests with one active task at a time. Elite adds faster turnaround, multiple active tasks, and priority support. Full-Stack includes everything in Elite plus development services, turning your designs into fully functional websites and applications.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">Are there any hidden fees or additional costs?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I submit requests?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">No, there are no hidden fees with Dreamflow. Our subscription model is
-                            all-inclusive, providing you with clarity and predictability in your budgeting.</div>
+                        <div class="faq-answer">
+                            You'll get access to our DreamGate™ platform where you can submit and track all your design requests. Simply describe what you need, attach any reference materials, and we'll take care of the rest. Your dedicated design concierge is always available to help refine your requests.
+                        </div>
                     </div>
-                    <div class="faq-content">
-                        <button class="faq-q">Can I cancel my subscription at any time?
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" class="faq-icon">
-                                <path
-                                    d="M18 9.99984L16.59 8.58984L12 13.1698L7.41 8.58984L6 9.99984L12 15.9998L18 9.99984Z"
-                                    fill="black" />
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you offer refunds?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="faq-a">Absolutely. You can cancel your subscription at any point with no
-                            additional
-                            charges. Our goal is to provide value, flexibility, and top-quality service without
-                            locking
-                            you into long-term commitments. <br /><br />Billing cycles are based on 31 day period.
-                            Let's
-                            say you sign up and use the service for 21 days, and then decide to pause your
-                            subscription.
-                            This means that the billing cycle will be paused and you'll have 10 days of service
-                            remaining to be used anytime in the future.</div>
+                        <div class="faq-answer">
+                            Yes, we offer a 30-day money-back guarantee. If you're not completely satisfied with our service within the first 30 days, we'll refund your subscription. For our trial week, you can get 75% back if you decide it's not the right fit.
+                        </div>
                     </div>
                 </div>
-                <div class="schedule-side">
-                    <img src="./images/chase-icon.jpg" alt="AI Designer" class="chase-img" loading="lazy">
-                    <p class="ready">Discover Dreamflow</p>
-                    <p class="intro">No-cost 15 min intro call</p>
-
-                    <a href="https://calendly.com/dreamflowlabs/30-minute-meeting" target="_blank"
-                        class="get-started schedule">Schedule now</a>
-                </div>
-
             </section>
 
-
-            
-
-            
-
-        </main>
-            
-
-        <!-- Footer-Section -->
-        <footer class="footer-section section fade" id="footer">
-            <div class="footer-header-section">
-              
-
-            <div class="footer-border"></div>
-            <div class="footer-bottom">
-                <div class="left-footer-bottom">
-                    <img src="./images/dreamflow-small-icon.svg" alt="Dreamflow AI" class="dfminilogo">
-                    <div class="terms">Dreamflow Labs 2024 <p class="terms-section">All rights reserved - Terms of
-                            Use</p>
+            <!-- Footer Section -->
+            <footer class="new-footer">
+                <div class="footer-content">
+                    <h1 class="footer-logo">Dreamflow</h1>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/dreamflowlabs" target="_blank" class="social-link">
+                            <img src="./images/x-logo.svg" alt="Twitter" class="social-icon">
+                        </a>
+                        <a href="mailto:hello@dreamflowlabs.com" target="_blank" class="social-link">
+                            <img src="./images/email-logo.svg" alt="Email" class="social-icon">
+                        </a>
+                        <a href="https://linkedin.com/company/dreamflowlabs" target="_blank" class="social-link">
+                            <img src="./images/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                        </a>
                     </div>
                 </div>
-                <div class="border"></div>
-                <div class="socials">
-                    <a href="https://twitter.com/dreamflowlabs" target="_blank" class="social"><img
-                            src="./images/x-logo.svg" alt="Twitter logo" class="social-logo" loading="lazy"></a>
-                    <a href="mailto:hello@dreamflowlabs.com?subject=Let's Make Magic&body=Hello Dreamflow Team! I'm interested in your creative team designing something stunning for me."
-                        target="_blank" class="social">
-                        <img src="./images/email-logo.svg" alt="Email logo" class="social-logo" loading="lazy">
-                    </a>
-                  
-                    <a href="https://calendly.com/dreamflowlabs/30-minute-meeting" class="social"
-                        target="_blank"><img src="./images/calendly-logo.svg" alt="Calendly Logo"
-                            class="social-logo" loading="lazy"></a>
-                    <a href="https://dribbble.com/DreamflowLabs" class="social" target="_blank"><img
-                            src="./images/dribbble-logo.svg" alt="Dribbble logo" class="social-logo"
-                            loading="lazy"></a>
+                <div class="footer-border"></div>
+                <div class="footer-bottom">
+                    <p class="footer-text">Dreamflow Labs 2025 - All rights reserved <span>Terms of Use</span></p>
                  
-
                 </div>
-            </div>
-        </footer>
-
+            </footer>
+        </main>
 </div>
 
 
@@ -1019,7 +752,7 @@
                     "random": true,
                     "anim": {
                         "enable": true,
-                        "speed": 0.8,
+                        "speed": 0.1,
                         "opacity_min": 0.1,
                         "sync": false
                     }
@@ -1029,7 +762,7 @@
                     "random": true,
                     "anim": {
                         "enable": false,
-                        "speed": 40,
+                        "speed": 3,
                         "size_min": 0.5,
                         "sync": false
                     }
@@ -1038,12 +771,12 @@
                     "enable": true,
                     "distance": 150,
                     "color": "#ffffff",
-                    "opacity": 0.15,
-                    "width": 1
+                    "opacity": 0,
+                    "width": 0
                 },
                 "move": {
                     "enable": true,
-                    "speed": 0.5,
+                    "speed": 0.8,
                     "direction": "none",
                     "random": false,
                     "straight": false,
@@ -1081,7 +814,7 @@
                         "size": 40,
                         "duration": 2,
                         "opacity": 0.8,
-                        "speed": 3
+                        "speed": 1
                     },
                     "repulse": {
                         "distance": 200,
@@ -1098,40 +831,6 @@
             "retina_detect": true
         });
 
-    });
-</script>
-
-<!-- FAQ Animation Script -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Make FAQ section visible by adding active class
-        const eigthSection = document.querySelector('.eigth-section');
-        if (eigthSection) {
-            eigthSection.classList.add('active');
-        }
-        
-        // Add toggle functionality to FAQ questions
-        const faqQuestions = document.querySelectorAll('.faq-q');
-        faqQuestions.forEach(function(question) {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                const icon = this.querySelector('.faq-icon');
-                
-                if (answer.style.maxHeight) {
-                    answer.style.maxHeight = null;
-                    answer.style.opacity = 0;
-                    answer.style.paddingBottom = '0';
-                    answer.style.marginBottom = '0';
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    answer.style.opacity = 1;
-                    answer.style.paddingBottom = '10px';
-                    answer.style.marginBottom = '10px';
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
     });
 </script>
 
@@ -1236,11 +935,11 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize GSAP ScrollTrigger animation for spreading cards
         function initSpreadingAnimation() {
-            // Initial state for center content
+            // Initial state for center content - start completely invisible
             gsap.set([".spreading-cards-section .logo", ".spreading-cards-section .line p", 
                       ".spreading-cards-section .subtext", ".spreading-cards-section .btn .apply-now-btn"], {
                 opacity: 0,
-                y: 50,
+                y: 0,
                 pointerEvents: 'none'
             });
 
@@ -1277,11 +976,11 @@
                     x: 500,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main",
-                        start: "top+=650 65%",
-                        end: "center+=650 center",
+                        start: "top+=750 65%",
+                        end: "center+=750 center",
                         scrub: 1,
                         toggleActions: "play none none reverse",
-                        markers: true
+                        markers: false
                     }
                 });
 
@@ -1289,11 +988,11 @@
                     x: -500,
                     scrollTrigger: {
                         trigger: ".spreading-cards-section .main",
-                        start: "top+=650 55%",
-                        end: "center+=650 center",
+                        start: "top+=750 55%",
+                        end: "center+=750 center",
                         scrub: 1.2,
                         toggleActions: "play none none reverse",
-                        markers: true
+                        markers: false
                     }
                 });
 
@@ -1301,11 +1000,11 @@
                     x: 500,
                     scrollTrigger: {
                         trigger: bottomRight,
-                        start: "top+=650 bottom",
-                        end: "center+=650 center",
+                        start: "top+=750 bottom",
+                        end: "center+=750 center",
                         scrub: 1.4,
                         toggleActions: "play none none reverse",
-                        markers: true
+                        markers: false
                     }
                 });
 
@@ -1332,7 +1031,7 @@
                         trigger: ".spreading-cards-section .main-content",
                         start: "top+=650 80%",
                         toggleActions: "play none none reverse",
-                        markers: true
+                        markers: false
                     }
                 });
 
@@ -1345,7 +1044,7 @@
                         trigger: ".spreading-cards-section .main-content",
                         start: "top+=650 80%",
                         toggleActions: "play none none reverse",
-                        markers: true
+                        markers: false
                     }
                 });
             });
@@ -1360,62 +1059,161 @@
 
                     ScrollTrigger.create({
                         trigger: ".spreading-cards-section .main",
-                        start: "top+=650 center",
-                        end: "150%+=650 bottom",
+                        start: "top+=750 center",
+                        end: "bottom top",
                         scrub: true,
-                        markers: true,
+                        markers: false,
                         onUpdate: (self) => {
                             const progress = self.progress;
                             cardLeft.style.transform = `translateX(${progress * leftXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * leftRotationValues[index]}deg)`;
                             cardRight.style.transform = `translateX(${progress * rightXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * rightRotationValues[index]}deg)`;
+                            
+                            // Fade in content based on card spread progress
+                            if (progress > 0.2) {
+                                const contentProgress = (progress - 0.2) / 0.3;
+                                const opacity = Math.min(contentProgress, 1);
+                                gsap.to([".spreading-cards-section .logo", ".spreading-cards-section .line p", 
+                                        ".spreading-cards-section .subtext"], {
+                                    opacity: opacity,
+                                    duration: 0.1,
+                                    overwrite: true
+                                });
+                                
+                                gsap.to(".spreading-cards-section .btn .apply-now-btn", {
+                                    opacity: opacity,
+                                    duration: 0.1,
+                                    overwrite: true,
+                                    onComplete: function() {
+                                        if (opacity === 1) {
+                                            gsap.set(".spreading-cards-section .btn .apply-now-btn", {
+                                                pointerEvents: "auto"
+                                            });
+                                        }
+                                    }
+                                });
+                            }
                         }
                     });
-                });
-
-                // Desktop content animation with earlier completion
-                gsap.set([".spreading-cards-section .logo", ".spreading-cards-section .line p", 
-                          ".spreading-cards-section .subtext", ".spreading-cards-section .btn .apply-now-btn"], {
-                    opacity: 0,
-                    y: 50,
-                    pointerEvents: 'auto'
-                });
-
-                // Animate text elements
-                gsap.to([".spreading-cards-section .logo", ".spreading-cards-section .line p", ".spreading-cards-section .subtext"], {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    stagger: 0.1,
-                    scrollTrigger: {
-                        trigger: ".spreading-cards-section .main-content",
-                        start: "top+=650 85%",
-                        end: "top+=650 60%",
-                        toggleActions: "play none none reverse",
-                        markers: true
-                    }
-                });
-
-                // Separate animation for button
-                gsap.to(".spreading-cards-section .btn .apply-now-btn", {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.4,
-                    scrollTrigger: {
-                        trigger: ".spreading-cards-section .main-content",
-                        start: "top+=650 85%",
-                        end: "top+=650 60%",
-                        toggleActions: "play none none reverse",
-                        markers: true
-                    },
-                    onComplete: () => {
-                        gsap.set(".spreading-cards-section .btn .apply-now-btn", { pointerEvents: 'auto' });
-                    }
                 });
             });
         }
 
         // Initialize the animation
         initSpreadingAnimation();
+    });
+</script>
+
+<!-- FAQ Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle aria-expanded attribute
+                this.setAttribute('aria-expanded', !isExpanded);
+                
+                // Reset other questions
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        otherQuestion.setAttribute('aria-expanded', 'false');
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        otherAnswer.classList.remove('active');
+                    }
+                });
+                
+                // Handle the clicked answer's animation
+                if (!isExpanded) {
+                    // Opening
+                    answer.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        answer.classList.add('active');
+                    });
+                } else {
+                    // Closing
+                    answer.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Navigation bar visibility control
+        const navbar = document.querySelector('.nav-bar');
+        const sections = {
+            hero: document.querySelector('.hero'),
+            simpleStreamlined: document.querySelector('.simple-streamlined-section .section-title'),
+            allInOne: document.querySelector('.stacked-card[data-card="3"]'), // Second animated card
+            pricingTitle: document.querySelector('.pricing-section .pricing-main-title'),
+            calendarTitle: document.querySelector('.calendar-section .section-title')
+        };
+        
+        function handleNavbarVisibility() {
+            if (!sections.simpleStreamlined || !sections.allInOne || !sections.pricingTitle || !sections.calendarTitle) return;
+            
+            const sectionRect = sections.simpleStreamlined.getBoundingClientRect();
+            const allInOneRect = sections.allInOne.getBoundingClientRect();
+            const pricingTitleRect = sections.pricingTitle.getBoundingClientRect();
+            const calendarTitleRect = sections.calendarTitle.getBoundingClientRect();
+            const triggerPoint = window.innerHeight * 0.2; // 20% from the top
+            
+            // Check if we're near the bottom of the page
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            const bottomTrigger = pageHeight - (window.innerHeight * 0.1); // 10% from bottom
+            
+            // Calculate visibility based on all sections and scroll position
+            if (scrollPosition >= bottomTrigger) {
+                // Show nav when near bottom of page
+                navbar.classList.add('visible');
+            } else if (calendarTitleRect.bottom <= 0) {
+                // Hide nav when calendar title moves off the top
+                navbar.classList.remove('visible');
+            } else if (pricingTitleRect.bottom <= 0) {
+                // Show nav when pricing title moves off the top
+                navbar.classList.add('visible');
+            } else if (sectionRect.top <= triggerPoint) {
+                // Show nav when reaching simple streamlined section
+                if (allInOneRect.top <= window.innerHeight) {
+                    // Start fading out when second all-in-one card becomes visible
+                    const fadeOutStart = window.innerHeight;
+                    const fadeOutEnd = window.innerHeight * 0.9;
+                    const fadeOutProgress = (allInOneRect.top - fadeOutEnd) / (fadeOutStart - fadeOutEnd);
+                    
+                    if (fadeOutProgress <= 0) {
+                        navbar.classList.remove('visible');
+                    } else {
+                        navbar.classList.add('visible');
+                    }
+                } else {
+                    navbar.classList.add('visible');
+                }
+            } else {
+                navbar.classList.remove('visible');
+            }
+        }
+        
+        // Initial check
+        handleNavbarVisibility();
+        
+        // Add scroll event listener with throttling for performance
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    handleNavbarVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Rest of your existing DOMContentLoaded code...
     });
 </script>
 

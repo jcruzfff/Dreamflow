@@ -17,42 +17,87 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hero animations
     const heroTl = gsap.timeline();
     
-    heroTl.from(".hero-top-gradient", {
+    // Group 1: All top content fades in quickly together
+    heroTl.from([".df-top-logo", ".hero-top-gradient", ".hero-header", ".hero-subheader", ".hero-btn"], {
         opacity: 0,
-        y: -20,
-        duration: 1
+        y: 20,
+        duration: 0.3,
+        stagger: 0.05
     });
+
+    // Group 2: Gallery content fades in immediately after
+    const initScrollingGallery = () => {
+        const galleryContainer = document.querySelector('.scrolling-gallery');
+        const topRow = document.querySelector('.top-row');
+        const bottomRow = document.querySelector('.bottom-row');
+        
+        if (!topRow || !bottomRow || !galleryContainer) return;
+        
+        // Calculate dimensions once
+        const windowWidth = window.innerWidth;
+        const topRowWidth = topRow.scrollWidth;
+        const bottomRowWidth = bottomRow.scrollWidth;
+        
+        // Hard-coded start and end positions
+        const topRowStartX = 40;
+        const bottomRowStartX = windowWidth - bottomRowWidth + 40;
+        const topRowEndX = -(topRowWidth - windowWidth - 40);
+        const bottomRowEndX = 40;
+        
+        // Set initial positions with opacity 0
+        gsap.set([topRow, bottomRow], { 
+            opacity: 0
+        });
+        gsap.set(topRow, { x: topRowStartX });
+        gsap.set(bottomRow, { x: bottomRowStartX });
+        
+        // Quick fade in for gallery
+        heroTl.to([topRow, bottomRow], {
+            opacity: 1,
+            duration: 0.3,
+            ease: "none",
+            stagger: 0.05
+        }); 
+        
+        // Create scroll animations
+        gsap.fromTo(topRow, 
+            { x: topRowStartX },
+            { 
+                x: topRowEndX, 
+                ease: "none",
+                scrollTrigger: {
+                    trigger: galleryContainer,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 2,
+                    invalidateOnRefresh: true
+                }
+            }
+        );
+        
+        gsap.fromTo(bottomRow, 
+            { x: bottomRowStartX },
+            { 
+                x: bottomRowEndX, 
+                ease: "none",
+                scrollTrigger: {
+                    trigger: galleryContainer,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 2,
+                    invalidateOnRefresh: true
+                }
+            }
+        );
+        
+        // Simple resize handler
+        window.addEventListener('resize', () => {
+            ScrollTrigger.refresh();
+        });
+    };
     
-    heroTl.from(".hero-header", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8
-    }, "-=0.5");
-    
-    heroTl.from(".hero-subheader", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6
-    }, "-=0.3");
-    
-    heroTl.from(".hero-btn", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        stagger: 0.2
-    }, "-=0.3");
-    
-    heroTl.from(".hero-card-left", {
-        opacity: 0,
-        x: 40,
-        duration: 0.8
-    }, "-=0.6");
-    
-    heroTl.from(".hero-card-right", {
-        opacity: 0,
-        x: 40,
-        duration: 0.8
-    }, "-=0.5");
+    // Initialize gallery immediately
+    initScrollingGallery();
 
     // Logo animation
     const clientsContainer = document.querySelector('.clients-container');
@@ -120,160 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     createAdditionalLogos();
-
-    // Completely rewritten scrolling gallery animation
-    const initScrollingGallery = () => {
-        const galleryContainer = document.querySelector('.scrolling-gallery');
-        const topRow = document.querySelector('.top-row');
-        const bottomRow = document.querySelector('.bottom-row');
-        
-        if (!topRow || !bottomRow || !galleryContainer) return;
-        
-        // Only clear gallery animations, not all ScrollTrigger instances
-        const existingTriggers = ScrollTrigger.getAll();
-        existingTriggers.forEach(st => {
-            // Only kill gallery-related animations based on their elements or IDs
-            if ((st.vars && st.vars.trigger === galleryContainer) || 
-                (st.trigger === galleryContainer) || 
-                st.id === "galleryScroll") {
-                console.log("Killing existing gallery ScrollTrigger");
-                st.kill();
-            }
-        });
-        
-        // Reset any existing styles on the rows
-        gsap.set([topRow, bottomRow], { clearProps: "all" });
-        
-        // Remove body overflow control
-        // document.body.style.overflowX = 'hidden';
-        // document.documentElement.style.overflowX = 'hidden';
-        
-        // Set only gallery container to hide overflow
-        galleryContainer.style.overflow = 'hidden';
-        
-        // Keep the investor-ready section from causing horizontal scroll
-        const investorSection = document.querySelector('.investor-ready-section');
-        if (investorSection) {
-            investorSection.style.overflow = 'hidden';
-        }
-        
-        // Calculate dimensions once
-        const windowWidth = window.innerWidth;
-        const topRowWidth = topRow.scrollWidth;
-        const bottomRowWidth = bottomRow.scrollWidth;
-        
-        // Hard-coded start and end positions
-        const topRowStartX = 40; // Top row starts 400px from left
-        const topRowEndX = -(topRowWidth - windowWidth - 40); // End with last image 40px from right
-        
-        const bottomRowStartX = windowWidth - bottomRowWidth + 40; // Bottom row starts with last image 40px from right
-        const bottomRowEndX = 40; // End with first image 40px from left
-        
-        console.log({
-            windowWidth,
-            topRowWidth, 
-            bottomRowWidth,
-            topRowStartX,
-            topRowEndX,
-            bottomRowStartX,
-            bottomRowEndX
-        });
-        
-        // Manually force initial positioning
-        topRow.style.transform = `translateX(${topRowStartX}px)`;
-        bottomRow.style.transform = `translateX(${bottomRowStartX}px)`;
-        
-        // Create a "checker" function that periodically verifies positioning
-        const checkPositions = () => {
-            const topTransform = window.getComputedStyle(topRow).transform;
-            const bottomTransform = window.getComputedStyle(bottomRow).transform;
-            
-            console.log("Current transforms:", { 
-                top: topTransform,
-                bottom: bottomTransform,
-                topStyle: topRow.style.transform,
-                bottomStyle: bottomRow.style.transform
-            });
-            
-            // If somehow the transforms are not set or reverted to defaults, reapply them
-            if (topTransform === "none" || topTransform === "matrix(1, 0, 0, 1, 0, 0)") {
-                topRow.style.transform = `translateX(${topRowStartX}px)`;
-            }
-            
-            if (bottomTransform === "none" || bottomTransform === "matrix(1, 0, 0, 1, 0, 0)") {
-                bottomRow.style.transform = `translateX(${bottomRowStartX}px)`;
-            }
-        };
-        
-        // Check positions after a moment and again when the gallery enters view
-        setTimeout(checkPositions, 100);
-        
-        // Create a unified trigger that handles both rows consistently
-        const mainTrigger = ScrollTrigger.create({
-            trigger: galleryContainer,
-            start: "top bottom", // Start when top of gallery enters viewport
-            end: "bottom top",   // End when bottom of gallery leaves viewport
-            id: "galleryScroll", // Give it a unique ID
-            onEnter: () => {
-                console.log("Gallery entered view");
-                // Re-enforce initial positions
-                topRow.style.transform = `translateX(${topRowStartX}px)`;
-                bottomRow.style.transform = `translateX(${bottomRowStartX}px)`;
-                setTimeout(checkPositions, 50);
-            },
-            onLeaveBack: () => {
-                console.log("Gallery left view backwards");
-                // Reset to initial positions when scrolling back up
-                topRow.style.transform = `translateX(${topRowStartX}px)`;
-                bottomRow.style.transform = `translateX(${bottomRowStartX}px)`;
-            }
-        });
-        
-        // Create separate, simple animations for each row
-        const topRowAnim = gsap.fromTo(topRow, 
-            { x: topRowStartX }, 
-            { 
-                x: topRowEndX, 
-                ease: "none",
-                scrollTrigger: {
-                    trigger: galleryContainer,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 2,
-                    invalidateOnRefresh: true
-                }
-            }
-        );
-        
-        const bottomRowAnim = gsap.fromTo(bottomRow, 
-            { x: bottomRowStartX }, 
-            { 
-                x: bottomRowEndX, 
-                ease: "none",
-                scrollTrigger: {
-                    trigger: galleryContainer,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 2,
-                    invalidateOnRefresh: true
-                }
-            }
-        );
-        
-        // Handle window resize events properly
-        window.addEventListener('resize', () => {
-            // First kill existing animations
-            if (topRowAnim) topRowAnim.kill();
-            if (bottomRowAnim) bottomRowAnim.kill();
-            if (mainTrigger) mainTrigger.kill();
-            
-            // Then reinitialize the whole gallery
-            setTimeout(initScrollingGallery, 100);
-        });
-    };
-    
-    // Initialize gallery after a short delay to ensure DOM is ready
-    setTimeout(initScrollingGallery, 200);
 
     // Card stacking animation implementation
     const initCardAnimation = () => {
