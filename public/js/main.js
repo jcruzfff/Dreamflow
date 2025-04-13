@@ -99,6 +99,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize gallery immediately
     initScrollingGallery();
 
+    // Why Founders Choose Dreamflow section animation
+    const initFoundersCardsAnimation = () => {
+        const cards = gsap.utils.toArray('.founder-card');
+        const title = document.querySelector('.why-founders-title');
+        
+        // Set initial state
+        gsap.set(cards, { 
+            opacity: 0,
+            y: 50
+        });
+        
+        gsap.set(title, {
+            opacity: 0,
+            y: 30
+        });
+
+        // Animate title first
+        ScrollTrigger.create({
+            trigger: title,
+            start: "top 80%",
+            onEnter: () => {
+                gsap.to(title, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            }
+        });
+
+        // Animate cards with stagger
+        ScrollTrigger.create({
+            trigger: ".founders-cards",
+            start: "top 75%",
+            onEnter: () => {
+                gsap.to(cards, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: {
+                        each: 0.1,
+                        from: "start"
+                    },
+                    ease: "power2.out"
+                });
+            }
+        });
+    };
+
+    // Initialize founders cards animation
+    initFoundersCardsAnimation();
+
     // Logo animation
     const clientsContainer = document.querySelector('.clients-container');
     
