@@ -696,7 +696,7 @@ body {
 .simple-streamlined-section {
     width: 100%;
     max-width: 1117px;
-    margin: 160px auto 0px auto;
+    margin: 200px auto 0px auto;
 }
 
 .simple-streamlined-section .section-title {
@@ -911,6 +911,10 @@ body {
     flex-direction: column;
     min-height: 95vh;
     justify-content: center;
+    position: relative;
+    /* Added for better positioning control */
+    padding-bottom: 60px;
+    /* Add padding to separate from next section */
 }
 
 .why-founders-title {
@@ -1090,7 +1094,7 @@ body {
 .testimonial-divider {
     width: 1px;
     height: 240px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 100%);
+    background: rgb(33, 33, 33);
     margin: 0 40px;
 }
 
@@ -1137,6 +1141,7 @@ body {
     font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: 500;
+    margin-bottom: 8px;
 }
 
 .author-title {
@@ -1289,7 +1294,7 @@ body {
 }
 
 .card-content p {
-    color: #FFFFFF;
+    color: #86868B;
     font-family: "Helvetica Neue";
     font-size: 28px;
     font-weight: normal;
@@ -1433,15 +1438,16 @@ body {
 .available-status {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     margin-bottom: 10px;
 }
 
 .status-indicator {
     width: 12px;
     height: 12px;
-    background: linear-gradient(180deg, #F3CD83 0%, #CEA14B 100%);
+    background: #1cdb6e;
     border-radius: 50%;
+    color: #1cdb6e;
 }
 
 .status-text {
@@ -1556,24 +1562,25 @@ body {
 
 .pricing-features {
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    gap: 80px;
+    margin-top: 32px;
 }
 
 .features-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 240px;
+    /* Fixed width for both columns */
 }
 
 .feature {
     color: #FFFFFF;
-    font-size: 18px;
-    font-weight: 500;
     font-family: 'Helvetica Neue';
+    font-size: 18px;
+    font-weight: 400;
     text-align: left;
     white-space: nowrap;
-    height: auto;
     line-height: 21.6px;
 }
 
@@ -1604,7 +1611,7 @@ body {
     border-radius: 24px;
     border: 1px dashed #1B1B1B;
     background: #080808;
-    height: 177px;
+    height: 148px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -1760,7 +1767,7 @@ body {
 
 .metric-label {
     position: absolute;
-    color: #DEDEDE;
+    color: #86868B;
     font-family: "Helvetica Neue";
     font-size: 16px;
     font-weight: 700;
@@ -1837,6 +1844,7 @@ body {
 
 .calendar-section .section-title {
     margin-bottom: 24px;
+    margin-top: 24px;
 }
 
 .calendar-section .section-subtitle {
@@ -1844,6 +1852,7 @@ body {
     margin: 0 auto 60px;
     font-size: 22px;
     font-style: normal;
+    color: #86868B;
     font-weight: 500;
     line-height: 120%;
 }
@@ -1973,8 +1982,9 @@ body {
 
 .spreading-cards-section .subtext {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 22px;
     opacity: 0.8;
+    color: #86868B;
 }
 
 .spreading-cards-section .btn {
@@ -2222,6 +2232,34 @@ body {
     .faq-item {
         padding-bottom: 16px;
     }
+
+    .founder-card {
+        width: 230px !important;
+        min-width: 230px !important;
+        min-height: 250px;
+        padding: 20px;
+    }
+
+    .card-web3,
+    .card-dreamgate,
+    .card-pricing,
+    .card-designers,
+    .card-team {
+        width: 230px !important;
+        min-width: 230px !important;
+    }
+
+    .founder-card-title {
+        font-size: 18px;
+    }
+
+    .founder-card-text {
+        font-size: 16px;
+    }
+
+    .founders-cards {
+        gap: 12px;
+    }
 }
 
 @media screen and (max-width: 1440px) {
@@ -2243,26 +2281,25 @@ body {
     }
 }
 
+@media screen and (max-width: 1300px) {
+    .hero-container {
+        padding-left: 6%;
+    }
+}
+
 @media screen and (max-width: 1200px) {
 
-    .body-section,
-    .hero,
-    .hero-container,
-    .client-logos-section {
+    .body-section {
         max-width: 90%;
-    }
-
-    .nav-bar {
-        width: auto;
-    }
-
-    .nav-item {
-        width: auto;
-        padding: 15px 20px;
     }
 
     .section-title {
         font-size: 60px;
+    }
+
+    #simple-title {
+        font-size: 60px;
+        margin-bottom: 0px;
     }
 
     .gallery-item {
@@ -2270,15 +2307,35 @@ body {
         height: 300px;
     }
 
-    .founders-awards-section {
+    .simple-streamlined-content {
         max-width: 90%;
+        margin: 0 auto;
     }
 
-
+    /* Updated all-in-one section responsiveness */
+    .all-in-one-section {
+        max-width: 90%;
+        margin: 0 auto;
+    }
 
     .stacked-cards-container,
     .stacked-card {
         width: 100%;
+        max-width: 100%;
+    }
+
+    .card-content h3 {
+        font-size: 34px;
+    }
+
+    .card-content p {
+        font-size: 24px;
+        max-width: 95%;
+    }
+
+    .card-image-placeholder {
+        width: 380px;
+        height: 280px;
     }
 
     .stacked-images {
@@ -2287,15 +2344,137 @@ body {
 
     .process-steps {
         width: 40%;
+        gap: 42px;
     }
 
+    .process-step h3 {
+        font-size: 32px;
+    }
+
+    #process-step-text {
+        font-size: 20px;
+    }
 
     .why-founders-section {
-        max-width: 90%;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 0 0 60px 0;
+        /* Maintain bottom padding */
     }
 
     .why-founders-title {
         font-size: 60px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .founders-cards {
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        gap: 16px;
+        padding: 15px 0;
+        padding-left: 5%;
+        padding-right: 0;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        position: relative;
+        /* Remove smooth scrolling to avoid conflicts with JS animation */
+        scroll-behavior: auto;
+        /* Enhanced GPU acceleration */
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        will-change: transform, scroll-position;
+    }
+
+    .founders-cards::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
+    .founders-cards-nav {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        /* Add bottom margin to prevent layout compression */
+    }
+
+    .founders-cards-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #1F1F1F 0%, #111 69%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0px 1.318px 2.635px 0px #525154 inset,
+            0px 10px 15px -5px rgba(0, 0, 0, 0.5);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .founders-cards-arrow:hover {
+        transform: scale(1.05);
+    }
+
+    .founders-cards-arrow:active {
+        transform: scale(0.95);
+    }
+
+    .founders-cards-arrow svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: white;
+        stroke-width: 2;
+    }
+
+    .founders-cards-arrow.prev svg {
+        transform: rotate(180deg);
+    }
+
+    .founders-cards::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
+    .founder-card {
+        min-width: 210px;
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .card-web3 {
+        min-width: 244px;
+        margin-right: 0;
+    }
+
+    /* Ensure the last card in the row has proper spacing to appear cut off */
+    .founders-cards .founder-card:last-child {
+        margin-right: 5vw;
+    }
+
+    .card-dreamgate {
+        min-width: 229px;
+    }
+
+    .card-pricing {
+        min-width: 213px;
+    }
+
+    .card-designers {
+        min-width: 210px;
+    }
+
+    .card-team {
+        min-width: 186px;
     }
 
     .pricing-section {
@@ -2328,6 +2507,40 @@ body {
     }
 }
 
+@media screen and (max-width: 1100px) {
+    .hero-top {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Center the DF logo */
+    .df-top-logo {
+        justify-content: center;
+    }
+
+    /* Center the hero title and header */
+    .hero-title-section {
+        text-align: center;
+    }
+
+    .hero-header {
+        text-align: center;
+    }
+
+    .hero-subheader {
+        text-align: center;
+    }
+
+    /* Center the button */
+    .hero-buttons {
+        justify-content: center;
+    }
+}
 
 @media screen and (max-width: 1024px) {
     .simple-streamlined-content {
@@ -2424,6 +2637,26 @@ body {
         gap: 48px;
         margin-top: 100px;
     }
+
+    /* Add all-in-one responsiveness for 1024px */
+    .stacked-card {
+        height: 340px;
+        padding: 35px 32px;
+    }
+
+    .card-content h3 {
+        font-size: 30px;
+    }
+
+    .card-content p {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .card-image-placeholder {
+        width: 320px;
+        height: 240px;
+    }
 }
 
 
@@ -2511,12 +2744,25 @@ body {
 
     .founders-cards {
         gap: 15px;
+        /* Keep horizontal scroll functionality at this breakpoint */
+        overflow-x: auto;
+        padding-bottom: 15px;
     }
 
     .founder-card {
-        width: calc(50% - 15px) !important;
+        width: 260px !important;
+        min-width: 260px !important;
         height: auto;
         min-height: 280px;
+    }
+
+    .card-web3,
+    .card-dreamgate,
+    .card-pricing,
+    .card-designers,
+    .card-team {
+        width: 260px !important;
+        min-width: 260px !important;
     }
 
     .testimonial-text {
@@ -2649,98 +2895,266 @@ body {
         margin-left: calc(-16px);
         margin-right: calc(-16px);
     }
+
+    /* Add all-in-one responsiveness for tablets */
+    .all-in-one-section {
+        min-height: auto;
+    }
+
+    .all-in-one-content {
+        height: auto;
+        position: relative;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .stacked-cards-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .stacked-card {
+        position: relative;
+        height: auto;
+        min-height: 320px;
+        top: auto;
+        transform: none !important;
+    }
+
+    .stacked-card[data-card="0"],
+    .stacked-card[data-card="1"],
+    .stacked-card[data-card="2"],
+    .stacked-card[data-card="3"],
+    .stacked-card[data-card="4"] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .card-content h3 {
+        font-size: 28px;
+    }
+
+    .card-content p {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .card-image-placeholder {
+        width: 280px;
+        height: 220px;
+    }
 }
 
 
 
 @media screen and (max-width:740px) {
     body {
-        padding-left: 18px;
-        padding-right: 18px
+        font-size: 12px;
+        background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.7) 100%);
     }
 
     .body-section,
-    .hero,
-    .hero-container,
-    .client-logos-section {
+    .body-section-content {
+        padding: 18px;
         max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
     }
 
     .nav-bar {
-        bottom: 5%;
-        padding: 2px;
-        gap: 5px;
+        height: 60px;
+        padding: 0 20px;
+        border-radius: 0;
+        backdrop-filter: blur(5px);
     }
 
     .nav-item {
-        width: auto;
-        height: 40px;
-        padding: 10px 15px;
+        margin: 0 15px;
+        padding: 3px 0;
     }
 
     .nav-link {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .hero-header {
-        font-size: 3.5rem;
+        font-size: 34px;
+        line-height: 1.2;
+        text-align: center;
+        margin-top: 24px;
     }
 
     .hero-container {
-        flex-direction: column;
-        padding-top: 150px;
+        padding: 0;
+        justify-content: flex-start;
     }
 
-    .hero-left,
-    .hero-right {
+    .hero-top {
+        margin-bottom: 40px;
+    }
+
+    .df-top-logo {
+        height: 28px;
+        margin: 64px auto 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .df-top-logo img {
+        height: 28px;
+        width: auto;
+    }
+
+    .top-logo {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .hero-title-section {
+        margin-top: 24px;
+        text-align: center;
+    }
+
+    .hero-subheader {
+        font-size: 20px;
+        margin-top: 32px;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        margin-top: 32px;
+        display: flex;
+        justify-content: center;
         width: 100%;
-        padding-right: 0;
-        padding-left: 0;
     }
 
-    .hero-right {
-        padding-top: 40px;
+    .hero-btn {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .apply-now {
+        font-size: 16px;
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: 46.55px;
+    }
+
+    .apply-now img {
+        width: 10px;
+        height: 10px;
     }
 
     .hero-top-gradient {
-        top: 60px;
-        left: -50px;
-        width: 300px;
+        display: none;
     }
 
     .hero-cards {
-        height: 300px;
-        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
     .hero-card-left {
-        width: 200px;
-        top: 0;
-        right: 100px;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 24px;
+        background-size: cover;
     }
 
     .hero-card-right {
-        width: 200px;
-        top: 50px;
-        right: 0;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 24px;
+        background-size: cover;
+    }
+
+    .scrolling-gallery {
+        margin-top: 60px;
+        width: 100vw;
+        padding: 0;
+        overflow: hidden;
+        margin-left: calc(-50vw + 50% - 9px);
+        /* Adjust for body padding */
+        margin-right: calc(-50vw + 50% - 9px);
+    }
+
+    .scrolling-row {
+        height: 228px;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .top-row {
+        padding-left: 18px;
+        margin-bottom: 20px;
+    }
+
+    .bottom-row {
+        padding-left: 18px;
+        margin-top: 0;
+    }
+
+    .gallery-item {
+        min-width: 400px;
+        height: 228px;
+        border-radius: 16px;
+    }
+
+    .gallery-img {
+        width: 400px;
+        height: 228px;
+        object-fit: cover;
+        border-radius: 16px;
     }
 
     .content-subheader {
         font-size: 18px;
-        width: 60%;
-        margin-bottom: 24px
+        line-height: 1.5;
+        padding: 0 20px;
     }
 
     .button {
-        height: 42px;
-        width: 70%
+        width: 100%;
+        max-width: 400px;
     }
 
     .background-image-gradient {
-        width: 100vw;
-        max-height: none;
-        height: 922px;
-        margin-top: 274px
+        display: none;
+    }
+
+    /* Add all-in-one responsiveness for mobile */
+    .stacked-card {
+        flex-direction: column;
+        padding: 24px;
+        min-height: auto;
+    }
+
+    .card-content {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .card-content h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .card-content p {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .card-image-placeholder {
+        width: 100%;
+        height: 180px;
     }
 }
 
