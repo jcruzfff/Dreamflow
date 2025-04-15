@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Unlimited requests',
                     'Unlimited revisions',
                     'DreamGate™ Portal',
-                    'Up to 2 users'
+                    
                 ]
             },
             'Elite': {
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'DreamGate™ Portal',
                     'Unlimited requests',
                     'Unlimited revisions',
-                    'Up to 4 users'
+                 
                 ]
             },
             'Full-Stack': {
@@ -394,7 +394,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!cards.length || !cardSection) return;
         
         // Define the correct order for cards to appear - from bottom to top
-        // Based on HTML structure: data-card="0" is UX/UI Design, data-card="4" is Pitch Decks
         const cardOrder = [
             cards[4], // Pitch Decks & Presentations (first to appear, bottom)
             cards[3], // Content & Video Production
@@ -403,37 +402,12 @@ document.addEventListener('DOMContentLoaded', function() {
             cards[0]  // UX/UI Design (last to appear, top)
         ];
         
-        // Log for debugging
-        console.log("Initializing card animation with", cardOrder.length, "cards in custom order");
-        
-        // Check if we're on a mobile device (less than 768px width)
-        const isMobile = () => window.innerWidth < 768;
-        
-        // Function to setup animation based on screen size
+        // Function to setup animation
         const setupAnimation = () => {
-            // For mobile: disable animation and show all cards stacked vertically
-            if (isMobile()) {
-                // Reset any existing ScrollTrigger
-                const cardST = ScrollTrigger.getById("cardStackingAnimation");
-                if (cardST) cardST.kill();
-                
-                // Reset all cards to regular position
-                gsap.set(title, { opacity: 1, y: 0 });
-                cards.forEach(card => {
-                    gsap.set(card, { 
-                        y: 0, 
-                        opacity: 1,
-                        clearProps: "transform" 
-                    });
-                });
-                
-                // Remove the pin styling
-                cardSection.style.height = "auto";
-                cardSection.style.position = "relative";
-                return;
-            }
+            // Reset any existing ScrollTrigger
+            const existingST = ScrollTrigger.getById("cardStackingAnimation");
+            if (existingST) existingST.kill();
             
-            // For desktop: create stacking animation
             // Set initial positions for title and first card - show them immediately
             gsap.set(title, { opacity: 1, y: 0 });
             gsap.set(cardOrder[0], { y: 0, opacity: 1 }); // First card (Pitch Decks) is visible immediately
@@ -446,34 +420,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
+            // Use consistent 64px offset for all screen sizes
+            const cardOffset = 64;
+            
             // Create a pinned section with ScrollTrigger
             const cardTimeline = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".all-in-one-section",
                     start: "top 5%", // Start when section is 5% from top of viewport
-                    end: "+=1000", // Less scroll space needed
+                    end: "+=1200", // More scroll space needed for the new layout
                     scrub: 1,
                     pin: true,
                     pinSpacing: true,
-                    markers: false, // Disable markers for production
-                    id: "cardStackingAnimation", // Give it a unique ID to avoid conflicts
+                    markers: false,
+                    id: "cardStackingAnimation",
                     onEnter: () => console.log("Cards section entered"),
                     onLeaveBack: () => console.log("Cards section left (back)"),
                     onLeave: () => console.log("Cards section left (forward)")
                 }
             });
             
-            // Skip first card (already visible) and animate remaining cards in sequence
+            // Animate all cards in sequence
             for (let i = 1; i < cardOrder.length; i++) {
-                // Calculate the vertical offset - each card needs to be stacked with 64px showing
-                const offset = i * 64; // Stack with 64px offset from the previous card
-                
-                // Animate the card into position
                 cardTimeline.to(cardOrder[i], {
-                    y: offset, // Stack with proper offset
+                    y: i * cardOffset,
                     duration: 0.5,
                     ease: "power1.inOut"
-                }, (i - 1) * 0.2); // Staggered timing - more compact
+                }, (i - 1) * 0.2);
             }
         };
         
@@ -482,7 +455,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Handle window resize and re-initialize animation if needed
         window.addEventListener('resize', () => {
-            // Debounce resize events
             clearTimeout(window.resizeTimer);
             window.resizeTimer = setTimeout(() => {
                 setupAnimation();
@@ -540,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Function to create navigation arrows - only for small screens
         function createArrowNavigation() {
             // Only create arrows if they don't exist yet
-            if (!navContainer && window.innerWidth <= 1200) {
+            if (!navContainer && window.innerWidth <= 900) {
                 navContainer = document.createElement('div');
                 navContainer.className = 'founders-cards-nav';
                 
@@ -576,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Function to remove navigation arrows
         function removeArrowNavigation() {
-            if (navContainer && window.innerWidth > 1200) {
+            if (navContainer && window.innerWidth > 900) {
                 navContainer.remove();
                 navContainer = null;
             }
@@ -599,27 +571,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const currentScrollLeft = foundersCards.scrollLeft;
             const cardWidth = founderCards[0].offsetWidth + 16; // Width + gap
             
-            // Temporarily enable smooth scrolling behavior for navigation clicks
             foundersCards.style.scrollBehavior = 'smooth';
             
             if (direction === 'next') {
-                // Scroll to the next card
                 foundersCards.scrollLeft = currentScrollLeft + cardWidth;
             } else {
-                // Scroll to the previous card
                 foundersCards.scrollLeft = currentScrollLeft - cardWidth;
             }
             
-            // Reset scroll behavior after animation completes
             setTimeout(() => {
                 foundersCards.style.scrollBehavior = 'auto';
-            }, 500); // Wait for scroll animation to complete
+            }, 500);
         }
         
-        // Handle hover scrolling function
+        // Only apply hover scrolling for screens > 900px
         function handleHoverScroll(e) {
-            // Only apply hover scrolling on smaller screens
-            if (window.innerWidth > 1200) return;
+            if (window.innerWidth <= 900) return;
             
             const rect = foundersCards.getBoundingClientRect();
             const containerWidth = rect.width;
@@ -692,15 +659,15 @@ document.addEventListener('DOMContentLoaded', function() {
             requestAnimationFrame(animateScroll);
         }
         
-        // Keep only hover effect (remove dragging)
+        // Keep hover effect only for larger screens
         foundersCards.addEventListener('mousemove', (e) => {
-            // Store the latest mouse event for animation updates
+            if (window.innerWidth <= 900) return;
             latestMouseEvent = e;
             handleHoverScroll(e);
         });
         
         foundersCards.addEventListener('mouseleave', () => {
-            // Clear hover scrolling when mouse leaves
+            if (window.innerWidth <= 900) return;
             isHovering = false;
             clearInterval(hoverScrollInterval);
             hoverScrollInterval = null;

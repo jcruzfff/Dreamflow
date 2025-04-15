@@ -65,14 +65,24 @@
 <body>
     <div id="particles-js"></div>
      
-   
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-    <!-- <div class="background-gradient">
-        <div class="background-image-container">
-            <img class="background-image-gradient" src="./images/background-gradient-min.avif" alt="Dreamflow gradient"
-                loading="lazy">
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"></button>
+        <div class="mobile-menu-items">
+            <a href="#home" class="mobile-menu-item">Home</a>
+            <a href="#templates" class="mobile-menu-item">Recent Work</a>
+            <a href="#footer" class="mobile-menu-item">Pricing</a>
+            <a href="#footer" class="mobile-menu-item">Book</a>
         </div>
-    </div> -->
+        <button class="mobile-apply-now">Apply Now</button>
+    </div>
     
     <nav class="nav-bar">
         <div class="nav-item active">
@@ -157,45 +167,60 @@
 
             <!-- Simple, Streamlined, Startup-Speed -->
             <section class="simple-streamlined-section">
-                <h2 class="section-title " id="simple-title">Simple, Streamlined, and<br>Startup-speed</h2>
-                
-                <div class="simple-streamlined-content">
-                    <div class="stacked-images">
-                        <img src="./images/left-stack.svg" alt="Task Management Interface" class="stack-img left-stack">
-                        <div class="right-stack">
-                            <div class="right-stack-header">
-                                <div class="status-dot"></div>
-                                <div class="flow-text">prototype - onboarding flow</div>
-                            </div>
-                            <div class="right-stack-background">
-                                <div class="content-row"></div>
-                                <div class="content-row"></div>
-                                <div class="content-row"></div>
-                                <div class="content-row short"></div>
-                                <div class="content-box"></div>
-                                <div class="content-box"></div>
-                                <div class="content-box"></div>
-                            </div>
-                        </div>
-                    </div>
+                <h2 class="section-title " id="simple-title">Simple, Streamlined, and Startup-speed<h2>
                     
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <h3>Subscribe</h3>
-                            <p id="process-step-text">Choose your plan. Get Unlimited requests and revisions.</p>
+                    <div class="simple-streamlined-content">
+                        <div class="stacked-images desktop-only">
+                            <img src="./images/left-stack.svg" alt="Task Management Interface" class="stack-img left-stack">
+                            <div class="right-stack">
+                                <div class="right-stack-header">
+                                    <div class="status-dot"></div>
+                                    <div class="flow-text">prototype - onboarding flow</div>
+                                </div>
+                                <div class="right-stack-background">
+                                    <div class="content-row"></div>
+                                    <div class="content-row"></div>
+                                    <div class="content-row"></div>
+                                    <div class="content-row short"></div>
+                                    <div class="content-box"></div>
+                                    <div class="content-box"></div>
+                                    <div class="content-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-video-container">
+                            <video 
+                                id="mobileAnimation" 
+                                class="mobile-animation" 
+                                playsinline 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                poster="/videos/poster.jpg"
+                            >
+                                <source src="/videos/betteranimation.mp4" type="video/mp4">
+                                <source src="/videos/betteranimation.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         
-                        <div class="process-step">
-                            <h3>Request</h3>
-                            <p id="process-step-text">Submit any design task - from logos to mobile apps & more.</p>
-                        </div>
-                        
-                        <div class="process-step">
-                            <h3>Receive</h3>
-                            <p id="process-step-text">Get your dream design delivered in as little as 2 days.</p>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <h3>Subscribe</h3>
+                                <p id="process-step-text">Choose your plan. Get Unlimited requests and revisions.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <h3>Request</h3>
+                                <p id="process-step-text">Submit any design task - from logos to mobile apps & more.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <h3>Receive</h3>
+                                <p id="process-step-text">Get your dream design delivered in as little as 2 days.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
             </section>
 
             <!-- Why Founders Choose Dreamflow Section -->
@@ -479,7 +504,7 @@
             <section class="calendar-section">
                 <div class="limited-spots">LIMITED SPOTS AVAILABLE</div>
                 <h2 class="section-title ux-teardown-title">Get a Free 30-Min UX Teardown</h2>
-                <p class="section-subtitle">Actionable insights to improve your product, fast. No fluff—just high-impact design feedback.</p>
+                <p class="section-subtitle ux-teardown-subtitle">Actionable insights to improve your product, fast. No fluff—just high-impact design feedback.</p>
                 <div class="calendar-container">
                     <!-- Calendar will be embedded here -->
                 </div>
@@ -676,7 +701,7 @@
                 </div>
                 <div class="footer-border"></div>
                 <div class="footer-bottom">
-                    <p class="footer-text">Dreamflow Labs 2025 - All rights reserved <span>Terms of Use</span></p>
+                    <p class="footer-text">Dreamflow Labs 2025 - All rights reserved</p>
                  
                 </div>
             </footer>
@@ -833,6 +858,136 @@
             "retina_detect": true
         });
 
+        // Single instance of video initialization
+        let videoInitialized = false;
+        
+        function initVideoPlayback() {
+            if (videoInitialized) {
+                console.log('Video already initialized');
+                return;
+            }
+
+            console.log('Attempting to initialize video playback');
+            const video = document.getElementById('mobileAnimation');
+            
+            if (!video) {
+                console.error('Video element not found');
+                return;
+            }
+
+            console.log('Video element found:', video);
+            videoInitialized = true;
+
+            // Track loading state
+            let isLoading = true;
+            let isPlaying = false;
+
+            // Add loading event listeners
+            video.addEventListener('loadstart', () => {
+                console.log('Video load started');
+                isLoading = true;
+            });
+
+            video.addEventListener('canplay', () => {
+                console.log('Video can play');
+                isLoading = false;
+            });
+
+            video.addEventListener('error', (e) => {
+                const error = video.error;
+                console.error('Video error:', {
+                    code: error ? error.code : 'unknown',
+                    message: error ? error.message : 'unknown',
+                    currentSrc: video.currentSrc
+                });
+            });
+
+            // Check source support
+            const sources = video.getElementsByTagName('source');
+            Array.from(sources).forEach(source => {
+                source.addEventListener('error', (e) => {
+                    console.error('Source error:', {
+                        src: source.src,
+                        type: source.type
+                    });
+                });
+            });
+
+            async function playVideo() {
+                if (isLoading) {
+                    console.log('Video still loading, waiting...');
+                    return;
+                }
+
+                if (!isPlaying) {
+                    console.log('Attempting to play video');
+                    try {
+                        await video.play();
+                        isPlaying = true;
+                        console.log('Video playing successfully');
+                    } catch (err) {
+                        console.error('Play failed:', err);
+                        // Try to play muted if autoplay was blocked
+                        if (!video.muted) {
+                            console.log('Trying muted playback...');
+                            video.muted = true;
+                            try {
+                                await video.play();
+                                isPlaying = true;
+                                console.log('Muted playback successful');
+                            } catch (mutedErr) {
+                                console.error('Muted playback also failed:', mutedErr);
+                            }
+                        }
+                    }
+                }
+            }
+
+            function pauseVideo() {
+                if (isPlaying) {
+                    video.pause();
+                    isPlaying = false;
+                    console.log('Video paused');
+                }
+            }
+
+            // Create and configure intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    console.log('Intersection state:', {
+                        isIntersecting: entry.isIntersecting,
+                        ratio: entry.intersectionRatio,
+                        isLoading,
+                        isPlaying
+                    });
+
+                    if (entry.isIntersecting && !isPlaying) {
+                        playVideo();
+                    } else if (!entry.isIntersecting && isPlaying) {
+                        pauseVideo();
+                    }
+                });
+            }, {
+                threshold: [0, 0.3, 0.5, 0.7, 1]
+            });
+
+            observer.observe(video);
+            console.log('Observer set up');
+
+            // Try initial play if video is in viewport
+            const rect = video.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                console.log('Video initially in viewport, attempting play');
+                playVideo();
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initVideoPlayback);
+        } else {
+            initVideoPlayback();
+        }
     });
 </script>
 
@@ -1216,6 +1371,140 @@
         });
         
         // Rest of your existing DOMContentLoaded code...
+    });
+</script>
+
+<script>
+    function initMobileProcessSteps() {
+        const steps = document.querySelectorAll('.process-step');
+        let currentStep = -1;
+        let animationInterval = null;
+        
+        function showStep(index) {
+            if (window.innerWidth > 1024) return;
+            
+            // Hide all steps first
+            steps.forEach(step => step.classList.remove('active'));
+            
+            // Show the current step
+            if (index >= 0 && index < steps.length) {
+                steps[index].classList.add('active');
+            }
+        }
+
+        function cycleSteps() {
+            currentStep = (currentStep + 1) % steps.length;
+            showStep(currentStep);
+        }
+
+        function startAnimation() {
+            if (window.innerWidth > 1024 || animationInterval) return;
+            
+            // Reset state
+            currentStep = -1;
+            steps.forEach(step => step.classList.remove('active'));
+            
+            // Show first step immediately
+            cycleSteps();
+            
+            // Set up interval for cycling through remaining steps
+            animationInterval = setInterval(cycleSteps, 4000);
+        }
+
+        function stopAnimation() {
+            if (animationInterval) {
+                clearInterval(animationInterval);
+                animationInterval = null;
+            }
+            steps.forEach(step => step.classList.remove('active'));
+            currentStep = -1;
+        }
+
+        // Start animation when element is in viewport
+        function handleVisibility(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAnimation();
+                } else {
+                    stopAnimation();
+                }
+            });
+        }
+
+        // Create intersection observer
+        const observer = new IntersectionObserver(handleVisibility, {
+            threshold: 0.3 // Start animation when 30% of the element is visible
+        });
+
+        // Observe the process steps container
+        const processStepsContainer = document.querySelector('.process-steps');
+        if (processStepsContainer) {
+            observer.observe(processStepsContainer);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                stopAnimation();
+            } else if (document.querySelector('.process-steps').getBoundingClientRect().top < window.innerHeight) {
+                startAnimation();
+            }
+        });
+
+        // Initial check if element is already in viewport
+        if (window.innerWidth <= 1024 && 
+            document.querySelector('.process-steps').getBoundingClientRect().top < window.innerHeight) {
+            startAnimation();
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileProcessSteps);
+    } else {
+        initMobileProcessSteps();
+    }
+</script>
+
+<!-- Hamburger Menu Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+        const mobileApplyNow = document.querySelector('.mobile-apply-now');
+        
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        // Hamburger button click
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        
+        // Close button click
+        mobileMenuClose.addEventListener('click', toggleMenu);
+        
+        // Menu items click (close menu when clicking a link)
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                toggleMenu();
+                // Add small delay to allow the menu to close before scrolling
+                setTimeout(() => {
+                    const targetId = item.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 300);
+            });
+        });
+        
+        // Apply now button click
+        mobileApplyNow.addEventListener('click', toggleMenu);
     });
 </script>
 

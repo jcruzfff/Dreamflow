@@ -32,6 +32,11 @@ body {
     box-sizing: border-box
 }
 
+body {
+    overflow-x: hidden;
+}
+
+
 #home-link,
 * {
     padding: 0
@@ -531,7 +536,7 @@ body {
     font-size: 14px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     margin-top: 12px;
@@ -2100,8 +2105,6 @@ body {
 .new-footer {
     height: 60vh;
     width: 100vw;
-    margin-left: calc(-32px);
-    margin-right: calc(-32px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2123,7 +2126,7 @@ body {
 .footer-logo {
     text-align: center;
     font-family: "Helvetica Neue";
-    font-size: 306.736px;
+    font-size: 19vw;
     font-style: normal;
     font-weight: 500;
     line-height: 100%;
@@ -2164,7 +2167,7 @@ body {
 .footer-text {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     margin-top: 0px;
@@ -2188,6 +2191,146 @@ body {
 .footer-text-section {
     font-size: 14px;
     opacity: 0.5;
+}
+
+.mobile-video-container {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    min-height: 200px;
+    /* Add minimum height */
+}
+
+.mobile-animation {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 32px;
+    height: 24px;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 999;
+    transition: 0.3s;
+    padding: 60px 24px 24px;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    padding: 0;
+}
+
+.mobile-menu-close::before,
+.mobile-menu-close::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.mobile-menu-close::before {
+    transform: rotate(45deg);
+}
+
+.mobile-menu-close::after {
+    transform: rotate(-45deg);
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.mobile-menu-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    text-align: center;
+}
+
+.mobile-apply-now {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-top: 40px;
+    cursor: pointer;
 }
 
 /* Mobile styles */
@@ -2276,9 +2419,7 @@ body {
         height: 300px;
     }
 
-    .footer-logo {
-        font-size: calc(306.736px * 0.8);
-    }
+
 }
 
 @media screen and (max-width: 1300px) {
@@ -2288,7 +2429,6 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-
     .body-section {
         max-width: 90%;
     }
@@ -2305,6 +2445,12 @@ body {
     .gallery-item {
         width: 480px;
         height: 300px;
+    }
+
+    .testimonials-section {
+
+        padding: 120px 40px;
+
     }
 
     .simple-streamlined-content {
@@ -2336,6 +2482,13 @@ body {
     .card-image-placeholder {
         width: 380px;
         height: 280px;
+    }
+
+    /* Make footer span full width */
+    .new-footer {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
     }
 
     .stacked-images {
@@ -2375,7 +2528,7 @@ body {
         flex-wrap: nowrap;
         gap: 16px;
         padding: 15px 0;
-        padding-left: 5%;
+        padding-left: 8%;
         padding-right: 0;
         width: 100%;
         -webkit-overflow-scrolling: touch;
@@ -2442,7 +2595,7 @@ body {
 
     .founders-cards::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari, Opera */
+
     }
 
     .founder-card {
@@ -2495,6 +2648,23 @@ body {
         max-width: 663px;
     }
 
+    .founders-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        text-align: left;
+        width: 635px;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+
+
+
+    .quote-container {
+        width: 100%;
+    }
+
     .metrics-container {
         flex-direction: column;
         align-items: center;
@@ -2507,7 +2677,123 @@ body {
     }
 }
 
+/* Add new breakpoint for 1100px specifically for cards */
 @media screen and (max-width: 1100px) {
+
+    .simple-streamlined-content {
+        max-width: 80%;
+        gap: 60px;
+    }
+
+    /* All-in-one section card layout changes */
+    .all-in-one-section {
+        max-width: 90%;
+    }
+
+    .all-in-one-content {
+        padding-top: 40px;
+    }
+
+    .all-in-one-title {
+        width: 55%;
+    }
+
+    .stacked-cards-container {
+        margin: 0 auto;
+    }
+
+    .stacked-card {
+        max-width: 635px;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 32px;
+        height: auto;
+    }
+
+    .card-content {
+        order: 2;
+        justify-content: flex-start;
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .card-content h3 {
+        margin-top: 24px;
+        text-align: left;
+    }
+
+    .card-content p {
+        text-align: left;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .card-image-placeholder {
+        order: 1;
+        width: 100%;
+        height: 260px;
+        margin-bottom: 16px;
+    }
+
+    .hero-container {
+        padding-left: 0px;
+    }
+
+    /* Testimonials section changes for 1100px */
+    .testimonials-section {
+        max-width: 635px;
+        margin: 0 auto;
+        padding: 120px 0;
+    }
+
+    .testimonial {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testimonial-content {
+        margin-bottom: 40px;
+    }
+
+    .testimonial-text {
+        font-size: 32px;
+    }
+
+    .testimonial-divider {
+        display: none;
+    }
+
+    .testimonial-author {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 24px;
+    }
+
+    .author-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .author-info {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .testimonials-container {
+        margin-bottom: 80px;
+    }
+
+    /* Hero top styles from the original 1100px breakpoint */
+
+    .hero-container {
+        margin-bottom: 20px;
+    }
+
     .hero-top {
         text-align: center;
         margin-left: auto;
@@ -2540,12 +2826,58 @@ body {
     .hero-buttons {
         justify-content: center;
     }
+
+    .all-in-one-title {
+        margin-bottom: 42px;
+    }
+
+    .faq-section {
+        width: 653px;
+        margin: auto;
+    }
+
+    .faq-question {
+        line-height: 24px;
+    }
+
+    .founders-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        text-align: left;
+        width: 635px;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+
+    .quote-container {
+        width: 100%;
+    }
+
+    .ux-teardown-title {
+        width: 50%;
+    }
+
+    .ux-teardown-subtitle {
+        width: 50%;
+    }
+
+    .spreading-cards-section .main {
+        min-height: 1400px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
     .simple-streamlined-content {
         flex-direction: column;
-        gap: 60px;
+        gap: 0px;
+    }
+
+    #simple-title {
+        width: 50%;
+        margin: auto;
+        margin-bottom: 32px;
     }
 
     .stacked-images {
@@ -2553,28 +2885,67 @@ body {
         height: 500px;
     }
 
-    .process-steps {
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-video-container {
+        display: block !important;
+        margin: 2rem auto 3rem;
+        width: 90%;
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    .process-step p {
         width: 100%;
+        font-size: 18px;
+    }
+
+    .process-steps {
+        width: 80%;
         align-items: center;
+        position: relative;
+        margin-top: 24px;
+        height: 120px;
+        /* Fixed height to prevent layout shifts */
     }
 
     .process-step {
-        width: 100%;
-        max-width: 381px;
+        position: absolute;
+        width: 535px;
+        opacity: 0;
+        margin: auto;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
     }
 
-    .process-step p {
-        width: 100%;
-        max-width: 344px;
+    .process-step.active {
+        opacity: 1;
+        visibility: visible;
     }
 
     .process-step h3 {
-        font-size: 36px;
+        font-size: 32px;
         line-height: 43.2px;
+        color: #FFF;
+        font-family: "Helvetica Neue";
+        font-weight: 500;
+
+        text-align: left;
+        margin-bottom: 9px;
     }
 
-    .process-step p {
-        font-size: 20px;
+    #process-step-text {
+        color: #86868B;
+        font-family: "Helvetica Neue";
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 26.4px;
+        text-align: left;
+        width: 535px;
     }
 
     .testimonial {
@@ -2612,7 +2983,7 @@ body {
     .pause-card,
     .week-trial-card {
         width: 100%;
-        max-width: 600px;
+        max-width: 635px;
     }
 
     .pricing-card {
@@ -2620,13 +2991,15 @@ body {
         padding-bottom: 100px;
     }
 
+    .pricing-features {
+        margin-bottom: 32px;
+    }
+
     .join-title {
         font-size: 48px;
     }
 
-    .footer-logo {
-        font-size: calc(306.736px * 0.6);
-    }
+
 
     .social-icon {
         width: 60px;
@@ -2638,680 +3011,280 @@ body {
         margin-top: 100px;
     }
 
-    /* Add all-in-one responsiveness for 1024px */
-    .stacked-card {
-        height: 340px;
-        padding: 35px 32px;
-    }
-
-    .card-content h3 {
-        font-size: 30px;
-    }
-
-    .card-content p {
-        font-size: 22px;
-        line-height: 30px;
-    }
-
-    .card-image-placeholder {
-        width: 320px;
-        height: 240px;
-    }
-}
-
-
-
-@media screen and (max-width:840px) {
-
-    .footer-border,
-    .nav-bar {
-        display: none
-    }
-
-
-
-    .footer-bottom {
-        justify-content: center;
-        align-items: center
-    }
-
-    .socials {
-        order: 1
-    }
-
-    .left-footer-bottom {
-        order: 3;
-        flex-direction: column
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-
-    .section-title {
-        font-size: 48px;
-    }
-
-    .scrolling-gallery {
-        gap: 20px;
-    }
-
-    .scrolling-row {
-        gap: 20px;
-    }
-
-    .gallery-item {
-        width: 400px;
-        height: 250px;
-    }
-
-    .top-row {
-        padding-left: 20px;
-    }
-
-    .bottom-row {
-        padding-right: 20px;
-    }
-
-    .section-subtitle {
-        font-size: 20px;
-    }
-
-    .gallery-item {
-        width: 400px;
-        height: 250px;
-    }
-
-    .founders-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 60px;
-    }
-
-    .quote-container {
-        width: 100%;
-    }
-
-    .founders-quote {
-        font-size: 28px;
-    }
-
-
-
-    .why-founders-title {
-        font-size: 48px;
-    }
-
     .founders-cards {
-        gap: 15px;
-        /* Keep horizontal scroll functionality at this breakpoint */
-        overflow-x: auto;
-        padding-bottom: 15px;
+        padding-left: 15%;
+        padding-right: 10%;
     }
 
-    .founder-card {
-        width: 260px !important;
-        min-width: 260px !important;
-        height: auto;
-        min-height: 280px;
+}
+
+@media screen and (max-width: 900px) {
+
+    /* Navigation Adjustments */
+    .nav-bar {
+        display: none;
     }
 
-    .card-web3,
-    .card-dreamgate,
-    .card-pricing,
-    .card-designers,
-    .card-team {
-        width: 260px !important;
-        min-width: 260px !important;
+    /* Hamburger Menu Button */
+    .hamburger-btn {
+        display: flex;
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(4px);
+        border-radius: 8px;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
-    .testimonial-text {
-        font-size: 28px;
-    }
-
-    .testimonials-container {
-        margin-bottom: 250px;
-    }
-
-    .simple-streamlined-section .section-title {
-        font-size: 56px;
-    }
-
-    .process-step h3 {
-        font-size: 32px;
-        line-height: 38.4px;
-    }
-
-    .process-step p {
-        font-size: 18px;
-    }
-
-    .pricing-toggle {
+    .hamburger-btn span {
+        display: block;
         width: 100%;
+        height: 2px;
+        background-color: #fff;
+        margin: 0;
+        transition: all 0.3s ease;
     }
 
-    .toggle-option {
-        width: 33.33%;
+    .hamburger-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 9px);
     }
 
-    .pricing-features {
-        flex-direction: column;
-        gap: 20px;
+    .hamburger-btn.active span:nth-child(2) {
+        opacity: 0;
     }
 
-    .features-column {
-        gap: 20px;
+    .hamburger-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -9px);
     }
 
-    .join-title {
-        font-size: 40px;
+    /* Mobile Menu */
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        transition: 0.3s ease-in-out;
+        padding: 80px 24px 24px;
     }
 
-    .metrics {
-        flex-direction: column;
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
         align-items: center;
-        gap: 40px;
+        justify-content: center;
+        font-size: 24px;
+        color: #fff;
+        padding: 0;
     }
 
-    .metric {
-        font-size: 36px;
+    .mobile-menu-close::before,
+    .mobile-menu-close::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: #fff;
     }
 
-    .metric-card {
-        height: 200px !important;
-        padding: 24px;
+    .mobile-menu-close::before {
+        transform: rotate(45deg);
     }
 
-    .metric-value {
-        font-size: 48px;
-        top: 60px !important;
+    .mobile-menu-close::after {
+        transform: rotate(-45deg);
     }
 
-    .metric-label {
-        font-size: 14px;
-    }
-
-    .metric-subtitle {
-        font-size: 8px !important;
-        bottom: 24px;
-    }
-
-    .metric-card:nth-child(3) .metric-subtitle {
-        font-size: 16px !important;
-    }
-
-    .sixth-left-container {
-        height: 300px;
-    }
-
-    .calendar-section {
-        padding: 80px 20px;
-    }
-
-    .calendar-container {
-        height: 500px;
-        padding: 20px;
-    }
-
-    .spreading-cards-section {
-        min-height: 1000px;
-        overflow: hidden;
-    }
-
-    .spreading-cards-section .main {
-        min-height: 1000px;
-        overflow: hidden;
-    }
-
-    .spreading-cards-section .cards-container {
-        height: 800px;
-    }
-
-    .spreading-cards-section .card-left,
-    .spreading-cards-section .card-right {
-        width: 350px;
-        height: 252px;
-    }
-
-    .spreading-cards-section .line p {
-        font-size: 30px;
-    }
-
-    .footer-logo {
-        font-size: calc(306.736px * 0.4);
-    }
-
-    .social-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .social-icons {
-        gap: 32px;
-        margin-top: 80px;
-    }
-
-    .new-footer {
-        margin-left: calc(-16px);
-        margin-right: calc(-16px);
-    }
-
-    /* Add all-in-one responsiveness for tablets */
-    .all-in-one-section {
-        min-height: auto;
-    }
-
-    .all-in-one-content {
-        height: auto;
-        position: relative;
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    .stacked-cards-container {
-        height: auto;
+    .mobile-menu-items {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 32px;
+        margin-top: 40px;
     }
 
-    .stacked-card {
-        position: relative;
-        height: auto;
-        min-height: 320px;
-        top: auto;
-        transform: none !important;
-    }
-
-    .stacked-card[data-card="0"],
-    .stacked-card[data-card="1"],
-    .stacked-card[data-card="2"],
-    .stacked-card[data-card="3"],
-    .stacked-card[data-card="4"] {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    .card-content h3 {
-        font-size: 28px;
-    }
-
-    .card-content p {
-        font-size: 20px;
-        line-height: 28px;
-    }
-
-    .card-image-placeholder {
-        width: 280px;
-        height: 220px;
-    }
-}
-
-
-
-@media screen and (max-width:740px) {
-    body {
-        font-size: 12px;
-        background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.7) 100%);
-    }
-
-    .body-section,
-    .body-section-content {
-        padding: 18px;
-        max-width: 100%;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .nav-bar {
-        height: 60px;
-        padding: 0 20px;
-        border-radius: 0;
-        backdrop-filter: blur(5px);
-    }
-
-    .nav-item {
-        margin: 0 15px;
-        padding: 3px 0;
-    }
-
-    .nav-link {
-        font-size: 16px;
-    }
-
-    .hero-header {
-        font-size: 34px;
-        line-height: 1.2;
+    .mobile-menu-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
         text-align: center;
-        margin-top: 24px;
+    }
+
+    .mobile-apply-now {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 40px auto 0;
+        padding: 16px 32px;
+        background: #fff;
+        color: #000;
+        border: none;
+        border-radius: 100px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .mobile-apply-now:hover {
+        transform: scale(1.02);
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Hero Section Adjustments */
+    .hero {
+        width: 100%;
     }
 
     .hero-container {
+        width: 100%;
         padding: 0;
-        justify-content: flex-start;
     }
 
     .hero-top {
-        margin-bottom: 40px;
-    }
-
-    .df-top-logo {
-        height: 28px;
-        margin: 64px auto 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .df-top-logo img {
-        height: 28px;
-        width: auto;
-    }
-
-    .top-logo {
-        font-size: 18px;
-        font-weight: 500;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+        padding-top: 56px;
     }
 
     .hero-title-section {
-        margin-top: 24px;
-        text-align: center;
+        width: 100%;
+    }
+
+    .hero-header {
+        font-size: 64px;
+        line-height: 1;
+    }
+
+    .hero-subheader {
+        line-height: 1.5;
+    }
+
+    /* Gallery Adjustments */
+    .scrolling-gallery {
+        width: 100%;
+        gap: 0;
+        padding: 12px;
+    }
+
+    .scrolling-row {
+        gap: 24px;
+        width: 100%;
+        padding: 12px;
+    }
+
+    .gallery-item {
+        width: 400px;
+        height: auto;
+
+    }
+
+    .gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .process-steps {
+        margin-top: 0px;
+    }
+
+    .mobile-video-container {
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .founders-cards {
+        padding-left: 16%;
+        padding-right: 12%;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .founders-cards {
+        padding-left: 23%;
+        padding-right: 13%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .hero-header {
+        font-size: 44px;
     }
 
     .hero-subheader {
         font-size: 20px;
-        margin-top: 32px;
-        text-align: center;
+        width: 30%;
+        margin: auto;
     }
 
-    .hero-buttons {
-        margin-top: 32px;
-        display: flex;
-        justify-content: center;
-        width: 100%;
+    .df-top-logo {
+        margin-bottom: 26px;
     }
 
-    .hero-btn {
-        font-size: 16px;
-        width: 100%;
-        text-align: center;
-        justify-content: center;
+    .hero-title-section {
+        margin-bottom: 26px;
     }
 
     .apply-now {
+        height: 42px;
+        width: 100%;
         font-size: 16px;
-        width: 100%;
-        padding: 14px 20px;
-        border-radius: 46.55px;
+        padding: 16px 132px;
     }
 
-    .apply-now img {
-        width: 10px;
-        height: 10px;
+    .simple-streamlined-section {
+        margin: 100px auto 0 auto;
     }
 
-    .hero-top-gradient {
-        display: none;
+    #simple-title {
+        font-size: 44px;
     }
-
-    .hero-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .hero-card-left {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        border-radius: 24px;
-        background-size: cover;
-    }
-
-    .hero-card-right {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        border-radius: 24px;
-        background-size: cover;
-    }
-
-    .scrolling-gallery {
-        margin-top: 60px;
-        width: 100vw;
-        padding: 0;
-        overflow: hidden;
-        margin-left: calc(-50vw + 50% - 9px);
-        /* Adjust for body padding */
-        margin-right: calc(-50vw + 50% - 9px);
-    }
-
-    .scrolling-row {
-        height: 228px;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-    }
-
-    .top-row {
-        padding-left: 18px;
-        margin-bottom: 20px;
-    }
-
-    .bottom-row {
-        padding-left: 18px;
-        margin-top: 0;
-    }
-
-    .gallery-item {
-        min-width: 400px;
-        height: 228px;
-        border-radius: 16px;
-    }
-
-    .gallery-img {
-        width: 400px;
-        height: 228px;
-        object-fit: cover;
-        border-radius: 16px;
-    }
-
-    .content-subheader {
-        font-size: 18px;
-        line-height: 1.5;
-        padding: 0 20px;
-    }
-
-    .button {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .background-image-gradient {
-        display: none;
-    }
-
-    /* Add all-in-one responsiveness for mobile */
-    .stacked-card {
-        flex-direction: column;
-        padding: 24px;
-        min-height: auto;
-    }
-
-    .card-content {
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .card-content h3 {
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
-
-    .card-content p {
-        font-size: 18px;
-        line-height: 24px;
-    }
-
-    .card-image-placeholder {
-        width: 100%;
-        height: 180px;
-    }
-}
-
-@media screen and (max-width:690px) {
-    /* Media query styles */
-}
-
-@media screen and (max-width:500px) {
-    .body-section-content {
-        margin-top: 0
-    }
-
-    .hero-header {
-        font-size: 2.8rem;
-    }
-
-    .hero-container {
-        padding-top: 120px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .hero-btn {
-        width: 100%;
-    }
-
-    .hero-cards {
-        height: 250px;
-    }
-
-    .hero-card-left {
-        width: 160px;
-        right: 70px;
-    }
-
-    .hero-card-right {
-        width: 160px;
-        top: 40px;
-    }
-
-    .content-subheader {
-        font-size: 18px;
-        width: 90%
-    }
-
-    .clients {
-        width: 100%;
-        margin-bottom: 42px;
-    }
-
-    .clients::before,
-    .clients::after {
-        width: 50px;
-    }
-
-    .client-logos-section {
-        width: calc(95% + 100px);
-    }
-
-    .clients-container {
-        width: 400% !important;
-    }
-}
-
-
-@media screen and (max-width: 480px) {
 
     .section-title {
-        font-size: 36px;
+        font-size: 44px;
     }
 
-    .section-subtitle {
-        font-size: 18px;
-    }
-
-    .gallery-item {
-        width: 280px;
-        height: 175px;
-    }
-
-
-    .founders-container {
-        margin-bottom: 80px;
-    }
-
-    .founders-quote {
-        font-size: 24px;
-    }
-
-
-
-    .gallery-item {
-        width: 280px;
-        height: 175px;
-    }
-
-    .scrolling-row {
-        gap: 15px;
-    }
-
-    .top-row,
-    .bottom-row {
-        padding-left: 15px;
-        padding-right: 15px;
+    h2 {
+        font-size: 44px;
     }
 
     .why-founders-title {
-        font-size: 36px;
-    }
-
-    .founder-card {
-        width: 100% !important;
-        min-height: 240px;
-    }
-
-    .testimonial-text {
-        font-size: 24px;
-    }
-
-    .testimonials-container {
-        margin-bottom: 250px;
-    }
-
-    .simple-streamlined-section .section-title {
-        font-size: 42px;
+        font-size: 44px;
     }
 
     .process-step h3 {
-        font-size: 28px;
-        line-height: 33.6px;
+        font-size: 24px;
+        line-height: 23.2px;
     }
 
-    .process-step p {
-        font-size: 16px;
+    #process-step-text {
+        font-size: 20px;
     }
 
-    .pricing-card {
-        padding: 24px;
-    }
-
-    .price {
-        font-size: 36px;
-        line-height: 46px;
-    }
-
-    .interval {
-        font-size: 16px;
-    }
-
-    .join-now-button {
-        width: calc(100% - 48px);
-        left: 24px;
-    }
-
-    .join-title {
-        font-size: 32px;
-    }
 }
