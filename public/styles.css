@@ -2203,7 +2203,6 @@ body {
     position: relative;
     background: rgba(255, 255, 255, 0.1);
     min-height: 200px;
-    /* Add minimum height */
 }
 
 .mobile-animation {
@@ -3287,4 +3286,25 @@ body {
         font-size: 20px;
     }
 
+    .mobile-video-container {
+        padding: 0 18px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .simple-streamlined-content {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .mobile-video-container {
+        width: calc(100vw - 36px);
+        max-width: none;
+        margin-left: 18px;
+        margin-right: 18px;
+        background: none;
+        margin-bottom: 24px;
+    }
 }
