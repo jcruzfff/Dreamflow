@@ -5,6 +5,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: 1px solid red; */
 
 }
 
@@ -154,13 +155,17 @@ body {
     gap: 10px;
     border-radius: 32px;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.nav-item.active {
+.nav-item:hover {
     background: linear-gradient(180deg, #3B3B3B 0%, #302F32 50%, #1C1C1C 100%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.55);
     outline: 1px solid #424242;
+    cursor: pointer;
 }
+
+
 
 .nav-link {
     display: flex;
@@ -173,23 +178,21 @@ body {
     line-height: 14px;
     letter-spacing: -0.5px;
     white-space: nowrap;
+    color: #86868B;
+    transition: color 0.3s ease;
+    cursor: pointer;
 }
 
-.active .nav-link {
+.nav-link:hover {
     color: #FFFFFF;
-    font-weight: 500;
+    cursor: pointer;
 }
 
-.nav-item:not(.active) .nav-link {
-    color: #787878;
-    font-weight: 400;
+.nav-item:hover .nav-link {
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
-.body-section-content {
-    max-width: 1117px;
-    width: 100%;
-    height: auto
-}
 
 #particles-js {
     position: fixed;
@@ -424,6 +427,7 @@ body {
     margin-right: auto;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 100px;
 }
 
 .clients {
@@ -695,7 +699,10 @@ body {
 }
 
 
-
+#simple-title {
+    width: 80%;
+    margin: auto;
+}
 
 
 .simple-streamlined-section {
@@ -917,8 +924,7 @@ body {
     min-height: 95vh;
     justify-content: center;
     position: relative;
-    /* Added for better positioning control */
-    padding-bottom: 60px;
+    padding-top: 60px;
     /* Add padding to separate from next section */
 }
 
@@ -938,11 +944,13 @@ body {
 
 .founders-cards {
     display: flex;
-    justify-content: flex-start;
     gap: 8px;
-    flex-wrap: nowrap;
-    width: 100%;
+    justify-content: center;
+    /* Center cards by default */
+    padding: 15px 0;
 }
+
+
 
 .founder-card {
     display: flex;
@@ -1008,7 +1016,7 @@ body {
     width: 100%;
     max-width: 1117px;
     margin: 0 auto;
-    padding: 120px 20px;
+    padding: 120px 0px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1017,7 +1025,7 @@ body {
 
 .testimonials-container {
     position: relative;
-    margin-bottom: 160px;
+    margin-bottom: 70px;
 }
 
 .testimonials-slider {
@@ -1030,9 +1038,10 @@ body {
 
 .testimonial {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 0px;
     position: absolute;
     width: 100%;
     opacity: 0;
@@ -1048,27 +1057,21 @@ body {
 .testimonial-content {
     flex: 1;
     max-width: 850px;
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
 }
 
-.quote-icon {
-    margin-bottom: 32px;
-    width: 55px;
-    height: 48px;
-}
 
 .testimonial-text {
     color: #FFF;
     font-family: "Helvetica Neue";
     font-size: 36px;
     font-weight: 400;
-    line-height: 120%;
-    margin-bottom: 32px;
-    text-align: left;
+    line-height: 140%;
+    margin-bottom: 42px;
+    text-align: center;
 }
 
 .testimonial-rating {
@@ -1081,13 +1084,14 @@ body {
 
 .testimonial-rating img {
     height: 42px;
-    margin-left: -10px;
     width: auto;
+    margin-top: 16px;
 }
 
 .stars {
     height: 32px;
     width: 120px;
+    margin: auto;
 }
 
 .rating-text {
@@ -1096,12 +1100,6 @@ body {
     font-weight: 400;
 }
 
-.testimonial-divider {
-    width: 1px;
-    height: 240px;
-    background: rgb(33, 33, 33);
-    margin: 0 40px;
-}
 
 .testimonial-author {
     display: flex;
@@ -1125,6 +1123,11 @@ body {
     border-radius: 50%;
     overflow: hidden;
     background: #1F1F1F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 50px;
 }
 
 .author-image img {
@@ -1142,45 +1145,51 @@ body {
 }
 
 .author-name {
-    color: #FFF;
+
+    color: #86868B;
     font-family: "Helvetica Neue";
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
-    margin-bottom: 8px;
+
 }
 
 .author-title {
-    color: #86868B;
+    margin-bottom: 16px;
+    color: #FFF;
     font-family: "Helvetica Neue";
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 400;
+}
+
+.awards-container {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .nav-arrow {
     position: absolute;
-    top: 43%;
+    top: 44%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 2;
+    z-index: 10;
+    padding: 8px;
+    transition: opacity 0.3s ease;
 }
 
-
+.nav-arrow:hover {
+    opacity: 0.8;
+}
 
 .prev-arrow {
-    left: -24px;
+    left: 0px;
 }
 
 .next-arrow {
-    right: -24px;
+    right: 0px;
 }
 
 
@@ -1209,7 +1218,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 20px;
+    padding: 0;
     z-index: 2;
     padding-top: 120px;
 }
@@ -1319,6 +1328,13 @@ body {
     background: #000000;
     border-radius: 30px;
     flex-shrink: 0;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Pricing Section */
@@ -1326,7 +1342,7 @@ body {
     width: 100%;
     max-width: 1117px;
     margin: 0 auto;
-    padding: 140px 20px;
+    padding: 140px 0px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1796,7 +1812,7 @@ body {
 .metric-card:nth-child(3) .metric-label {
     left: 259px;
     top: 140px;
-    width: 150px;
+    width: 126px;
 }
 
 .metric-card:nth-child(4) .metric-label {
@@ -1819,18 +1835,18 @@ body {
 .metric-card:nth-child(1) .metric-subtitle,
 .metric-card:nth-child(2) .metric-subtitle {
     bottom: 36px;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 /* Subtitle positioning and sizes for bottom row */
 .metric-card:nth-child(3) .metric-subtitle {
     bottom: 36px;
-    font-size: 19px;
+    font-size: 10px;
 }
 
 .metric-card:nth-child(4) .metric-subtitle {
     bottom: 36px;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 /* Calendar Section */
@@ -1838,12 +1854,11 @@ body {
     width: 100%;
     max-width: 1117px;
     margin: 0 auto;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 120px 20px;
+    padding: 140px 0;
     text-align: center;
 }
 
@@ -1853,8 +1868,8 @@ body {
 }
 
 .calendar-section .section-subtitle {
-    max-width: 100%;
-    margin: 0 auto 60px;
+    max-width: 640px;
+    margin: 0 auto;
     font-size: 22px;
     font-style: normal;
     color: #86868B;
@@ -1864,15 +1879,98 @@ body {
 
 .calendar-container {
     width: 100%;
-    max-width: 900px;
-    height: 600px;
+    max-width: 1117px;
+    height: 700px;
     margin: 0 auto;
-    background: linear-gradient(180deg, #1F1F1F 0%, #111 69%);
-    border-radius: 32px;
-    box-shadow: 0px 1.318px 2.635px 0px #525154 inset;
-    padding: 32px;
+    overflow: hidden;
 }
 
+.calendar-container #my-cal-inline {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+@media screen and (max-width: 1200px) {
+    .calendar-section {
+        width: calc(100vw - 48px);
+        margin: auto;
+        padding: 120px 0;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .calendar-section {
+        padding: 100px 0;
+    }
+
+    .calendar-section .section-title {
+        font-size: 52px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .calendar-section {
+        padding: 80px 0;
+    }
+
+    .calendar-container {
+        height: auto;
+    }
+
+    .ux-teardown-subtitle {
+        width: 70%;
+        margin-bottom: 28px;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .calendar-section {
+        padding: 60px 0;
+    }
+
+    .calendar-section .section-title {
+        font-size: 42px;
+        margin-bottom: 16px;
+    }
+
+    .calendar-section .section-subtitle {
+        font-size: 18px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .calendar-section {
+        padding: 40px 0;
+    }
+
+    .calendar-section .section-title {
+        font-size: 32px;
+        padding: 0 12px;
+    }
+
+    .calendar-section .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 32px;
+        padding: 0 16px;
+    }
+
+    .calendar-container {
+        height: 500px;
+    }
+
+    .ux-teardown-title {
+        width: 70%;
+    }
+
+    .ux-teardown-subtitle {
+        width: 90%;
+    }
+}
 
 .spreading-cards-section {
     position: relative;
@@ -2332,77 +2430,8 @@ body {
     cursor: pointer;
 }
 
-/* Mobile styles */
-@media screen and (max-width: 768px) {
-    .faq-section {
-        margin: 80px auto;
-        padding: 0 16px;
-    }
 
-    .faq-container {
-        padding: 32px;
-    }
 
-    .faq-question {
-        font-size: 18px;
-    }
-
-    .faq-answer {
-        font-size: 15px;
-        padding-right: 24px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .faq-section {
-        margin: 60px auto;
-        padding: 0 12px;
-    }
-
-    .faq-container {
-        padding: 24px;
-    }
-
-    .faq-question {
-        font-size: 16px;
-    }
-
-    .faq-container {
-        gap: 16px;
-    }
-
-    .faq-item {
-        padding-bottom: 16px;
-    }
-
-    .founder-card {
-        width: 230px !important;
-        min-width: 230px !important;
-        min-height: 250px;
-        padding: 20px;
-    }
-
-    .card-web3,
-    .card-dreamgate,
-    .card-pricing,
-    .card-designers,
-    .card-team {
-        width: 230px !important;
-        min-width: 230px !important;
-    }
-
-    .founder-card-title {
-        font-size: 18px;
-    }
-
-    .founder-card-text {
-        font-size: 16px;
-    }
-
-    .founders-cards {
-        gap: 12px;
-    }
-}
 
 @media screen and (max-width: 1440px) {
     .top-row {
@@ -2446,10 +2475,10 @@ body {
         height: 300px;
     }
 
-    .testimonials-section {
 
-        padding: 120px 40px;
-
+    #simple-title {
+        width: 70%;
+        margin: auto;
     }
 
     .simple-streamlined-content {
@@ -2508,10 +2537,10 @@ body {
     }
 
     .why-founders-section {
-        max-width: 100%;
-        overflow: hidden;
-        padding: 0 0 60px 0;
-        /* Maintain bottom padding */
+        max-width: 1117px;
+        overflow: visible;
+        padding: 0;
+        width: 90%;
     }
 
     .why-founders-title {
@@ -2527,7 +2556,7 @@ body {
         flex-wrap: nowrap;
         gap: 16px;
         padding: 15px 0;
-        padding-left: 8%;
+        padding-left: 0;
         padding-right: 0;
         width: 100%;
         -webkit-overflow-scrolling: touch;
@@ -2542,6 +2571,8 @@ body {
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
         will-change: transform, scroll-position;
+        justify-content: flex-start;
+        width: max-content;
     }
 
     .founders-cards::-webkit-scrollbar {
@@ -2549,53 +2580,7 @@ body {
         /* Chrome, Safari, Opera */
     }
 
-    .founders-cards-nav {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 24px;
-        margin-bottom: 24px;
-        /* Add bottom margin to prevent layout compression */
-    }
 
-    .founders-cards-arrow {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: linear-gradient(180deg, #1F1F1F 0%, #111 69%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0px 1.318px 2.635px 0px #525154 inset,
-            0px 10px 15px -5px rgba(0, 0, 0, 0.5);
-        transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .founders-cards-arrow:hover {
-        transform: scale(1.05);
-    }
-
-    .founders-cards-arrow:active {
-        transform: scale(0.95);
-    }
-
-    .founders-cards-arrow svg {
-        width: 20px;
-        height: 20px;
-        fill: none;
-        stroke: white;
-        stroke-width: 2;
-    }
-
-    .founders-cards-arrow.prev svg {
-        transform: rotate(180deg);
-    }
-
-    .founders-cards::-webkit-scrollbar {
-        display: none;
-
-    }
 
     .founder-card {
         min-width: 210px;
@@ -2674,17 +2659,44 @@ body {
         max-width: 635px;
         margin-left: 0 !important;
     }
+
+    .pricing-section-container {
+        gap: 12px;
+    }
+
+    .pricing-top-row {
+        flex-direction: column;
+    }
+
+    .pricing-world-container {
+        order: 2;
+        margin: auto;
+    }
+
+    .pricing-card {
+        order: 1;
+        margin: auto;
+    }
+
+    .pricing-top-row,
+    .pricing-bottom-row {
+        gap: 12px;
+    }
 }
 
 /* Add new breakpoint for 1100px specifically for cards */
 @media screen and (max-width: 1100px) {
 
     .simple-streamlined-content {
-        max-width: 80%;
+        max-width: 83%;
         gap: 60px;
     }
 
-    /* All-in-one section card layout changes */
+    .process-steps {
+        width: 42%;
+    }
+
+
     .all-in-one-section {
         max-width: 90%;
     }
@@ -2700,6 +2712,7 @@ body {
     .stacked-cards-container {
         margin: 0 auto;
     }
+
 
     .stacked-card {
         max-width: 635px;
@@ -2741,35 +2754,48 @@ body {
         padding-left: 0px;
     }
 
-    /* Testimonials section changes for 1100px */
-    .testimonials-section {
+    .testimonials-section,
+    .founders-awards-section,
+    .pricing-section,
+    .all-in-one-section,
+    .faq-section {
         max-width: 635px;
         margin: 0 auto;
         padding: 120px 0;
     }
 
-    .testimonial {
-        flex-direction: column;
-        align-items: flex-start;
+
+    .testimonials-section {
+        padding: 0px;
     }
 
-    .testimonial-content {
-        margin-bottom: 40px;
+    .all-in-one-section {
+        padding: 0px;
     }
+
+    .faq-section {
+        padding: 0px;
+    }
+
+    .testimonial {
+        flex-direction: column;
+        align-items: center;
+    }
+
 
     .testimonial-text {
         font-size: 32px;
+        width: 60%;
+        margin: auto;
+        margin-bottom: 32px;
     }
 
-    .testimonial-divider {
-        display: none;
-    }
 
     .testimonial-author {
         width: 100%;
         flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 24px;
     }
 
@@ -2779,18 +2805,25 @@ body {
     }
 
     .author-info {
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
     }
+
+
+
 
     .testimonials-container {
         margin-bottom: 80px;
     }
 
-    /* Hero top styles from the original 1100px breakpoint */
+    .awards-container {
+        width: 100%;
+    }
+
 
     .hero-container {
         margin-bottom: 20px;
+        padding-left: 0px;
     }
 
     .hero-top {
@@ -2803,12 +2836,12 @@ body {
         align-items: center;
     }
 
-    /* Center the DF logo */
+
+
     .df-top-logo {
         justify-content: center;
     }
 
-    /* Center the hero title and header */
     .hero-title-section {
         text-align: center;
     }
@@ -2821,19 +2854,16 @@ body {
         text-align: center;
     }
 
-    /* Center the button */
+
     .hero-buttons {
         justify-content: center;
     }
 
     .all-in-one-title {
         margin-bottom: 42px;
+        width: 65%;
     }
 
-    .faq-section {
-        width: 653px;
-        margin: auto;
-    }
 
     .faq-question {
         line-height: 24px;
@@ -2859,12 +2889,14 @@ body {
     }
 
     .ux-teardown-subtitle {
-        width: 50%;
+        width: 60%;
     }
 
     .spreading-cards-section .main {
         min-height: 1400px;
     }
+
+    
 }
 
 @media screen and (max-width: 1024px) {
@@ -2952,23 +2984,6 @@ body {
         gap: 40px;
     }
 
-    .testimonials-container {
-        margin-bottom: 250px;
-    }
-
-    .nav-arrow {
-        top: auto;
-        bottom: -60px;
-        transform: none;
-    }
-
-    .prev-arrow {
-        left: calc(50% - 60px);
-    }
-
-    .next-arrow {
-        right: calc(50% - 60px);
-    }
 
     .pricing-top-row,
     .pricing-bottom-row {
@@ -2999,7 +3014,6 @@ body {
     }
 
 
-
     .social-icon {
         width: 60px;
         height: 60px;
@@ -3010,10 +3024,28 @@ body {
         margin-top: 100px;
     }
 
-    .founders-cards {
-        padding-left: 15%;
-        padding-right: 10%;
+    .why-founders-section {
+        padding-top: 120px;
     }
+
+    .founders-cards {
+        padding-left: 32px;
+    }
+
+
+    .testimonial {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .testimonials-container {
+        margin-bottom: 250px;
+    }
+
+    .calendar-section .section-subtitle {
+        margin-bottom: 24px;
+    }
+
 
 }
 
@@ -3201,32 +3233,94 @@ body {
 
     }
 
+    .testimonials-container {
+        margin-bottom: 120px;
+    }
+
     .gallery-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
+    .why-founders-section {
+        width: 70%
+    }
+
     .process-steps {
         margin-top: 0px;
+        width: 65%;
     }
 
     .mobile-video-container {
         margin-bottom: 24px;
     }
+
+    .founders-awards-section,
+    .pricing-section,
+    .all-in-one-section {
+        padding: 0;
+    }
+
+    .pricing-section {
+        margin-bottom: 120px;
+    }
+
+    .calendar-section {
+        padding: 80px 0;
+    }
+
+    .calendar-container {
+        height: auto;
+    }
+
+    .ux-teardown-subtitle {
+        width: 70%;
+        margin-bottom: 28px;
+    }
+
+
+
+
 }
 
-@media screen and (max-width: 860px) {
-    .founders-cards {
-        padding-left: 16%;
-        padding-right: 12%;
-    }
-}
 
 @media screen and (max-width: 824px) {
     .founders-cards {
-        padding-left: 23%;
-        padding-right: 13%;
+        padding-left: 32px;
+    
+    }
+
+    .pricing-section-container {
+        gap: 12px;
+    }
+
+    .pricing-top-row,
+    .pricing-bottom-row {
+        gap: 12px
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .faq-section {
+        margin: 80px auto;
+        padding: 0 16px;
+    }
+
+
+    .faq-question {
+        font-size: 18px;
+    }
+
+    .faq-answer {
+        font-size: 15px;
+        padding-right: 24px;
+    }
+
+    .why-founders-section {
+        width: 60%;
     }
 }
 
@@ -3307,4 +3401,320 @@ body {
         background: none;
         margin-bottom: 24px;
     }
+
+}
+
+@media screen and (max-width: 678px) {
+
+    .testimonials-section,
+    .founders-awards-section,
+    .pricing-section,
+    .all-in-one-section,
+    .faq-section {
+        width: calc(100vw - 48px);
+        margin: auto;
+        padding: 0;
+    }
+
+    .process-steps {
+        width: 38%;
+    }
+
+    .process-step.active,
+    .process-step {
+        width: 100%;
+    }
+
+    #process-step-text {
+        width: 100%;
+    }
+
+    .testimonials-container {
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .testimonial-rating img {
+        height: 42px;
+        width: 165px;
+    }
+
+    .testimonials-slider {
+        width: 100%;
+    }
+
+    .pricing-section-container {
+        gap: 0px;
+        padding-bottom: 120px;
+    }
+
+    .founders-container {
+        width: 100%;
+    }
+
+    .pricing-main-card {
+        margin: 42px 0;
+    }
+
+    .pricing-header-content,
+    .pricing-card,
+    .metric-card {
+        padding: 32px;
+    }
+
+    .metrics-container {
+        gap: 12px;
+    }
+
+    .pricing-features {
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 100px;
+    }
+
+    .pricing-toggle {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .toggle-option {
+        width: 33%;
+    }
+
+    .testimonial {
+        width: 100%;
+    }
+
+    .testimonial-content {
+        width: 100%;
+        max-width: none;
+        font-size: 32px;
+    }
+
+    .testimonial-text {
+        margin-bottom: 12px;
+        width: 70%;
+    }
+
+    
+
+    .testimonial-rating,
+    .testimonial-author {
+        width: 100%;
+    }
+
+
+    .author-image{
+        margin-bottom: 24px;
+    }
+
+
+
+
+    .founder-card-icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 12px;
+    }
+
+    .metrics-container {
+        gap: 12px;
+    }
+
+    .metric-card {
+        height: 251px !important;
+        /* Force same height for all cards */
+        padding: 20px;
+    }
+
+    .metric-header {
+        font-size: 16px !important;
+        line-height: 1.5;
+        top: 24px;
+        left: 24px;
+    }
+
+    .metric-value {
+        top: 72px;
+        left: 24px;
+    }
+
+    .metric-label {
+        font-size: 19px !important;
+        line-height: 1.5;
+    }
+
+    .metric-subtitle {
+        font-size: 19px !important;
+        line-height: 1.5;
+        left: 24px;
+    }
+
+    .metric-card:nth-child(3) .metric-value,
+    .metric-card:nth-child(4) .metric-value {
+        top: 102px;
+    }
+
+    .calendar-section {
+        padding: 60px 0;
+    }
+
+    .calendar-section .section-title {
+        font-size: 42px;
+        margin-bottom: 16px;
+    }
+
+    .calendar-section .section-subtitle {
+        font-size: 18px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    .footer-logo {
+        letter-spacing: -2.135px;
+    }
+
+}
+
+.spread-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card-left,
+.card-right {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+    .spread-card-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+@media screen and (max-width: 620px) {
+  .why-founders-section {
+    width: 45%;
+  }
+
+  .award-image{
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-header {
+        font-size: 32px;
+    }
+
+    .hero-subheader {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .apply-now {
+        padding: 16px 116px;
+    }
+
+    .scrolling-row {
+        gap: 16px;
+        padding: 8px
+    }
+
+    #simple-title {
+        width: 40%
+    }
+
+    .all-in-one-title {
+        width: 85%;
+    }
+
+    .card-content h3 {
+        font-size: 24px;
+    }
+
+    .card-content p {
+        font-size: 18px;
+        line-height: 1.2;
+    }
+
+    .faq-section {
+        margin: 60px auto;
+        padding: 0 12px;
+    }
+
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-container {
+        gap: 16px;
+    }
+
+    .faq-item {
+        padding-bottom: 16px;
+    }
+
+    .founder-card {
+        width: 230px !important;
+        min-width: 230px !important;
+        min-height: 250px;
+        padding: 20px;
+    }
+
+    .card-web3,
+    .card-dreamgate,
+    .card-pricing,
+    .card-designers,
+    .card-team {
+        width: 230px !important;
+        min-width: 230px !important;
+    }
+
+    .founder-card-title {
+        font-size: 18px;
+    }
+
+    .founder-card-text {
+        font-size: 16px;
+    }
+
+    .founders-cards {
+        gap: 12px;
+    }
+
+    .calendar-section {
+        padding: 40px 0;
+    }
+
+    .calendar-section .section-title {
+        font-size: 32px;
+        padding: 0 12px;
+    }
+
+    .calendar-section .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 32px;
+        padding: 0 16px;
+    }
+
+    .calendar-container {
+        height: 500px;
+    }
+
+    .ux-teardown-title {
+        width: 70%;
+    }
+
+    .ux-teardown-subtitle {
+        width: 90%;
+    }
+
 }

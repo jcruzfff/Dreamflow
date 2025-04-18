@@ -101,21 +101,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Why Founders Choose Dreamflow section animation
     const initFoundersCardsAnimation = () => {
-        const cards = gsap.utils.toArray('.founder-card');
+        const foundersCards = document.querySelector('.founders-cards');
         const title = document.querySelector('.why-founders-title');
+        const cards = document.querySelectorAll('.founder-card');
         
-        // Set initial state
-        gsap.set(cards, { 
-            opacity: 0,
-            y: 50
-        });
-        
+        // Set initial state for title and cards
         gsap.set(title, {
             opacity: 0,
             y: 30
         });
 
-        // Animate title first
+        // Set initial state for cards
+        gsap.set(cards, {
+            opacity: 0,
+            y: 30
+        });
+
+        // Animate title
         ScrollTrigger.create({
             trigger: title,
             start: "top 80%",
@@ -126,26 +128,69 @@ document.addEventListener('DOMContentLoaded', function() {
                     duration: 0.4,
                     ease: "power2.out"
                 });
-            }
-        });
 
-        // Animate cards with stagger
-        ScrollTrigger.create({
-            trigger: ".founders-cards",
-            start: "top 75%",
-            onEnter: () => {
+                // Stagger animate cards after title
                 gsap.to(cards, {
                     opacity: 1,
                     y: 0,
-                    duration: 0.5,
-                    stagger: {
-                        each: 0.1,
-                        from: "start"
-                    },
+                    duration: 0.4,
+                    stagger: 0.1,
                     ease: "power2.out"
                 });
             }
         });
+
+        // Only apply horizontal scroll animation for screens under 1200px
+        const handleResize = () => {
+            if (window.innerWidth <= 1200) {
+                // Set initial position for cards container
+                gsap.set(foundersCards, { x: 0 });
+
+                // Create horizontal scroll animation
+                gsap.to(foundersCards, {
+                    x: () => {
+                        const endPosition = -(foundersCards.scrollWidth - window.innerWidth + 40);
+                        return Math.max(endPosition, -foundersCards.scrollWidth + window.innerWidth * 0.9);
+                    },
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: foundersCards,
+                        start: "top 65%",
+                        end: "top 15%",
+                        scrub: 1.5,
+                        invalidateOnRefresh: true,
+                        onUpdate: (self) => {
+                            // Ensure cards stay visible at the end of animation
+                            if (self.progress >= 0.95) {
+                                const minVisible = window.innerWidth * 0.1;
+                                const currentX = gsap.getProperty(foundersCards, "x");
+                                if (-currentX > foundersCards.scrollWidth - minVisible) {
+                                    gsap.set(foundersCards, {
+                                        x: -(foundersCards.scrollWidth - minVisible)
+                                    });
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                // Reset position for larger screens
+                gsap.set(foundersCards, { x: 0 });
+                
+                // Kill any existing ScrollTrigger animations
+                ScrollTrigger.getAll().forEach(st => {
+                    if (st.vars.trigger === foundersCards) {
+                        st.kill();
+                    }
+                });
+            }
+        };
+
+        // Initial check
+        handleResize();
+
+        // Update on window resize
+        window.addEventListener('resize', handleResize);
     };
 
     // Initialize founders cards animation
@@ -421,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Use consistent 64px offset for all screen sizes
-            const cardOffset = 64;
+            const cardOffset = window.innerWidth <= 480 ? 32 : 64;
             
             // Create a pinned section with ScrollTrigger
             const cardTimeline = gsap.timeline({
@@ -498,179 +543,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const foundersCards = document.querySelector('.founders-cards');
 
     if (foundersCards) {
-        // Variables for functionality
-        let isHovering = false;
-        let hoverDirection = null;
-        let hoverScrollInterval;
-        let latestMouseEvent = null;
-        let navContainer = null;
-        
-        // Get all cards for calculating scroll positions
+        // Initialize any necessary properties
         const founderCards = document.querySelectorAll('.founder-card');
         const whyFoundersSection = document.querySelector('.why-founders-section');
-        
-        // Function to create navigation arrows - only for small screens
-        function createArrowNavigation() {
-            // Only create arrows if they don't exist yet
-            if (!navContainer && window.innerWidth <= 900) {
-                navContainer = document.createElement('div');
-                navContainer.className = 'founders-cards-nav';
-                
-                navContainer.innerHTML = `
-                    <div class="founders-cards-arrow prev">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="founders-cards-arrow next">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                `;
-                
-                // Insert arrows after the cards
-                whyFoundersSection.appendChild(navContainer);
-                
-                // Add click handlers to arrows
-                const prevArrow = navContainer.querySelector('.prev');
-                const nextArrow = navContainer.querySelector('.next');
-                
-                prevArrow.addEventListener('click', () => {
-                    scrollToCard('prev');
-                });
-                
-                nextArrow.addEventListener('click', () => {
-                    scrollToCard('next');
-                });
-            }
-        }
-        
-        // Function to remove navigation arrows
-        function removeArrowNavigation() {
-            if (navContainer && window.innerWidth > 900) {
-                navContainer.remove();
-                navContainer = null;
-            }
-        }
-        
-        // Check screen size initially
-        createArrowNavigation();
-        
-        // Add resize listener to add/remove arrows based on screen size
-        window.addEventListener('resize', () => {
-            createArrowNavigation();
-            removeArrowNavigation();
-        });
-        
-        // Function to scroll to a specific card
-        function scrollToCard(direction) {
-            // Only if we have cards and arrows
-            if (!founderCards.length || !navContainer) return;
-            
-            const currentScrollLeft = foundersCards.scrollLeft;
-            const cardWidth = founderCards[0].offsetWidth + 16; // Width + gap
-            
-            foundersCards.style.scrollBehavior = 'smooth';
-            
-            if (direction === 'next') {
-                foundersCards.scrollLeft = currentScrollLeft + cardWidth;
-            } else {
-                foundersCards.scrollLeft = currentScrollLeft - cardWidth;
-            }
-            
-            setTimeout(() => {
-                foundersCards.style.scrollBehavior = 'auto';
-            }, 500);
-        }
-        
-        // Only apply hover scrolling for screens > 900px
-        function handleHoverScroll(e) {
-            if (window.innerWidth <= 900) return;
-            
-            const rect = foundersCards.getBoundingClientRect();
-            const containerWidth = rect.width;
-            const mousePositionX = e.clientX - rect.left;
-            
-            // Clear any existing interval
-            if (hoverScrollInterval) {
-                clearInterval(hoverScrollInterval);
-                hoverScrollInterval = null;
-            }
-            
-            // Calculate how far from center (as a percentage)
-            const centerX = containerWidth / 2;
-            const distanceFromCenter = mousePositionX - centerX;
-            const percentFromCenter = distanceFromCenter / centerX; // -1 to 1 range
-            
-            // Only scroll if we're more than 5% away from center (creates a smaller dead zone)
-            if (Math.abs(percentFromCenter) < 0.05) {
-                isHovering = false;
-                return;
-            }
-            
-            // Set direction based on which side we're on
-            const direction = percentFromCenter > 0 ? 1 : -1;
-            hoverDirection = direction > 0 ? 'right' : 'left';
-            isHovering = true;
-            
-            // Speed calculations
-            const baseSpeed = 1;
-            const maxSpeed = 4;
-            
-            // Use requestAnimationFrame for smoother animation
-            let lastTimestamp = 0;
-            
-            function animateScroll(timestamp) {
-                if (!isHovering) return;
-                
-                // Calculate time delta for smoother motion
-                const delta = timestamp - lastTimestamp;
-                
-                // Only update every ~30ms (limit to ~30fps for smoother experience)
-                if (delta > 30) {
-                    // Get current mouse position from latest event
-                    if (latestMouseEvent) {
-                        const currentRect = foundersCards.getBoundingClientRect();
-                        const currentMouseX = latestMouseEvent.clientX - currentRect.left;
-                        const currentPercentFromCenter = (currentMouseX - (currentRect.width / 2)) / (currentRect.width / 2);
-                        
-                        // Skip if we're in the dead zone
-                        if (Math.abs(currentPercentFromCenter) < 0.05) {
-                            requestAnimationFrame(animateScroll);
-                            return;
-                        }
-                        
-                        // Dynamic speed calculation with more gentle acceleration
-                        const dynamicSpeed = baseSpeed + Math.abs(currentPercentFromCenter) * (maxSpeed - baseSpeed);
-                        
-                        // Apply the scroll with a gentler increment
-                        foundersCards.scrollLeft += (Math.round(dynamicSpeed) * 0.3) * (currentPercentFromCenter > 0 ? 1 : -1);
-                    }
-                    
-                    lastTimestamp = timestamp;
-                }
-                
-                // Continue animation
-                requestAnimationFrame(animateScroll);
-            }
-            
-            // Start the animation loop
-            requestAnimationFrame(animateScroll);
-        }
-        
-        // Keep hover effect only for larger screens
-        foundersCards.addEventListener('mousemove', (e) => {
-            if (window.innerWidth <= 900) return;
-            latestMouseEvent = e;
-            handleHoverScroll(e);
-        });
-        
-        foundersCards.addEventListener('mouseleave', () => {
-            if (window.innerWidth <= 900) return;
-            isHovering = false;
-            clearInterval(hoverScrollInterval);
-            hoverScrollInterval = null;
-        });
     }
 }); 
