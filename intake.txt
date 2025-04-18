@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamflow Intake Form</title>
+    <meta name="description" property="og:description"
+    content="The Go-To Design Subscription for leading Web3, AI, and visionary tech companies." />
+
+    <!-- Thumbnail Images -->
+    <meta property="og:image" content="https://www.dreamflowlabs.com/thumbnail-two.png" />
+    <meta property="og:url" content="https://www.DreamflowLabs.com" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101018">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#101018">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="theme-color" content="#101018">
+
+    <!-- Fonts -->
+    <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+    
+    <!-- Particles and Player -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Internal CSS for the form page -->
+    <style>
+        /* Basic Styling */
+       /* Basic Styling */
+
+       @font-face {
+    font-family: "Helvetica Bold";
+    src: url(Helvetica/HelveticaNeueMedium.otf)
+}
+       *,
+body,
+html {
+    font-family: "Helvetica Neue", "Plus Jakarta Sans"
+}
+body {
+    background-color: #000000;/* Background color black */
+    color: #fff; /* Font color white */
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+    z-index: -4
+}
+
+.count-particles {
+    background: #002;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13e8e9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: "Helvetica Neue";
+    font-weight: 700
+}
+
+
+.hidden-form {
+    display: none;
+}
+
+/* Back Button */
+.back-btn {
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    background: none;
+    border-radius: 32px;
+    padding: 12px 24px 10px 24px;
+    border: 1px solid #242424;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    max-width: 800px; /* Set max width to 800px */
+    margin: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Logo */
+.dreamflow-logo-intake {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center alignment for the welcome section */
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* Full viewport height to center vertically */
+}
+
+.welcome-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    margin-bottom: 42px;
+    width: 75%;
+    text-align: center;
+    color: #dadada;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    margin-top: 12px;
+}
+
+
+.nav-btn {
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background: none;
+    border: none;
+}
+
+.welcome-buttons{
+    margin-left: 120px;
+    gap: 12px;
+}
+
+.go-btn, .submit-btn {
+    position: relative;
+    z-index: 1000;
+    padding: 12px 42px 10px 42px;;
+    font-size: 18px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.welcome-btn{
+    padding: 12px 42px 10px 42px;;
+}
+
+.enter-message {
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 10px;
+    color: #aaa; /* Gray subtext color */
+}
+
+.enter-icon {
+    font-size: 18px;
+    color: #aaa; /* Gray subtext color */
+}
+
+.time-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin-top: 24px;
+    color: #ffffff; /* Gray subtext color */
+}
+
+.clock-icon {
+    display: flex;
+    margin-right: 5px;
+    align-items: center;
+}
+
+form{
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Form Step */
+.form-step {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start; /* Align left */
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.form-step.active {
+    display: flex;
+}
+
+.question{
+    font-size: 36px;
+    margin-bottom: 0px;
+    font-weight: 400;
+}
+
+.subheader {
+    font-size: 20px;
+    color: #aaa; /* Gray subtext color */
+    margin: 12px 0 24px 0;
+}
+
+/* Input Fields */
+.input-field {
+    font-size: 32px;
+    border: none;
+    border-bottom: 1px solid #eaeaea45; /* Bottom border only */
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    background-color: transparent;
+    color: #fff; /* White color for input text */
+    outline: none; /* Remove focus outline */
+    transition: border-color 0.3s ease; /* Smooth transition for border */
+    box-sizing: border-box; 
+}
+
+/* Placeholder Styling */
+.input-field::placeholder {
+    color: #aaaaaa4f; /* Gray subtext color */
+     /* Full opacity for the placeholder */
+}
+
+/* Remove Placeholder on Focus */
+.input-field:focus::placeholder {
+    color: transparent; /* Make the placeholder transparent on focus */
+}
+/* Remove Placeholder on Focus */
+.input-field:focus::placeholder {
+    color: #aaaaaa4f; /* Keep placeholder color while focused */
+}
+
+/* Hide Placeholder after user starts typing */
+.input-field:valid::placeholder {
+    color: transparent; /* Hide placeholder when valid */
+}
+
+.bottom-image {
+    position: fixed;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.bottom-image img {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.nav-buttons {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    visibility: hidden; /* Hidden by default */
+    z-index: 1000;
+}
+
+.error-message {
+    color: #ff4c4c; /* Red for error message */
+    font-size: 16px;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+    
+}
+
+#welcome-section{
+    align-items: center;
+}
+
+
+#welcome-header {
+    position: relative;
+    margin: 24px;
+    margin-bottom: 24px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-align: center;
+    font-family: "Helvetica Neue";
+    font-size: 92px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 92px */
+    letter-spacing: -3px;
+    white-space: nowrap;
+}
+
+/* Hide the default checkbox */
+.hidden-checkbox {
+        display: none;
+            }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border: 1px solid #242424;
+            border-radius: 32px;
+            padding: 12px 24px;
+            width: 100%;
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-checkbox-label {
+            flex: 1;
+            color: white;
+            font-size: 18px;
+        }
+
+        .checkmark {
+            display: none;
+            position: absolute;
+            right: 15px;
+        }
+
+        /* Show checkmark when the checkbox is checked */
+        .hidden-checkbox:checked + .custom-checkbox-label + .checkmark {
+            display: block;
+        }
+
+
+        .hidden-radio {
+            display: none;
+        }
+
+        /* Custom Radio Wrapper */
+        .custom-radio {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border: 1px solid #242424;
+            border-radius: 32px;
+            padding: 12px 24px;
+            width: 100%;
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Custom Radio Button Outer Circle */
+        .custom-radio::before {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #242424;
+            border-radius: 50%;
+            margin-right: 12px;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Inner circle for checked radio button */
+        .custom-radio.checked::before {
+            background-color: rgba(251, 251, 251, 0.4);
+        
+        }
+
+        /* Custom Label for Radio Button */
+        .custom-radio-label {
+            flex: 1;
+            color: white;
+            font-size: 18px;
+            position: relative;
+        }
+
+        /* Style for checked radio button */
+        .custom-radio.checked {
+            background-color: rgba(255, 255, 255, 0.03);
+            box-shadow: 0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset;
+            backdrop-filter: blur(33.75px);
+        }
+
+        .last-question{
+            margin-bottom: 48px;
+        }
+
+        #last-question{
+            text-align: center;
+        }
+
+        .submit-btn {
+            padding: 10px 42px;
+            font-size: 18px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 0 auto; /* Center horizontally */
+            display: block; /* Ensure it takes full width for margin auto to work */
+        }
+
+        .loading-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+/* Add media query for responsiveness */
+@media screen and (max-width: 990px) {
+    #welcome-header {
+        font-size: 4rem;
+        height: auto;
+        margin-bottom: 24px;
+        white-space: wrap;
+    }
+
+    .form-container {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    /* Question and subheader */
+    .question {
+        font-size: 28px;
+    }
+
+    .subheader {
+        font-size: 18px;
+        margin: 8px 0 16px 0;
+    }
+
+    /* Input fields */
+    .input-field {
+        font-size: 24px;
+        padding: 8px 0;
+        margin: 16px 0;
+    }
+
+    /* Buttons */
+    .go-btn, .submit-btn {
+        padding: 8px 32px;
+        font-size: 16px;
+    }
+
+    /* Custom checkboxes and radio buttons */
+    .custom-checkbox, .custom-radio {
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+
+    .custom-checkbox-label, .custom-radio-label {
+        font-size: 16px;
+    }
+
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Back button */
+
+    /* Last question */
+    #last-question .question {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* Further adjustments for smaller screens */
+    .question {
+        font-size: 24px;
+    }
+
+    .subheader {
+        font-size: 16px;
+    }
+
+    .input-field {
+        font-size: 20px;
+    }
+
+    .custom-checkbox, .custom-radio {
+        padding: 8px 16px;
+    }
+
+    .custom-checkbox-label, .custom-radio-label {
+        font-size: 14px;
+    }
+
+    .go-btn, .submit-btn {
+        padding: 10px 24px 8px 24px;
+        font-size: 16px;
+    }
+
+    #last-question .question {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .dreamflow-logo-intake {
+        width: 64px;
+        height: auto;
+    }
+
+    .back-btn{
+        font-size: 12px;
+        top: 4%;
+        left: 6%;
+        padding: 10px 20px 8px 20px;
+        position: absolute;
+        z-index: 1050;
+        box-sizing: border-box;
+    }
+
+    .go-btn{
+        margin-right: 0px;
+    }
+
+    #welcome-header {
+        font-size: 2.75rem;
+        margin: 0px;
+        font-size: 2.75rem;
+        margin: 0px;
+        box-sizing: border-box;
+        width: inherit;
+        padding: 0px 12px;
+    }
+
+    .welcome-section p{
+        width: 100%;
+        padding: 0 24px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .welcome-buttons {
+        display: flex;
+        margin-left: 0px;
+        gap: 12px;
+        align-items: center;
+        flex-direction: column;
+}
+
+    .enter-message{
+        display: none;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="" id="particles-js"></div>
+    <!-- Back Button -->
+    <button id="back-btn" class="back-btn">Exit</button>
+
+    <!-- Form Container -->
+    <!-- Logo and Welcome Section -->
+    <div class="welcome-section form-step active" id="welcome-section">
+        <img src="./images/intake_logo.svg" alt="Dreamflow Logo" class="dreamflow-logo-intake"> <!-- Replace with your logo path -->
+        <h2 id="welcome-header">Welcome to Dreamflow</h2>
+        <p class="welcome-subheader">At Dreamflow, we’re more than designers. We’re your strategic partner in bringing world-changing ideas to life. Apply now to explore how we can co-create an experience that transforms your brand.</p>
+        <div class="form-buttons welcome-buttons">
+            <button type="button" class="go-btn welcome-btn">Let's go!</button>
+            <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+        </div>
+        <div class="time-message">
+            <span class="clock-icon"><img src="./images/clock.svg" /></span>
+            <span>Takes 2 mins</span>
+        </div>
+    </div>
+    
+    <form action="">
+        <div class="form-container">
+            <!-- Form Steps for Each Question -->
+            <div class="form-step hidden-form">
+                <h2 class="question">Let's start with an introduction</h2>
+                <p class="subheader">What's your name?</p>
+                <input type="text" placeholder="Type your name here..." id="name" class="input-field" required>.
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-name">Please fill out required information</div>
+            </div>
+
+            <div class="form-step hidden-form">
+                <h2 class="question">Where can we reach you with next steps?</h2>
+                <p class="subheader">Enter your email</p>
+                <input type="email" placeholder="Type your email here..." id="email" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-email">Please fill out required information</div>
+            </div>
+
+            <div class="form-step hidden-form">
+                <h2 class="question">What should we call this masterpiece in the making?</h2>
+                <p class="subheader">Company/Project Name</p>
+                <input type="text" placeholder="Type your answer here..." id="company" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-company">Please fill out required information</div>
+            </div>
+
+            <div class="form-step hidden-form">
+                <h2 class="question">Where can we see your brand in action?</h2>
+                <p class="subheader">Website or Social Media Link (optional)</p>
+                <input type="url" placeholder="Type your answer here..." id="website" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+    
+            </div>
+
+            <!-- Project Overview -->
+            <div class="form-step hidden-form">
+                <h2 class="question">Tell us about your project.</h2>
+                <p class="subheader">What’s the big idea, and what are your goals?</p>
+                <input type="text" placeholder="What's your vision for the future..." id="goals" class="input-field" required>
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message" id="error-project-overview">Please fill out required information</div>
+            </div>
+
+
+                <!-- Project Timeline -->
+                <div class="form-step hidden-form">
+                    <h2 class="question">When do you want to launch?</h2>
+                    <p class="subheader">(Select one)</p>
+                
+                    <label class="custom-radio">
+                        <input type="radio" id="timeline-asap" name="timeline" value="asap" class="hidden-radio">
+                        <span class="custom-radio-label">Urgent (ASAP)</span>
+                    </label>
+                
+                    <label class="custom-radio">
+                        <input type="radio" id="timeline-1-2-months" name="timeline" value="1-2-months" class="hidden-radio">
+                        <span class="custom-radio-label">1 - 2 months</span>
+                    </label>
+                
+                    <label class="custom-radio">
+                        <input type="radio" id="timeline-3-6-months" name="timeline" value="3-6-months" class="hidden-radio">
+                        <span class="custom-radio-label">3 - 6 months</span>
+                    </label>
+                
+                    <label class="custom-radio">
+                        <input type="radio" id="timeline-flexible" name="timeline" value="flexible" class="hidden-radio">
+                        <span class="custom-radio-label">Flexible, let's discuss</span>
+                    </label>
+                
+                    <div class="form-buttons">
+                        <button type="button" class="go-btn">OK</button>
+                        <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                    </div>
+                    <div class="error-message">Please select an option</div>
+                </div>
+
+
+            <div class="form-step hidden-form">
+                <h2 class="question">Which of our services are you interested in?</h2>
+                <p class="subheader">(Check all that apply)</p>
+                
+                <!-- Custom Checkbox for Brand Identity -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="brand-identity" name="services" value="brand-identity"  class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Brand Identity</span>
+                    <span class="checkmark">
+                        <!-- SVG for checkmark -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+
+
+                <!-- Brand Strategy -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="brand-strategy" name="services" value="brand-strategy" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Brand Strategy</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+            
+
+                <!-- Web Design -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="web-design" name="services" value="web-design" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Web Design</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+
+                
+                <!-- Repeat for other checkboxes -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="ui-ux-design" name="services" value="ui-ux-design" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">UI/UX Design</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+                
+                <!-- Repeat for other checkboxes -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="marketing-assets" name="services" value="marketing-assets" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Marketing Assets</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+            
+                <!-- Event Design -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="event-design" name="services" value="event-design" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Event Design</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+
+                <!-- Development Services -->
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="web-development" name="services" value="development-services" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Development Services</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+                
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="other-service" name="services" value="other-services" class="hidden-checkbox">
+                    <span class="custom-checkbox-label">Other</span>
+                    <span class="checkmark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M10.0007 15.1715L19.1927 5.97852L20.6077 7.39252L10.0007 17.9995L3.63672 11.6355L5.05072 10.2215L10.0007 15.1715Z" fill="white"/>
+                        </svg>
+                    </span>
+                </label>
+        
+                
+                
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message">Please select at least one option</div>
+            </div>
+
+
+
+        
+
+            <!-- Budget Section -->
+            <div class="form-step hidden-form">
+                <h2 class="question">What's your ballpark budget?</h2>
+                <p class="subheader">This helps us create a proposal that fits your vision and resources.</p>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="budget-2k-5k" name="budget" value="2k-5k" class="hidden-radio">
+                    <span class="custom-radio-label">$2k - $5k</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="budget-5k-10k" name="budget" value="5k-10k" class="hidden-radio">
+                    <span class="custom-radio-label">$5k - $10k</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="budget-10k-20k" name="budget" value="10k-20k" class="hidden-radio">
+                    <span class="custom-radio-label">$10k - $20k</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="budget-20k-50k" name="budget" value="20k-50k" class="hidden-radio">
+                    <span class="custom-radio-label">$20k - $50k</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="budget-50k-100k" name="budget" value="50k-100k+" class="hidden-radio">
+                    <span class="custom-radio-label">$50k - $100k+</span>
+                </label>
+            
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message">Please select an option</div>
+            </div>
+
+
+
+            <!-- Connection -->
+            <div class="form-step hidden-form">
+                <h2 class="question">Where did you hear about us?</h2>
+                <p class="subheader">Who sent you our way? We'd love to know.</p>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="source-referral" name="source" value="referral" class="hidden-radio">
+                    <span class="custom-radio-label">Referral</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="source-social-media" name="source" value="social-media" class="hidden-radio">
+                    <span class="custom-radio-label">Social Media</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="source-google" name="source" value="google" class="hidden-radio">
+                    <span class="custom-radio-label">Google Search</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="source-event" name="source" value="event" class="hidden-radio">
+                    <span class="custom-radio-label">Event or Conference</span>
+                </label>
+            
+                <label class="custom-radio">
+                    <input type="radio" id="source-other" name="source" value="other" class="hidden-radio">
+                    <span class="custom-radio-label">Other</span>
+                </label>
+            
+                <div class="form-buttons">
+                    <button type="button" class="go-btn">OK</button>
+                    <span class="enter-message">Press Enter <span class="enter-icon">↵</span></span>
+                </div>
+                <div class="error-message">Please select an option</div>
+            </div>
+        
+        </form>
+        <!-- Submit Button Page -->
+        <div class="form-step hidden-form" id="last-question" >
+            <p class="question last-question">Thank you for sharing your goals with us. We love partnering with forward-thinking clients to create groundbreaking projects. Book your Dream Discovery Call and let's bring your vision to life!</p>
+            <button type="submit" class="submit-btn">Submit & Book</button>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button type="button" class="nav-btn prev-btn"><img src="./images/left-icon.svg" /></button>
+        <button type="button" class="nav-btn next-btn" disabled> <img src="./images/right-icon.svg" /></button>
+    </div>
+
+    <!-- Image spanning across the bottom -->
+    <div class="bottom-image">
+        <img src="./images/intake_bottom.png" alt="Decorative Image"> 
+    </div>
+
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 380,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 60,
+                        "size_min": 1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": .8
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 80,
+                        "duration": 1,
+                        "opacity": 0.8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+    </script>
+
+
+    <!-- Internal JavaScript for the form page -->
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           // Browser detection for Firefox
+           const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+           const welcomeHeader = document.getElementById('welcome-header');
+           
+           if (isFirefox) {
+               // Apply solid white style for Firefox
+               welcomeHeader.style.background = 'none';
+               welcomeHeader.style.backgroundClip = 'none';
+               welcomeHeader.style.webkitBackgroundClip = 'none';
+               welcomeHeader.style.webkitTextFillColor = '#ffffff';
+               welcomeHeader.style.color = '#ffffff';
+           }
+
+           // Navigate back
+           document.getElementById('back-btn').addEventListener('click', function() {
+               window.location.href = 'index.html';
+           });
+
+           const formSteps = document.querySelectorAll('.form-step');
+           const nextBtn = document.querySelector('.nav-btn.next-btn');
+           const prevBtn = document.querySelector('.nav-btn.prev-btn');
+           const goBtns = document.querySelectorAll('.go-btn');
+           let currentStep = 0;
+
+           let formData = {};
+
+           function showNavButtons() {
+               const navButtons = document.querySelector('.nav-buttons');
+               if (currentStep > 0) {
+                   navButtons.style.visibility = 'visible';
+                   if (currentStep === formSteps.length - 1) {
+                       nextBtn.style.display = 'none';
+                       prevBtn.style.display = 'inline-block';
+                   } else {
+                       nextBtn.style.display = 'inline-block';
+                       prevBtn.style.display = 'inline-block';
+                   }
+               } else {
+                   navButtons.style.visibility = 'hidden';
+               }
+           }
+
+           function updateButtons() {
+               if (currentStep === 0 || currentStep === formSteps.length - 1) {
+                   nextBtn.disabled = false;
+                   return;
+               }
+
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+               const radios = currentForm.querySelectorAll('.hidden-radio');
+               const goBtn = currentForm.querySelector('.go-btn');
+
+               let isValid = false;
+
+               if (input) {
+                   isValid = input.value.trim() !== '';
+               } else if (checkboxes.length > 0) {
+                   isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
+               } else if (radios.length > 0) {
+                   isValid = Array.from(radios).some(radio => radio.checked);
+               }
+
+                console.log(`Step ${currentStep}: isValid = ${isValid}`); 
+
+               nextBtn.disabled = !isValid;
+               if (goBtn) goBtn.disabled = !isValid;
+           }
+
+           function focusInput() {
+               const input = formSteps[currentStep].querySelector('.input-field');
+               if (input) {
+                   input.focus();
+               }
+           }
+
+           function saveFormData() {
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox:checked');
+               const radios = currentForm.querySelectorAll('.hidden-radio:checked');
+
+               if (input) {
+                   formData[input.id] = input.value;
+               } else if (checkboxes.length > 0) {
+                   formData[currentStep] = Array.from(checkboxes).map(cb => cb.value);
+               } else if (radios.length > 0) {
+                   formData[radios[0].name] = radios[0].value;
+               }
+           }
+
+           function loadFormData() {
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+               const radios = currentForm.querySelectorAll('.hidden-radio');
+
+               if (input && formData[input.id]) {
+                   input.value = formData[input.id];
+               } else if (checkboxes.length > 0 && formData[currentStep]) {
+                   formData[currentStep].forEach(value => {
+                       const checkbox = currentForm.querySelector(`.hidden-checkbox[value="${value}"]`);
+                       if (checkbox) {
+                           checkbox.checked = true;
+                           checkbox.closest('.custom-checkbox').classList.add('checked');
+                       }
+                   });
+               } else if (radios.length > 0) {
+                   const radioName = radios[0].name;
+                   if (formData[radioName]) {
+                       const selectedRadio = currentForm.querySelector(`.hidden-radio[value="${formData[radioName]}"]`);
+                       if (selectedRadio) {
+                           selectedRadio.checked = true;
+                           selectedRadio.closest('.custom-radio').classList.add('checked');
+                       }
+                   }
+               }
+               updateButtons();
+           }
+
+           function moveToNextStep() {
+               console.log(`Attempting to move from step ${currentStep}`);
+               if (currentStep === 0 || validateCurrentStep()) {
+                   saveFormData();
+                   formSteps[currentStep].classList.remove('active');
+                   currentStep++;
+                   if (currentStep < formSteps.length) {
+                       formSteps[currentStep].classList.add('active');
+                       loadFormData();
+                       focusInput();
+                       showNavButtons();
+                       updateButtons();
+                   }
+               }
+           }
+
+           function moveToPrevStep() {
+               if (currentStep > 0) {
+                   saveFormData();
+                   formSteps[currentStep].classList.remove('active');
+                   currentStep--;
+                   formSteps[currentStep].classList.add('active');
+                   loadFormData();
+                   showNavButtons();
+                   updateButtons();
+               }
+           }
+
+           function validateCurrentStep() {
+               if (currentStep === 0 || currentStep === formSteps.length - 1) {
+                   return true;
+               }
+
+               if (currentStep === 4) return true;
+
+               const currentForm = formSteps[currentStep];
+               const input = currentForm.querySelector('.input-field');
+               const checkboxes = currentForm.querySelectorAll('.hidden-checkbox');
+               const radios = currentForm.querySelectorAll('.hidden-radio');
+               const errorMessage = currentForm.querySelector('.error-message');
+
+
+               let isValid = false;
+
+               if (input) {
+                       isValid = input.value.trim() !== '';
+                   } else if (checkboxes.length > 0) {
+                       isValid = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                   } else if (radios.length > 0) {
+                       isValid = Array.from(radios).some(radio => radio.checked);
+                   }
+
+               console.log(`Validating step ${currentStep}: isValid = ${isValid}`); 
+
+               if (!isValid && errorMessage) {
+                       errorMessage.style.display = 'block';
+                   } else if (errorMessage) {
+                       errorMessage.style.display = 'none';
+                   }
+
+                       return isValid;
+                   }
+
+               goBtns.forEach((button) => {
+                   button.addEventListener('click', moveToNextStep);
+               });
+
+               nextBtn.addEventListener('click', moveToNextStep);
+               prevBtn.addEventListener('click', moveToPrevStep);
+
+               document.addEventListener('keydown', function(event) {
+                   if (event.key === 'Enter' && currentStep < formSteps.length - 1) {
+                       event.preventDefault();
+                       moveToNextStep();
+                   }
+               });
+
+               document.querySelectorAll('.input-field').forEach(input => {
+           input.addEventListener('input', function() {
+               const errorMessage = this.closest('.form-step')?.querySelector('.error-message');
+               if (errorMessage) {
+                   errorMessage.style.display = this.value.trim() !== '' ? 'none' : 'block';
+               }
+               updateButtons();
+           });
+   });
+           document.querySelectorAll('.hidden-checkbox').forEach(checkbox => {
+               checkbox.addEventListener('change', function() {
+                   updateButtons();
+                   this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+               });
+           });
+
+           document.querySelectorAll('.hidden-radio').forEach(radio => {
+               radio.addEventListener('change', function() {
+                   console.log(`Radio changed: ${this.name} = ${this.value}`);
+                   updateButtons();
+                   this.closest('.form-step').querySelector('.error-message').style.display = 'none';
+                   
+                   const name = this.getAttribute('name');
+                   document.querySelectorAll(`.hidden-radio[name="${name}"]`).forEach((r) => {
+                       r.closest('.custom-radio').classList.remove('checked');
+                   });
+
+                   this.closest('.custom-radio').classList.add('checked');
+               });
+           });
+           // Initial state setup
+           showNavButtons();
+           updateButtons();
+
+
+       });
+
+           const checkboxes = document.querySelectorAll('.hidden-checkbox');
+
+           checkboxes.forEach((checkbox) => {
+               checkbox.addEventListener('change', function() {
+                   const customCheckbox = this.closest('.custom-checkbox');
+                   
+                   if (this.checked) {
+                       customCheckbox.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'; // Greyish background
+                       customCheckbox.style.boxShadow = '0px -2px 19px 5px rgba(255, 255, 255, 0.06) inset'; // Inner shadow effect
+                       customCheckbox.style.backdropFilter = 'blur(33.75px)'; // Blurring effect
+                   } else {
+                       customCheckbox.style.backgroundColor = 'transparent'; // Reset background
+                       customCheckbox.style.boxShadow = 'none'; // Reset shadow
+                       customCheckbox.style.backdropFilter = 'none'; // Reset blur effect
+                   }
+               });
+           });
+
+   const radios = document.querySelectorAll('.hidden-radio');
+
+   radios.forEach((radio) => {
+       radio.addEventListener('change', function() {
+           // Remove 'checked' class from all custom radios
+           document.querySelectorAll('.custom-radio').forEach((customRadio) => {
+               customRadio.classList.remove('checked');
+           });
+
+           // Add 'checked' class to the clicked custom radio
+           const customRadio = this.closest('.custom-radio');
+           customRadio.classList.add('checked');
+       });
+   });
+
+   async function sendToAsana(formData) {
+       const baseURL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://www.dreamflowlabs.com';
+               const API_URL = baseURL + '/api/submit-form';  // Your Express API endpoint
+
+               showLoading();  // Show loading state
+
+               try {
+                   const response = await fetch(API_URL, {
+                       method: 'POST',
+                       headers: {
+                           'Content-Type': 'application/json'
+                       },
+                       body: JSON.stringify(formData)
+                   });
+
+                   hideLoading();  // Hide loading state
+
+                   if (response.ok) {
+                       showSuccessScreen();  // Show success message
+                   } else {
+                       const errorData = await response.json();
+                       console.error('Error:', errorData);
+                       showErrorScreen();  // Show error message
+                   }
+               } catch (error) {
+                   hideLoading();  // Hide loading state
+                   console.error('Request failed:', error);
+                   showErrorScreen();  // Show error message
+               }
+           }
+
+           // Attach submit event listener
+           document.querySelector('.submit-btn').addEventListener('click', function(event) {
+               event.preventDefault();
+
+               // Gather form data
+               const formData = {
+                   name: document.getElementById('name').value,
+                   email: document.getElementById('email').value,
+                   company: document.getElementById('company').value,
+                   website: document.getElementById('website').value,
+                   goals: document.getElementById('goals').value,
+                   timeline: document.querySelector('input[name="timeline"]:checked').value,
+                   budget: document.querySelector('input[name="budget"]:checked').value,
+                   source: document.querySelector('input[name="source"]:checked').value,
+                   services: Array.from(document.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value)
+               };
+
+               // Call the function to send data to your Express server
+               sendToAsana(formData);
+           });
+
+           function showLoading() {
+               document.querySelector('.form-container').innerHTML = `
+                   <div class="loading-message">
+                       <p>Submitting your form, please wait...</p>
+                   </div>
+               `;
+           }
+
+           function hideLoading() {
+               // Hide or revert back to form after loading
+           }
+
+           function showSuccessScreen() {
+               document.querySelector('.form-container').innerHTML = `
+                   <div class="success-message" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 20px;">
+                       <h2 style="font-size: 36px; margin-bottom: 16px;">Congratulations!</h2>
+                       <p style="font-size: 18px; margin-bottom: 8px;">Your form has been successfully submitted to Dreamflow.</p>
+                       <p style="font-size: 18px; margin-bottom: 24px;">Book your Dream Discovery Call below:</p>
+                       <div class="calendly-inline-widget" 
+                            data-url="https://calendly.com/dreamflowlabs/dream-discovery-call" 
+                            style="min-width:320px; height:500px; margin-bottom: 24px;">
+                       </div>
+                       <a href="index.html" 
+                          class="button return-home" 
+                          style="display: inline-block; margin-top: 20px; padding: 10px 24px; background: #fff; color: #000; text-decoration: none; border-radius: 50px; font-size: 14px;">
+                          Return to Home Page
+                       </a>
+                   </div>
+               `;
+               
+               // Load Calendly script
+               const script = document.createElement('script');
+               script.src = 'https://assets.calendly.com/assets/external/widget.js';
+               script.async = true;
+               document.head.appendChild(script);
+           }
+
+           function showErrorScreen() {
+               document.querySelector('.form-container').innerHTML = `
+                   <div class="error-message">
+                       <h2>Error</h2>
+                       <p>There was an issue submitting your form. Please try again later.</p>
+                   </div>
+               `;
+           }
+   </script>
+
+</body>
+</html>

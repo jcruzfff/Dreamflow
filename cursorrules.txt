@@ -1,0 +1,89 @@
+🧠 Project Guidelines: Cursor Assistant Rules
+✨ Objective
+Create a responsive, high-performance website using Tailwind CSS and GSAP for smooth, custom animations. The site should use custom UI components, follow modern best practices, and provide ample space for animation sequences in each section.
+
+🔧 Tech Stack
+Framework: Next.js or Vite (optional, but encouraged for performance)
+
+Styling: Tailwind CSS (utility-first, responsive, mobile-first)
+
+Animation: GSAP (GreenSock Animation Platform)
+
+Components: Custom React components
+
+Assets: Use SVG, WebP, or Lottie for optimized visuals when possible
+
+✅ General Rules
+Responsive First
+
+Use flex, grid, and responsive variants (sm:, md:, lg:, etc.) in Tailwind
+
+Mobile-first layout; gracefully scale to tablet and desktop
+
+Avoid fixed heights unless necessary for animations
+
+Whitespace + Breathing Room
+
+Each section should include sufficient vertical padding (py-24, py-32, etc.)
+
+Leave extra space (overflow-hidden sections) for offscreen animation entrances
+
+Animate from opacity, scale, or position—avoid too many simultaneous effects
+
+Animation Rules (GSAP)
+
+Trigger animations on scroll using ScrollTrigger
+
+Use data-gsap or class hooks like .animate-in to attach behavior
+
+Keep animations performant (e.g., will-change, avoid layout thrashing)
+
+Define key motion constants (e.g., duration, delay, stagger) globally if reused
+
+Component Standards
+
+Every section or feature must be a modular, reusable React component
+
+Follow naming conventions: HeroSection.tsx, FeatureCard.tsx, etc.
+
+Separate animation logic from layout logic for clarity
+
+Props should be typed (if using TS)
+
+Tailwind Best Practices
+
+Avoid over-nesting with @apply, use utility classes directly where possible
+
+Use theme() in config for custom colors, spacing, or breakpoints
+
+Group classes by layout > spacing > colors > text for readability
+
+Performance & Accessibility
+
+Use lazy-loading for media
+
+Ensure aria-labels, semantic HTML, and keyboard navigation support
+
+Optimize animation to not interfere with screen readers or reduce motion settings
+
+
+container: centers content with padding
+
+data-gsap: used to trigger animations on scroll
+
+🚨 Do’s & Don’ts
+✅ Do:
+
+Build with performance and flexibility in mind
+
+Keep animations subtle, meaningful, and responsive
+
+Use reusable component patterns
+
+❌ Don’t:
+
+Hard-code breakpoints or pixel values
+
+Use animations that require setTimeout or manual delays without scroll triggers
+
+Mix inline animation JS with component layout unless scoped properly

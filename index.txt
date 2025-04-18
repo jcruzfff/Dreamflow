@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dreamflow Labs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Dreamflow · Dream. Design. Deliver." />
+    <!-- For development only - remove in production -->
+  
+
+    <meta name="description" property="og:description"
+        content="The Go-To Design Subscription for leading Web3, AI, and visionary tech companies." />
+
+        <!-- Thumbnail Images -->
+        <meta property="og:image" content="https://www.dreamflowlabs.com/thumbnail-two.png" />
+        <meta property="og:url" content="https://www.DreamflowLabs.com" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101018">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="msapplication-TileColor" content="#101018">
+        <meta name="msapplication-config" content="/browserconfig.xml">
+        <meta name="theme-color" content="#101018">
+
+        <!-- Fonts -->
+        <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        as="style">
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+        
+        <!-- GSAP Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        
+        <!-- Main JavaScript -->
+        <script defer src="js/main.js"></script>
+
+        <!-- Add this before other font links -->
+        <style>
+            @font-face {
+                font-family: "Helvetica Neue Regular";
+                src: url("fonts/HelveticaNeueRegular.otf") format("opentype");
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+        
+     
+</head>
+
+
+<body>
+    <div id="particles-js"></div>
+     
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"></button>
+        <div class="mobile-menu-items">
+            <a href="#simple" class="mobile-menu-item">How it works</a>
+            <a href="#pricing" class="mobile-menu-item">Pricing</a>
+            <a href="#calendar" class="mobile-menu-item">Book a call</a>
+        </div>
+        <a href="#pricing" class="mobile-apply-now">Apply Now</a>
+    </div>
+    
+    <nav class="nav-bar">
+        <div class="nav-item">
+            <a href="#simple" class="nav-link">How it works</a>
+        </div>
+        <div class="nav-item">
+            <a href="#pricing" class="nav-link">Pricing</a>
+        </div>
+        <div class="nav-item">
+            <a href="#calendar" class="nav-link">Book a call</a>
+        </div>
+        <div class="nav-item">
+            <a href="#pricing" class="nav-link">Apply now</a>
+        </div>
+    </nav>
+   
+    
+    <div class="body-section">
+    
+    
+    
+    
+         
+        <main>
+            <!-- Hero-Section -->
+            <section class="hero section" id="home">
+                <div class="hero-container">
+                    <div class="hero-top">
+                        <div class="df-top-logo">
+                            <img src="./images/dreamflow-small-icon.svg" alt="Dreamflow Design logo">
+                            <p class="top-logo">Dreamflow</p>
+                        </div>
+                        <div class="hero-title-section">
+                            <h1 class="hero-header">World-class Designs.<br>Delivered In 48 hours.</h1>
+                            <div class="content-subheader hero-subheader">The monthly design subscription built for Web3 & AI founders.</div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#pricing" class="hero-btn apply-now">Apply Now<img src="./images/black-arrow.svg" alt="Arrow"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="scrolling-gallery">
+                 <div class="scrolling-row top-row">
+                     <div class="gallery-item">
+                         <img src="./images/1t.png" alt="Design showcase 1" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/2t.png" alt="Design showcase 2" class="gallery-img">
+                     </div>
+                   
+                     <div class="gallery-item">
+                         <img src="./images/3t.png" alt="Design showcase 3" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/4t.png" alt="Design showcase 4" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/5t.png" alt="Design showcase 5" class="gallery-img">
+                     </div>
+                 </div>
+                 
+                 <div class="scrolling-row bottom-row">
+                     <div class="gallery-item">
+                         <img src="./images/1b.png" alt="Design showcase 1" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/3b.png" alt="Design showcase 3" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/2b.png" alt="Design showcase 2" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/4b.png" alt="Design showcase 4" class="gallery-img">
+                     </div>
+                     <div class="gallery-item">
+                         <img src="./images/5b.png" alt="Design showcase 5" class="gallery-img">
+                     </div>
+                 </div>
+             </div>
+              
+            </section>
+
+            <!-- Simple, Streamlined, Startup-Speed -->
+            <section class="simple-streamlined-section" id="simple">
+                <h2 class="section-title " id="simple-title">Simple, Streamlined, and Startup-speed<h2>
+                    
+                    <div class="simple-streamlined-content">
+                        <div class="stacked-images desktop-only">
+                            <img src="./images/left-stack.svg" alt="Task Management Interface" class="stack-img left-stack">
+                            <div class="right-stack">
+                                <div class="right-stack-header">
+                                    <div class="status-dot"></div>
+                                    <div class="flow-text">prototype - onboarding flow</div>
+                                </div>
+                                <div class="right-stack-background">
+                                    <div class="content-row"></div>
+                                    <div class="content-row"></div>
+                                    <div class="content-row"></div>
+                                    <div class="content-row short"></div>
+                                    <div class="content-box"></div>
+                                    <div class="content-box"></div>
+                                    <div class="content-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-video-container">
+                            <video 
+                                id="mobileAnimation" 
+                                class="mobile-animation" 
+                                playsinline 
+                                muted 
+                                loop 
+                                preload="metadata"
+                                poster="/videos/poster.jpg"
+                            >
+                                <source src="/videos/betteranimation.mp4" type="video/mp4">
+                                <source src="/videos/betteranimation.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <h3>Subscribe</h3>
+                                <p id="process-step-text">Choose your plan. Get Unlimited requests and revisions.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <h3>Request</h3>
+                                <p id="process-step-text">Submit any task - branding, UI/UX, decks, websites & more.</p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <h3>Receive</h3>
+                                <p id="process-step-text">Get your dream design delivered in as little as 48 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- Why Founders Choose Dreamflow Section -->
+            <section class="why-founders-section">
+                <h2 class="why-founders-title">Designed For 
+                   <br> High-Growth Startups</h2>
+                <div class="founders-cards">
+                    <div class="founder-card card-team">
+                        <img src="./images/creative-icon.svg" alt="Creative Team Icon" class="founder-card-icon">
+                        <h3 class="founder-card-title">All-in-One Creative Team</h3>
+                        <p class="founder-card-text">No extensive hiring needed</p>
+                    </div>
+                    <div class="founder-card card-designers">
+                        <img src="./images/ai-icon.svg" alt="AI Icon" class="founder-card-icon">
+                        <h3 class="founder-card-title">Award-Winning Designers</h3>
+                        <p class="founder-card-text">Top 2% global design talent</p>
+                    </div>
+                    <div class="founder-card card-pricing">
+                        <img src="./images/pricing-icon.svg" alt="Pricing Icon" class="founder-card-icon">
+                        <h3 class="founder-card-title">Predictable Pricing</h3>
+                        <p class="founder-card-text">Fixed monthly rate. No surprises.</p>
+                    </div>
+                    <div class="founder-card card-dreamgate">
+                        <img src="./images/dg-icon.svg" alt="DreamGate Icon" class="founder-card-icon">
+                        <h3 class="founder-card-title">DreamGate™ System</h3>
+                        <p class="founder-card-text">A seamless portal to manage your projects</p>
+                    </div>
+                    <div class="founder-card card-web3">
+                        <img src="./images/ai-icon.svg" alt="AI Icon" class="founder-card-icon">
+                        <h3 class="founder-card-title">Web3 & AI Native</h3>
+                        <p class="founder-card-text">We speak it. Using the latest Web3 & AI tools</p>
+                    </div>
+                </div>
+
+                <div class="client-logos-section">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <img src="./images/client_logos.svg" alt="Client logos" class="client-logos" id="clientLogos1">
+                            <img src="./images/client_logos.svg" alt="Client logos" class="client-logos" id="clientLogos2">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials-section">
+                <div class="testimonials-container">
+                    <div class="testimonials-slider">
+                        <button class="nav-arrow prev-arrow">
+                            <img src="./images/left-arrow.svg" alt="Previous testimonial">
+                        </button>
+                        <button class="nav-arrow next-arrow">
+                            <img src="./images/right-arrow.svg" alt="Next testimonial">
+                        </button>
+                       
+                        <div class="testimonial active">
+                            <div class="testimonial-content">
+                                <div class="author-image">
+                                    <img src="/images/dexari-founder.png" alt="Testimonial author">
+                                </div>
+                                <div class="testimonial-text">"They really understood what we needed, brought our vision to life and overdelivered."</div>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <div class="author-title">Founder</div>
+                                    <div class="author-name">Dexari | Zac Barron</div>
+                                    <div class="testimonial-rating">
+                                        <img class="stars" src="/images/stars.png" alt="5 star rating">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial ">
+                            <div class="testimonial-content">
+                                <div class="author-image">
+                                    <img src="/images/jutsu-founder.png" alt="Testimonial author">
+                                </div>
+                                <div class="testimonial-text">"Exceptional design work that elevated our brand identity. Their attention to detail is unmatched."</div>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <div class="author-title">Founder</div>
+                                    <div class="author-name">Jutsu | Zahid Islam</div>
+                                    <div class="testimonial-rating">
+                                        <img class="stars" src="/images/stars.png" alt="5 star rating">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial ">
+                            <div class="testimonial-content">
+                                <div class="author-image">
+                                    <img src="/images/trylivepeer-founder.png" alt="Testimonial author">
+                                </div>
+                                <div class="testimonial-text">"Working with Dreamflow has been transformative. They consistently deliver outstanding results."</div>
+                            </div>
+                            
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <div class="author-title">Founder</div>
+                                    <div class="author-name"> TryLivepeer | Elliot Braem</div>
+                                    <div class="testimonial-rating">
+                                        <img class="stars" src="/images/stars.png" alt="5 star rating">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="awards-container">
+                    <img src="/images/award-one.svg" alt="Good Design Award 2023" class="award-image">
+                    <img src="/images/award-two.svg" alt="AI Awards" class="award-image">
+                    <img src="/images/award-three.svg" alt="Upwork 5 stars" class="award-image">
+                </div>
+              
+            </section>
+
+            <!-- All-in-one Design Team Section -->
+            <section class="all-in-one-section">
+                <div class="all-in-one-content">
+                    <h2 class="section-title all-in-one-title">Your all-in-one design team</h2>
+                    <div class="stacked-cards-container">
+                        <div class="stacked-card" data-card="0">
+                            <div class="card-content">
+                                <h3>UX/UI Design</h3>
+                                <p>Mobile apps, dApps, demo-ready prototypes</p>
+                            </div>
+                            <div class="card-image-placeholder">
+                                <img src="./images/ux-design.png" alt="UX/UI Design" class="card-image">
+                            </div>
+                        </div>
+                        <div class="stacked-card" data-card="1">
+                            <div class="card-content">
+                                <h3>Brand Identity & Positioning</h3>
+                                <p>Logos, guidelines, and complete brand systems</p>
+                            </div>
+                            <div class="card-image-placeholder">
+                                <img src="./images/brand-design.png" alt="Brand Identity & Positioning" class="card-image">
+                            </div>
+                        </div>
+                        <div class="stacked-card" data-card="2">
+                            <div class="card-content">
+                                <h3>Web Design & Development</h3>
+                                <p>Responsive websites and web applications</p>
+                            </div>
+                            <div class="card-image-placeholder">
+                                <img src="./images/web-design.png" alt="Web Design & Development" class="card-image">
+                            </div>
+                        </div>
+                        <div class="stacked-card" data-card="3">
+                            <div class="card-content">
+                                <h3>Content & Motion Graphics</h3>
+                                <p>Social media content and promotional videos</p>
+                            </div>
+                            <div class="card-image-placeholder">
+                                <img src="./images/video-design.png" alt="Content & Video Production" class="card-image">
+                            </div>
+                        </div>
+                        <div class="stacked-card" data-card="4">
+                            <div class="card-content">
+                                <h3>Pitch Decks & Presentations</h3>
+                                <p>Investor-ready presentations and pitch materials</p>
+                            </div>
+                            <div class="card-image-placeholder">
+                                <img src="./images/pitch-design.png" alt="Pitch Decks & Presentations" class="card-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="pricing-section" id="pricing">
+                <div class="pricing-section-container">
+                    <h2 class="section-title pricing-main-title">One Membership.<br>Infinite Possibilities.</h2>
+                    <div class="pricing-top-row">
+                        <div class="pricing-world-container">
+                            <img src="./images/pricing-world.png" alt="World map" class="pricing-world-img">
+                            <div class="pricing-header-content">
+                                <h2 class="join-title">Join<br>Dreamflow</h2>
+                                <p class="trusted-text">Trusted by Top Web3 & AI Startups.</p>
+                                <div class="avatar-group">
+                                    <img src="./images/avatargroup.png" alt="Client avatars" class="avatar-group-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-card">
+                            <div class="pricing-card-header">
+                                <div class="pricing-title">Members Club</div>
+                                <div class="available-status">
+                                    <div class="status-indicator"></div>
+                                    <div class="status-text">Available now</div>
+                                </div>
+                                <div class="pricing-amount">
+                                    <span class="price">$4,995</span>
+                                    <span class="interval">/month</span>
+                                </div>
+                            </div>
+                            <div class="pricing-toggle">
+                                <div class="toggle-option active">
+                                    <div class="toggle-label">Essentials</div>
+                                </div>
+                                <div class="toggle-option">
+                                    <div class="toggle-icon">
+                                        <img src="./images/flame-icon.svg" alt="Elite" class="elite-icon">
+                                    </div>
+                                    <div class="toggle-label">Elite</div>
+                                </div>
+                                <div class="toggle-option">
+                                    <div class="toggle-label">Full-Stack</div>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <div class="features-column">
+                                    <div class="feature">Unlimited design requests</div>
+                                    <div class="feature">1 active task</div>
+                                    <div class="feature">Dedicated design concierge</div>
+                                    <div class="feature">Priority to new features</div>
+                                </div>
+                                <div class="features-column">
+                                    <div class="feature">Unlimited revisions</div>
+                                    <div class="feature">3 day turnaround</div>
+                                    <div class="feature">30-day money back guarantee</div>
+                                    <div class="feature">Pause or Cancel anytime</div>
+                                </div>
+                            </div>
+                            <button class="join-now-button">Secure your spot</button>
+                        </div>
+                    </div>
+                    <div class="pricing-bottom-row">
+                        <div class="pricing-info-card pause-card">
+                            <h3 class="card-title">Pause anytime</h3>
+                            <p class="card-description">Temporarily pause your subscription anytime.</p>
+                        </div>
+                        <div class="pricing-info-card week-trial-card">
+                          
+                            <h3 class="card-title">Try it for a week</h3>
+                            <p class="card-description">Not loving it after a week? Get 75% back, no questions asked.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Founders and Awards Section -->
+            <section class="founders-awards-section">
+                <div class="founders-container">
+                    <div class="quote-container">
+                        <p class="founders-quote">"We've spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it."</p>
+                    </div>
+                    <div class="founders-images">
+                        <div class="founders-img-container">
+                            <img src="./images/chase.svg" alt="Chase" class="founder-img chase-img">
+                            <img src="./images/jonathan.svg" alt="Jonathan" class="founder-img jonathan-img">
+                        </div>
+                        <p class="founders-label">FOUNDERS OF<br>DREAMFLOW LABS</p>
+                    </div>
+                </div>
+                
+                <div class="metrics-container">
+                    <div class="metric-card">
+                        <div class="metric-header">PROVEN DELIVERY</div>
+                        <div class="metric-value">500+</div>
+                        <div class="metric-label">happy clients</div>
+                        <div class="metric-subtitle">Successful Projects Delivered</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">FUNDING IMPACT</div>
+                        <div class="metric-value">$320M+</div>
+                        <div class="metric-label">Raised by Dreamflow-backed startups</div>
+                        <div class="metric-subtitle">Fueling visions from concept to capital</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">COST EFFICIENCY</div>
+                        <div class="metric-value">$1M+</div>
+                        <div class="metric-label">saved vs hiring in-house teams</div>
+                        <div class="metric-subtitle">Scaled design output without the overhead</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">SPEED TO LAUNCH</div>
+                        <div class="metric-value">3-5x</div>
+                        <div class="metric-label">faster time-to-launch vs traditional agencies</div>
+                        <div class="metric-subtitle">Accelerate your journey from vision to reality</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar Section -->
+            <section class="calendar-section" id="calendar">
+                <div class="limited-spots">LIMITED SPOTS AVAILABLE</div>
+                <h2 class="section-title ux-teardown-title">Get a Free 30-Min UX Review</h2>
+                <p class="section-subtitle ux-teardown-subtitle">Actionable UX and product design feedback to boost conversions and accelerate growth.</p>
+                <div class="calendar-container">
+               <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/dreamflowlabs/free-ux-audit-fix-friction-boost-adoption?hide_gdpr_banner=1&background_color=111111&text_color=ffffff&primary_color=e2b969" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+                </div>
+            </section>
+
+            <!-- Spreading Cards Animation Section -->
+            <section class="spreading-cards-section">
+                <!-- Cards Grid -->
+                <div class="main relative">
+                    <div class="cards-container">
+                        <!-- Row 1 -->
+                        <div class="row">
+                            <div class="card-left">
+                                <img src="./images/t-left.svg" alt="Top left design" class="spread-card-img">
+                            </div>
+                            <div class="card-right">
+                                <img src="./images/t-right.svg" alt="Top right design" class="spread-card-img">
+                            </div>
+                        </div>
+                        <!-- Row 2 -->
+                        <div class="row">
+                            <div class="card-left">
+                                <img src="./images/m-left.svg" alt="Middle left design" class="spread-card-img">
+                            </div>
+                            <div class="card-right">
+                                <img src="./images/m-right.svg" alt="Middle right design" class="spread-card-img">
+                            </div>
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="row">
+                            <div class="card-left">
+                                <img src="./images/b-left.svg" alt="Bottom left design" class="spread-card-img">
+                            </div>
+                            <div class="card-right">
+                                <img src="./images/b-right.svg" alt="Bottom right design" class="spread-card-img">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Center Content -->
+                    <div class="main-content">
+                        <div class="logo">
+                            <img src="./images/dreamflow-small-icon.svg" alt="Dreamflow" class="logo-img">
+                        </div>
+                        <div class="line">
+                            <p>Join The #1 Design</p>
+                        </div>
+                        <div class="line">
+                            <p>Subscription For</p>
+                        </div>
+                        <div class="line">
+                            <p>Startups.</p>
+                        </div>
+                        <p class="subtext">Let's bring your vision to life.</p>
+                        <div class="btn">
+                            <button class="apply-now-btn">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title">What Founders Ask</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How fast are designs delivered?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Most designs are delivered within 2-3 business days. For more complex projects like full websites or apps, we'll break it down into smaller deliverables to maintain quick turnaround times. We also offer same-day delivery for urgent requests when available.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you really do unlimited requests?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes! You can submit as many design requests as you'd like. We work on them one at a time to ensure the highest quality and fastest delivery. Once a design is completed, we move straight to your next request.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What if I don't like the result?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            We offer unlimited revisions until you're completely satisfied. If you're not happy with the direction, we'll start fresh with a new concept. Plus, we offer a 30-day money-back guarantee if we're not meeting your expectations.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Who's designing the work?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Your work is designed by our North America-based senior design team. Each designer has 8+ years of experience working with tech startups and major brands. We carefully match designers to projects based on their expertise and your needs.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you handle development?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes! Our Full-Stack plan includes both design and development services. We can build responsive websites, web apps, and handle front-end development. For more complex development needs, we can recommend trusted partners from our network.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I use it for multiple brands?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Absolutely! You can use your subscription for any number of brands or projects. Many of our clients use us for their main business, side projects, and client work. There's no limit to how you can use the service.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I pause or cancel?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, you can pause or cancel your subscription at any time. Pausing puts your subscription on hold and saves your spot. When you're ready to resume, just let us know. Canceling is hassle-free with no questions asked.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What's the difference between Essential, Elite and Full-Stack?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Essential includes unlimited design requests with one active task at a time. Elite adds faster turnaround, multiple active tasks, and priority support. Full-Stack includes everything in Elite plus development services, turning your designs into fully functional websites and applications.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I submit requests?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You'll get access to our DreamGate™ platform where you can submit and track all your design requests. Simply describe what you need, attach any reference materials, and we'll take care of the rest. Your dedicated design concierge is always available to help refine your requests.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you offer refunds?</span>
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, we offer a 30-day money-back guarantee. If you're not completely satisfied with our service within the first 30 days, we'll refund your subscription. For our trial week, you can get 75% back if you decide it's not the right fit.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Section -->
+            <footer class="new-footer">
+                <div class="footer-content">
+                    <h1 class="footer-logo">Dreamflow</h1>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/dreamflowlabs" target="_blank" class="social-link">
+                            <img src="./images/x-logo.svg" alt="Twitter" class="social-icon">
+                        </a>
+                        <a href="mailto:hello@dreamflowlabs.com" target="_blank" class="social-link">
+                            <img src="./images/email-logo.svg" alt="Email" class="social-icon">
+                        </a>
+                        <a href="https://linkedin.com/company/dreamflowlabs" target="_blank" class="social-link">
+                            <img src="./images/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-border"></div>
+                <div class="footer-bottom">
+                    <p class="footer-text">Dreamflow Labs 2025 - All rights reserved</p>
+                 
+                </div>
+            </footer>
+
+            
+        </main>
+</div>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Force scroll to top on page load/refresh
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Remove hash if present to avoid auto-scrolling
+        if (window.location.hash) {
+            history.pushState('', document.title, window.location.pathname + window.location.search);
+        }
+        
+        // Single scroll to top when DOM is ready
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto'
+        });
+        
+        // Get all nav links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Handle smooth scrolling for nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.querySelector(`#${targetId}`);
+                
+                if (targetSection) {
+                    // Calculate offset position (10% of viewport height)
+                    const offset = window.innerHeight * 0.1;
+                    
+                    // Get the appropriate element to align (title or section)
+                    let targetElement = targetSection;
+                    
+                    // For specific sections, target their titles
+                    if (targetId === 'simple') {
+                        targetElement = document.querySelector('#simple-title') || targetSection;
+                    } else if (targetId === 'pricing') {
+                        targetElement = targetSection.querySelector('.pricing-main-title') || targetSection;
+                    } else if (targetId === 'calendar') {
+                        targetElement = targetSection.querySelector('.ux-teardown-title') || targetSection;
+                    }
+                    
+                    // Calculate the final scroll position
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - offset;
+                    
+                    // Perform the scroll
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize particles.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 180,
+                    "density": {
+                        "enable": true,
+                        "value_area": 1000
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 0.1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 3,
+                        "size_min": 0.5,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0,
+                    "width": 0
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.8,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.3
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 0.8,
+                        "speed": 1
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    });
+</script>
+
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+<!-- Add this before the closing body tag -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const testimonials = document.querySelectorAll('.testimonial');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        function showSlide(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % testimonials.length;
+            showSlide(nextIndex);
+        }
+
+        function prevSlide() {
+            const prevIndex = (currentSlide - 1 + testimonials.length) % testimonials.length;
+            showSlide(prevIndex);
+        }
+
+        // Auto-slide every 5 seconds
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Add click handlers to arrows
+        nextArrow.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+
+        prevArrow.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+
+        // Initialize first slide
+        showSlide(0);
+        
+        // Start auto-sliding
+        startAutoSlide();
+    });
+</script>
+
+<!-- Pricing toggle script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleOptions = document.querySelectorAll('.toggle-option');
+        const priceElement = document.querySelector('.price');
+        
+        // Pricing data for different tiers
+        const pricingData = {
+            'Essentials': '$4,995',
+            'Elite': '$9,995',
+            'Full-Stack': '$14,995'
+        };
+        
+        toggleOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                toggleOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    opt.classList.remove('elite-active');
+                });
+                
+                // Add active class to clicked option
+                this.classList.add('active');
+                
+                // Add special class for Elite option
+                const selectedTier = this.querySelector('.toggle-label').textContent;
+                if (selectedTier === 'Elite') {
+                    this.classList.add('elite-active');
+                }
+                
+                // Update price based on selected tier
+                priceElement.textContent = pricingData[selectedTier];
+            });
+        });
+    });
+</script>
+
+<!-- Spreading Cards Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize GSAP ScrollTrigger animation for spreading cards
+        function initSpreadingAnimation() {
+            // Initial state for center content - start completely invisible
+            gsap.set([".spreading-cards-section .logo", ".spreading-cards-section .line p", 
+                      ".spreading-cards-section .subtext", ".spreading-cards-section .btn .apply-now-btn"], {
+                opacity: 0,
+                y: 0,
+                pointerEvents: 'none'
+            });
+
+            // Larger spread values for larger cards
+            const leftXValues = [-800, -700, -500];
+            const rightXValues = [800, 700, 500];
+            const leftRotationValues = [-30, -20, -30];
+            const rightRotationValues = [30, 20, 30];
+            const yValues = [100, -150, -400];
+
+            const mm = gsap.matchMedia();
+
+            // Mobile Animation (below 777px)
+            mm.add("(max-width: 776px)", () => {
+                // Select only the three cards we want to animate on mobile
+                const topRight = document.querySelector('.spreading-cards-section .row:nth-child(1) .card-right');
+                const middleLeft = document.querySelector('.spreading-cards-section .row:nth-child(2) .card-left');
+                const bottomRight = document.querySelector('.spreading-cards-section .row:nth-child(3) .card-right');
+
+                // Hide all other cards on mobile
+                gsap.utils.toArray('.spreading-cards-section .card-left, .spreading-cards-section .card-right').forEach(card => {
+                    if (card !== topRight && card !== middleLeft && card !== bottomRight) {
+                        gsap.set(card, { display: 'none' });
+                    }
+                });
+
+                // Set initial positions for the three cards - start centered
+                gsap.set([topRight, middleLeft, bottomRight], { 
+                    x: 0
+                });
+
+                // Create the synchronized animation - exit to sides
+                gsap.to(topRight, {
+                    x: 500,
+                    scrollTrigger: {
+                        trigger: ".spreading-cards-section .main",
+                        start: "top+=750 65%",
+                        end: "center+=750 center",
+                        scrub: 1,
+                        toggleActions: "play none none reverse",
+                        markers: false
+                    }
+                });
+
+                gsap.to(middleLeft, {
+                    x: -500,
+                    scrollTrigger: {
+                        trigger: ".spreading-cards-section .main",
+                        start: "top+=750 55%",
+                        end: "center+=750 center",
+                        scrub: 1.2,
+                        toggleActions: "play none none reverse",
+                        markers: false
+                    }
+                });
+
+                gsap.to(bottomRight, {
+                    x: 500,
+                    scrollTrigger: {
+                        trigger: bottomRight,
+                        start: "top+=750 bottom",
+                        end: "center+=750 center",
+                        scrub: 1.4,
+                        toggleActions: "play none none reverse",
+                        markers: false
+                    }
+                });
+
+                // Mobile-specific content animation
+                gsap.set([".spreading-cards-section .logo", ".spreading-cards-section .line p"], { 
+                    opacity: 0,
+                    y: 50
+                });
+
+                // Set initial state for button
+                gsap.set(".spreading-cards-section .btn .apply-now-btn", {
+                    opacity: 0,
+                    y: 20,
+                    pointerEvents: 'auto'
+                });
+
+                // Animate text and button
+                gsap.to([".spreading-cards-section .logo", ".spreading-cards-section .line p", ".spreading-cards-section .subtext"], {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: ".spreading-cards-section .main-content",
+                        start: "top+=650 80%",
+                        toggleActions: "play none none reverse",
+                        markers: false
+                    }
+                });
+
+                // Separate animation for button with a slight delay
+                gsap.to(".spreading-cards-section .btn .apply-now-btn", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: ".spreading-cards-section .main-content",
+                        start: "top+=650 80%",
+                        toggleActions: "play none none reverse",
+                        markers: false
+                    }
+                });
+            });
+
+            // Desktop Animation (777px and above)
+            mm.add("(min-width: 777px)", () => {
+                gsap.utils.toArray(".spreading-cards-section .row").forEach((row, index) => {
+                    const cardLeft = row.querySelector(".card-left");
+                    const cardRight = row.querySelector(".card-right");
+
+                    if (!cardLeft || !cardRight) return;
+
+                    ScrollTrigger.create({
+                        trigger: ".spreading-cards-section .main",
+                        start: "top+=750 center",
+                        end: "bottom top",
+                        scrub: true,
+                        markers: false,
+                        onUpdate: (self) => {
+                            const progress = self.progress;
+                            cardLeft.style.transform = `translateX(${progress * leftXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * leftRotationValues[index]}deg)`;
+                            cardRight.style.transform = `translateX(${progress * rightXValues[index]}px) translateY(${progress * yValues[index]}px) rotate(${progress * rightRotationValues[index]}deg)`;
+                            
+                            // Fade in content based on card spread progress
+                            if (progress > 0.2) {
+                                const contentProgress = (progress - 0.2) / 0.3;
+                                const opacity = Math.min(contentProgress, 1);
+                                gsap.to([".spreading-cards-section .logo", ".spreading-cards-section .line p", 
+                                        ".spreading-cards-section .subtext"], {
+                                    opacity: opacity,
+                                    duration: 0.1,
+                                    overwrite: true
+                                });
+                                
+                                gsap.to(".spreading-cards-section .btn .apply-now-btn", {
+                                    opacity: opacity,
+                                    duration: 0.1,
+                                    overwrite: true,
+                                    onComplete: function() {
+                                        if (opacity === 1) {
+                                            gsap.set(".spreading-cards-section .btn .apply-now-btn", {
+                                                pointerEvents: "auto"
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize the animation
+        initSpreadingAnimation();
+    });
+</script>
+
+<!-- FAQ Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle aria-expanded attribute
+                this.setAttribute('aria-expanded', !isExpanded);
+                
+                // Reset other questions
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        otherQuestion.setAttribute('aria-expanded', 'false');
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        otherAnswer.classList.remove('active');
+                    }
+                });
+                
+                // Handle the clicked answer's animation
+                if (!isExpanded) {
+                    // Opening
+                    answer.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        answer.classList.add('active');
+                    });
+                } else {
+                    // Closing
+                    answer.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Navigation bar visibility control
+        const navbar = document.querySelector('.nav-bar');
+        const sections = {
+            hero: document.querySelector('.hero'),
+            simpleStreamlined: document.querySelector('.simple-streamlined-section .section-title'),
+            allInOne: document.querySelector('.stacked-card[data-card="3"]'), // Second animated card
+            pricingTitle: document.querySelector('.pricing-section .pricing-main-title'),
+            calendarTitle: document.querySelector('.calendar-section .section-title')
+        };
+        
+        function handleNavbarVisibility() {
+            if (!sections.simpleStreamlined || !sections.allInOne || !sections.pricingTitle || !sections.calendarTitle) return;
+            
+            const sectionRect = sections.simpleStreamlined.getBoundingClientRect();
+            const allInOneRect = sections.allInOne.getBoundingClientRect();
+            const pricingTitleRect = sections.pricingTitle.getBoundingClientRect();
+            const calendarTitleRect = sections.calendarTitle.getBoundingClientRect();
+            const triggerPoint = window.innerHeight * 0.2; // 20% from the top
+            
+            // Check if we're near the bottom of the page
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            const bottomTrigger = pageHeight - (window.innerHeight * 0.1); // 10% from bottom
+            
+            // Calculate visibility based on all sections and scroll position
+            if (scrollPosition >= bottomTrigger) {
+                // Show nav when near bottom of page
+                navbar.classList.add('visible');
+            } else if (calendarTitleRect.bottom <= 0) {
+                // Hide nav when calendar title moves off the top
+                navbar.classList.remove('visible');
+            } else if (pricingTitleRect.bottom <= 0) {
+                // Show nav when pricing title moves off the top
+                navbar.classList.add('visible');
+            } else if (sectionRect.top <= triggerPoint) {
+                // Show nav when reaching simple streamlined section
+                if (allInOneRect.top <= window.innerHeight) {
+                    // Start fading out when second all-in-one card becomes visible
+                    const fadeOutStart = window.innerHeight;
+                    const fadeOutEnd = window.innerHeight * 0.9;
+                    const fadeOutProgress = (allInOneRect.top - fadeOutEnd) / (fadeOutStart - fadeOutEnd);
+                    
+                    if (fadeOutProgress <= 0) {
+                        navbar.classList.remove('visible');
+                    } else {
+                        navbar.classList.add('visible');
+                    }
+                } else {
+                    navbar.classList.add('visible');
+                }
+            } else {
+                navbar.classList.remove('visible');
+            }
+        }
+        
+        // Initial check
+        handleNavbarVisibility();
+        
+        // Add scroll event listener with throttling for performance
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    handleNavbarVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Rest of your existing DOMContentLoaded code...
+    });
+</script>
+
+<script>
+    function initMobileProcessSteps() {
+        const steps = document.querySelectorAll('.process-step');
+        let currentStep = -1;
+        let animationInterval = null;
+        
+        function showStep(index) {
+            if (window.innerWidth > 1024) return;
+            
+            // Hide all steps first
+            steps.forEach(step => step.classList.remove('active'));
+            
+            // Show the current step
+            if (index >= 0 && index < steps.length) {
+                steps[index].classList.add('active');
+            }
+        }
+
+        function cycleSteps() {
+            currentStep = (currentStep + 1) % steps.length;
+            showStep(currentStep);
+        }
+
+        function startAnimation() {
+            if (window.innerWidth > 1024 || animationInterval) return;
+            
+            // Reset state
+            currentStep = -1;
+            steps.forEach(step => step.classList.remove('active'));
+            
+            // Show first step immediately
+            cycleSteps();
+            
+            // Set up interval for cycling through remaining steps
+            animationInterval = setInterval(cycleSteps, 4000);
+        }
+
+        function stopAnimation() {
+            if (animationInterval) {
+                clearInterval(animationInterval);
+                animationInterval = null;
+            }
+            steps.forEach(step => step.classList.remove('active'));
+            currentStep = -1;
+        }
+
+        // Start animation when element is in viewport
+        function handleVisibility(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAnimation();
+                } else {
+                    stopAnimation();
+                }
+            });
+        }
+
+        // Create intersection observer
+        const observer = new IntersectionObserver(handleVisibility, {
+            threshold: 0.3 // Start animation when 30% of the element is visible
+        });
+
+        // Observe the process steps container
+        const processStepsContainer = document.querySelector('.process-steps');
+        if (processStepsContainer) {
+            observer.observe(processStepsContainer);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                stopAnimation();
+            } else if (document.querySelector('.process-steps').getBoundingClientRect().top < window.innerHeight) {
+                startAnimation();
+            }
+        });
+
+        // Initial check if element is already in viewport
+        if (window.innerWidth <= 1024 && 
+            document.querySelector('.process-steps').getBoundingClientRect().top < window.innerHeight) {
+            startAnimation();
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileProcessSteps);
+    } else {
+        initMobileProcessSteps();
+    }
+</script>
+
+<!-- Hamburger Menu Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+        const mobileApplyNow = document.querySelector('.mobile-apply-now');
+        
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+        
+        // Hamburger button click
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        
+        // Close button click
+        mobileMenuClose.addEventListener('click', toggleMenu);
+        
+        // Menu items click (close menu when clicking a link)
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                toggleMenu();
+                // Add small delay to allow the menu to close before scrolling
+                setTimeout(() => {
+                    const targetId = item.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 300);
+            });
+        });
+        
+        // Apply now button click
+        mobileApplyNow.addEventListener('click', toggleMenu);
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const metricCards = document.querySelectorAll('.metric-card');
+        
+        function handleMetricCards() {
+            const isMobile = window.innerWidth < 678;
+            
+            metricCards.forEach(card => {
+                const label = card.querySelector('.metric-label');
+                const subtitle = card.querySelector('.metric-subtitle');
+                
+                if (isMobile) {
+                    // Store original subtitle text if not already stored
+                    if (!subtitle.dataset.originalText) {
+                        subtitle.dataset.originalText = subtitle.textContent;
+                    }
+                    // Replace subtitle text with label text
+                    subtitle.textContent = label.textContent;
+                    // Hide the label
+                    label.style.display = 'none';
+                } else {
+                    // Restore original subtitle text
+                    if (subtitle.dataset.originalText) {
+                        subtitle.textContent = subtitle.dataset.originalText;
+                    }
+                    // Show the label
+                    label.style.display = '';
+                }
+            });
+        }
+
+        // Run on page load
+        handleMetricCards();
+
+        // Run on window resize with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(handleMetricCards, 250);
+        });
+    });
+</script>
+
+<script>
+    // Single instance of video initialization
+    let videoInitialized = false;
+    
+    function initVideoPlayback() {
+        if (videoInitialized) {
+            console.log('Video already initialized');
+            return;
+        }
+
+        console.log('Attempting to initialize video playback');
+        const video = document.getElementById('mobileAnimation');
+        
+        if (!video) {
+            console.error('Video element not found');
+            return;
+        }
+
+        console.log('Video element found:', video);
+        videoInitialized = true;
+
+        // Track loading state
+        let isLoading = true;
+        let isPlaying = false;
+
+        // Add loading event listeners
+        video.addEventListener('loadstart', () => {
+            console.log('Video load started');
+            isLoading = true;
+        });
+
+        video.addEventListener('canplay', () => {
+            console.log('Video can play');
+            isLoading = false;
+        });
+
+        video.addEventListener('error', (e) => {
+            const error = video.error;
+            console.error('Video error:', {
+                code: error ? error.code : 'unknown',
+                message: error ? error.message : 'unknown',
+                currentSrc: video.currentSrc
+            });
+        });
+
+        // Check source support
+        const sources = video.getElementsByTagName('source');
+        Array.from(sources).forEach(source => {
+            source.addEventListener('error', (e) => {
+                console.error('Source error:', {
+                    src: source.src,
+                    type: source.type
+                });
+            });
+        });
+
+        async function playVideo() {
+            if (isLoading) {
+                console.log('Video still loading, waiting...');
+                return;
+            }
+
+            if (!isPlaying) {
+                console.log('Attempting to play video');
+                try {
+                    await video.play();
+                    isPlaying = true;
+                    console.log('Video playing successfully');
+                } catch (err) {
+                    console.error('Play failed:', err);
+                    // Try to play muted if autoplay was blocked
+                    if (!video.muted) {
+                        console.log('Trying muted playback...');
+                        video.muted = true;
+                        try {
+                            await video.play();
+                            isPlaying = true;
+                            console.log('Muted playback successful');
+                        } catch (mutedErr) {
+                            console.error('Muted playback also failed:', mutedErr);
+                        }
+                    }
+                }
+            }
+        }
+
+        function pauseVideo() {
+            if (isPlaying) {
+                video.pause();
+                isPlaying = false;
+                console.log('Video paused');
+            }
+        }
+
+        // Create and configure intersection observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                console.log('Intersection state:', {
+                    isIntersecting: entry.isIntersecting,
+                    ratio: entry.intersectionRatio,
+                    isLoading,
+                    isPlaying
+                });
+
+                if (entry.isIntersecting && !isPlaying) {
+                    playVideo();
+                } else if (!entry.isIntersecting && isPlaying) {
+                    pauseVideo();
+                }
+            });
+        }, {
+            threshold: [0, 0.3, 0.5, 0.7, 1]
+        });
+
+        observer.observe(video);
+        console.log('Observer set up');
+
+        // Try initial play if video is in viewport
+        const rect = video.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            console.log('Video initially in viewport, attempting play');
+            playVideo();
+        }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVideoPlayback);
+    } else {
+        initVideoPlayback();
+    }
+</script>
+
+</body>
+
+</html>

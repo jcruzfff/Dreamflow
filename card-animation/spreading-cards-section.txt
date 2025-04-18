@@ -1,0 +1,112 @@
+ {/* Spreading Cards Section */}
+      <section className="relative w-full min-h-[1200px] min-[777px]:min-h-[1500px] bg-[#121212]">
+        {/* Center Content - Positioned relative to cards */}
+        <div className="main-content absolute top-[480px] left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
+          <div className="copy text-center flex flex-col items-center gap-6 relative">
+            <div className="text flex flex-col gap-1">
+              <div className="line overflow-hidden">
+                <p className="text-[#F1F1F1] text-[40px] min-[1440px]:text-[60px] font-medium leading-[91%]">
+                  Ready to move
+                </p>
+              </div>
+              <div className="line overflow-hidden">
+                <p className="text-[#F1F1F1] text-[40px] min-[1440px]:text-[60px] font-medium leading-[91%]">
+                  your world
+                </p>
+              </div>
+              <div className="line overflow-hidden">
+                <p className="text-[#F1F1F1] text-[40px] min-[1440px]:text-[60px] font-medium leading-[91%]">
+                  forward?
+                </p>
+              </div>
+            </div>
+            <div className="btn relative z-50 pointer-events-auto">
+              <button 
+                onClick={handleLaunchApp}
+                className="flex min-[777px]:w-[250px] w-[300px] h-[38px] min-[777px]:h-[48px] px-6 py-3 justify-center items-center gap-[10px] rounded-full bg-[#C9FE6E] text-[#121212] uppercase text-[12px] min-[777px]:text-[15px] font-medium leading-[100%] hover:opacity-90 transition-opacity flex-shrink-0 relative z-50"
+                style={{ fontFamily: 'IBM Plex Mono' }}
+              >
+                <div className="flex items-center gap-2 -ml-2">
+                  <Image 
+                    src="/icons/arrow-button-icon.svg"
+                    alt="Arrow"
+                    width={16}
+                    height={16}
+                    style={{ width: 'auto', height: 'auto' }}
+                  />
+                  <span>Launch the App</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Cards Grid */}
+        <div className="main relative min-h-[1500px] flex items-start justify-center pt-[180px] z-0">
+          <div className="cards-container relative w-full max-w-[1440px] mx-auto">
+            {/* Row 1 */}
+            <div className="row absolute w-full flex justify-center gap-4" style={{ top: '0px' }}>
+              <div className="card-left">
+                <Image
+                  src="/images/marius.png"
+                  alt="Marius"
+                  width={500}
+                  height={360}
+                  className="rounded-[32px]"
+                />
+              </div>
+              <div className="card-right">
+                <Image
+                  src="/images/tyler.png"
+                  alt="Tyler"
+                  width={500}
+                  height={360}
+                  className="rounded-[32px]"
+                />
+              </div>
+            </div>
+            {/* Row 2 */}
+            <div className="row absolute w-full flex justify-center gap-4" style={{ top: '400px' }}>
+              <div className="card-left">
+                <Image
+                  src="/images/nestor.png"
+                  alt="Nestor"
+                  width={500}
+                  height={360}
+                  className="rounded-[32px]"
+                />
+              </div>
+              <div className="card-right">
+                <Image
+                  src="/images/tiago.png"
+                  alt="Tiago"
+                  width={500}
+                  height={360}
+                  className="rounded-[32px]"
+                />
+              </div>
+            </div>
+            {/* Row 3 */}
+            <div className="row absolute w-full flex justify-center gap-4" style={{ top: '800px' }}>
+              <div className="card-left">
+                <Image
+                  src="/images/danny.png"
+                  alt="Danny"
+                  width={500}
+                  height={360}
+                  className="rounded-[32px]"
+                />
+              </div>
+              <div className="card-right">
+                <Image
+                  src="/images/tyshawn.png"
+                  alt="Tyshawn"
+                  width={500}
+                  height={360}
+                  className="rounded-[32px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

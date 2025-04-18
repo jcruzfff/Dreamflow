@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --dreamflow-gold: #F3CD83;
+  --dreamflow-gold-dark: #CEA14B;
+  --dreamflow-gray-dark: #111111;
+  --dreamflow-gray-medium: #1F1F1F;
+  --dreamflow-gray-light: #86868B;
+  --dreamflow-text-secondary: #DADADA;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* Custom gradient text */
+.text-gradient {
+  background-image: radial-gradient(100% 45% at 50% 50%, #FFF 30%, rgba(255, 255, 255, 0.40) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card gradient background */
+.bg-card-gradient {
+  background: linear-gradient(180deg, #1F1F1F 0%, #111 69%);
+}
+
+/* Gold gradient for buttons */
+.bg-gold-gradient {
+  background: linear-gradient(180deg, #F3CD83 0%, #CEA14B 100%);
+}
+
+/* Toggle gradient */
+.bg-toggle-gradient {
+  background: linear-gradient(180deg, #3B3B3B 0%, #302F32 50%, #1C1C1C 100%);
+}
+
+/* Card shadow */
+.shadow-card {
+  box-shadow: 0px 1.318px 2.635px 0px #525154 inset,
+    0px 26.352px 32.94px -6.588px rgba(0, 0, 0, 0.80),
+    0px 13.176px 13.176px -6.588px rgba(0, 0, 0, 0.90);
+}
+
+/* Backdrop blur */
+.bg-blur-card {
+  backdrop-filter: blur(24.5px);
+  -webkit-backdrop-filter: blur(24.5px);
+}
+
+/* Process steps mobile animation */
+@media (max-width: 1024px) {
+  .process-step {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  .process-step.active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
