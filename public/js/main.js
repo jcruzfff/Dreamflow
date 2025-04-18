@@ -1,7 +1,3 @@
-// Import GSAP from node_modules
-import { gsap } from '../../node_modules/gsap/index.js';
-import { ScrollTrigger } from '../../node_modules/gsap/ScrollTrigger.js';
-
 // Register plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +9,96 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remove the DOM loaded overflow control
     // document.documentElement.style.overflowX = 'hidden';
     // document.body.style.overflowX = 'hidden';
+    
+    // Initialize particles.js
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 180,
+                "density": {
+                    "enable": true,
+                    "value_area": 1000
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.3,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 0.1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 2,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 3,
+                    "size_min": 0.5,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0,
+                "width": 0
+            },
+            "move": {
+                "enable": true,
+                "speed": 0.8,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 0.3
+                    }
+                }
+            }
+        },
+        "retina_detect": true
+    });
     
     // Hero animations
     const heroTl = gsap.timeline();
