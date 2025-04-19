@@ -123,6 +123,39 @@ export default function Home() {
       behavior: 'auto'
     });
     
+    // Maintain scroll position on resize
+    const maintainScrollPosition = () => {
+      // Calculate how far down the page we are (as a percentage)
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = scrollTop / totalHeight;
+      
+      // Store this percentage
+      sessionStorage.setItem('scrollPercentage', scrollPercentage.toString());
+    };
+    
+    // Apply the saved scroll percentage after resize
+    const applyScrollPosition = () => {
+      const storedScrollPercentage = sessionStorage.getItem('scrollPercentage');
+      if (storedScrollPercentage) {
+        const percentage = parseFloat(storedScrollPercentage);
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTarget = percentage * totalHeight;
+        
+        window.scrollTo(0, scrollTarget);
+      }
+    };
+    
+    // Add event listeners for scroll position maintenance
+    let resizeTimer: NodeJS.Timeout;
+    window.addEventListener('scroll', maintainScrollPosition);
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        applyScrollPosition();
+      }, 50); // Short delay to let layout settle
+    });
+    
     // Setup Vercel Analytics if needed (simpler approach to avoid type issues)
     if (typeof window !== 'undefined' && !window.va) {
       window.va = function(...args) {
@@ -302,6 +335,13 @@ export default function Home() {
     // Clean up function
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
+      
+      // Clean up event listeners
+      window.removeEventListener('scroll', maintainScrollPosition);
+      window.removeEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+      });
+      clearTimeout(resizeTimer);
     };
   }, []);
 

@@ -13,6 +13,9 @@ module.exports = {
         sans: ['var(--font-helvetica)'],
         mono: ['var(--font-geist-mono)'],
       },
+      screens: {
+        'xl2': '1100px',
+      },
       colors: {
         dreamflow: {
           'gold': '#F3CD83',

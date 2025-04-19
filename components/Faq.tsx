@@ -58,7 +58,7 @@ const Faq = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const faqContainerRef = useRef<HTMLDivElement>(null);
   
-  // Toggle FAQ item
+  // Toggle FAQ item - only one open at a time
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -109,34 +109,35 @@ const Faq = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-24 md:py-32 px-4 md:px-8 lg:px-12 bg-black"
+      className="faq-section py-24 md:py-32 px-4 md:px-8 lg:px-12 bg-black"
     >
       <div className="container mx-auto max-w-6xl">
         <h2 
           ref={titleRef}
-          className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-center mb-16 md:mb-24"
+          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[100%] tracking-[-2%] mx-auto w-full md:w-4/5"
         >
           What Founders Ask
         </h2>
         
         <div 
           ref={faqContainerRef}
-          className="max-w-4xl mx-auto space-y-4"
+          className="faq-container max-w-4xl mx-auto"
+          style={{
+            background: "linear-gradient(180deg, #1F1F1F 0%, #111 69%)",
+            borderRadius: "32px",
+            boxShadow: "0px 1.318px 2.635px 0px #525154 inset"
+          }}
         >
           {faqItems.map((item, index) => (
-            <div key={index} className="faq-item bg-gray-900/30 backdrop-blur-sm rounded-xl overflow-hidden">
+            <div key={index} className="faq-item">
               <button 
-                className="w-full text-left p-6 md:px-8 flex justify-between items-center"
+                className="faq-question"
                 onClick={() => toggleFaq(index)}
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg md:text-xl font-medium text-white pr-6">
-                  {item.question}
-                </span>
+                <span>{item.question}</span>
                 <svg 
-                  className={`w-6 h-6 flex-shrink-0 transform transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`} 
+                  className="chevron w-6 h-6 flex-shrink-0"
                   xmlns="http://www.w3.org/2000/svg" 
                   viewBox="0 0 24 24" 
                   fill="none"
@@ -152,18 +153,109 @@ const Faq = () => {
               </button>
               
               <div 
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96' : 'max-h-0'
-                }`}
+                className={`faq-answer ${openIndex === index ? 'active' : ''}`}
               >
-                <div className="p-6 pt-0 md:px-8 text-white/70">
-                  {item.answer}
-                </div>
+                {item.answer}
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .faq-section .section-title {
+          margin-bottom: 64px;
+          text-align: center;
+        }
+
+        .faq-container {
+          padding: 0;
+          overflow: hidden;
+        }
+
+        .faq-item {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item:last-child {
+          border-bottom: none;
+        }
+
+        .faq-question {
+          width: 100%;
+          background: transparent;
+          border: none;
+          padding: 24px 42px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          color: #fff;
+          text-align: left;
+          font-family: "Helvetica Neue", sans-serif;
+          font-size: 20px;
+          font-weight: 400;
+          transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+          .faq-question {
+            padding: 20px 24px;
+            font-size: 18px;
+          }
+          
+          .faq-answer {
+            padding: 0 24px;
+          }
+          
+          .faq-answer.active {
+            padding: 0 24px 20px 24px;
+          }
+          
+          .faq-section .section-title {
+            margin-bottom: 48px;
+          }
+        }
+
+        .faq-question:hover {
+          opacity: 0.8;
+        }
+
+        .faq-question span {
+          flex: 1;
+          padding-right: 16px;
+        }
+
+        .chevron {
+          transition: transform 0.3s ease;
+        }
+
+        .faq-question[aria-expanded="true"] .chevron {
+          transform: rotate(180deg);
+        }
+
+        .faq-answer {
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          padding: 0 42px;
+          margin: 0;
+          color: rgba(255, 255, 255, 0.7);
+          font-family: "Helvetica Neue", sans-serif;
+          font-size: 16px;
+          line-height: 1.5;
+          text-align: left;
+          transform: translateY(-10px);
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-answer.active {
+          max-height: 1000px;
+          opacity: 1;
+          padding: 0 42px 24px 42px;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   );
 };

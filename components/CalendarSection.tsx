@@ -80,10 +80,10 @@ const CalendarSection = () => {
     <section 
       ref={sectionRef}
       id="calendar" 
-      className="py-20 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black"
+      className="py-20 md:py-24 lg:py-32"
     >
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-8">
+      <div className="container mx-auto max-w-6xl px-4 md:px-8 lg:px-12">
+        <div className="text-center ">
           <div 
             ref={badgeRef}
             className="inline-block px-3 sm:px-4 py-1 bg-white/10 rounded-full mb-4 sm:mb-6"
@@ -93,14 +93,13 @@ const CalendarSection = () => {
           
           <h2 
             ref={titleRef}
-            className="text-[34px] md:text-4xl lg:text-5xl text-white font-medium mb-3 sm:mb-4 tracking-[-2%]"
-          >
+            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[100%] tracking-[-2%] mx-auto w-full ">
             Get a Free 30-Min UX Review
           </h2>
           
           <p 
             ref={subtitleRef}
-            className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto"
+            className="text-[#B2B2B2] text-xl md:text-2xl font-medium w-[100%] max-w-3xl mx-auto "
           >
             Actionable UX and product design feedback to boost conversions and accelerate growth.
           </p>
@@ -108,13 +107,13 @@ const CalendarSection = () => {
         
         <div 
           ref={calendarRef}
-          className="max-w-4xl mx-auto bg-gray-900/20 rounded-lg md:rounded-xl overflow-hidden"
+          className="mx-auto"
         >
           {/* Calendly inline widget */}
           <div 
             className="calendly-inline-widget" 
             data-url="https://calendly.com/dreamflowlabs/free-ux-audit-fix-friction-boost-adoption?hide_gdpr_banner=1&background_color=111111&text_color=ffffff&primary_color=e2b969" 
-            style={{ minWidth: '320px', height: '600px', maxHeight: '90vh' }}
+            style={{ minWidth: '320px', height: '700px', maxHeight: '90vh' }}
           />
           
           {/* Calendly script */}
