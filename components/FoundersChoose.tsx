@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
@@ -10,11 +10,23 @@ const FoundersChoose = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const logosRef = useRef<HTMLDivElement>(null);
+  const [isNarrowScreen, setIsNarrowScreen] = useState(false);
   
   useEffect(() => {
     if (!sectionRef.current) return;
     
     gsap.registerPlugin(ScrollTrigger);
+    
+    // Check screen width and update state
+    const checkScreenWidth = () => {
+      setIsNarrowScreen(window.innerWidth < 1163);
+    };
+    
+    // Initial check
+    checkScreenWidth();
+    
+    // Update on resize
+    window.addEventListener('resize', checkScreenWidth);
     
     // Animate title
     gsap.fromTo(
@@ -24,6 +36,7 @@ const FoundersChoose = () => {
         opacity: 1,
         y: 0,
         duration: 0.8,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
@@ -43,6 +56,7 @@ const FoundersChoose = () => {
           y: 0,
           stagger: 0.15,
           duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: cardsRef.current,
             start: "top 75%",
@@ -52,120 +66,327 @@ const FoundersChoose = () => {
       );
     }
     
-    // Animate logo scrolling
-    const logoContainer = logosRef.current?.querySelector('.clients-container');
-    if (logoContainer) {
-      gsap.to(logoContainer, {
-        x: "-50%",
-        duration: 30,
+    // Client logos animation
+    const initClientLogos = () => {
+      const clientsContainer = logosRef.current?.querySelector('.clients-container');
+      if (!clientsContainer) return;
+      
+      // Set initial state of container and images
+      const prepareLogos = () => {
+        // Ensure the container is wide enough
+        gsap.set(clientsContainer, { width: '400%', height: '100%' });
+        
+        // Update logo positions when window resizes
+        const updateLogoPositions = () => {
+          const logos = clientsContainer.querySelectorAll('img');
+          logos.forEach(logo => {
+            // Make sure all logos have consistent styling
+            gsap.set(logo, {
+              height: '100%',
+              position: 'absolute',
+              left: 0,
+              marginRight: '42px',
+              paddingRight: '42px'
+            });
+          });
+          
+          // Position the first logo at the left edge initially (partially visible)
+          gsap.set("#clientLogos1", { x: "-90%" });
+          
+          // Position the second logo right after the first one
+          gsap.set("#clientLogos2", { x: "10%" });
+          
+          if (document.querySelector('#clientLogos3')) {
+            gsap.set("#clientLogos3", { x: "110%" });
+            gsap.set("#clientLogos4", { x: "210%" });
+          }
+        };
+        
+        // Initial setup
+        updateLogoPositions();
+        
+        // Update on resize
+        window.addEventListener('resize', updateLogoPositions);
+      };
+      
+      prepareLogos();
+      
+      // Create the continuous animation with improved smoothness
+      const logoTimeline = gsap.timeline({ 
         repeat: -1,
-        ease: "none"
+        ease: "none" 
       });
-    }
+      
+      logoTimeline
+        .to("#clientLogos1", {
+          x: "-200%", 
+          duration: 30,
+          ease: "linear",
+          force3D: true
+        })
+        .to("#clientLogos2", {
+          x: "-100%", 
+          duration: 30,
+          ease: "linear",
+          force3D: true
+        }, "<"); // Start at the same time
+      
+      // Add more logo elements for continuous scrolling
+      const createAdditionalLogos = () => {
+        const logo1 = document.querySelector('#clientLogos1');
+        const logo2 = document.querySelector('#clientLogos2');
+        
+        if (!logo1 || !logo2 || !clientsContainer) return;
+        
+        const logo3 = logo1.cloneNode(true) as HTMLElement;
+        const logo4 = logo2.cloneNode(true) as HTMLElement;
+        
+        logo3.id = "clientLogos3";
+        logo4.id = "clientLogos4";
+        
+        clientsContainer.appendChild(logo3);
+        clientsContainer.appendChild(logo4);
+        
+        // Position the additional logos
+        gsap.set("#clientLogos3", { x: "110%" });
+        gsap.set("#clientLogos4", { x: "210%" });
+        
+        // Add them to the animation with improved smoothness
+        logoTimeline
+          .to("#clientLogos3", {
+            x: "0%", 
+            duration: 30,
+            ease: "linear",
+            force3D: true
+          }, "<")
+          .to("#clientLogos4", {
+            x: "100%", 
+            duration: 30,
+            ease: "linear",
+            force3D: true
+          }, "<");
+      };
+      
+      createAdditionalLogos();
+    };
     
+    // Initialize logo animation
+    initClientLogos();
+    
+    // Clean up animations on unmount
+    return () => {
+      window.removeEventListener('resize', checkScreenWidth);
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
+
+  // Separate effect for card scroll animation only
+  useEffect(() => {
+    if (!isNarrowScreen || !cardsRef.current || !sectionRef.current) return;
+    
+    // Make sure GSAP is registered
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Create an ID for this specific animation to reference it later
+    const animationId = "cardsHorizontalScroll";
+    
+    // Get the card container
+    const cardContainer = cardsRef.current;
+    
+    // Calculate scroll distance
+    const cards = cardContainer.querySelectorAll('.founder-card');
+    const cardWidth = 342;
+    const gapWidth = 16; // gap-4
+    const totalCardsWidth = (cardWidth * cards.length) + (gapWidth * (cards.length - 1));
+    const visibleWidth = window.innerWidth - 24; // Account for 12px padding on each side
+    const scrollDistance = totalCardsWidth - visibleWidth;
+    
+    // Only proceed if we have enough cards to scroll
+    if (scrollDistance > 0) {
+      // Set the starting position with first card at 12px from left
+      gsap.set(cardContainer, { x: 12 });
+      
+      // Add a delay to ensure the fade-in animation completes first
+      // We'll use setTimeout to create a delay between the fade-in and scroll animations
+      const setupScrollAnimation = () => {
+        // Create the scroll animation with a better trigger point
+        const scrollTween = gsap.to(cardContainer, {
+          x: -(scrollDistance + 12), // Ensure there's 24px right padding at the end
+          ease: "none",
+          scrollTrigger: {
+            id: animationId,
+            trigger: cardContainer, // Use the card container itself as the trigger 
+            start: "top 65%", // Start when cards are 35% visible from bottom
+            end: "top 10%", // End when cards are 10% from top
+            scrub: 1,
+            invalidateOnRefresh: true,
+            markers: false,
+            onEnter: () => {
+              console.log("Starting horizontal scroll animation");
+            }
+          }
+        });
+        
+        return scrollTween;
+      };
+      
+      // Add a delay to ensure initial fade-in completes first
+      const animationTimer = setTimeout(setupScrollAnimation, 800); // 800ms delay
+      
+      // Return cleanup function specific to this animation
+      return () => {
+        // Clean up the timer if component unmounts before timer completes
+        clearTimeout(animationTimer);
+        
+        // Find and kill only this specific ScrollTrigger
+        const trigger = ScrollTrigger.getById(animationId);
+        if (trigger) trigger.kill();
+        
+        // Reset the position
+        gsap.set(cardContainer, { clearProps: "x" });
+      };
+    }
+  }, [isNarrowScreen]); // Only re-run when screen size category changes
 
   return (
     <section 
       ref={sectionRef} 
-      className="py-24 md:py-32 px-4 md:px-8 lg:px-12 bg-black"
+      className={`
+        ${isNarrowScreen ? 'pt-16' : 'pt-20 md:pt-24 lg:pt-32'} 
+        pb-20 md:pb-24 lg:pb-32 
+        px-4 md:px-8 lg:px-12 
+        bg-black
+      `}
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className={`container mx-auto max-w-6xl ${isNarrowScreen ? "px-0" : ""}`}>
         {/* Section title */}
         <h2 
           ref={titleRef}
-          className="text-3xl md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-16 md:mb-24 leading-[100%] tracking-[-1.44px]"
+          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-12 md:mb-16 lg:mb-24 leading-[100%] tracking-[-2%]"
         >
-          Designed For<br className="md:hidden" /> High-Growth Startups
+          Designed For<br/> High-Growth Startups
         </h2>
         
-        {/* Feature cards */}
-        <div 
-          ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 mb-20"
-        >
-          <div className="founder-card p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-start gap-2">
-            <Image 
-              src="/images/creative-icon.svg" 
-              alt="Creative Team Icon" 
-              width={48}
-              height={48}
-              className="w-12 h-12 mb-2" 
-            />
-            <h3 className="text-xl font-medium text-white">All-in-One Creative Team</h3>
-            <p className="text-dreamflow-gray-light text-lg">No extensive hiring needed</p>
-          </div>
-          
-          <div className="founder-card p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-start gap-2">
-            <Image 
-              src="/images/ai-icon.svg" 
-              alt="AI Icon" 
-              width={48}
-              height={48}
-              className="w-12 h-12 mb-2" 
-            />
-            <h3 className="text-xl font-medium text-white">Award-Winning Designers</h3>
-            <p className="text-dreamflow-gray-light text-lg">North America-based senior talent</p>
-          </div>
-          
-          <div className="founder-card p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-start gap-2">
-            <Image 
-              src="/images/pricing-icon.svg" 
-              alt="Pricing Icon" 
-              width={48}
-              height={48}
-              className="w-12 h-12 mb-2" 
-            />
-            <h3 className="text-xl font-medium text-white">Predictable Pricing</h3>
-            <p className="text-dreamflow-gray-light text-lg">Fixed monthly rate. No surprises.</p>
-          </div>
-          
-          <div className="founder-card p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-start gap-2">
-            <Image 
-              src="/images/dg-icon.svg" 
-              alt="DreamGate Icon" 
-              width={48}
-              height={48}
-              className="w-12 h-12 mb-2" 
-            />
-            <h3 className="text-xl font-medium text-white">DreamGate™ System</h3>
-            <p className="text-dreamflow-gray-light text-lg">A seamless portal to manage your projects</p>
-          </div>
-          
-          <div className="founder-card p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-start gap-2">
-            <Image 
-              src="/images/ai-icon.svg" 
-              alt="AI Icon" 
-              width={48}
-              height={48}
-              className="w-12 h-12 mb-2" 
-            />
-            <h3 className="text-xl font-medium text-white">Web3 & AI Native</h3>
-            <p className="text-dreamflow-gray-light text-lg">We speak it. Using the latest Web3 & AI tools</p>
+        {/* Feature cards - conditional layout based on screen width */}
+        <div className={isNarrowScreen ? "overflow-x-auto -mx-4 md:-mx-8 lg:-mx-12 px-4 md:px-8 lg:px-12 pb-6" : ""}>
+          <div 
+            ref={cardsRef}
+            className={`
+              ${isNarrowScreen
+                ? 'flex flex-nowrap gap-4 md:gap-2' 
+                : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-2'
+              } 
+              mb-16 md:mb-20
+            `}
+          >
+            <div className={`
+              founder-card h-[286px] p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
+              ${isNarrowScreen ? 'w-[342px] flex-shrink-0' : ''}
+            `}>
+              <Image 
+                src="/icons/creative-icon.svg" 
+                alt="Creative Team Icon" 
+                width={48}
+                height={48}
+                className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+              />
+              <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                All-in-One Creative Team
+              </h3>
+              <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">No extensive hiring needed</p>
+            </div>
+            
+            <div className={`
+              founder-card h-[286px] p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
+              ${isNarrowScreen ? 'w-[342px] flex-shrink-0' : ''}
+            `}>
+              <Image 
+                src="/icons/award-icon.svg" 
+                alt="Award Icon" 
+                width={48}
+                height={48}
+                className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+              />
+              <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                Award-Winning Designers
+              </h3>
+              <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Top 2% global design talent</p>
+            </div>
+            
+            <div className={`
+              founder-card h-[286px] p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
+              ${isNarrowScreen ? 'w-[342px] flex-shrink-0' : ''}
+            `}>
+              <Image 
+                src="/icons/pricing-icon.svg" 
+                alt="Pricing Icon" 
+                width={48}
+                height={48}
+                className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+              />
+              <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                Predictable Pricing
+              </h3>
+              <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Fixed monthly rate. No surprises.</p>
+            </div>
+            
+            <div className={`
+              founder-card h-[286px] p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
+              ${isNarrowScreen ? 'w-[342px] flex-shrink-0' : ''}
+            `}>
+              <Image 
+                src="/icons/dg-icon.svg" 
+                alt="DreamGate Icon" 
+                width={48}
+                height={48}
+                className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+              />
+              <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                DreamGate™ System
+              </h3>
+              <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">A portal to manage your projects</p>
+            </div>
+            
+            <div className={`
+              founder-card h-[286px] p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
+              ${isNarrowScreen ? 'w-[342px] flex-shrink-0' : ''}
+            `}>
+              <Image 
+                src="/icons/ai-icon.svg" 
+                alt="AI Icon" 
+                width={48}
+                height={48}
+                className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+              />
+              <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                Web3 & AI Native
+              </h3>
+              <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">We use the latest Web3 & AI tools</p>
+            </div>
           </div>
         </div>
         
         {/* Client logos */}
-        <div ref={logosRef} className="w-full overflow-hidden mt-16 py-4">
-          <div className="clients-container flex whitespace-nowrap">
-            {/* First set of logos */}
-            <div className="flex-shrink-0">
-              <Image 
-                src="/images/client_logos.svg" 
-                alt="Client logos" 
-                width={400}
-                height={64}
-                className="h-12 md:h-16" 
-              />
-            </div>
-            {/* Duplicate for seamless scrolling */}
-            <div className="flex-shrink-0">
+        <div ref={logosRef} className="w-[100%] sm:w-[95%] md:w-[calc(100%+100px)] max-w-[1227px] relative mt-[0px] mb-[30px] overflow-hidden mx-auto left-1/2 -translate-x-1/2">
+          <div className="clients overflow-hidden w-full h-[50px] sm:h-[90px] md:h-[120px] lg:h-[150px] xl:h-[180px] relative mb-[30px] md:mb-[42px] flex justify-center items-center before:content-[''] before:absolute before:top-0 before:left-0 before:w-[10%] sm:before:w-[15%] before:h-full before:z-[2] before:pointer-events-none before:bg-gradient-to-r before:from-black before:via-black before:via-40% before:to-transparent before:to-100% after:content-[''] after:absolute after:top-0 after:right-0 after:w-[10%] sm:after:w-[15%] after:h-full after:z-[2] after:pointer-events-none after:bg-gradient-to-l after:from-black after:via-black after:via-40% after:to-transparent after:to-100%">
+            <div className="clients-container relative w-full h-full overflow-hidden flex items-center">
               <Image 
                 src="/icons/client_logos.svg" 
                 alt="Client logos" 
-                width={400}
-                height={64}
-                className="h-12 md:h-16" 
+                width={2000}
+                height={180}
+                id="clientLogos1"
+                className="client-logos h-full absolute will-change-transform left-0 mr-[42px] pr-[42px] max-w-none" 
+                priority
+              />
+              <Image 
+                src="/icons/client_logos.svg" 
+                alt="Client logos" 
+                width={2000}
+                height={180}
+                id="clientLogos2"
+                className="client-logos h-full absolute will-change-transform left-0 mr-[42px] pr-[42px] max-w-none" 
+                priority
               />
             </div>
           </div>

@@ -43,6 +43,7 @@ const Pricing = () => {
         opacity: 1,
         y: 0,
         duration: 0.8,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: titleRef.current,
           start: "top 80%",
@@ -60,6 +61,7 @@ const Pricing = () => {
         y: 0,
         duration: 0.7,
         delay: 0.3,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: cardRef.current,
           start: "top 75%",
@@ -79,6 +81,7 @@ const Pricing = () => {
           y: 0,
           stagger: 0.2,
           duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: infoCardsRef.current,
             start: "top 80%",
@@ -87,25 +90,30 @@ const Pricing = () => {
         }
       );
     }
+
+    // Clean up animations on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   return (
     <section 
       ref={sectionRef}
       id="pricing" 
-      className="py-24 md:py-32 px-4 md:px-8 lg:px-12 bg-black min-h-screen flex items-center"
+      className="py-20 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black min-h-screen flex items-center"
     >
       <div className="container mx-auto max-w-6xl">
         <h2 
           ref={titleRef}
-          className="text-3xl md:text-5xl lg:text-7xl text-gradient font-medium text-center mb-10 md:mb-16 leading-none tracking-tight"
+          className="text-[34px] md:text-5xl lg:text-7xl text-gradient font-medium text-center mb-10 md:mb-16 leading-none tracking-[-2%]"
         >
           One Membership.<br/> Infinite Possibilities.
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* World Map and Trusted By */}
-          <div className="relative rounded-3xl overflow-hidden">
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden">
             <Image 
               src="/images/pricing-world.png" 
               alt="World map" 
@@ -114,11 +122,11 @@ const Pricing = () => {
               className="w-full h-full object-cover"
             />
               
-            <div className="absolute inset-0 flex flex-col justify-end p-10">
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-4 leading-none">
+            <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-10">
+              <h3 className="text-3xl md:text-4xl lg:text-6xl font-medium text-white mb-3 md:mb-4 leading-none">
                 Join<br />Dreamflow
               </h3>
-              <p className="text-white text-base mb-4">
+              <p className="text-white text-sm md:text-base mb-3 md:mb-4">
                 Trusted by Top Web3 & AI Startups.
               </p>
               <div>
@@ -127,7 +135,7 @@ const Pricing = () => {
                   alt="Client avatars" 
                   width={160}
                   height={48}
-                  className="h-12"
+                  className="h-10 md:h-12"
                 />
               </div>
             </div>
@@ -136,30 +144,30 @@ const Pricing = () => {
           {/* Pricing Card */}
           <div 
             ref={cardRef}
-            className="bg-card-gradient rounded-3xl overflow-hidden shadow-card"
+            className="bg-card-gradient rounded-2xl md:rounded-3xl overflow-hidden shadow-card"
           >
-            <div className="p-10">
+            <div className="p-6 sm:p-8 md:p-10">
               {/* Card Header */}
-              <div className="flex flex-col gap-6 mb-6">
+              <div className="flex flex-col gap-4 md:gap-6 mb-4 md:mb-6">
                 <div className="flex justify-between items-start">
-                  <div className="text-2xl font-medium text-white">Members Club</div>
+                  <div className="text-xl md:text-2xl font-medium text-white">Members Club</div>
                   <div className="inline-flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500"></div>
                     <div className="text-white text-xs">Available now</div>
                   </div>
                 </div>
                 
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-5xl font-medium text-white">{pricingData[selectedTier]}</span>
-                  <span className="text-dreamflow-gray-light text-2xl font-medium">/month</span>
+                  <span className="text-3xl md:text-4xl lg:text-5xl font-medium text-white">{pricingData[selectedTier]}</span>
+                  <span className="text-dreamflow-gray-light text-xl md:text-2xl font-medium">/month</span>
                 </div>
               </div>
               
               {/* Tier Toggle */}
-              <div className="bg-gradient-to-b from-[#161616] via-[#1D1D1D] to-[#242424] p-1 rounded-full border border-[#393939] mb-9">
+              <div className="bg-gradient-to-b from-[#161616] via-[#1D1D1D] to-[#242424] p-1 rounded-full border border-[#393939] mb-6 md:mb-9">
                 <div className="flex">
                   <button 
-                    className={`flex-1 h-11 rounded-full transition-all text-sm ${
+                    className={`flex-1 h-9 md:h-11 rounded-full transition-all text-xs md:text-sm ${
                       selectedTier === 'Essentials' 
                         ? 'bg-toggle-gradient shadow-lg border border-[#424242] text-white' 
                         : 'text-[#787878]'
@@ -169,7 +177,7 @@ const Pricing = () => {
                     Essentials
                   </button>
                   <button 
-                    className={`flex-1 h-11 rounded-full transition-all text-sm flex items-center justify-center gap-1 ${
+                    className={`flex-1 h-9 md:h-11 rounded-full transition-all text-xs md:text-sm flex items-center justify-center gap-1 ${
                       selectedTier === 'Elite' 
                         ? 'bg-gold-gradient shadow-lg border-2 border-dreamflow-gold text-black font-medium' 
                         : 'text-[#787878]'
@@ -182,13 +190,13 @@ const Pricing = () => {
                         alt="Elite" 
                         width={18}
                         height={18}
-                        className={`w-4.5 h-4.5 ${selectedTier === 'Elite' ? 'brightness-0' : ''}`}
+                        className={`w-4 h-4 md:w-4.5 md:h-4.5 ${selectedTier === 'Elite' ? 'brightness-0' : ''}`}
                       />
                     )}
                     Elite
                   </button>
                   <button 
-                    className={`flex-1 h-11 rounded-full transition-all text-sm ${
+                    className={`flex-1 h-9 md:h-11 rounded-full transition-all text-xs md:text-sm ${
                       selectedTier === 'Full-Stack' 
                         ? 'bg-toggle-gradient shadow-lg border border-[#424242] text-white' 
                         : 'text-[#787878]'
@@ -201,27 +209,27 @@ const Pricing = () => {
               </div>
               
               {/* Features */}
-              <div className="grid grid-cols-2 gap-20 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 md:gap-20 mb-8 md:mb-10">
                 <div>
-                  <div className="space-y-5">
-                    <div className="text-white text-lg">Unlimited design requests</div>
-                    <div className="text-white text-lg">1 active task</div>
-                    <div className="text-white text-lg">Dedicated design concierge</div>
-                    <div className="text-white text-lg">Priority to new features</div>
+                  <div className="space-y-3 md:space-y-5">
+                    <div className="text-white text-base md:text-lg">Unlimited design requests</div>
+                    <div className="text-white text-base md:text-lg">1 active task</div>
+                    <div className="text-white text-base md:text-lg">Dedicated design concierge</div>
+                    <div className="text-white text-base md:text-lg">Priority to new features</div>
                   </div>
                 </div>
                 <div>
-                  <div className="space-y-5">
-                    <div className="text-white text-lg">Unlimited revisions</div>
-                    <div className="text-white text-lg">3 day turnaround</div>
-                    <div className="text-white text-lg">30-day money back guarantee</div>
-                    <div className="text-white text-lg">Pause or Cancel anytime</div>
+                  <div className="space-y-3 md:space-y-5">
+                    <div className="text-white text-base md:text-lg">Unlimited revisions</div>
+                    <div className="text-white text-base md:text-lg">3 day turnaround</div>
+                    <div className="text-white text-base md:text-lg">30-day money back guarantee</div>
+                    <div className="text-white text-base md:text-lg">Pause or Cancel anytime</div>
                   </div>
                 </div>
               </div>
               
               {/* CTA Button */}
-              <button className="w-64 h-14 bg-gold-gradient text-black rounded-[60px] font-medium shadow-md border-2 border-dreamflow-gold text-lg">
+              <button className="w-full sm:w-auto sm:px-10 h-12 md:h-14 bg-gold-gradient text-black rounded-[60px] font-medium shadow-md border-2 border-dreamflow-gold text-base md:text-lg">
                 Secure your spot
               </button>
             </div>
@@ -229,15 +237,15 @@ const Pricing = () => {
         </div>
         
         {/* Bottom Info Cards */}
-        <div ref={infoCardsRef} className="grid md:grid-cols-2 gap-8">
-          <div className="pricing-info-card p-8 rounded-2xl border border-dashed border-[#1B1B1B] bg-[#080808]">
-            <h3 className="text-xl font-medium text-white mb-2.5">Pause anytime</h3>
-            <p className="text-dreamflow-text-secondary text-sm">Temporarily pause your subscription anytime.</p>
+        <div ref={infoCardsRef} className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="pricing-info-card p-6 md:p-8 rounded-xl md:rounded-2xl border border-dashed border-[#1B1B1B] bg-[#080808]">
+            <h3 className="text-lg md:text-xl font-medium text-white mb-2 md:mb-2.5">Pause anytime</h3>
+            <p className="text-dreamflow-text-secondary text-xs md:text-sm">Temporarily pause your subscription anytime.</p>
           </div>
           
-          <div className="pricing-info-card p-8 rounded-2xl border border-dashed border-[#1B1B1B] bg-[#080808]">
-            <h3 className="text-xl font-medium text-white mb-2.5">Try it for a week</h3>
-            <p className="text-dreamflow-text-secondary text-sm">Not loving it after a week? Get 75% back, no questions asked.</p>
+          <div className="pricing-info-card p-6 md:p-8 rounded-xl md:rounded-2xl border border-dashed border-[#1B1B1B] bg-[#080808]">
+            <h3 className="text-lg md:text-xl font-medium text-white mb-2 md:mb-2.5">Try it for a week</h3>
+            <p className="text-dreamflow-text-secondary text-xs md:text-sm">Not loving it after a week? Get 75% back, no questions asked.</p>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ module.exports = {
           'gray-dark': '#111111',
           'gray-medium': '#1F1F1F',
           'gray-light': '#86868B',
-          'text-secondary': '#DADADA',
+          'text-secondary': '#B2B2B2',
           'text-primary': '#FFFFFF',
         }
       },

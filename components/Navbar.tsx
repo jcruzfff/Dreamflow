@@ -36,7 +36,8 @@ const Navbar = () => {
         className={`fixed bottom-[10%] left-1/2 -translate-x-1/2 h-[52px] p-1 flex items-start gap-2.5 
           rounded-[32px] border border-[#393939] bg-gradient-to-b from-[#161616] via-[#1D1D1D] to-[#242424] 
           z-40 transition-all duration-500 ease-in-out
-          ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+          ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}
+          lg:flex hidden`}
       >
         <div className="flex items-center h-full">
           <a 
@@ -131,7 +132,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Hamburger Button */}
       <button 
-        className="fixed top-6 right-6 w-10 h-8 flex flex-col justify-between z-40 md:hidden"
+        className={`fixed top-6 right-6 w-10 h-8 flex flex-col justify-between z-40 ${isVisible ? 'block' : 'hidden'} lg:hidden`}
         onClick={toggleMobileMenu}
         aria-label="Open menu"
       >
