@@ -114,7 +114,7 @@ const Faq = () => {
       <div className="container mx-auto max-w-6xl">
         <h2 
           ref={titleRef}
-          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[100%] tracking-[-2%] mx-auto w-full md:w-4/5"
+          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-12 md:mb-[42px] leading-[100%] tracking-[-2%] mx-auto w-full md:w-4/5"
         >
           What Founders Ask
         </h2>
