@@ -107,7 +107,7 @@ const AllInOneDesign = () => {
       const cardTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 5%", // Start a bit further down to make it smoother
+          start: "top 3%", // Start a bit further down to make it smoother
           end: "+=1500", // More scroll space to prevent early unpinning
           scrub: 0.8, // Smoother scrub with slight delay
           pin: true,
@@ -128,6 +128,16 @@ const AllInOneDesign = () => {
       
       // Add a small delay at the end to hold the pin before releasing
       cardTimeline.to({}, { duration: 0.5 });
+      
+      // Reset any GSAP inline styles that might be interfering with responsive classes
+      window.addEventListener('resize', () => {
+        const cards = document.querySelectorAll('.stacked-card');
+        cards.forEach(card => {
+          // Only reset styles that don't affect the animation positioning
+          const cardElement = card as HTMLElement;
+          if (cardElement.style.fontSize) cardElement.style.fontSize = '';
+        });
+      });
     };
     
     // Initialize card animation
@@ -165,16 +175,16 @@ const AllInOneDesign = () => {
         
         <div 
           ref={cardsContainerRef}
-          className="relative w-full max-w-[1114px] h-[600px] sm:h-[700px] md:h-[800px] mx-auto mt-[42px] overflow-visible stacked-cards-container"
+          className="relative w-full max-w-[1114px] h-[600px] min-[770px]:h-[700px] md:h-[800px] mx-auto mt-[42px] overflow-visible stacked-cards-container max-[770px]:h-[1050px]"
         >
           <div ref={cardsRef} className="relative">
             {cards.map((card) => (
               <div
                 key={card.id}
                 data-card={card.id}
-                className={`stacked-card absolute w-full max-w-[1114px] h-[280px] sm:h-[320px] md:h-[385px] rounded-[20px] md:rounded-[38.5px] bg-gradient-to-b from-[#1f1f1f] to-[#111111] 
+                className={`stacked-card absolute w-full max-w-[1114px] h-[280px] min-[770px]:h-[320px] md:h-[385px] rounded-[20px] md:rounded-[38.5px] bg-gradient-to-b from-[#1f1f1f] to-[#111111] 
                   shadow-[inset_0px_1.32px_2.64px_0px_rgba(82,81,84,1.00),0px_-40px_32.94px_-6.59px_rgba(0,0,0,0.80),0px_13.18px_13.18px_-6.59px_rgba(0,0,0,0.90)] 
-                  p-6 sm:p-6 md:p-[47px_42px] cursor-pointer transition-all duration-300 will-change-transform overflow-hidden`}
+                  p-6 min-[770px]:p-6 md:p-[47px_42px] cursor-pointer transition-all duration-300 will-change-transform overflow-hidden max-[770px]:h-auto max-[770px]:min-h-[430px] max-[900px]:p-[24px]`}
                 style={{
                   zIndex: 50 - card.id * 10, // UX/UI (index 0) will have z-index 50, Pitch Decks (index 4) will have z-index 10
                   opacity: 0, // Start with opacity 0, animation will set to 1
@@ -186,13 +196,21 @@ const AllInOneDesign = () => {
                 }}
                 onClick={() => handleCardClick(card.id)}
               >
-                <div className="flex flex-col-reverse md:flex-row justify-between h-full gap-6 md:gap-0">
-                  <div className="flex flex-col justify-between card-content pr-[24px]">
-                    <h3 className="text-white text-xl sm:text-2xl md:text-[39.71px] font-bold font-['Helvetica_Neue']">{card.title}</h3>
-                    <p className="text-[#86868B] text-[18px] sm:text-xl md:text-[28px] font-normal font-['Helvetica_Neue'] leading-tight md:leading-[33.6px] tracking-wide max-w-full md:max-w-[516px]">{card.description}</p>
+                <div className="flex flex-col-reverse md:flex-row justify-between h-full gap-6 md:gap-0 max-[770px]:flex-col-reverse">
+                  <div className="flex flex-col justify-between card-content pr-[24px] max-[770px]:pr-0 max-[770px]:mt-2">
+                    <h3 className="text-white font-bold font-['Helvetica_Neue'] text-xl min-[770px]:text-2xl max-[770px]:mb-2
+                      md:text-[38px] 
+                      max-[1024px]:!text-[32px] 
+                      max-[900px]:!text-[26px]">{card.title}</h3>
+                    <p className="text-[#86868B] font-normal font-['Helvetica_Neue'] tracking-wide
+                      text-[18px] min-[770px]:text-xl 
+                      md:text-[28px] md:leading-[32px]
+                      max-[1024px]:!text-[22px] max-[1024px]:!leading-[28px]
+                      max-[900px]:!text-[18px] max-[900px]:!leading-[24px]
+                      max-w-full xl:max-w-[516px]">{card.description}</p>
                   </div>
                   
-                  <div className="w-full md:w-[412px] h-[120px] sm:h-[150px] md:h-[301px] rounded-xl md:rounded-[30px] overflow-hidden bg-black card-image-placeholder flex-shrink-0">
+                  <div className="w-full md:w-[412px] h-[120px] min-[770px]:h-[150px] md:h-[301px] rounded-xl md:rounded-[30px] overflow-hidden bg-black card-image-placeholder flex-shrink-0 max-[770px]:w-full max-[770px]:h-[280px] max-[770px]:aspect-square">
                     <Image 
                       src={card.image} 
                       alt={card.title}

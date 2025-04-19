@@ -325,7 +325,7 @@ const Testimonials = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-20 lg:py-24 pb-20 md:pb-24 lg:pb-36 px-4 md:px-8 lg:px-12 bg-black"
+      className="py-16 md:py-20 lg:py-24 pb-20 md:pb-24 lg:pb-48 px-4 md:px-8 lg:px-12 bg-black"
     >
       <div className="container mx-auto max-w-6xl">
         <div className="max-w-4xl mx-auto relative">

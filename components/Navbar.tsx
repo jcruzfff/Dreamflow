@@ -132,13 +132,13 @@ const Navbar = () => {
 
       {/* Mobile Menu Hamburger Button */}
       <button 
-        className={`fixed top-6 right-6 w-10 h-8 flex flex-col justify-between z-40 ${isVisible ? 'block' : 'hidden'} lg:hidden`}
+        className={`fixed top-6 right-6 w-7 h-5 flex flex-col justify-between z-40 lg:hidden transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}
         onClick={toggleMobileMenu}
         aria-label="Open menu"
       >
-        <span className="block w-full h-0.5 bg-white"></span>
-        <span className="block w-full h-0.5 bg-white"></span>
-        <span className="block w-full h-0.5 bg-white"></span>
+        <span className="block w-full h-0.5 bg-white/80"></span>
+        <span className="block w-full h-0.5 bg-white/80"></span>
+        <span className="block w-full h-0.5 bg-white/80"></span>
       </button>
     </>
   );

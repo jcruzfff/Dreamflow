@@ -92,7 +92,7 @@ const FoundersAwards = () => {
               ref={quoteRef}
               className="text-xl md:text-2xl lg:text-3xl text-white font-normal leading-[1.3]"
             >
-              "We've spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it."
+              &quot;We&apos;ve spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it.&quot;
             </p>
           </div>
           
@@ -105,15 +105,15 @@ const FoundersAwards = () => {
               <Image 
                 src="/images/chase.svg" 
                 alt="Chase" 
-                width={160}
-                height={160}
+                width={64}
+                height={64}
                 className="w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 relative z-10 -mr-8" 
               />
               <Image 
                 src="/images/jonathan.svg" 
                 alt="Jonathan" 
-                width={160}
-                height={160}
+                width={64}
+                height={64}
                 className="w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 relative z-0 -ml-8" 
               />
             </div>
@@ -127,9 +127,9 @@ const FoundersAwards = () => {
         <div className="md:hidden flex flex-col items-center mb-16">
           <p 
             ref={quoteRef}
-            className="text-lg md:text-xl font-normal leading-[1.3] mb-10"
+            className="text-[36px] md:text-[28px] font-normal leading-[1.3] mb-10"
           >
-            "We've spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it."
+            &quot;We&apos;ve spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it.&quot;
           </p>
           
           <div 
@@ -166,10 +166,10 @@ const FoundersAwards = () => {
           {/* First Row */}
           <div className="flex gap-6 w-full mb-6">
             {/* PROVEN DELIVERY */}
-            <div className="metric-card bg-card-gradient shadow-card rounded-[20px] md:rounded-[32px] p-6 md:p-9 overflow-hidden relative w-[38%] lg:w-[453px] h-[200px] lg:h-[240px]">
+            <div className="metric-card bg-card-gradient shadow-card rounded-[20px] md:rounded-[32px] p-6 md:p-9 overflow-hidden relative w-[38%]  h-[200px] lg:h-[240px]">
               <div className="metric-header text-[#E6BE70] uppercase text-sm md:text-base font-normal">PROVEN DELIVERY</div>
               <div className="absolute left-6 md:left-9 top-[80px] md:top-[102px] text-white text-5xl md:text-[78px] font-medium">100+</div>
-              <div className="absolute left-[185px] md:left-[234px] top-[92px] md:top-[122px] text-[#86868B] text-sm md:text-base font-bold w-[93px]">projects delivered</div>
+              <div className="absolute left-[185px] md:left-[234px] top-[92px] md:top-[122px] text-[#86868B] text-sm md:text-base font-bold w-[93px]">happy clients</div>
               <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Successful Projects Delivered</div>
             </div>
             
@@ -188,15 +188,15 @@ const FoundersAwards = () => {
             <div className="metric-card bg-card-gradient shadow-card rounded-[20px] md:rounded-[32px] p-6 md:p-9 overflow-hidden relative w-[62%] lg:w-[635px] h-[220px] lg:h-[270px]">
               <div className="metric-header text-[#1ADABA] uppercase text-sm md:text-base font-normal">COST EFFICIENCY</div>
               <div className="absolute left-6 md:left-9 top-[90px] md:top-[120px] text-white text-5xl md:text-[78px] font-medium">$1M+</div>
-              <div className="absolute left-[200px] md:left-[259px] top-[100px] md:top-[140px] text-[#86868B] text-sm md:text-base font-bold w-[126px]">saved in hiring & design ops</div>
-              <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Optimized creative spend, maximized returns.</div>
+              <div className="absolute left-[200px] md:left-[259px] top-[100px] md:top-[140px] text-[#86868B] text-sm md:text-base font-bold w-[126px]">saved vs hiring in-house teams</div>
+              <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Scaled design output without the overhead</div>
             </div>
             
             {/* SPEED TO LAUNCH */}
             <div className="metric-card bg-card-gradient shadow-card rounded-[20px] md:rounded-[32px] p-6 md:p-9 overflow-hidden relative w-[38%] lg:w-[453px] h-[220px] lg:h-[270px] ml-auto">
               <div className="metric-header text-[#FF766C] uppercase text-sm md:text-base font-normal">SPEED TO LAUNCH</div>
               <div className="absolute left-6 md:left-9 top-[90px] md:top-[120px] text-white text-5xl md:text-[78px] font-medium">3-5x</div>
-              <div className="absolute left-[170px] md:left-[215px] top-[100px] md:top-[140px] text-[#86868B] text-sm md:text-base font-bold w-[170px]">faster time-to-launch vs traditional agencies</div>
+              <div className="absolute left-[170px] md:left-[215px] top-[100px] md:top-[140px] text-[#86868B] text-sm md:text-base font-bold w-[180px]">faster time-to-launch vs traditional agencies</div>
               <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Accelerate your journey from vision to reality</div>
             </div>
           </div>
