@@ -200,7 +200,7 @@ const ProcessSection = () => {
     <section 
       ref={sectionRef}
       id="simple" 
-      className="pt-16 md:pt-20 lg:pt-24 pb-20 md:pb-24 lg:pb-32 px-4 md:px-8 lg:px-12 bg-black w-full mt-15 md:mt-[120px]"
+      className="pt-2 md:pt-20 lg:pt-24 pb-20 md:pb-24 lg:pb-32 px-4 md:px-8 lg:px-12 bg-black w-full mt-15 md:mt-[120px]"
     >
       <div className="max-w-[1117px] mx-auto">
         {/* Section title */}
@@ -244,9 +244,9 @@ const ProcessSection = () => {
           </div>
           
           {/* Right side - Process steps for desktop */}
-          <div ref={desktopStepsRef} className="process-steps w-[40%] lg:w-[35%] flex flex-col gap-10 lg:gap-[60px] items-start">
-            <div className="process-step w-full lg:w-[381px] flex flex-col justify-center items-start gap-[9px]">
-              <h3 className="w-full text-white font-medium text-3xl lg:text-[42px] leading-[120%] lg:leading-[50.4px] text-left">Subscribe</h3>
+          <div ref={desktopStepsRef} className="process-steps  w-[40%] lg:w-[35%] flex flex-col gap-10 lg:gap-[60px] items-start">
+            <div className="process-step w-full lg:w-[381px] flex flex-col justify-start items-start gap-[9px]">
+              <h3 className="w-full text-white  font-medium text-3xl lg:text-[42px] leading-[120%] lg:leading-[50.4px] text-left">Subscribe</h3>
               <p className="w-full lg:w-[344px] text-[#86868B] text-xl lg:text-[22px] font-medium leading-[120%] text-left">Choose your plan. Get Unlimited requests and revisions.</p>
             </div>
             
@@ -265,7 +265,7 @@ const ProcessSection = () => {
         {/* Mobile Layout */}
         <div className="lg:hidden flex flex-col items-center">
           {/* Mobile video container */}
-          <div className="mobile-video-container w-full max-w-[90%] sm:max-w-[85%] md:max-w-[75%] rounded-xl overflow-hidden mb-10">
+          <div className="mobile-video-container w-full  rounded-xl overflow-hidden mb-6 md:mb-10">
             <video 
               ref={videoRef}
               id="mobileAnimation" 
@@ -298,9 +298,9 @@ const ProcessSection = () => {
                 width: '100%',
                 transition: 'opacity 0.8s ease-in-out, visibility 0.8s ease-in-out'
               }}
-              className="process-step-mobile w-full text-center"
+              className="process-step-mobile w-full text-left"
             >
-              <h3 className="text-white font-medium text-[34px] leading-[120%] mb-2 tracking-[-2%]">Subscribe</h3>
+              <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Subscribe</h3>
               <p className="text-[#86868B] text-lg md:text-xl">Choose your plan. Get Unlimited requests and revisions.</p>
             </div>
             
@@ -315,9 +315,9 @@ const ProcessSection = () => {
                 width: '100%',
                 transition: 'opacity 0.8s ease-in-out, visibility 0.8s ease-in-out'
               }}
-              className="process-step-mobile w-full text-center"
+              className="process-step-mobile w-full text-left"
             >
-              <h3 className="text-white font-medium text-[34px] leading-[120%] mb-2 tracking-[-2%]">Request</h3>
+              <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Request</h3>
               <p className="text-[#86868B] text-lg md:text-xl">Submit any task - branding, UI/UX, decks, websites & more.</p>
             </div>
             
@@ -332,9 +332,9 @@ const ProcessSection = () => {
                 width: '100%',
                 transition: 'opacity 0.8s ease-in-out, visibility 0.8s ease-in-out'
               }}
-              className="process-step-mobile w-full text-center"
+              className="process-step-mobile w-full text-left"
             >
-              <h3 className="text-white font-medium text-[34px] leading-[120%] mb-2 tracking-[-2%]">Receive</h3>
+              <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Receive</h3>
               <p className="text-[#86868B] text-lg md:text-xl">Get your dream design delivered in as little as 48 hours.</p>
             </div>
           </div>

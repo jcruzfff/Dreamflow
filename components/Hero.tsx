@@ -65,7 +65,7 @@ const Hero = () => {
         const windowWidth = window.innerWidth;
         const topRowWidth = topRow.scrollWidth;
         const bottomRowWidth = bottomRow.scrollWidth;
-        const edgeMargin = 18; // 18px from edges as specified
+        const edgeMargin = windowWidth < 770 ? 4 : 18; // Smaller margin on mobile screens
         
         // 1. Position rows while they're still invisible
         
@@ -137,7 +137,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] pt-10 md:pt-14 pb-12 md:pb-16 flex flex-col justify-start" id="home">
+    <section className="relative min-h-[90vh] pt-13 md:pt-14 pb-12 md:pb-16 flex flex-col justify-start" id="home">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 mb-10 md:mb-16">
         <div className="max-w-[1117px] mx-auto ">
           {/* Logo and brand */}
