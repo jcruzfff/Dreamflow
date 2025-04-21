@@ -144,22 +144,24 @@ const FoundersAwards = () => {
           >
             <div className="relative mb-4 flex">
               <Image 
-                src="/images/chase.svg" 
+                src="/images/chase.png" 
                 alt="Chase" 
                 width={64}
                 height={64}
                 quality={100}
                 priority
+                unoptimized
                 sizes="64px"
                 className="w-16 h-16 relative z-10 -mr-[14px]" 
               />
               <Image 
-                src="/images/jonathan.svg" 
+                src="/images/jonathan.png" 
                 alt="Jonathan" 
                 width={64}
                 height={64}
                 quality={100}
                 priority
+                unoptimized
                 sizes="64px"
                 className="w-16 h-16 relative z-0" 
               />
@@ -191,6 +193,7 @@ const FoundersAwards = () => {
                 height={64}
                 quality={100}
                 priority
+                unoptimized
                 sizes="64px"
                 className="w-16 h-16 relative z-10 -mr-[14px]" 
               />
@@ -201,6 +204,7 @@ const FoundersAwards = () => {
                 height={64}
                 quality={100}
                 priority
+                unoptimized
                 sizes="64px"
                 className="w-16 h-16 relative z-0" 
               />

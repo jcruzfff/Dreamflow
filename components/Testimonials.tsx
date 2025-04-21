@@ -501,27 +501,39 @@ const Testimonials = () => {
           ref={awardsRef}
           className="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-[68px] mt-10"
         >
-          <Image 
-            src="/images/award-one.svg" 
-            alt="Good Design Award 2023" 
-            width={174}
-            height={77}
-            className=" w-auto h-16 md:h-20 lg:w-[174px] lg:h-[77px]" 
-          />
-          <Image 
-            src="/images/award-two.svg" 
-            alt="AI Awards" 
-            width={174}
-            height={77}
-            className="w-auto h-16 md:h-20 lg:w-[174px] lg:h-[77px]" 
-          />
-          <Image 
-            src="/images/award-three.svg" 
-            alt="Upwork 5 stars" 
-            width={174}
-            height={77}
-            className=" w-auto h-16 md:h-20 lg:w-[174px] lg:h-[77px]" 
-          />
+          <div className="h-16 md:h-20 lg:h-[77px] flex items-center">
+            <Image 
+              src="/images/award-one.svg" 
+              alt="Good Design Award 2023" 
+              width={174}
+              height={77}
+              className="h-full w-auto"
+              unoptimized
+              priority
+            />
+          </div>
+          <div className="h-16 md:h-20 lg:h-[77px] flex items-center">
+            <Image 
+              src="/images/award-two.svg" 
+              alt="AI Awards" 
+              width={174}
+              height={77}
+              className="h-full w-auto"
+              unoptimized
+              priority
+            />
+          </div>
+          <div className="h-16 md:h-20 lg:h-[77px] flex items-center">
+            <Image 
+              src="/images/award-three.svg" 
+              alt="Upwork 5 stars" 
+              width={174}
+              height={77}
+              className="h-full w-auto"
+              unoptimized
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>

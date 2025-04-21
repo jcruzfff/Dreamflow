@@ -78,7 +78,7 @@ const Pricing = () => {
   // URLs for each pricing tier
   const tierUrls = {
     'Essentials': 'https://square.link/u/uXqEpo0U',
-    'Elite': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/QQ2OPKJEFVRF5GL2WN75S5L4',
+    'Elite': 'https://square.link/u/3BYYu9TV',
     'Full-Stack': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/BHWEJ5MDMSXGVX2MOMCZUYO3'
   };
   
@@ -299,12 +299,16 @@ const Pricing = () => {
           
           {/* World Map and Trusted By - 5/12 width on large screens, appears second on mobile */}
           <div className="lg:col-span-5 order-2 lg:order-1 relative rounded-3xl overflow-hidden h-[400px] sm:h-[500px] md:h-[589px]">
-            <Image 
-              src="/images/pricing-world.png" 
-              alt="World map" 
-              fill
-              className="object-cover"
-            />
+            <div className="w-full h-full relative">
+              <Image 
+                src="/images/pricing-world.png" 
+                alt="World map" 
+                fill
+                className="object-cover"
+                unoptimized
+                priority
+              />
+            </div>
               
             <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-[42px]">
               <h3 className="text-3xl md:text-4xl lg:text-[60px] font-medium text-white mb-3 md:mb-4 lg:mb-[16px] leading-none">
@@ -321,6 +325,7 @@ const Pricing = () => {
                   height={44}
                   quality={100}
                   priority
+                  unoptimized
                   sizes="(max-width: 768px) 160px, 160px"
                 />
               </div>
