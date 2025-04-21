@@ -501,37 +501,37 @@ const Testimonials = () => {
           ref={awardsRef}
           className="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-[68px] mt-10"
         >
-          <div className="h-16 md:h-20 lg:h-[77px] flex items-center">
+          <div className="h-16 md:h-20 lg:h-[77px] flex items-center justify-center">
             <Image 
               src="/images/award-one.svg" 
               alt="Good Design Award 2023" 
-              width={174}
-              height={77}
-              className="h-full w-auto"
-              unoptimized
+              width={348}
+              height={154}
               priority
+              quality={100}
+              className="h-full w-auto"
             />
           </div>
-          <div className="h-16 md:h-20 lg:h-[77px] flex items-center">
+          <div className="h-16 md:h-20 lg:h-[77px] flex items-center justify-center">
             <Image 
               src="/images/award-two.svg" 
               alt="AI Awards" 
-              width={174}
-              height={77}
-              className="h-full w-auto"
-              unoptimized
+              width={348}
+              height={154}
               priority
+              quality={100}
+              className="h-full w-auto"
             />
           </div>
-          <div className="h-16 md:h-20 lg:h-[77px] flex items-center">
+          <div className="h-16 md:h-20 lg:h-[77px] flex items-center justify-center">
             <Image 
               src="/images/award-three.svg" 
               alt="Upwork 5 stars" 
-              width={174}
-              height={77}
-              className="h-full w-auto"
-              unoptimized
+              width={348}
+              height={154}
               priority
+              quality={100}
+              className="h-full w-auto"
             />
           </div>
         </div>

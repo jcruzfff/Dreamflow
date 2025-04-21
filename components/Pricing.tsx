@@ -79,7 +79,7 @@ const Pricing = () => {
   const tierUrls = {
     'Essentials': 'https://square.link/u/uXqEpo0U',
     'Elite': 'https://square.link/u/3BYYu9TV',
-    'Full-Stack': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/BHWEJ5MDMSXGVX2MOMCZUYO3'
+    'Full-Stack': 'https://square.link/u/rt2Zfujv'
   };
   
   // Handle tier selection
@@ -285,27 +285,30 @@ const Pricing = () => {
                 </div>
               </div>
               
-              {/* CTA Button */}
-              <Link 
-                href={tierUrls[selectedTier]} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lg:absolute lg:bottom-[42px] lg:left-[42px] w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center"
-              >
-                Secure your spot
-              </Link>
+              {/* CTA Button Container - Fixed height to prevent layout shift */}
+              <div className="w-full h-[56px] sm:h-[60px] lg:h-[56px] lg:absolute lg:bottom-[42px] lg:left-[42px] lg:w-[256px]">
+                <Link 
+                  href={tierUrls[selectedTier]} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center transition-all duration-200"
+                >
+                  Secure your spot
+                </Link>
+              </div>
             </div>
           </div>
           
           {/* World Map and Trusted By - 5/12 width on large screens, appears second on mobile */}
           <div className="lg:col-span-5 order-2 lg:order-1 relative rounded-3xl overflow-hidden h-[400px] sm:h-[500px] md:h-[589px]">
-            <div className="w-full h-full relative">
+            <div className="relative w-full h-full">
               <Image 
                 src="/images/pricing-world.png" 
                 alt="World map" 
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
-                unoptimized
+                quality={100}
                 priority
               />
             </div>
@@ -321,12 +324,11 @@ const Pricing = () => {
                 <Image 
                   src="/images/avatargroup.png" 
                   alt="Client avatars" 
-                  width={160}
-                  height={44}
+                  width={320}
+                  height={88}
                   quality={100}
                   priority
-                  unoptimized
-                  sizes="(max-width: 768px) 160px, 160px"
+                  className="h-11 w-auto"
                 />
               </div>
             </div>

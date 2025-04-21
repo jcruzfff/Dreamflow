@@ -143,28 +143,28 @@ const FoundersAwards = () => {
             className="flex-shrink-0 flex flex-col items-start justify-start"
           >
             <div className="relative mb-4 flex">
-              <Image 
-                src="/images/chase.png" 
-                alt="Chase" 
-                width={64}
-                height={64}
-                quality={100}
-                priority
-                unoptimized
-                sizes="64px"
-                className="w-16 h-16 relative z-10 -mr-[14px]" 
-              />
-              <Image 
-                src="/images/jonathan.png" 
-                alt="Jonathan" 
-                width={64}
-                height={64}
-                quality={100}
-                priority
-                unoptimized
-                sizes="64px"
-                className="w-16 h-16 relative z-0" 
-              />
+              <div className="w-16 h-16 relative z-10 -mr-[14px] rounded-full overflow-hidden">
+                <Image 
+                  src="/images/chase.png" 
+                  alt="Chase" 
+                  width={128}
+                  height={128}
+                  quality={100}
+                  priority
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <div className="w-16 h-16 relative z-0 rounded-full overflow-hidden">
+                <Image 
+                  src="/images/jonathan.png" 
+                  alt="Jonathan" 
+                  width={128}
+                  height={128}
+                  quality={100}
+                  priority
+                  className="w-full h-full object-cover" 
+                />
+              </div>
             </div>
             <p className="text-white/80 text-xs md:text-sm uppercase tracking-widest">
               FOUNDERS OF<br />DREAMFLOW LABS
@@ -186,28 +186,28 @@ const FoundersAwards = () => {
             className="flex flex-col items-start"
           >
             <div className="relative mb-4 flex">
-              <Image 
-                src="/images/chase.svg" 
-                alt="Chase" 
-                width={64}
-                height={64}
-                quality={100}
-                priority
-                unoptimized
-                sizes="64px"
-                className="w-16 h-16 relative z-10 -mr-[14px]" 
-              />
-              <Image 
-                src="/images/jonathan.svg" 
-                alt="Jonathan" 
-                width={64}
-                height={64}
-                quality={100}
-                priority
-                unoptimized
-                sizes="64px"
-                className="w-16 h-16 relative z-0" 
-              />
+              <div className="w-16 h-16 relative z-10 -mr-[14px] rounded-full overflow-hidden">
+                <Image 
+                  src="/images/chase.png" 
+                  alt="Chase" 
+                  width={128}
+                  height={128}
+                  quality={100}
+                  priority
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <div className="w-16 h-16 relative z-0 rounded-full overflow-hidden">
+                <Image 
+                  src="/images/jonathan.png" 
+                  alt="Jonathan" 
+                  width={128}
+                  height={128}
+                  quality={100}
+                  priority
+                  className="w-full h-full object-cover" 
+                />
+              </div>
             </div>
             <p className="text-white/80 text-xs uppercase tracking-widest">
               FOUNDERS OF<br />DREAMFLOW LABS
