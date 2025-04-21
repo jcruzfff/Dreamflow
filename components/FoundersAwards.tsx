@@ -147,8 +147,8 @@ const FoundersAwards = () => {
                 <Image 
                   src="/images/chase.png" 
                   alt="Chase" 
-                  width={128}
-                  height={128}
+                  width={256}
+                  height={256}
                   quality={100}
                   priority
                   className="w-full h-full object-cover" 
@@ -158,8 +158,8 @@ const FoundersAwards = () => {
                 <Image 
                   src="/images/jonathan.png" 
                   alt="Jonathan" 
-                  width={128}
-                  height={128}
+                  width={256}
+                  height={256}
                   quality={100}
                   priority
                   className="w-full h-full object-cover" 
@@ -190,8 +190,8 @@ const FoundersAwards = () => {
                 <Image 
                   src="/images/chase.png" 
                   alt="Chase" 
-                  width={128}
-                  height={128}
+                  width={256}
+                  height={256}
                   quality={100}
                   priority
                   className="w-full h-full object-cover" 
@@ -201,8 +201,8 @@ const FoundersAwards = () => {
                 <Image 
                   src="/images/jonathan.png" 
                   alt="Jonathan" 
-                  width={128}
-                  height={128}
+                  width={256}
+                  height={256}
                   quality={100}
                   priority
                   className="w-full h-full object-cover" 

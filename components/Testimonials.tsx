@@ -26,7 +26,7 @@ const testimonials: TestimonialData[] = [
     name: "Jutsu | Zahid Islam",
   },
   {
-    content: "\"Working with Dreamflow has been transformative. They consistently deliver results.\"",
+    content: "\"Working with Dreamflow has been transformative. They consistently deliver amazing results.\"",
     authorImage: "/images/trylivepeer-founder.png",
     title: "Co-Founder",
     name: "TryLivepeer | Elliot Braem",
@@ -301,33 +301,60 @@ const Testimonials = () => {
             }
           );
         } else {
-          // For desktop: Split the text into lines based on reasonable line breaks
+          // For desktop: Create a consistent 3-line split for all testimonials
           const text = testimonials[currentSlide].content;
-          const words = text.split(' ');
-          const lines: string[] = [];
+          
+          // Remove quotes for processing
+          const cleanText = text.replace(/[""]/g, '');
+          
+          // Calculate total character count for even distribution
+          const totalChars = cleanText.length;
+          const charsPerLine = Math.ceil(totalChars / 3);
+          
           let currentLine = '';
+          let lineCount = 0;
+          const lineElements = [];
           
-          // Create reasonable line breaks (roughly 5-7 words per line)
-          words.forEach((word, index) => {
-            currentLine += word + ' ';
-            if ((index + 1) % 5 === 0 || index === words.length - 1) {
-              lines.push(currentLine.trim());
-              currentLine = '';
+          // Split into words
+          const words = cleanText.split(' ');
+          
+          // Create lines with roughly equal character count
+          for (let i = 0; i < words.length; i++) {
+            const word = words[i];
+            
+            if (currentLine.length + word.length > charsPerLine && lineCount < 2) {
+              // Create and store a new line element
+              const lineElement = document.createElement('span');
+              lineElement.classList.add('quote-line');
+              // Only add opening quote to first line
+              lineElement.textContent = lineCount === 0 ? 
+                `"${currentLine.trim()}` : 
+                `${currentLine.trim()}`;
+              lineElement.style.display = 'inline-block';
+              lineElement.style.opacity = '0';
+              lineElements.push(lineElement);
+              
+              // Reset for next line
+              currentLine = word + ' ';
+              lineCount++;
+            } else {
+              currentLine += word + ' ';
             }
-          });
+          }
           
-          // Create and append line elements
-          lines.forEach((line, index) => {
-            const lineElement = document.createElement('span');
-            lineElement.classList.add('quote-line');
-            lineElement.textContent = index === 0 ? line : ' ' + line;
-            lineElement.style.display = 'inline-block';
-            lineElement.style.opacity = '0';
-            quoteElement.appendChild(lineElement);
-          });
+          // Add the last line
+          const lineElement = document.createElement('span');
+          lineElement.classList.add('quote-line');
+          // Only add closing quote to the last line
+          lineElement.textContent = `${currentLine.trim()}"`;
+          lineElement.style.display = 'inline-block';
+          lineElement.style.opacity = '0';
+          lineElements.push(lineElement);
+          
+          // Append all line elements to the quote
+          lineElements.forEach(el => quoteElement.appendChild(el));
           
           // Animate each line sequentially
-          const lineElements = quoteElement.querySelectorAll('.quote-line');
           gsap.fromTo(
             lineElements,
             { opacity: 0, y: 20 },
