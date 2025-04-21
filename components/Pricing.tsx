@@ -11,6 +11,8 @@ type PricingData = {
     title: string;
     price: string;
     features: string[];
+    spotsLeft: number;
+    indicatorColor: string;
   };
 };
 
@@ -26,6 +28,8 @@ const Pricing = () => {
     'Essentials': {
       title: 'MVP Stage',
       price: '$4,995',
+      spotsLeft: 3,
+      indicatorColor: 'bg-[#00ff66]',
       features: [
         'One request at a time',
         'Avg 3-4 day delivery',
@@ -39,6 +43,8 @@ const Pricing = () => {
     'Elite': {
       title: 'Seed Stage',
       price: '$9,995',
+      spotsLeft: 2,
+      indicatorColor: 'bg-[#ffee00]',
       features: [
         'Two requests at a time',
         'Avg 48-hour delivery',
@@ -53,6 +59,8 @@ const Pricing = () => {
     'Full-Stack': {
       title: 'Growth Stage',
       price: '$24,995',
+      spotsLeft: 1,
+      indicatorColor: 'bg-[#ff3e3e]',
       features: [
         'Everything in Elite',
         'Avg 24–48 hour delivery',
@@ -143,12 +151,12 @@ const Pricing = () => {
     <section 
       ref={sectionRef}
       id="pricing" 
-      className="py-20 md:py-24 lg:py-36 px-4 md:px-8 lg:px-12 bg-black min-h-screen flex items-center"
+      className="py-20 md:py-24 pt-0 md:pt-0 lg:py-36 px-4 md:px-8 lg:px-12 bg-black min-h-screen flex items-center"
     >
       <div className="container mx-auto max-w-6xl">
         <h2 
           ref={titleRef}
-          className="text-[34px] md:text-5xl lg:text-7xl text-gradient font-medium text-center mb-10 md:mb-16 leading-none tracking-[-2%]"
+          className="text-[34px] md:text-5xl lg:text-7xl text-gradient font-medium text-center mb-10 md:mb-16 leading-[110%] tracking-[-2%]"
         >
           One Membership.<br/> Infinite Possibilities.
         </h2>
@@ -165,8 +173,8 @@ const Pricing = () => {
                 <div className="flex flex-col items-start">
                   <div className="text-xl md:text-2xl lg:text-[24px] font-medium text-white">{pricingData[selectedTier].title}</div>
                   <div className="inline-flex items-center gap-2 mt-3 md:mt-3">
-                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 lg:w-[12px] lg:h-[12px] rounded-full bg-green-500"></div>
-                    <div className="text-white text-xs lg:text-[12px]">3 spots left</div>
+                    <div className={`w-2.5 h-2.5 md:w-3 md:h-3 lg:w-[12px] lg:h-[12px] rounded-full ${pricingData[selectedTier].indicatorColor} animate-pulse border-2 border-white/30 shadow-[0_0_10px_rgba(255,255,255,0.7)]`}></div>
+                    <div className="text-white text-xs lg:text-[12px]">{pricingData[selectedTier].spotsLeft} spot{pricingData[selectedTier].spotsLeft !== 1 ? 's' : ''} left</div>
                   </div>
                 </div>
                 
@@ -287,12 +295,12 @@ const Pricing = () => {
         <div ref={infoCardsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-8">
           <div className="pricing-info-card p-6 md:p-8 lg:p-[32px] rounded-3xl border border-dashed border-[#1B1B1B] bg-[#080808] h-[120px] md:h-[148px] flex flex-col justify-center">
             <h3 className="text-lg md:text-xl lg:text-[22px] font-medium text-white mb-2 md:mb-2.5 lg:mb-[18px]">Pause anytime</h3>
-            <p className="text-dreamflow-text-secondary text-xs md:text-sm lg:text-[14px]">Temporarily pause your subscription anytime.</p>
+            <p className="text-dreamflow-text-secondary text-sm md:text-sm lg:text-[14px]">Temporarily pause your subscription anytime.</p>
           </div>
           
           <div className="pricing-info-card p-6 md:p-8 lg:p-[32px] rounded-3xl border border-dashed border-[#1B1B1B] bg-[#080808] h-[120px] md:h-[148px] flex flex-col justify-center">
             <h3 className="text-lg md:text-xl lg:text-[22px] font-medium text-white mb-2 md:mb-2.5 lg:mb-[18px]">Try it for a week</h3>
-            <p className="text-dreamflow-text-secondary text-xs md:text-sm lg:text-[14px]">Not loving it after a week? Get 75% back, no questions asked.</p>
+            <p className="text-dreamflow-text-secondary text-sm md:text-sm lg:text-[14px]">Not loving it after a week? Get 75% back, no questions asked.</p>
           </div>
         </div>
       </div>

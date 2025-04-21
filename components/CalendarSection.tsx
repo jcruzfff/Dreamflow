@@ -93,13 +93,13 @@ const CalendarSection = () => {
           
           <h2 
             ref={titleRef}
-            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[100%] tracking-[-2%] mx-auto w-full ">
+            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-3 md:mb-[30px] leading-[110%] tracking-[-2%] mx-auto w-[90%] md:w-full  ">
             Get a Free 30-Min UX Review
           </h2>
           
           <p 
             ref={subtitleRef}
-            className="text-[#B2B2B2] text-xl md:text-2xl font-medium w-[100%] max-w-3xl mx-auto "
+            className="text-[#B2B2B2] text-xl md:text-2xl font-medium w-[100%] max-w-3xl mx-auto mb-3 "
           >
             Actionable UX and product design feedback to boost conversions and accelerate growth.
           </p>

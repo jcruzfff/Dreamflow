@@ -106,7 +106,7 @@ const SpreadingCards = () => {
           
           // Animate only two cards with staggered timing
           if (topRight) animateElement(topRight, 0, '95vw');     // First card moves right 95% of viewport width
-          if (middleLeft) animateElement(middleLeft, 250, '-95vw'); // Second card moves left 95% of viewport width
+          if (middleLeft) animateElement(middleLeft, 450, '-95vw'); // Second card moves left 95% of viewport width
           // Third card is now hidden on mobile
           
           // Animate text elements
@@ -261,7 +261,7 @@ const SpreadingCards = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full min-h-[100vh] md:min-h-[1500px] bg-black overflow-hidden md:overflow-visible py-20 pb-0 md:py-24"
+      className="relative w-full min-h-[100vh] md:min-h-[1100px] bg-black overflow-hidden md:overflow-visible py-20 pb-0 md:py-24 md:pb-0"
     >
       {/* Center Content */}
       <div 
@@ -287,7 +287,7 @@ const SpreadingCards = () => {
             </div>
           </div>
           
-          <p className="subtext text-xl text-white/80 mb-2 md:mb-8">Let&apos;s bring your vision to life.</p>
+          <p className="subtext text-[#B2B2B2] text-xl font-medium mb-2 md:mb-8">Let&apos;s bring your vision to life.</p>
           
           <div className="btn">
             <button 

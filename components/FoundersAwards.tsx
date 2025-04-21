@@ -124,10 +124,10 @@ const FoundersAwards = () => {
         </div>
 
         {/* Mobile Layout (stacked) */}
-        <div className="md:hidden flex flex-col items-start mb-16 px-4">
+        <div className="md:hidden flex flex-col items-start mb-16 px-0">
           <p 
             ref={quoteRef}
-            className="text-[36px] font-normal leading-[1.3] mb-10"
+            className="text-[32px] font-medium leading-[1.3] mb-10"
           >
             &quot;We&apos;ve spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it.&quot;
           </p>
@@ -161,7 +161,7 @@ const FoundersAwards = () => {
         {/* Metrics Desktop Layout */}
         <div
           ref={metricsRef}
-          className="hidden lg:block"
+          className="hidden lg:block px-0"
         >
           {/* First Row */}
           <div className="flex gap-6 w-full mb-6">
@@ -227,7 +227,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#E6BE70] uppercase text-xs font-medium mb-4">PROVEN DELIVERY</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-4xl font-medium">100+</div>
+              <div className="text-white text-6xl font-medium">100+</div>
             </div>
               <div className="text-[#86868B] text-sm font-semibold mt-3">Projects delivered</div>
           
@@ -237,7 +237,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#14A5ED] uppercase text-xs font-medium mb-4">FUNDING IMPACT</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-4xl font-medium">$320M+</div>
+              <div className="text-white text-6xl font-medium">$320M+</div>
             
             </div>
             <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Raised by Dreamflow-backed startups</div>
@@ -247,7 +247,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#1ADABA] uppercase text-xs font-medium mb-4">COST EFFICIENCY</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-4xl font-medium">$1M+</div>
+              <div className="text-white text-6xl font-medium">$1M+</div>
            
             </div>
                <div className="text-[#86868B] text-sm font-semibold  mt-3 text-wrap">Saved in hiring & design ops</div>
@@ -257,7 +257,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#FF766C] uppercase text-xs font-medium mb-4">SPEED TO LAUNCH</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-4xl font-medium">3-5x</div>
+              <div className="text-white text-6xl font-medium">3-5x</div>
          
             </div>
                  <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Faster time-to-launch vs traditional agencies</div>

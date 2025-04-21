@@ -155,7 +155,7 @@ const Hero = () => {
           {/* Hero content */}
           <div className="text-center lg:text-left opacity-0 hero-main-content">
             <h1 
-              className="text-gradient text-4xl md:text-6xl lg:text-[72px] font-medium leading-[100%] tracking-[-1.4px] mb-6"
+              className="text-gradient text-4xl md:text-6xl lg:text-[72px] font-medium leading-[110%] tracking-[-1.4px] mb-3"
             >
               World-Class Designs.<br />Delivered In 48 Hours.
             </h1>

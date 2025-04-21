@@ -381,7 +381,7 @@ const FoundersChoose = () => {
           {/* Section title */}
           <h2 
             ref={titleRef}
-            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-12 md:mb-16 lg:mb-24 leading-[100%] tracking-[-2%]"
+            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-16 lg:mb-24 leading-[110%] tracking-[-2%]"
           >
             Designed For<br/> High-Growth Startups
           </h2>

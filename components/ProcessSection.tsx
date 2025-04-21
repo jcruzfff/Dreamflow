@@ -207,7 +207,7 @@ const ProcessSection = () => {
         <h2 
           ref={titleRef}
           id="simple-title"
-          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[100%] tracking-[-2%] mx-auto w-full md:w-4/5"
+          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[110%] tracking-[-2%] mx-auto w-full md:w-4/5"
         >
           Simple, Streamlined, and Startup-speed
         </h2>
@@ -274,7 +274,7 @@ const ProcessSection = () => {
               muted 
               loop 
               preload="metadata"
-              poster="/videos/poster.jpg"
+    
             >
               <source src="/videos/betteranimation.mp4" type="video/mp4" />
               <source src="/videos/betteranimation.webm" type="video/webm" />
@@ -301,7 +301,7 @@ const ProcessSection = () => {
               className="process-step-mobile w-full text-left"
             >
               <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Subscribe</h3>
-              <p className="text-[#86868B] text-lg md:text-xl">Choose your plan. Get Unlimited requests and revisions.</p>
+              <p className="text-[#86868B] text-lg md:text-xl font-medium">Choose your plan. Get Unlimited requests and revisions.</p>
             </div>
             
             {/* Request Step */}
@@ -318,7 +318,7 @@ const ProcessSection = () => {
               className="process-step-mobile w-full text-left"
             >
               <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Request</h3>
-              <p className="text-[#86868B] text-lg md:text-xl">Submit any task - branding, UI/UX, decks, websites & more.</p>
+              <p className="text-[#86868B] text-lg md:text-xl font-medium">Submit any task - branding, UI/UX, decks, websites & more.</p>
             </div>
             
             {/* Receive Step */}
