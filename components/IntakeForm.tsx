@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, KeyboardEvent, useRef, ChangeEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -24,13 +24,35 @@ export default function IntakeForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+  const welcomeRef = useRef<HTMLDivElement>(null);
   
   // If isSuccess is true, move to success step
   useEffect(() => {
     if (isSuccess) {
-      setStep(10); // Move to success step
+      setStep(12); // Move to success step (changed from 10 to 12)
     }
   }, [isSuccess]);
+  
+  // Focus welcome screen on initial load
+  useEffect(() => {
+    if (step === 1 && welcomeRef.current) {
+      welcomeRef.current.focus();
+    }
+  }, [step]);
+  
+  // Handle Enter key press to navigate to next step
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement | HTMLDivElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      
+      // Only handle enter for steps before the final submission
+      if (step < 11) {
+        nextStep();
+      } else if (step === 11) {
+        handleSubmit(onSubmit)();
+      }
+    }
+  };
   
   const {
     register,
@@ -67,6 +89,12 @@ export default function IntakeForm() {
   const prevStep = () => setStep(step - 1);
 
   const onSubmit = async (data: FormData) => {
+    // Only attempt to submit if we're on the final step
+    if (step !== 11) {
+      nextStep();
+      return;
+    }
+    
     setIsSubmitting(true);
     setError('');
     
@@ -103,14 +131,33 @@ export default function IntakeForm() {
     duration: 0.5
   };
 
+  // Function to capitalize first letter
+  const capitalizeFirstLetter = (e: ChangeEvent<HTMLInputElement>) => {
+    const input = e.target;
+    if (input.value.length === 1) {
+      input.value = input.value.charAt(0).toUpperCase() + input.value.slice(1);
+    }
+  };
+
   return (
     <div className="text-white h-screen w-screen overflow-hidden overflow-y-hidden relative flex flex-col items-center justify-center">
       {/* Particles Background */}
       <div id="particles-js" className="fixed inset-0 z-[-4]"></div>
       
-      {/* Back Button */}
-      <Link href="/" className="absolute top-[4%] left-[4%] bg-transparent border border-[#242424] rounded-[32px] py-3 px-6 text-white text-lg cursor-pointer z-[2000] hover:bg-white/5 transition-colors">
-        <span className="flex items-center">
+      {/* Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-[5px] bg-white/20 z-[2000]">
+        <div 
+          className="h-full transition-all duration-300 ease-out" 
+          style={{
+            width: `${Math.max(((step - 1) / 10) * 100, 0)}%`,
+            backgroundColor: '#1ADBBB'
+          }}
+        />
+      </div>
+      
+      {/* Exit Button - Moved to top right */}
+      <Link href="/" className="absolute top-[4%] right-[4%] bg-transparent border border-[#242424] rounded-full p-3 text-white text-lg cursor-pointer z-[2000] hover:bg-white/5 transition-colors">
+        <span className="flex items-center justify-center">
           <svg 
             width="20" 
             height="20" 
@@ -119,14 +166,60 @@ export default function IntakeForm() {
             stroke="currentColor" 
             strokeWidth="2" 
             strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="mr-2"
+            strokeLinejoin="round"
           >
-            <polyline points="15 18 9 12 15 6"></polyline>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
-          Exit
         </span>
       </Link>
+      
+      {/* Navigation Buttons - Moved to top left */}
+      {step > 1 && step < 11 && (
+        <div className="absolute top-[4%] left-[4%] flex z-[2000] gap-3">
+          {step > 1 && step < 11 && (
+            <button 
+              type="button" 
+              onClick={prevStep}
+              className="bg-transparent border border-[#242424] rounded-full p-3 text-white cursor-pointer hover:bg-white/5 transition-colors flex justify-center items-center"
+            >
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+          )}
+          
+          {step < 11 && (
+            <button 
+              type="button" 
+              onClick={nextStep}
+              className="bg-transparent border border-[#242424] rounded-full p-3 text-white cursor-pointer hover:bg-white/5 transition-colors flex justify-center items-center"
+            >
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          )}
+        </div>
+      )}
       
       {/* Form Container - centered on screen */}
       <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto z-[1000] p-5">
@@ -145,13 +238,16 @@ export default function IntakeForm() {
           {/* Welcome Step - centered */}
           {step === 1 && (
             <motion.div
-              className="flex flex-col items-center text-center justify-center w-full"
+              className="flex flex-col items-center text-center justify-center w-full outline-none"
               initial="initial"
               animate="in"
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
               id="welcome-section"
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
+              ref={welcomeRef}
             >
               <h1 
                 id="welcome-header" 
@@ -222,6 +318,9 @@ export default function IntakeForm() {
                 type="text"
                 placeholder="Type your name here..."
                 autoFocus
+                autoCapitalize="words"
+                onKeyDown={handleKeyDown}
+                onInput={capitalizeFirstLetter}
                 {...register('name', { required: 'Please fill out required information' })}
                 className="text-[32px] border-0 border-b border-b-white w-full py-[10px] px-[10px] my-5 bg-transparent text-white outline-none transition-all duration-300 input-field focus:border-b-white text-left"
               />
@@ -263,6 +362,8 @@ export default function IntakeForm() {
                 type="email"
                 placeholder="Type your email here..."
                 autoFocus
+                onKeyDown={handleKeyDown}
+                onInput={capitalizeFirstLetter}
                 {...register('email', { 
                   required: 'Please fill out required information',
                   pattern: {
@@ -310,6 +411,9 @@ export default function IntakeForm() {
                 type="text"
                 placeholder="Type your answer here..."
                 autoFocus
+                autoCapitalize="words"
+                onKeyDown={handleKeyDown}
+                onInput={capitalizeFirstLetter}
                 {...register('company', { required: 'Please fill out required information' })}
                 className="text-[32px] border-0 border-b border-b-white w-full py-[10px] px-[10px] my-5 bg-transparent text-white outline-none transition-all duration-300 input-field focus:border-b-white text-left"
               />
@@ -351,6 +455,8 @@ export default function IntakeForm() {
                 type="text"
                 placeholder="Type your answer here..."
                 autoFocus
+                onKeyDown={handleKeyDown}
+                onInput={capitalizeFirstLetter}
                 {...register('website')}
                 className="text-[32px] border-0 border-b border-b-white w-full py-[10px] px-[10px] my-5 bg-transparent text-white outline-none transition-all duration-300 input-field focus:border-b-white text-left"
               />
@@ -388,6 +494,8 @@ export default function IntakeForm() {
                 type="text"
                 placeholder="What's your vision for the future..."
                 autoFocus
+                onKeyDown={handleKeyDown}
+                onInput={capitalizeFirstLetter}
                 {...register('goals', { required: 'Please fill out required information' })}
                 className="text-[32px] border-0 border-b border-b-white w-full py-[10px] px-[10px] my-5 bg-transparent text-white outline-none transition-all duration-300 input-field focus:border-b-white text-left"
               />
@@ -421,6 +529,8 @@ export default function IntakeForm() {
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
             >
               <h2 className="text-[24px] md:text-[32px] lg:text-[36px] mb-2 font-normal question">When do you want to launch?</h2>
               <p className="text-xl text-[#aaa] mb-6 subheader">(Select one)</p>
@@ -475,6 +585,8 @@ export default function IntakeForm() {
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
             >
               <h2 className="text-[24px] md:text-[32px] lg:text-[36px] mb-2 font-normal question">Which of our services are you interested in?</h2>
               <p className="text-xl text-[#aaa] mb-6 subheader">(Check all that apply)</p>
@@ -488,10 +600,16 @@ export default function IntakeForm() {
                       {...register('services', { required: 'Please select at least one option' })}
                       className="hidden hidden-checkbox"
                     />
-                    <div className="flex items-center border border-[#242424] rounded-[32px] py-3 px-6 w-full bg-transparent transition-all duration-300 hover:bg-white/5 custom-checkbox">
+                    <div className={`flex items-center justify-between border border-[#242424] rounded-[32px] py-3 px-6 w-full bg-transparent transition-all duration-300 hover:bg-white/5 custom-checkbox ${watch('services')?.includes(service.id) ? 'bg-white/[0.03] shadow-[0px_-2px_19px_5px_rgba(255,255,255,0.06)_inset] backdrop-blur-[33.75px] checked' : ''}`}>
                       <span className="flex-1 text-white text-lg custom-checkbox-label">{service.label}</span>
-                      <span className="checkmark">
-                        <Image src="/icons/check.svg" alt="Selected" width={24} height={24} />
+                      <span className={`checkmark transition-opacity duration-200 ${watch('services')?.includes(service.id) ? 'opacity-100' : 'opacity-0'}`}>
+                        <Image 
+                          src="/icons/check.svg" 
+                          alt="Selected" 
+                          width={28} 
+                          height={28}
+                          className="text-white check-icon" 
+                        />
                       </span>
                     </div>
                   </label>
@@ -527,6 +645,8 @@ export default function IntakeForm() {
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
             >
               <h2 className="text-[24px] md:text-[32px] lg:text-[36px] mb-2 font-normal question">What&apos;s your ballpark budget?</h2>
               <p className="text-xl text-[#aaa] mb-6 subheader">This helps us create a proposal that fits your vision and resources.</p>
@@ -582,6 +702,8 @@ export default function IntakeForm() {
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
             >
               <h2 className="text-[24px] md:text-[32px] lg:text-[36px] mb-2 font-normal question">Where did you hear about us?</h2>
               <p className="text-xl text-[#aaa] mb-6 subheader">Who sent you our way? We&apos;d love to know.</p>
@@ -618,7 +740,7 @@ export default function IntakeForm() {
                 </button>
                 
                 <span className="text-sm ml-[10px] text-[#aaa] enter-message flex items-center">
-                  Press <span className="mx-1 text-lg">↵</span>
+                  Press enter <span className="mx-1 text-lg">↵</span>
                 </span>
               </div>
               
@@ -628,33 +750,42 @@ export default function IntakeForm() {
             </motion.div>
           )}
           
-          {/* Final Step - left aligned content with centered button */}
+          {/* Final Step - centered content with centered button */}
           {step === 11 && (
             <motion.div
-              className="flex flex-col items-start text-left w-full"
+              className="flex flex-col items-center text-center w-full"
               initial="initial"
               animate="in"
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
               id="last-question"
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
             >
-              <h2 className="text-[24px] md:text-[32px] lg:text-[36px] mb-8 font-normal question last-question">
+              <h2 className="text-[24px] md:text-[32px] lg:text-[36px] mb-8 font-normal question last-question text-center">
                 Thank you for sharing your goals with us. We love partnering with forward-thinking clients to create groundbreaking projects. Book your Dream Discovery Call and let&apos;s bring your vision to life!
               </h2>
               
-              <div className="w-full flex justify-start">
+              <div className="w-full flex justify-center mt-4">
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="py-[14px] px-[42px] text-lg bg-white text-black border-none rounded-[50px] cursor-pointer hover:bg-white/90 transition-all duration-300 submit-btn disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="relative z-[1000] py-3 md:py-4 px-10 md:px-[51px] text-lg md:text-xl bg-white text-black border-none rounded-[46.55px] cursor-pointer hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 submit-btn disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center font-medium group"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit & Book'}
+                  <Image 
+                    src="/icons/black-arrow.svg" 
+                    alt="Arrow" 
+                    width={13}
+                    height={13}
+                    className="ml-3 transform transition-transform duration-300 group-hover:translate-x-2"
+                  />
                 </button>
               </div>
               
               {error && (
-                <p className="text-[#ff4c4c] text-base mt-4">{error}</p>
+                <p className="text-[#ff4c4c] text-base mt-4 text-center">{error}</p>
               )}
             </motion.div>
           )}
@@ -662,82 +793,44 @@ export default function IntakeForm() {
           {/* Success Step */}
           {step === 12 && (
             <motion.div
-              className="flex flex-col items-start text-left w-full"
+              className="flex flex-col items-center text-center w-full"
               initial="initial"
               animate="in"
               exit="out"
               variants={pageVariants}
               transition={pageTransition}
             >
-              <div className="mb-8">
+              <div className="mb-8 flex justify-center">
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="12" r="10" stroke="#1ADABA" strokeWidth="2"/>
                   <path d="M8 12L11 15L16 9" stroke="#1ADABA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               
-              <h2 className="text-[36px] md:text-[50px] lg:text-[64px] mb-4 font-normal">Application submitted!</h2>
-              <p className="text-xl text-[#dadada] mb-8">
+              <h2 className="text-[36px] md:text-[50px] lg:text-[64px] mb-4 font-normal text-center">Application submitted!</h2>
+              <p className="text-xl text-[#dadada] mb-8 text-center max-w-2xl mx-auto">
                 Thank you for your application. Our team will review it and get back to you within 1-2 business days to schedule your Dream Discovery Call.
               </p>
               
-              <Link 
-                href="/" 
-                className="py-3 px-[42px] text-lg bg-white text-black border-none rounded-[50px] hover:bg-white/90 transition-all duration-300"
-              >
-                Return to Homepage
-              </Link>
+              <div className="flex justify-center">
+                <Link 
+                  href="/" 
+                  className="relative z-[1000] py-3 md:py-4 px-10 md:px-[51px] text-lg md:text-xl bg-white text-black border-none rounded-[46.55px] cursor-pointer hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 flex items-center justify-center font-medium group"
+                >
+                  Return to Homepage
+                  <Image 
+                    src="/icons/black-arrow.svg" 
+                    alt="Arrow" 
+                    width={13}
+                    height={13}
+                    className="ml-3 transform transition-transform duration-300 group-hover:translate-x-2"
+                  />
+                </Link>
+              </div>
             </motion.div>
           )}
         </form>
       </div>
-      
-      {/* Navigation Buttons */}
-      {step > 1 && step < 11 && (
-        <div className="fixed bottom-6 right-6 flex z-[1000] gap-3">
-          {step > 1 && step < 11 && (
-            <button 
-              type="button" 
-              onClick={prevStep}
-              className="bg-transparent border border-[#dcdcdc] rounded-[32px] p-3 text-white cursor-pointer hover:bg-white/5 transition-colors flex justify-center items-center"
-            >
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-          )}
-          
-          {step < 11 && (
-            <button 
-              type="button" 
-              onClick={nextStep}
-              className="bg-transparent border border-[#dcdcdc] rounded-[32px] p-3 text-white cursor-pointer hover:bg-white/5 transition-colors flex justify-center items-center"
-            >
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          )}
-        </div>
-      )}
       
       {/* Bottom Image */}
       <div className="fixed bottom-0 left-0 w-full z-0 bottom-image">
@@ -764,13 +857,27 @@ export default function IntakeForm() {
           width: 100%;
         }
         
-        /* Checkbox style adjustments */
-        .hidden-checkbox + .custom-checkbox .checkmark {
-          display: none;
+        /* Remove focus outline */
+        *:focus {
+          outline: none !important;
         }
         
-        .hidden-checkbox:checked + .custom-checkbox .checkmark {
+        /* Checkbox style adjustments */
+        .checkmark {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 10px;
+        }
+        
+        .check-icon {
+          filter: brightness(0) invert(1);
+        }
+        
+        /* Fix for checkbox clicking in forms */
+        label.cursor-pointer {
           display: block;
+          width: 100%;
         }
         
         /* Custom radio button style */

@@ -452,7 +452,7 @@ const FoundersChoose = () => {
               className={`
                 ${isNarrowScreen
                   ? 'flex flex-nowrap gap-4 md:gap-2' 
-                  : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-2'
+                  : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-4'
                 } 
                 mb-12 md:mb-20
               `}
@@ -481,7 +481,7 @@ const FoundersChoose = () => {
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
                     All-in-One Creative Team
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">No extensive hiring needed</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">No extensive hiring needed</p>
                 </div>
               </div>
               
@@ -509,7 +509,7 @@ const FoundersChoose = () => {
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
                     Award-Winning Designers
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Top 2% global design talent</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Top 2% global design talent</p>
                 </div>
               </div>
               
@@ -537,7 +537,7 @@ const FoundersChoose = () => {
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
                     Predictable Pricing
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Fixed monthly rate. No surprises.</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Fixed monthly rate. No surprises.</p>
                 </div>
               </div>
               
@@ -565,7 +565,7 @@ const FoundersChoose = () => {
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
                     DreamGate™ System
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">A portal to manage your projects</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">A portal to manage your projects</p>
                 </div>
               </div>
               
@@ -593,7 +593,7 @@ const FoundersChoose = () => {
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
                     Web3 & AI Native
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">We use the latest Web3 & AI tools</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">We use the latest Web3 & AI tools</p>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type PricingTier = 'Essentials' | 'Elite' | 'Full-Stack';
 type PricingData = {
@@ -72,6 +73,13 @@ const Pricing = () => {
         'DreamGate™ Portal',
       ]
     }
+  };
+  
+  // URLs for each pricing tier
+  const tierUrls = {
+    'Essentials': 'https://square.link/u/uXqEpo0U',
+    'Elite': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/QQ2OPKJEFVRF5GL2WN75S5L4',
+    'Full-Stack': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/BHWEJ5MDMSXGVX2MOMCZUYO3'
   };
   
   // Handle tier selection
@@ -278,9 +286,12 @@ const Pricing = () => {
               </div>
               
               {/* CTA Button */}
-              <button className="lg:absolute lg:bottom-[42px] lg:left-[42px] w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center">
+              <Link 
+                href={tierUrls[selectedTier]} 
+                className="lg:absolute lg:bottom-[42px] lg:left-[42px] w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center"
+              >
                 Secure your spot
-              </button>
+              </Link>
             </div>
           </div>
           
@@ -306,7 +317,9 @@ const Pricing = () => {
                   alt="Client avatars" 
                   width={160}
                   height={44}
-                  className="h-[44px] w-auto"
+                  quality={100}
+                  priority
+                  sizes="(max-width: 768px) 160px, 160px"
                 />
               </div>
             </div>

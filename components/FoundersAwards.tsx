@@ -148,6 +148,9 @@ const FoundersAwards = () => {
                 alt="Chase" 
                 width={64}
                 height={64}
+                quality={100}
+                priority
+                sizes="64px"
                 className="w-16 h-16 relative z-10 -mr-[14px]" 
               />
               <Image 
@@ -155,6 +158,9 @@ const FoundersAwards = () => {
                 alt="Jonathan" 
                 width={64}
                 height={64}
+                quality={100}
+                priority
+                sizes="64px"
                 className="w-16 h-16 relative z-0" 
               />
             </div>
@@ -183,6 +189,9 @@ const FoundersAwards = () => {
                 alt="Chase" 
                 width={64}
                 height={64}
+                quality={100}
+                priority
+                sizes="64px"
                 className="w-16 h-16 relative z-10 -mr-[14px]" 
               />
               <Image 
@@ -190,6 +199,9 @@ const FoundersAwards = () => {
                 alt="Jonathan" 
                 width={64}
                 height={64}
+                quality={100}
+                priority
+                sizes="64px"
                 className="w-16 h-16 relative z-0" 
               />
             </div>

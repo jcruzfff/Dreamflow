@@ -123,8 +123,8 @@ const AllInOneDesign = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: window.innerWidth <= 770 ? "top 2%" : "top 3%", // Start at very top for mobile
-          end: window.innerWidth <= 770 ? "+=1200" : "+=1500", // Less scroll space on mobile
-          scrub: 0.8, // Smoother scrub with slight delay
+          end: window.innerWidth <= 770 ? "+=1200" : "+=1500", // Original scroll distance
+          scrub: 1.2, // Moderately increased scrub value for smoother animation
           pin: true,
           pinSpacing: true,
           anticipatePin: 1, // Help prevent jerky pin behavior
@@ -142,13 +142,13 @@ const AllInOneDesign = () => {
         cardTimeline.to(cardOrder[i], {
           y: i * cardOffset,
           scale: scaleFactors[i], // Apply the scale factor for this card
-          duration: 0.7, // Longer duration for smoother effect
+          duration: 1.4, // Increased duration for slower effect
           ease: "power2.inOut", // More natural easing
-        }, (i - 1) * 0.25); // More spacing between animations
+        }, (i - 1) * 0.75); // Increased spacing between animations
       }
       
-      // Add a small delay at the end to hold the pin before releasing
-      cardTimeline.to({}, { duration: 0.5 });
+      // Add a moderate delay at the end to hold the pin before releasing
+      cardTimeline.to({}, { duration: 0.9 });
       
       // Reset any GSAP inline styles that might be interfering with responsive classes
       window.addEventListener('resize', () => {
