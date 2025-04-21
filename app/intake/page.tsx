@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import Script from 'next/script';
 import IntakeForm from "@/components/IntakeForm";
 
-// We can't use static metadata in a client component
-// Instead we'll set the title and description using document.title and a meta tag in useEffect
+// Removed manual metadata setting as we now use Next.js metadata API
 
 interface ParticlesConfig {
   particles: {
@@ -89,20 +88,6 @@ declare global {
 
 export default function IntakePage() {
   useEffect(() => {
-    // Set title and description dynamically
-    document.title = 'Dreamflow Designs | Application Form';
-    
-    // Create meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Submit your application to work with Dreamflow Designs, a boutique design agency specializing in website design, UI/UX, and brand identity.');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Submit your application to work with Dreamflow Designs, a boutique design agency specializing in website design, UI/UX, and brand identity.';
-      document.head.appendChild(meta);
-    }
-    
     // Force scroll to top on page load
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
