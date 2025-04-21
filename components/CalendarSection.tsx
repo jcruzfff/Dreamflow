@@ -93,6 +93,14 @@ const CalendarSection = () => {
           
           <h2 
             ref={titleRef}
+            style={{
+              background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              color: "transparent",
+              fontFamily: "Helvetica Neue"
+            }}
             className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-3 md:mb-[30px] leading-[110%] tracking-[-2%] mx-auto w-[90%] md:w-full  ">
             Get a Free 30-Min UX Review
           </h2>

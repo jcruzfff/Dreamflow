@@ -274,17 +274,49 @@ const FoundersChoose = () => {
       
       // Only make draggable if there's enough content to scroll
       if (totalCardsWidth > visibleWidth) {
-        // Calculate bounds
-        const minX = -(totalCardsWidth - visibleWidth) - 12;
+        // Calculate bounds - ensure exactly 12px padding on the right edge
+        const minX = -(totalCardsWidth - visibleWidth + 12);
         const maxX = 12;
         
-        // Create draggable instance
+        // Create draggable instance with improved bounds handling
         const draggable = Draggable.create(cardContainer, {
           type: "x",
           bounds: {minX: minX, maxX: maxX},
           edgeResistance: 0.65,
           throwProps: true,
           inertia: true,
+          dragClickables: true, // Allow clicking on buttons within draggable area
+          allowEventDefault: true, // Allow default events like scrolling
+          minimumMovement: 2, // Require a bit more movement to start dragging
+          
+          // Support for touch gestures
+          touchStartForce: 0, // Start immediately on touch
+          
+          // Add wheel support for trackpad gestures
+          onWheel: function(e: { preventDefault: () => void; deltaX: number }) {
+            // Prevent default scrolling behavior
+            e.preventDefault();
+            
+            // Get current position
+            const currentX = this.x;
+            
+            // Calculate new position based on wheel delta
+            // Note: deltaX is used for horizontal scrolling on trackpads
+            let newX = currentX - e.deltaX;
+            
+            // Ensure bounds
+            newX = Math.max(minX, Math.min(maxX, newX));
+            
+            // Set the new position
+            gsap.to(cardContainer, {
+              x: newX,
+              duration: 0.2,
+              overwrite: "auto",
+              ease: "power1.out"
+            });
+            
+            return false;
+          },
           snap: {
             x: function(endValue) {
               // Calculate the card width including gap
@@ -296,6 +328,14 @@ const FoundersChoose = () => {
               // Calculate the exact position where this card should snap to
               // The negative sign is because we're moving left (negative X values)
               let snapX = -(cardIndex * fullCardWidth);
+              
+              // Calculate the maximum drag for the last card to show
+              const maxDrag = -(totalCardsWidth - visibleWidth);
+              
+              // If we're close to the end, snap to the position with 12px right padding
+              if (snapX < maxDrag - (fullCardWidth/2)) {
+                snapX = minX;
+              }
               
               // Make sure we don't exceed the bounds
               snapX = Math.max(minX, Math.min(maxX, snapX));
@@ -330,6 +370,16 @@ const FoundersChoose = () => {
             const fullCardWidth = cardWidth + gapWidth;
             const cardIndex = Math.round(Math.abs(currentX) / fullCardWidth);
             let snapX = -(cardIndex * fullCardWidth);
+            
+            // Special handling for the end position
+            // Calculate the last allowed position (with 12px right padding)
+            const lastPosition = -(totalCardsWidth - visibleWidth + 12);
+            
+            // If we're near the end, snap to the exact end position with 12px padding
+            const maxNormalPosition = -(totalCardsWidth - visibleWidth - (fullCardWidth/2));
+            if (snapX < maxNormalPosition) {
+              snapX = lastPosition;
+            }
             
             // Ensure we stay within bounds
             snapX = Math.max(minX, Math.min(maxX, snapX));
@@ -374,14 +424,23 @@ const FoundersChoose = () => {
           ${isNarrowScreen ? 'pt-6' : 'pt-20 md:pt-24 lg:pt-32'} 
           pb-20 md:pb-24 lg:pb-32 
           px-4 md:px-8 lg:px-12 
-          bg-black
+          bg-black/55 
+          relative z-10
         `}
       >
         <div className={`container mx-auto max-w-6xl ${isNarrowScreen ? "px-0" : ""}`}>
           {/* Section title */}
           <h2 
             ref={titleRef}
-            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-16 lg:mb-24 leading-[110%] tracking-[-2%]"
+            style={{
+              background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              color: "transparent",
+              fontFamily: "Helvetica Neue"
+            }}
+            className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-14 md:mb-16 lg:mb-24 leading-[110%] tracking-[-2%]"
           >
             Designed For<br/> High-Growth Startups
           </h2>
@@ -395,92 +454,147 @@ const FoundersChoose = () => {
                   ? 'flex flex-nowrap gap-4 md:gap-2' 
                   : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-2'
                 } 
-                mb-16 md:mb-20
+                mb-12 md:mb-20
               `}
             >
               <div className={`
                 founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
-                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center' : 'h-[286px]'}
+                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
               `}>
-                <Image 
-                  src="/icons/creative-icon.svg" 
-                  alt="Creative Team Icon" 
-                  width={48}
-                  height={48}
-                  className="w-10 h-10 md:w-12 md:h-12 mb-2" 
-                />
-                <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                  All-in-One Creative Team
-                </h3>
-                <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">No extensive hiring needed</p>
+                {isNarrowScreen && (
+                  <Image
+                    src="/icons/creative-icon-image.svg"
+                    alt="Creative Team Background"
+                    width={200}
+                    height={366}
+                    className="absolute right-0 top-0 h-full w-auto z-0"
+                  />
+                )}
+                <div className="relative z-10">
+                  <Image 
+                    src="/icons/creative-icon.svg" 
+                    alt="Creative Team Icon" 
+                    width={48}
+                    height={48}
+                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+                  />
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                    All-in-One Creative Team
+                  </h3>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">No extensive hiring needed</p>
+                </div>
               </div>
               
               <div className={`
                 founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
-                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center' : 'h-[286px]'}
+                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
               `}>
-                <Image 
-                  src="/icons/award-icon.svg" 
-                  alt="Award Icon" 
-                  width={48}
-                  height={48}
-                  className="w-10 h-10 md:w-12 md:h-12 mb-2" 
-                />
-                <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                  Award-Winning Designers
-                </h3>
-                <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Top 2% global design talent</p>
+                {isNarrowScreen && (
+                 <Image
+                    src="/icons/award-icon-image.svg"
+                    alt="Award-Winning Designers Background"
+                    width={200}
+                    height={366}
+                    className="absolute right-0 top-0 h-full w-auto z-0"
+                  />
+                )}
+                <div className="relative z-10">
+                  <Image 
+                    src="/icons/award-icon.svg" 
+                    alt="Award Icon" 
+                    width={48}
+                    height={48}
+                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+                  />
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                    Award-Winning Designers
+                  </h3>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Top 2% global design talent</p>
+                </div>
               </div>
               
               <div className={`
                 founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
-                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center' : 'h-[286px]'}
+                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
               `}>
-                <Image 
-                  src="/icons/pricing-icon.svg" 
-                  alt="Pricing Icon" 
-                  width={48}
-                  height={48}
-                  className="w-10 h-10 md:w-12 md:h-12 mb-2" 
-                />
-                <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                  Predictable Pricing
-                </h3>
-                <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Fixed monthly rate. No surprises.</p>
+                {isNarrowScreen && (
+                  <Image
+                    src="/icons/pricing-icon-image.svg"
+                    alt="Predictable Pricing Background"
+                    width={200}
+                    height={366}
+                    className="absolute right-0 top-0 h-full w-auto z-0"
+                  />
+                )}
+                <div className="relative z-10">
+                  <Image 
+                    src="/icons/pricing-icon.svg" 
+                    alt="Pricing Icon" 
+                    width={48}
+                    height={48}
+                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+                  />
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                    Predictable Pricing
+                  </h3>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">Fixed monthly rate. No surprises.</p>
+                </div>
               </div>
               
               <div className={`
                 founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
-                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center' : 'h-[286px]'}
+                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
               `}>
-                <Image 
-                  src="/icons/dg-icon.svg" 
-                  alt="DreamGate Icon" 
-                  width={48}
-                  height={48}
-                  className="w-10 h-10 md:w-12 md:h-12 mb-2" 
-                />
-                <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                  DreamGate™ System
-                </h3>
-                <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">A portal to manage your projects</p>
+                {isNarrowScreen && (
+                  <Image
+                    src="/icons/dg-icon-image.svg"
+                    alt="DreamGate Background"
+                    width={200}
+                    height={366}
+                    className="absolute right-0 top-0 h-full w-auto z-0"
+                  />
+                )}
+                <div className="relative z-10">
+                  <Image 
+                    src="/icons/dg-icon.svg" 
+                    alt="DreamGate Icon" 
+                    width={48}
+                    height={48}
+                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+                  />
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                    DreamGate™ System
+                  </h3>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">A portal to manage your projects</p>
+                </div>
               </div>
               
               <div className={`
                 founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
-                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center' : 'h-[286px]'}
+                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
               `}>
-                <Image 
-                  src="/icons/ai-icon.svg" 
-                  alt="AI Icon" 
-                  width={48}
-                  height={48}
-                  className="w-10 h-10 md:w-12 md:h-12 mb-2" 
-                />
-                <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                  Web3 & AI Native
-                </h3>
-                <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">We use the latest Web3 & AI tools</p>
+                {isNarrowScreen && (
+                  <Image
+                    src="/icons/ai-icon-image.svg"
+                    alt="Web3 & AI Background"
+                    width={200}
+                    height={366}
+                    className="absolute right-0 top-0 h-full w-auto z-0"
+                  />
+                )}
+                <div className="relative z-10">
+                  <Image 
+                    src="/icons/ai-icon.svg" 
+                    alt="AI Icon" 
+                    width={48}
+                    height={48}
+                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+                  />
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                    Web3 & AI Native
+                  </h3>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%]">We use the latest Web3 & AI tools</p>
+                </div>
               </div>
             </div>
           </div>

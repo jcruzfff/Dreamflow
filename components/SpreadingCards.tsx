@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 // Mobile animation utility functions
@@ -50,11 +51,7 @@ const SpreadingCards = () => {
   const bottomRightRef = useRef<HTMLDivElement>(null);
   
   // Debug flag - set to false to disable markers in production
-  const debugMarkers = true;
-  
-  const handleLaunchApp = () => {
-    window.open('https://app.dreamflow.ai', '_blank');
-  };
+  const debugMarkers = false;
   
   // Mobile animation using IntersectionObserver
   useEffect(() => {
@@ -68,7 +65,7 @@ const SpreadingCards = () => {
     const logo = contentRef.current?.querySelector('.logo');
     const lineTexts = contentRef.current?.querySelectorAll('.line p');
     const subtext = contentRef.current?.querySelector('.subtext');
-    const button = contentRef.current?.querySelector('.btn button');
+    const button = contentRef.current?.querySelector('.btn');
     
     // Hide third card and other cards on mobile
     const allCards = cardsContainerRef.current?.querySelectorAll('.card-left, .card-right');
@@ -169,7 +166,7 @@ const SpreadingCards = () => {
       const logo = contentRef.current?.querySelector('.logo');
       const lineTexts = contentRef.current?.querySelectorAll('.line p');
       const subtext = contentRef.current?.querySelector('.subtext');
-      const button = contentRef.current?.querySelector('.btn button');
+      const button = contentRef.current?.querySelector('.btn');
       
       if (logo && lineTexts && subtext && button) {
         gsap.set([logo, lineTexts, subtext, button], {
@@ -261,12 +258,13 @@ const SpreadingCards = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full min-h-[100vh] md:min-h-[1100px] bg-black overflow-hidden md:overflow-visible py-20 pb-0 md:py-24 md:pb-0"
+      className=" w-full min-h-[100vh] md:min-h-[1100px]  bg-black/75 
+          relative z-10 overflow-hidden md:overflow-visible py-20 pb-0 md:py-24 md:pb-0"
     >
-      {/* Center Content */}
+      {/* Center Content - now has lower z-index */}
       <div 
         ref={contentRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex flex-col items-center w-full max-w-[100vw] px-3"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center w-full max-w-[100vw] px-3"
       >
         <div className="copy text-center flex flex-col items-center gap-6 relative pb-[100px] md:pb-[260px] w-full">
           <div className="logo mb-2 md:mb-6">
@@ -281,7 +279,16 @@ const SpreadingCards = () => {
           
           <div className="text flex flex-col gap-1">
             <div className="line overflow-hidden">
-              <p className="text-gradient w-[80%] md:w-[50%] mx-auto text-3xl md:text-4xl lg:text-5xl font-medium leading-[110%] tracking-[-2%]">
+              <p
+               style={{
+                background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                fontFamily: "Helvetica Neue"
+              }}
+               className="text-gradient w-[80%] md:w-[50%] mx-auto text-3xl md:text-4xl lg:text-5xl font-medium leading-[110%] tracking-[-2%]">
                 Join The #1 Design Subscription For Startups
               </p>
             </div>
@@ -289,21 +296,28 @@ const SpreadingCards = () => {
           
           <p className="subtext text-[#B2B2B2] text-xl font-medium mb-2 md:mb-8">Let&apos;s bring your vision to life.</p>
           
-          <div className="btn">
-            <button 
-              onClick={handleLaunchApp}
-              className="px-24 md:px-8 py-3 bg-white text-black rounded-full text-lg font-medium hover:bg-opacity-90 transition-all"
+          <div className="btn relative z-40">
+            <Link 
+              href="/intake"
+              className="inline-flex items-center justify-center bg-white text-black px-10 md:px-[51px] py-3 md:py-4 rounded-[46.55px] text-lg md:text-xl font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg group"
             >
               Apply Now
-            </button>
+              <Image 
+                src="/icons/black-arrow.svg" 
+                alt="Arrow" 
+                width={13}
+                height={13}
+                className="ml-3 transform transition-transform duration-300 group-hover:translate-x-2"
+              />
+            </Link>
           </div>
         </div>
       </div>
       
-      {/* Cards Container */}
+      {/* Cards Container - now has higher z-index but with pointer-events-none */}
       <div 
         ref={cardsContainerRef}
-        className="relative w-full max-w-6xl mx-auto h-[90vh] md:h-[1200px] overflow-hidden md:overflow-visible"
+        className="relative w-full max-w-6xl mx-auto h-[90vh] md:h-[1200px] overflow-hidden md:overflow-visible z-20 pointer-events-none"
       >
         {/* Row 1 */}
         <div className="row absolute w-full flex justify-center gap-6" style={{ top: '0px' }}>

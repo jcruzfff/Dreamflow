@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isOverFooter, setIsOverFooter] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Handle navbar visibility on scroll
@@ -66,6 +68,7 @@ const Navbar = () => {
       
       // Determine visibility state
       let shouldShowNavbar = false;
+      let isNavbarOverFooter = false;
       
       // First condition: Show when simple title is 20% from top
       if (processSection) {
@@ -117,14 +120,16 @@ const Navbar = () => {
         // Footer bottom is visible when its top enters the viewport
         if (footerRect.top < window.innerHeight) {
           shouldShowNavbar = true;
+          isNavbarOverFooter = true;  // Mark navbar as over footer
           if (debug) console.log('Condition 5: Footer bottom is visible - should show navbar');
         }
       }
       
       // Apply visibility state
       setIsVisible(shouldShowNavbar);
+      setIsOverFooter(isNavbarOverFooter);
       
-      if (debug) console.log(`Navbar visibility: ${shouldShowNavbar}`);
+      if (debug) console.log(`Navbar visibility: ${shouldShowNavbar}, Over footer: ${isNavbarOverFooter}`);
     };
 
     // Initial check
@@ -209,7 +214,8 @@ const Navbar = () => {
       {/* Floating Navigation Bar */}
       <nav 
         className={`fixed bottom-[10%] left-1/2 -translate-x-1/2 h-[52px] p-1 flex items-start gap-2.5 
-          rounded-[32px] border border-[#393939] bg-gradient-to-b from-[#161616] via-[#1D1D1D] to-[#242424] 
+          rounded-[32px] border border-[#393939] 
+          ${isOverFooter ? 'bg-[#0000001a]' : 'bg-gradient-to-b from-[#161616] via-[#1D1D1D] to-[#242424]'}
           z-40 transition-all duration-500 ease-in-out
           ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'}
           lg:flex hidden`}
@@ -252,14 +258,13 @@ const Navbar = () => {
             Book a call
           </a>
           <a 
-            href="#pricing" 
+            href="/intake" 
             className="flex w-[147px] h-[44px] px-[15px] justify-center items-center rounded-[32px] 
               text-[#86868B] text-[14px] font-['Helvetica_Neue'] leading-[14px] tracking-[-0.5px] whitespace-nowrap 
               border border-transparent
               hover:bg-gradient-to-b hover:from-[#3B3B3B] hover:via-[#302F32] hover:to-[#1C1C1C] 
               hover:border-[#424242] hover:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] hover:text-white
               transition-all duration-300 ease-in-out"
-            onClick={(e) => handleNavClick(e, '#pricing')}
           >
             Apply now
           </a>
@@ -268,7 +273,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed inset-0 bg-black/95 z-50 flex flex-col justify-center items-center transition-all duration-300 ${
+        className={`fixed inset-0 bg-black z-50 flex flex-col justify-center items-center transition-all duration-300 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -313,15 +318,25 @@ const Navbar = () => {
             Book a call
           </a>
           <a 
-            href="#pricing" 
-            className="text-white text-xl mt-8 border border-white px-8 py-3 rounded-full"
-            onClick={(e) => {
-              handleNavClick(e, '#pricing');
+            href="/AI-UX-Audit.pdf" 
+            className="text-white text-2xl"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              toggleMobileMenu();
+            }}
+          >
+            Free UX Audit
+          </a>
+          <Link 
+            href="/intake" 
+            className="text-white text-xl mt-8 border border-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+            onClick={() => {
               toggleMobileMenu();
             }}
           >
             Apply Now
-          </a>
+          </Link>
         </div>
       </div>
 

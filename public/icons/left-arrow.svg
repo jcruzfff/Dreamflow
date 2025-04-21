@@ -1,4 +1,5 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="-0.418386" y="0.418386" width="47.1632" height="47.1632" rx="23.5816" transform="matrix(-1 0 0 1 47.1632 0)" stroke="#3C3A3A" stroke-width="0.836772"/>
-<path d="M29.0508 16.7961L27.5015 15.2468L18.7484 23.9999L27.5015 32.7529L29.0508 31.2036L21.847 23.9999L29.0508 16.7961Z" fill="#7E8185"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
 </svg>

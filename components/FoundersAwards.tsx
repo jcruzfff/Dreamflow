@@ -11,6 +11,16 @@ const FoundersAwards = () => {
   const foundersRef = useRef<HTMLDivElement>(null);
   const metricsRef = useRef<HTMLDivElement>(null);
   
+  // Refs for counter elements
+  const projectsCounterRef = useRef<HTMLDivElement>(null);
+  const fundingCounterRef = useRef<HTMLDivElement>(null);
+  const savingsCounterRef = useRef<HTMLDivElement>(null);
+  const speedCounterRef = useRef<HTMLDivElement>(null);
+  const projectsCounterMobileRef = useRef<HTMLDivElement>(null);
+  const fundingCounterMobileRef = useRef<HTMLDivElement>(null);
+  const savingsCounterMobileRef = useRef<HTMLDivElement>(null);
+  const speedCounterMobileRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     if (!sectionRef.current) return;
     
@@ -72,6 +82,37 @@ const FoundersAwards = () => {
       );
     }
 
+    // Animate counter values
+    const animateCounter = (element: HTMLDivElement, value: number, prefix: string = '', suffix: string = '') => {
+      const obj = { count: 0 };
+      gsap.to(obj, {
+        count: value,
+        duration: 2,
+        ease: "power2.out",
+        delay: 0.5,
+        onUpdate: function() {
+          element.innerHTML = `${prefix}${Math.floor(obj.count)}${suffix}`;
+        },
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          toggleActions: "play none none reset"
+        }
+      });
+    };
+
+    // Desktop counters
+    if (projectsCounterRef.current) animateCounter(projectsCounterRef.current, 100, '', '+');
+    if (fundingCounterRef.current) animateCounter(fundingCounterRef.current, 320, '$', 'M+');
+    if (savingsCounterRef.current) animateCounter(savingsCounterRef.current, 1, '$', 'M+');
+    if (speedCounterRef.current) animateCounter(speedCounterRef.current, 3, '', '-5x');
+    
+    // Mobile counters
+    if (projectsCounterMobileRef.current) animateCounter(projectsCounterMobileRef.current, 100, '', '+');
+    if (fundingCounterMobileRef.current) animateCounter(fundingCounterMobileRef.current, 320, '$', 'M+');
+    if (savingsCounterMobileRef.current) animateCounter(savingsCounterMobileRef.current, 1, '$', 'M+');
+    if (speedCounterMobileRef.current) animateCounter(speedCounterMobileRef.current, 3, '', '-5x');
+
     // Clean up animations on unmount
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
@@ -81,7 +122,7 @@ const FoundersAwards = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black"
+      className="py-20 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black/80"
     >
       <div className="container mx-auto max-w-6xl">
         {/* Desktop Layout (2 columns) */}
@@ -170,7 +211,7 @@ const FoundersAwards = () => {
               <div className="metric-header text-[#E6BE70] uppercase text-sm md:text-base font-normal">PROVEN DELIVERY</div>
               
               <div className="absolute left-6 md:left-9 top-[80px] md:top-[102px] flex flex-wrap items-start justify-start">
-                <div className="text-white text-5xl md:text-[78px] font-medium">100+</div>
+                <div ref={projectsCounterRef} className="text-white text-5xl md:text-[78px] font-medium">0</div>
                 <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[93px] text-wrap">happy clients</div>
               </div>
               
@@ -182,7 +223,7 @@ const FoundersAwards = () => {
               <div className="metric-header text-[#14A5ED] uppercase text-sm md:text-base font-normal">FUNDING IMPACT</div>
               
               <div className="absolute left-6 md:left-9 top-[80px] md:top-[102px] flex flex-wrap items-start justify-start">
-                <div className="text-white text-5xl md:text-[78px] font-medium">$320M+</div>
+                <div ref={fundingCounterRef} className="text-white text-5xl md:text-[78px] font-medium">$0</div>
                 <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[150px] text-wrap">Raised by Dreamflow-backed startups</div>
               </div>
               
@@ -197,7 +238,7 @@ const FoundersAwards = () => {
               <div className="metric-header text-[#1ADABA] uppercase text-sm md:text-base font-normal">COST EFFICIENCY</div>
               
               <div className="absolute left-6 md:left-9 top-[90px] md:top-[120px] flex flex-wrap items-start justify-start">
-                <div className="text-white text-5xl md:text-[78px] font-medium">$1M+</div>
+                <div ref={savingsCounterRef} className="text-white text-5xl md:text-[78px] font-medium">$0</div>
                 <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[126px] text-wrap">saved vs hiring in-house teams</div>
               </div>
               
@@ -209,7 +250,7 @@ const FoundersAwards = () => {
               <div className="metric-header text-[#FF766C] uppercase text-sm md:text-base font-normal">SPEED TO LAUNCH</div>
               
               <div className="absolute left-6 md:left-9 top-[90px] md:top-[120px] flex flex-wrap items-start justify-start">
-                <div className="text-white text-5xl md:text-[78px] font-medium">3-5x</div>
+                <div ref={speedCounterRef} className="text-white text-5xl md:text-[78px] font-medium">0</div>
                 <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[160px] text-wrap">faster time-to-launch vs traditional agencies</div>
               </div>
               
@@ -227,7 +268,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#E6BE70] uppercase text-xs font-medium mb-4">PROVEN DELIVERY</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-6xl font-medium">100+</div>
+              <div ref={projectsCounterMobileRef} className="text-white text-6xl font-medium">0</div>
             </div>
               <div className="text-[#86868B] text-sm font-semibold mt-3">Projects delivered</div>
           
@@ -237,7 +278,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#14A5ED] uppercase text-xs font-medium mb-4">FUNDING IMPACT</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-6xl font-medium">$320M+</div>
+              <div ref={fundingCounterMobileRef} className="text-white text-6xl font-medium">$0</div>
             
             </div>
             <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Raised by Dreamflow-backed startups</div>
@@ -247,7 +288,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#1ADABA] uppercase text-xs font-medium mb-4">COST EFFICIENCY</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-6xl font-medium">$1M+</div>
+              <div ref={savingsCounterMobileRef} className="text-white text-6xl font-medium">$0</div>
            
             </div>
                <div className="text-[#86868B] text-sm font-semibold  mt-3 text-wrap">Saved in hiring & design ops</div>
@@ -257,7 +298,7 @@ const FoundersAwards = () => {
           <div className="metric-card bg-card-gradient shadow-card rounded-[20px] p-5 overflow-hidden">
             <div className="text-[#FF766C] uppercase text-xs font-medium mb-4">SPEED TO LAUNCH</div>
             <div className="flex flex-wrap items-center">
-              <div className="text-white text-6xl font-medium">3-5x</div>
+              <div ref={speedCounterMobileRef} className="text-white text-6xl font-medium">0</div>
          
             </div>
                  <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Faster time-to-launch vs traditional agencies</div>

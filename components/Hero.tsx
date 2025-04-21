@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero = () => {
   const topRowRef = useRef<HTMLDivElement>(null);
@@ -155,7 +156,15 @@ const Hero = () => {
           {/* Hero content */}
           <div className="text-center lg:text-left opacity-0 hero-main-content">
             <h1 
-              className="text-gradient text-4xl md:text-6xl lg:text-[72px] font-medium leading-[110%] tracking-[-1.4px] mb-3"
+              style={{
+                background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                fontFamily: "Helvetica Neue"
+              }}
+              className="text-4xl md:text-6xl lg:text-[72px] font-medium leading-[110%] tracking-[-1.4px] mb-3"
             >
               World-Class Designs.<br />Delivered In 48 Hours.
             </h1>
@@ -165,9 +174,9 @@ const Hero = () => {
               The monthly design subscription built for Web3 & AI founders.
             </p>
             <div className="flex justify-center lg:justify-start">
-              <a 
-                href="#pricing" 
-                className="inline-flex items-center justify-center bg-white text-black px-10 md:px-[51px] py-3 md:py-4 rounded-[46.55px] text-lg md:text-xl font-medium transition-all hover:bg-opacity-90 w-full sm:w-[80%] md:w-[70%] lg:w-auto max-w-md"
+              <Link 
+                href="/intake" 
+                className="inline-flex items-center justify-center bg-white text-black px-10 md:px-[51px] py-3 md:py-4 rounded-[46.55px] text-lg md:text-xl font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg w-full sm:w-[80%] md:w-[70%] lg:w-auto max-w-md group"
               >
                 Apply Now
                 <Image 
@@ -175,9 +184,9 @@ const Hero = () => {
                   alt="Arrow" 
                   width={13}
                   height={13}
-                  className="ml-3 transform transition-transform duration-300 group-hover:translate-x-1"
+                  className="ml-3 transform transition-transform duration-300 group-hover:translate-x-2"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

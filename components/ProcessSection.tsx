@@ -200,20 +200,29 @@ const ProcessSection = () => {
     <section 
       ref={sectionRef}
       id="simple" 
-      className="pt-2 md:pt-20 lg:pt-24 pb-20 md:pb-24 lg:pb-32 px-4 md:px-8 lg:px-12 bg-black w-full mt-15 md:mt-[120px]"
+      className="pt-2 md:pt-20 lg:pt-24 pb-20 md:pb-24 lg:pb-32 px-4 md:px-8 lg:px-12  w-full mt-15 md:mt-[120px] relative z-10"
     >
       <div className="max-w-[1117px] mx-auto">
         {/* Section title */}
         <h2 
           ref={titleRef}
           id="simple-title"
-          className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-10 md:mb-[30px] leading-[110%] tracking-[-2%] mx-auto w-full md:w-4/5"
+          style={{
+            background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            color: "transparent",
+            fontFamily: "Helvetica Neue",
+           
+          }}
+          className="text-[34px] md:text-5xl lg:text-[72px] font-medium text-center mb-10 md:mb-[30px] leading-[110%] tracking-[2%] mx-auto w-full md:w-4/5"
         >
           Simple, Streamlined, and Startup-speed
         </h2>
         
         {/* Desktop Layout */}
-        <div className="hidden lg:flex flex-row justify-between items-center gap-10 lg:gap-20">
+        <div className="hidden lg:flex flex-row justify-between items-center gap-10 lg:gap-20 ">
           {/* Left side - Stack images for desktop */}
           <div className="stacked-images relative w-[60%] lg:w-[69%] h-[500px] lg:h-[600px]">
             <Image 

@@ -375,40 +375,49 @@ const Testimonials = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 md:py-20 lg:py-24 pb-20 md:pb-24 lg:pb-48 px-4 md:px-8 lg:px-12 bg-black"
+      className="py-16 md:py-20 lg:py-24 pb-20 md:pb-24 lg:pb-48 px-4 md:px-8 lg:px-12  bg-black/75 
+          relative z-10"
     >
       <div className="container mx-auto max-w-6xl">
         <div className="max-w-4xl mx-auto relative">
           {/* Testimonial Slider Navigation - Hidden on mobile */}
-          <div className="hidden md:block absolute -left-4  top-1/2 -translate-y-[100%] z-10">
+          <div className="hidden md:block absolute -left-4  top-1/2 -translate-y-[100%] z-50">
             <button 
-              className="w-12 h-12 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-all duration-300  group"
+              className="w-12 h-12 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-all duration-300 group"
               onClick={() => handleNavClick('prev')}
               aria-label="Previous testimonial"
             >
-              <Image 
-                src="/icons/left-arrow.svg" 
-                alt="Previous" 
-                width={42}
-                height={42}
-                className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer transition-all duration-300 group-hover:brightness-150 group-hover:-translate-x-1" 
-              />
+              <svg 
+                width="42" 
+                height="42" 
+                viewBox="0 0 42 42" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer transition-all duration-300 group-hover:brightness-150 group-hover:-translate-x-1"
+              >
+                <circle cx="21" cy="21" r="20" stroke="#3c3a3a" strokeWidth="2" />
+                <path d="M23 15L17 21L23 27" stroke="#7e8185" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
           </div>
           
-          <div className="hidden md:block absolute -right-4  top-1/2 -translate-y-[100%] z-10">
+          <div className="hidden md:block absolute -right-4  top-1/2 -translate-y-[100%] z-50">
             <button 
-              className="w-12 h-12 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-all duration-300  group"
+              className="w-12 h-12 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full transition-all duration-300 group"
               onClick={() => handleNavClick('next')}
               aria-label="Next testimonial"
             >
-              <Image 
-                src="/icons/right-arrow.svg" 
-                alt="Next" 
-                width={42}
-                height={42}
-                className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer transition-all duration-300 group-hover:brightness-150 group-hover:translate-x-1" 
-              />
+              <svg 
+                width="42" 
+                height="42" 
+                viewBox="0 0 42 42" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer transition-all duration-300 group-hover:brightness-150 group-hover:translate-x-1"
+              >
+                <circle cx="21" cy="21" r="20" stroke="#3c3a3a" strokeWidth="2" />
+                <path d="M19 15L25 21L19 27" stroke="#7e8185" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
           </div>
           

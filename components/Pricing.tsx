@@ -156,6 +156,14 @@ const Pricing = () => {
       <div className="container mx-auto max-w-6xl">
         <h2 
           ref={titleRef}
+          style={{
+            background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            color: "transparent",
+            fontFamily: "Helvetica Neue"
+          }}
           className="text-[34px] md:text-5xl lg:text-7xl text-gradient font-medium text-center mb-10 md:mb-16 leading-[110%] tracking-[-2%]"
         >
           One Membership.<br/> Infinite Possibilities.
@@ -168,6 +176,20 @@ const Pricing = () => {
             className="lg:col-span-7 order-1 lg:order-2 bg-card-gradient rounded-3xl overflow-hidden shadow-card h-auto md:h-[589px]"
           >
             <div className="p-6 sm:p-8 md:p-10 lg:p-[42px] h-full flex flex-col relative">
+              {/* Yellow glow effect behind button */}
+              <div className="absolute left-[-54px] bottom-[-54px]  w-[150px] h-[150px] bg-[#EEC87C] opacity-30 blur-[44px] rounded-full"></div>
+              
+              {/* SVG curved border at bottom-left corner */}
+              <div className="absolute bottom-0 left-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M0 0C0 3.18 0.62 6.33 1.83 9.27C3.03 12.22 4.78 14.89 7.03 17.14C9.28 19.39 11.95 21.14 14.9 22.34C17.84 23.55 20.99 24.17 24.17 24.17" stroke="#E7C37B" strokeWidth="4.25"/>
+                </svg>
+              </div>
+              
+              {/* L-shaped gradient border highlight */}
+              <div className="absolute bottom-0 left-[24px] w-[156px] h-[2px] bg-gradient-to-r from-[#EEC87C] to-transparent"></div>
+              <div className="absolute bottom-[24px] left-0 h-[108px] w-[2px] bg-gradient-to-t from-[#EEC87C] to-transparent"></div>
+              
               {/* Card Header */}
               <div className="flex flex-col gap-4 md:gap-6 mb-4 md:mb-6">
                 <div className="flex flex-col items-start">

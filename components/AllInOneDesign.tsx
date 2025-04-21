@@ -90,13 +90,28 @@ const AllInOneDesign = () => {
       
       // Set initial positions for title and first card
       gsap.set(titleRef.current, { opacity: 1, y: 0 });
-      gsap.set(cardOrder[0], { y: 0, opacity: 1 }); // First card visible immediately
+      
+      // First card visible immediately at base scale
+      gsap.set(cardOrder[0], { 
+        y: 0, 
+        opacity: 1,
+        scale: 0.88,
+        xPercent: 0, 
+        left: '50%',
+        x: '-50%',
+        transformOrigin: 'center center'
+      });
       
       // All other cards start below the viewport
       for (let i = 1; i < cardOrder.length; i++) {
         gsap.set(cardOrder[i], {
           y: 1000,
-          opacity: 1
+          opacity: 1,
+          scale: 0.88 + (i * 0.03), // Progressively larger scales for cards higher in stack
+          xPercent: 0,
+          left: '50%',
+          x: '-50%',
+          transformOrigin: 'center center'
         });
       }
       
@@ -117,10 +132,16 @@ const AllInOneDesign = () => {
         }
       });
       
+      // Scale factors for each card in the stack (subtle scaling)
+      // Bottom card (index 0) starts small, each card on top gets progressively larger
+      const scaleFactors = [0.88, 0.91, 0.94, 0.97, 1];
+      
       // Animate all cards in sequence with smoother timing
       for (let i = 1; i < cardOrder.length; i++) {
+        // Animate each card with position AND scale
         cardTimeline.to(cardOrder[i], {
           y: i * cardOffset,
+          scale: scaleFactors[i], // Apply the scale factor for this card
           duration: 0.7, // Longer duration for smoother effect
           ease: "power2.inOut", // More natural easing
         }, (i - 1) * 0.25); // More spacing between animations
@@ -163,11 +184,19 @@ const AllInOneDesign = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-12 pb-0 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black min-h-[80vh] all-in-one-section"
+      className="py-12 pb-0 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black/60 min-h-[80vh] all-in-one-section"
     >
       <div className="container mx-auto max-w-6xl all-in-one-content">
         <h2 
           ref={titleRef}
+          style={{
+            background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            color: "transparent",
+            fontFamily: "Helvetica Neue"
+          }}
           className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] pt-4 md:pt-0 mb-[8px] md:mb-10 leading-[110%] w-[90%] md:w-full mx-auto"
         >
           Your all-in-one design team
@@ -189,7 +218,7 @@ const AllInOneDesign = () => {
                   zIndex: 50 - card.id * 10, // UX/UI (index 0) will have z-index 50, Pitch Decks (index 4) will have z-index 10
                   opacity: 0, // Start with opacity 0, animation will set to 1
                   transform: 'translateY(1000px)', // Start off-screen, animation will position
-                  left: 0,
+                  left: '50%',
                   right: 0,
                   margin: '0 auto',
                   top: 0,

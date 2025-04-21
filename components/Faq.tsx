@@ -109,11 +109,19 @@ const Faq = () => {
   return (
     <section 
       ref={sectionRef}
-      className="faq-section py-24 md:py-32 md:pt-0 px-4 md:px-8 lg:px-12 bg-black"
+      className="faq-section py-24 md:py-32 md:pt-0 px-4 md:px-8 lg:px-12 bg-transparent relative z-10"
     >
       <div className="container mx-auto max-w-6xl">
         <h2 
           ref={titleRef}
+          style={{
+            background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            color: "transparent",
+            fontFamily: "Helvetica Neue"
+          }}
           className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-12 md:mb-[42px] leading-[100%] tracking-[-2%] mx-auto w-full md:w-4/5"
         >
           What Founders Ask
@@ -121,11 +129,11 @@ const Faq = () => {
         
         <div 
           ref={faqContainerRef}
-          className="faq-container max-w-4xl mx-auto"
+          className="faq-container max-w-4xl mx-auto relative z-10"
           style={{
-            background: "linear-gradient(180deg, #1F1F1F 0%, #111 69%)",
+            background: "linear-gradient(180deg, rgba(31, 31, 31, 0.9) 0%, rgba(17, 17, 17, 0.9) 69%)",
             borderRadius: "32px",
-            boxShadow: "0px 1.318px 2.635px 0px #525154 inset"
+            boxShadow: "0px 1.318px 2.635px 0px rgba(82, 81, 84, 0.7) inset"
           }}
         >
           {faqItems.map((item, index) => (
