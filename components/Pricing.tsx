@@ -288,6 +288,8 @@ const Pricing = () => {
               {/* CTA Button */}
               <Link 
                 href={tierUrls[selectedTier]} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="lg:absolute lg:bottom-[42px] lg:left-[42px] w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center"
               >
                 Secure your spot
