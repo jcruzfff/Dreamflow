@@ -530,10 +530,10 @@ const Testimonials = () => {
         >
           <div className="h-16 md:h-20 lg:h-[77px] flex items-center justify-center">
             <Image 
-              src="/images/award-one.svg" 
+              src="/images/award-one.png" 
               alt="Good Design Award 2023" 
-              width={348}
-              height={154}
+              width={696}
+              height={308}
               priority
               quality={100}
               className="h-full w-auto"
@@ -541,10 +541,10 @@ const Testimonials = () => {
           </div>
           <div className="h-16 md:h-20 lg:h-[77px] flex items-center justify-center">
             <Image 
-              src="/images/award-two.svg" 
+              src="/images/award-two.png" 
               alt="AI Awards" 
-              width={348}
-              height={154}
+              width={696}
+              height={308}
               priority
               quality={100}
               className="h-full w-auto"
@@ -552,10 +552,10 @@ const Testimonials = () => {
           </div>
           <div className="h-16 md:h-20 lg:h-[77px] flex items-center justify-center">
             <Image 
-              src="/images/award-three.svg" 
+              src="/images/award-three.png" 
               alt="Upwork 5 stars" 
-              width={348}
-              height={154}
+              width={696}
+              height={308}
               priority
               quality={100}
               className="h-full w-auto"
