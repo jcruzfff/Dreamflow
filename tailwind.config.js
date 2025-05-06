@@ -14,6 +14,7 @@ module.exports = {
         mono: ['var(--font-geist-mono)'],
       },
       screens: {
+        'xs': '480px',
         'xl2': '1100px',
       },
       colors: {
