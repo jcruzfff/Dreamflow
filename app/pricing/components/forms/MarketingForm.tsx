@@ -261,6 +261,7 @@ export default function MarketingForm() {
               <option value="slide_16_9">Slide Deck (16:9)</option>
               <option value="slide_4_3">Slide Deck (4:3)</option>
               <option value="web_hero">Web Hero / Header</option>
+              <option value="custom">Custom</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white">
               <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -321,7 +322,7 @@ export default function MarketingForm() {
         <textarea
           value={campaignDescription}
           onChange={(e) => setCampaignDescription(e.target.value)}
-          placeholder="Tell us about your campaign goals, target audience, and key messages..."
+          placeholder="Tell us about your campaign goals, target audience, and key messages. (You can also upload reference files or drop links here)"
           className="w-full p-4 bg-transparent border border-[#333333] rounded-[20px] text-white resize-none focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           rows={4}
         />

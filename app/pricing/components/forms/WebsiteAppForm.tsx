@@ -370,11 +370,11 @@ export default function WebsiteAppForm() {
       
       {/* Project Message */}
       <div>
-        <h3 className="text-neutral-400 text-sm font-medium mb-4">Explain Your Vision</h3>
+        <h3 className="text-neutral-400 text-sm font-medium mb-4">Describe your vision or link a reference.</h3>
         <textarea
           value={projectMessage}
           onChange={(e) => setProjectMessage(e.target.value)}
-          placeholder="Explain your project and how you would like it to look. Example: dog walking landing page in the style of airbnb"
+          placeholder="Example: “Crypto dashboard in the style of Linear with neon gradients.”"
           className="w-full p-4 bg-transparent border border-[#333333] rounded-[20px] text-white resize-none focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           rows={4}
         />

@@ -101,8 +101,8 @@ const ResponsivePricingLayout = () => {
     <>
       <div className="min-h-screen bg-black text-white px-4 sm:px-6 pb-20 md:pb-12">
         <div className="max-w-7xl mx-auto pt-12 md:pt-16">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Price together your favorite package</h1>
-          <p className="text-neutral-400 mb-8 w-[60%]">Select and unselect as many services as you want then add them to your cart.</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Build your own package</h1>
+          <p className="text-neutral-400 mb-8 w-[60%]">Select as many services as you want. Add them to your cart. Order instantly.</p>
           
           <div className="flex flex-col md:flex-row gap-6">
             {/* Configurator Panel - now a floating component */}

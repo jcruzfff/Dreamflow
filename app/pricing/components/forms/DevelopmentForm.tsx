@@ -300,7 +300,7 @@ export default function DevelopmentForm() {
         <textarea
           value={buildNotes}
           onChange={(e) => setBuildNotes(e.target.value)}
-          placeholder="Link to your Figma, describe user flows, and dev needs. Include any technical requirements or specific features..."
+          placeholder="Tell us what we need to know to build it right: Link to your Figma, describe user flows, outline dev needs, features, or functionality."
           className="w-full p-4 bg-transparent border border-[#333333] rounded-[20px] text-white resize-none focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           rows={4}
         />

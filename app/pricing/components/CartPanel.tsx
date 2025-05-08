@@ -97,9 +97,10 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
       <h2 className="text-xl font-semibold mb-4">Order list</h2>
       
       <div className="mb-4 p-4 rounded-[20px] border border-[#424242] bg-gradient-to-b from-[#1d1d1d] to-[#252525]">
-        <div className="text-lg font-medium mb-1">Save 45% by Signing up for Essentials</div>
+        <div className="text-lg font-medium mb-1">Save 45% with Essentials</div>
+        <p className="text-sm text-neutral-400 mb-2"> If you need more than one design each month, our monthly plan might be a better fit.</p>
         <button className="mt-2 py-2 px-4 bg-white text-black font-medium rounded-full transition-colors w-full">
-          Check Plans
+          Compare Plans
         </button>
       </div>
       

@@ -206,14 +206,17 @@ export default function BrandingForm() {
             onChange={(e) => setIndustry(e.target.value)}
             className="w-full appearance-none p-4 pt-[16px] pb-[15px] pr-12 bg-transparent border border-[#333333] rounded-[20px] text-white focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           >
-            <option value="tech">Technology</option>
-            <option value="finance">Finance</option>
+         
+            <option value="web3">Web3 / Crypto</option>
+            <option value="ai">AI & Tech</option>
+            <option value="consumer">Consumer Brands</option>
             <option value="health">Healthcare</option>
-            <option value="retail">Retail</option>
+            <option value="finance">Finance</option>
+            <option value="retail">Retail/Ecommerce</option>
             <option value="food">Food & Beverage</option>
             <option value="education">Education</option>
-            <option value="web3">Web3 / Crypto</option>
             <option value="entertainment">Entertainment</option>
+            <option value="sustainability">Sustainability / Impact</option>
             <option value="other">Other</option>
           </select>
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white">
@@ -226,11 +229,11 @@ export default function BrandingForm() {
       
       {/* Brand Description */}
       <div>
-        <h3 className="text-neutral-400 text-sm font-medium mb-4">Describe your brand, who it&apos;s for, and what it stands for</h3>
+        <h3 className="text-neutral-400 text-sm font-medium mb-4">Tell us about your brand</h3>
         <textarea
           value={brandDescription}
           onChange={(e) => setBrandDescription(e.target.value)}
-          placeholder="Share your brand story..."
+          placeholder="Share your brand’s story, audience, tone, and what you want it to represent. You can also paste references or inspiration below (e.g. Notion, Figma, Pinterest)."
           className="w-full p-4 bg-transparent border border-[#333333] rounded-[20px] text-white resize-none focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           rows={4}
         />

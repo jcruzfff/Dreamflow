@@ -42,8 +42,10 @@ const Hero = () => {
     const video = videoRef.current;
     if (video) {
       const setVideoTime = () => {
-        video.currentTime = 17; // Start at specified seconds
-        video.removeEventListener('loadedmetadata', setVideoTime);
+        if (video) {
+          video.currentTime = 17; // Start at specified seconds
+          video.removeEventListener('loadedmetadata', setVideoTime);
+        }
       };
       
       // Wait for video metadata to load before setting the time
@@ -56,7 +58,7 @@ const Hero = () => {
       // Add an additional event listener for when the video is played
       video.addEventListener('play', () => {
         // Ensure the video starts at 17 seconds every time it plays
-        if (video.currentTime < 17) {
+        if (video && video.currentTime < 17) {
           video.currentTime = 17;
         }
       });
@@ -343,21 +345,23 @@ const Hero = () => {
               loop
               playsInline
               onLoadedMetadata={(e) => {
-                e.currentTarget.currentTime = 17;
-                // Add a fallback timeout as well
-                setTimeout(() => {
-                  if (e.currentTarget.currentTime < 17) {
-                    e.currentTarget.currentTime = 17;
-                  }
-                }, 100);
+                if (e.currentTarget) {
+                  e.currentTarget.currentTime = 17;
+                  // Add a fallback timeout as well
+                  setTimeout(() => {
+                    if (e.currentTarget && e.currentTarget.currentTime < 17) {
+                      e.currentTarget.currentTime = 17;
+                    }
+                  }, 100);
+                }
               }}
               onCanPlay={(e) => {
-                if (e.currentTarget.currentTime < 17) {
+                if (e.currentTarget && e.currentTarget.currentTime < 17) {
                   e.currentTarget.currentTime = 17;
                 }
               }}
               onPlay={(e) => {
-                if (e.currentTarget.currentTime < 17) {
+                if (e.currentTarget && e.currentTarget.currentTime < 17) {
                   e.currentTarget.currentTime = 17;
                 }
               }}
@@ -395,6 +399,21 @@ const Hero = () => {
             loop
             playsInline
             onClick={openModal}
+            onLoadedMetadata={(e) => {
+              if (e.currentTarget) {
+                e.currentTarget.currentTime = 17;
+              }
+            }}
+            onCanPlay={(e) => {
+              if (e.currentTarget && e.currentTarget.currentTime < 17) {
+                e.currentTarget.currentTime = 17;
+              }
+            }}
+            onPlay={(e) => {
+              if (e.currentTarget && e.currentTarget.currentTime < 17) {
+                e.currentTarget.currentTime = 17;
+              }
+            }}
           >
             <source src="/videos/df-promo-compressed.mp4" type="video/mp4" />
             <source src="/videos/df-promo-compressed.mov" type="video/quicktime" />
