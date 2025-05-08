@@ -11,7 +11,7 @@ const Navbar = () => {
   // Handle navbar visibility on scroll
   useEffect(() => {
     // Debug mode - set to true to see console logs during development
-    const debug = true;
+    const debug = false;
     
     const handleScroll = () => {
       // Get the process section element

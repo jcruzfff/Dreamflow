@@ -200,7 +200,7 @@ const ProcessSection = () => {
     <section 
       ref={sectionRef}
       id="simple" 
-      className="pt-2 md:pt-20 lg:pt-24 pb-20 md:pb-24 lg:pb-32 px-4 md:px-8 lg:px-12  w-full mt-15 md:mt-[120px] relative z-10"
+      className="pt-2 md:pt-20 lg:pt-10 pb-20 md:pb-24 lg:pb-32 px-4 md:px-8 lg:px-12  w-full mt-15 md:mt-[120px] relative z-10"
     >
       <div className="max-w-[1117px] mx-auto">
         {/* Section title */}

@@ -127,8 +127,10 @@ const AllInOneDesign = () => {
           scrub: 1.2, // Moderately increased scrub value for smoother animation
           pin: true,
           pinSpacing: true,
-          anticipatePin: 1, // Help prevent jerky pin behavior
+          anticipatePin: 0, // Help prevent jerky pin behavior
           id: "cardStackingAnimation",
+    
+          
         }
       });
       
@@ -184,7 +186,7 @@ const AllInOneDesign = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-12 pb-0 md:py-24 lg:py-32 px-4 md:px-8 lg:px-12 bg-black/60 min-h-[80vh] all-in-one-section"
+      className="py-12 pb-0 md:py-24 lg:py-32  px-4 md:px-8 lg:px-12 bg-black/60 min-h-[80vh] all-in-one-section"
     >
       <div className="container mx-auto max-w-6xl all-in-one-content">
         <h2 

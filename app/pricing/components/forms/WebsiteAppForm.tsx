@@ -102,7 +102,7 @@ export default function WebsiteAppForm() {
             Project Type: {
               projectTypes.length === 1 && projectTypes.includes('desktop') ? 'Desktop' :
               projectTypes.length === 1 && projectTypes.includes('mobile') ? 'Mobile' :
-              projectTypes.length === 2 ? 'Responsive' : 'Select Type'
+              projectTypes.length === 2 ? 'Desktop & Mobile' : 'Select Type'
             }
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -228,7 +228,7 @@ export default function WebsiteAppForm() {
         {/* Accent Color Section */}
         <div className="w-full sm:w-auto mb-6 sm:mb-0">
           <h3 className="text-neutral-400 text-sm font-medium mb-4">
-            Accent Color Selected: {
+            Primary Color Selected: {
               accentColor === '#8065FA' ? 'Purple' :
               accentColor === '#14A5ED' ? 'Blue' :
               accentColor === '#04DEB5' ? 'Green' :
@@ -370,7 +370,7 @@ export default function WebsiteAppForm() {
       
       {/* Project Message */}
       <div>
-        <h3 className="text-neutral-400 text-sm font-medium mb-4">Project Message</h3>
+        <h3 className="text-neutral-400 text-sm font-medium mb-4">Explain Your Vision</h3>
         <textarea
           value={projectMessage}
           onChange={(e) => setProjectMessage(e.target.value)}
