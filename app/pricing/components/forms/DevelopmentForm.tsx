@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { usePricing } from '../../context/PricingContext';
 
 export default function DevelopmentForm() {
-  const { updateCurrentConfig, addToCart } = usePricing();
+  const { updateCurrentConfig, addToCart, resetCurrentConfig } = usePricing();
   
   // Local form state
   const [buildType, setBuildType] = useState('webflow');
@@ -38,42 +38,63 @@ export default function DevelopmentForm() {
   
   // Handle add to cart
   const handleAddToCart = () => {
-    // Calculate price (placeholder logic, will connect to Square later)
+    // Calculate price based on selections
     let basePrice = 0;
     
-    // Base prices for build type
-    switch (buildType) {
-      case 'webflow':
-        basePrice = 1200;
-        break;
-      case 'custom':
-        basePrice = 2000;
-        break;
-      case 'fullstack':
-        basePrice = 4000;
-        break;
-      case 'animation':
-        basePrice = 1800;
-        break;
-      case 'mobile':
-        basePrice = 3000;
-        break;
-      default:
-        basePrice = 1200;
+    // Build type labels and prices
+    const buildTypeInfo: { [key: string]: { label: string; price: number } } = {
+      'webflow': { label: 'Webflow', price: 1200 },
+      'custom': { label: 'Custom Front-End', price: 2000 },
+      'fullstack': { label: 'Full-Stack dApp', price: 4000 },
+      'animation': { label: 'Animation Microsite', price: 1800 },
+      'mobile': { label: 'Mobile App', price: 3000 }
+    };
+    
+    // Set base price based on build type
+    basePrice = buildTypeInfo[buildType]?.price || 1200;
+    
+    // Build scope labels and additional costs
+    const scopeInfo: { [key: string]: { label: string; price: number } } = {
+      'animations': { label: 'Animations/Interactions', price: 800 },
+      'cms': { label: 'CMS Integration', price: 600 },
+      'api': { label: 'API Integration', price: 1000 },
+      'backend': { label: 'Backend Services', price: 1500 },
+      'hosting': { label: 'Hosting/Deployment', price: 400 }
+    };
+    
+    // Add cost for the selected build scope option (if any)
+    if (buildScope.length > 0) {
+      const scope = buildScope[0];
+      basePrice += scopeInfo[scope]?.price || 0;
     }
     
-    // Additional costs for build scope
-    if (buildScope.includes('animations')) basePrice += 800;
-    if (buildScope.includes('cms')) basePrice += 600;
-    if (buildScope.includes('api')) basePrice += 1000;
-    if (buildScope.includes('backend')) basePrice += 1500;
-    if (buildScope.includes('hosting')) basePrice += 400;
+    // Format build type for display
+    const buildTypeLabel = buildTypeInfo[buildType]?.label || buildType;
     
-    // Add to cart
+    // Format build scope for display
+    const scopeLabels = buildScope.map(scope => scopeInfo[scope]?.label || scope);
+    
+    // Create product name based on build type
+    const productName = `${buildTypeLabel} Development`;
+    
+    // Create detailed description
+    let description = `${buildTypeLabel} Build`;
+    if (scopeLabels.length > 0) {
+      description += ` with ${scopeLabels.join(', ')}`;
+    } else {
+      description += ' with Basic Scope';
+    }
+    
+    // Add notes if provided (truncated for receipt)
+    if (buildNotes) {
+      description += `. Notes: ${buildNotes.substring(0, 100)}${buildNotes.length > 100 ? '...' : ''}`;
+    }
+    
+    // Add to cart with detailed information for Square
     addToCart({
       category: 'development',
-      name: 'Development',
-      description: `${buildType} Build with ${buildScope.length > 0 ? buildScope.join(', ') : 'Basic Scope'}`,
+      name: productName,
+      description: description,
       price: basePrice,
       options: {
         buildType,
@@ -82,22 +103,36 @@ export default function DevelopmentForm() {
       },
       quantity: 1
     });
+
+    // Reset form state after adding to cart
+    setBuildType('webflow');
+    setBuildScope([]);
+    setBuildNotes('');
+    setIsDropdownOpen(false);
+    resetCurrentConfig();
   };
   
   // Toggle selection in the dropdown
   const toggleSelection = (scope: string) => {
-    setBuildScope(prev => 
-      prev.includes(scope)
-        ? prev.filter(item => item !== scope)
-        : [...prev, scope]
-    );
+    // If no scope is selected, select this one
+    if (buildScope.length === 0) {
+      setBuildScope([scope]);
+      return;
+    }
+
+    // If this scope is already selected, deselect it
+    if (buildScope.includes(scope)) {
+      setBuildScope([]);
+    } else {
+      // Otherwise, replace the current selection with this one
+      setBuildScope([scope]);
+    }
   };
   
   // Format selected options for display
   const formatSelectedOptions = () => {
-    if (buildScope.length === 0) return 'Select build scope options';
-    if (buildScope.length === 1) return scopeOptions.find(option => option.value === buildScope[0])?.label || '';
-    return `${buildScope.length} options selected`;
+    if (buildScope.length === 0) return 'Select build scope option';
+    return scopeOptions.find(option => option.value === buildScope[0])?.label || '';
   };
   
   // Scope options

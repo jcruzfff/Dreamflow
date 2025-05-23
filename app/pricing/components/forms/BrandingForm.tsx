@@ -4,27 +4,22 @@ import React, { useState } from 'react';
 import { usePricing } from '../../context/PricingContext';
 
 export default function BrandingForm() {
-  const { updateCurrentConfig, addToCart } = usePricing();
+  const { updateCurrentConfig, addToCart, resetCurrentConfig } = usePricing();
   
   // Local form state
-  const [services, setServices] = useState<string[]>([]);
-  const [industry, setIndustry] = useState('tech');
+  const [services, setServices] = useState<string[]>(['logo']);
+  const [industry, setIndustry] = useState('web3');
   const [brandDescription, setBrandDescription] = useState('');
-  
-  // Toggle selection function for multi-select
-  const toggleSelection = (value: string, currentValues: string[], setValues: React.Dispatch<React.SetStateAction<string[]>>) => {
-    if (currentValues.includes(value)) {
-      // Remove if already selected
-      setValues(currentValues.filter(v => v !== value));
-    } else {
-      // Add if not selected
-      setValues([...currentValues, value]);
-    }
-  };
   
   // Handle service toggle
   const handleServiceToggle = (service: string) => {
-    toggleSelection(service, services, setServices);
+    // If the service is already selected, deselect it
+    if (services.includes(service)) {
+      setServices([]);
+    } else {
+      // Otherwise, select only this service (replacing any previously selected)
+      setServices([service]);
+    }
   };
   
   // Update context when form changes
@@ -40,41 +35,74 @@ export default function BrandingForm() {
   const handleAddToCart = () => {
     // Basic validation
     if (services.length === 0) {
-      alert('Please select at least one branding service');
+      alert('Please select a branding service');
       return;
     }
     
-    // Calculate price (placeholder logic, will connect to Square later)
+    // Since we now only allow one service, we can simplify the price calculation
     let basePrice = 0;
+    const service = services[0]; // There will only be one service
     
-    if (services.includes('logo')) basePrice += 900;
-    if (services.includes('3d_logo')) basePrice += 1400;
-    if (services.includes('brand_kit')) basePrice += 700;
-    if (services.includes('brand_strategy')) basePrice += 1500;
-    if (services.includes('visual_direction')) basePrice += 350;
+    // Service pricing
+    if (service === 'logo') basePrice = 900;
+    else if (service === '3d_logo') basePrice = 1400;
+    else if (service === 'brand_kit') basePrice = 700;
+    else if (service === 'brand_strategy') basePrice = 1500;
+    else if (service === 'visual_direction') basePrice = 350;
     
-    // Add to cart
+    // Service labels for clean display
+    const serviceLabels: { [key: string]: string } = {
+      'logo': 'Logo Design',
+      '3d_logo': '3D Logo',
+      'brand_kit': 'Brand Kit',
+      'brand_strategy': 'Brand Strategy',
+      'visual_direction': 'Visual Direction'
+    };
+    
+    // Industry display names
+    const industryLabels: { [key: string]: string } = {
+      'web3': 'Web3/Crypto',
+      'ai': 'AI & Tech',
+      'consumer': 'Consumer Brands',
+      'health': 'Healthcare',
+      'finance': 'Finance',
+      'retail': 'Retail/Ecommerce',
+      'food': 'Food & Beverage',
+      'education': 'Education',
+      'entertainment': 'Entertainment',
+      'sustainability': 'Sustainability/Impact',
+      'other': 'Other'
+    };
+    
+    // Format services for display
+    const selectedServices = services.map(s => serviceLabels[s] || s);
+    
+    // Create product name based on the selected service
+    const productName = serviceLabels[service] || 'Brand Design';
+    
+    // Display industry name
+    const industryName = industryLabels[industry] || industry;
+    
+    // Add to cart with detailed information for Square
     addToCart({
       category: 'branding',
-      name: 'Brand Design',
-      description: `${services.map(s => {
-        switch(s) {
-          case 'logo': return 'Logo Design';
-          case '3d_logo': return '3D Logo';
-          case 'brand_kit': return 'Brand Kit';
-          case 'brand_strategy': return 'Brand Strategy';
-          case 'visual_direction': return 'Visual Direction';
-          default: return s;
-        }
-      }).join(', ')} for ${industry} industry`,
+      name: productName,
+      description: `${selectedServices.join(', ')} for ${industryName} industry${brandDescription ? '. Notes: ' + brandDescription.substring(0, 100) + (brandDescription.length > 100 ? '...' : '') : ''}`,
       price: basePrice,
       options: {
         services,
         industry,
-        brandDescription
+        brandDescription,
+        selectedVariant: service === 'brand_kit' ? '10_page' : undefined
       },
       quantity: 1
     });
+    
+    // Reset form state after adding to cart
+    setServices([]);
+    setIndustry('web3');
+    setBrandDescription('');
+    resetCurrentConfig();
   };
   
   return (
@@ -233,7 +261,7 @@ export default function BrandingForm() {
         <textarea
           value={brandDescription}
           onChange={(e) => setBrandDescription(e.target.value)}
-          placeholder="Share your brand’s story, audience, tone, and what you want it to represent. You can also paste references or inspiration below (e.g. Notion, Figma, Pinterest)."
+          placeholder={`Share your brand's story, audience, tone, and what you want it to represent. You can also paste references or inspiration below (e.g. Notion, Figma, Pinterest).`}
           className="w-full p-4 bg-transparent border border-[#333333] rounded-[20px] text-white resize-none focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           rows={4}
         />

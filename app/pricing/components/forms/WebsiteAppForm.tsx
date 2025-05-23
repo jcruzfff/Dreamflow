@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { usePricing } from '../../context/PricingContext';
+import { HexColorPicker } from 'react-colorful';
 
 export default function WebsiteAppForm() {
   const { updateCurrentConfig, addToCart } = usePricing();
@@ -13,6 +14,50 @@ export default function WebsiteAppForm() {
   const [style, setStyle] = useState('flat'); // Flat/Solid style
   const [textStyle, setTextStyle] = useState('sans');
   const [projectMessage, setProjectMessage] = useState('');
+  
+  // New state for color picker modal
+  const [showColorPicker, setShowColorPicker] = useState(false);
+  const [tempColor, setTempColor] = useState('#8065FA');
+  
+  // Predefined colors for "Choose for me" functionality
+  const randomColors = [
+    '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
+    '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9',
+    '#F8C471', '#82E0AA', '#F1948A', '#85C1E9', '#D7BDE2'
+  ];
+  
+  // Function to choose random color
+  const chooseRandomColor = () => {
+    const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
+    setTempColor(randomColor);
+  };
+  
+  // Function to open color picker
+  const openColorPicker = () => {
+    setTempColor(accentColor);
+    setShowColorPicker(true);
+  };
+  
+  // Function to confirm color selection
+  const confirmColorSelection = () => {
+    setAccentColor(tempColor);
+    setShowColorPicker(false);
+  };
+  
+  // Function to cancel color selection
+  const cancelColorSelection = () => {
+    setShowColorPicker(false);
+  };
+  
+  // Helper function to convert hex to RGB
+  const hexToRgb = (hex: string) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  };
   
   // Toggle selection function for multi-select
   const toggleSelection = (value: string, currentValues: string[], setValues: React.Dispatch<React.SetStateAction<string[]>>) => {
@@ -64,7 +109,7 @@ export default function WebsiteAppForm() {
       return;
     }
     
-    // Calculate price (placeholder logic, will connect to Square later)
+    // Calculate price based on selections
     let basePrice = 0;
     
     // Base price for project types
@@ -73,21 +118,41 @@ export default function WebsiteAppForm() {
     
     // Additional costs based on theme complexity
     if (themeStyles.includes('glass')) basePrice += 200;
+    if (themeStyles.includes('dark') && themeStyles.includes('light')) basePrice += 150;
     
-    // Add to cart
+    // Format project types for display
+    const typeLabels: { [key: string]: string } = {
+      desktop: 'Desktop',
+      mobile: 'Mobile'
+    };
+    
+    // Format theme styles for display
+    const styleLabels: { [key: string]: string } = {
+      light: 'Light Mode',
+      dark: 'Dark Mode',
+      glass: 'Glass Effect'
+    };
+    
+    // Create detailed product name and description
+    const selectedTypes = projectTypes.map(type => typeLabels[type]).join(' & ');
+    const selectedStyles = themeStyles.map(style => styleLabels[style]).join(' & ');
+    const productName = `Website Design - ${selectedTypes}`;
+    
+    // Add to cart with detailed information for Square
     addToCart({
       category: 'website',
-      name: 'Website Design',
-      description: `${projectTypes.join(' & ')} design with ${themeStyles.join(' & ')} theme`,
+      name: productName,
+      description: `${selectedTypes} website with ${selectedStyles} theme${projectMessage ? '. Notes: ' + projectMessage : ''}`,
       price: basePrice,
       options: {
         projectTypes,
         themeStyles,
-        designScope: [], // Pass empty array since we're not using designScope
+        designScope: [],
         style,
         accentColor,
         textStyle,
-        projectMessage
+        projectMessage,
+        selectedVariant: projectTypes.includes('desktop') ? 'single_page' : undefined
       },
       quantity: 1
     });
@@ -95,6 +160,92 @@ export default function WebsiteAppForm() {
   
   return (
     <div className="space-y-8 font-['Helvetica_Neue']">
+      {/* Color Picker Modal */}
+      {showColorPicker && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="bg-[#1a1a1a] rounded-[20px] p-6 w-[400px] max-w-[90vw]">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-white font-medium">Choose Color</h3>
+              <button 
+                onClick={cancelColorSelection}
+                className="text-neutral-400 hover:text-white"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            
+            {/* Color preview area with gradient background */}
+            <div 
+              className="w-full h-16 rounded-[15px] mb-6 border border-[#333]"
+              style={{ 
+                background: `linear-gradient(135deg, ${tempColor}40 0%, ${tempColor} 100%)`
+              }}
+            />
+            
+            {/* Color Picker */}
+            <div className="mb-6">
+              <HexColorPicker 
+                color={tempColor} 
+                onChange={setTempColor}
+                style={{ width: '100%', height: '200px' }}
+              />
+            </div>
+            
+            {/* Opacity/Alpha slider placeholder */}
+            <div className="mb-6">
+              <div className="w-full h-6 rounded-full bg-gradient-to-r from-transparent to-white opacity-50 border border-[#333]" />
+            </div>
+            
+            {/* RGB Values */}
+            <div className="mb-6">
+              <div className="flex items-center justify-between bg-[#2a2a2a] rounded-[15px] p-4">
+                <span className="text-neutral-400 text-sm">RGB</span>
+                <div className="flex gap-2 text-white">
+                  {(() => {
+                    const rgb = hexToRgb(tempColor);
+                    return rgb ? (
+                      <>
+                        <span className="bg-[#424242] px-2 py-1 rounded text-sm">{rgb.r}</span>
+                        <span className="bg-[#424242] px-2 py-1 rounded text-sm">{rgb.g}</span>
+                        <span className="bg-[#424242] px-2 py-1 rounded text-sm">{rgb.b}</span>
+                        <span className="bg-[#424242] px-2 py-1 rounded text-sm">100%</span>
+                      </>
+                    ) : null;
+                  })()}
+                </div>
+              </div>
+            </div>
+            
+            {/* Choose for me button */}
+            <button
+              onClick={chooseRandomColor}
+              className="w-full py-3 mb-4 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors"
+            >
+              Choose for me
+            </button>
+            
+            {/* Action buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={cancelColorSelection}
+                className="flex-1 py-3 border border-[#333] text-white rounded-full hover:bg-[#2a2a2a] transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmColorSelection}
+                className="flex-1 py-3 bg-white text-black font-medium rounded-full hover:bg-gray-100 transition-colors"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Project Type Section */}
         <div>
@@ -234,7 +385,7 @@ export default function WebsiteAppForm() {
               accentColor === '#04DEB5' ? 'Green' :
               accentColor === '#FEA37F' ? 'Orange' :
               accentColor === '#F53A66' ? 'Red' :
-              accentColor === 'custom' ? 'Custom' :
+              !['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) ? 'Custom' :
               accentColor
             }
           </h3>
@@ -258,28 +409,32 @@ export default function WebsiteAppForm() {
                 )}
               </button>
             ))}
+            
             {/* Color wheel */}
             <button
               className="relative flex flex-col items-center cursor-pointer"
-              onClick={() => {
-                // This would ideally open a color picker
-                // For now, let's just set it to custom
-                setAccentColor('custom');
-              }}
+              onClick={openColorPicker}
             >
               <div 
-                className={`w-[42px] h-[42px] rounded-full overflow-hidden flex items-center justify-center`}
+                className={`w-[42px] h-[42px] rounded-full overflow-hidden flex items-center justify-center relative`}
               >
-                <div 
-                  className="w-full h-full absolute rounded-full" 
-                  style={{ background: 'conic-gradient(from 90deg at 50% 50%, #1ADBBB 0deg, #14A5ED 58.434176445007324deg, #7F64FB 145.57132601737976deg, #FFAF84 226.89932584762573deg, #FF766C 290.7999086380005deg, #F33265 360deg)' }}
-                >
-                </div>
-                {accentColor === 'custom' && (
-                  <div className="w-6 h-6 rounded-full border-2 border-gray-800 z-10"></div>
+                {/* Show custom color if selected, otherwise show gradient wheel */}
+                {!['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) ? (
+                  <div 
+                    className="w-full h-full rounded-full border-2 border-gray-600" 
+                    style={{ backgroundColor: accentColor }}
+                  />
+                ) : (
+                  <div 
+                    className="w-full h-full absolute rounded-full" 
+                    style={{ background: 'conic-gradient(from 90deg at 50% 50%, #1ADBBB 0deg, #14A5ED 58.434176445007324deg, #7F64FB 145.57132601737976deg, #FFAF84 226.89932584762573deg, #FF766C 290.7999086380005deg, #F33265 360deg)' }}
+                  />
+                )}
+                {!['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) && (
+                  <div className="w-6 h-6 rounded-full border-2 border-gray-800 z-10 absolute"></div>
                 )}
               </div>
-              {accentColor === 'custom' && (
+              {!['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) && (
                 <div className="h-[3px] w-6 bg-white mt-3"></div>
               )}
             </button>
@@ -374,7 +529,7 @@ export default function WebsiteAppForm() {
         <textarea
           value={projectMessage}
           onChange={(e) => setProjectMessage(e.target.value)}
-          placeholder="Example: “Crypto dashboard in the style of Linear with neon gradients.”"
+          placeholder={`Example: "Crypto dashboard in the style of Linear with neon gradients."`}
           className="w-full p-4 bg-transparent border border-[#333333] rounded-[20px] text-white resize-none focus:outline-none focus:border-[#424242] font-['Helvetica_Neue']"
           rows={4}
         />

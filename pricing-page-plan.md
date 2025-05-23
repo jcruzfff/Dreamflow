@@ -78,5 +78,3 @@ We have successfully built the interactive pricing page with the following featu
 4. **Analytics**: Add event tracking to understand user interactions.
 
 ---
-
-_Last updated: June 2023_
