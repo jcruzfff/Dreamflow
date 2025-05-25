@@ -22,16 +22,8 @@ type FormData = {
 export default function IntakeForm() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
   const welcomeRef = useRef<HTMLDivElement>(null);
-  
-  // If isSuccess is true, move to success step
-  useEffect(() => {
-    if (isSuccess) {
-      setStep(12); // Move to success step (changed from 10 to 12)
-    }
-  }, [isSuccess]);
   
   // Focus welcome screen on initial load
   useEffect(() => {
@@ -106,7 +98,8 @@ export default function IntakeForm() {
       });
       
       if (response.ok) {
-        setIsSuccess(true);
+        // Redirect immediately to pricing page with submitted parameter
+        window.location.href = '/pricing?submitted=true';
       } else {
         const errorData = await response.json();
         setError(errorData.message || 'Something went wrong. Please try again.');
@@ -787,46 +780,6 @@ export default function IntakeForm() {
               {error && (
                 <p className="text-[#ff4c4c] text-base mt-4 text-center">{error}</p>
               )}
-            </motion.div>
-          )}
-          
-          {/* Success Step */}
-          {step === 12 && (
-            <motion.div
-              className="flex flex-col items-center text-center w-full"
-              initial="initial"
-              animate="in"
-              exit="out"
-              variants={pageVariants}
-              transition={pageTransition}
-            >
-              <div className="mb-8 flex justify-center">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="#1ADABA" strokeWidth="2"/>
-                  <path d="M8 12L11 15L16 9" stroke="#1ADABA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              
-              <h2 className="text-[36px] md:text-[50px] lg:text-[64px] mb-4 font-normal text-center">Application submitted!</h2>
-              <p className="text-xl text-[#dadada] mb-8 text-center max-w-2xl mx-auto">
-                Thank you for your application. Our team will review it and get back to you within 1-2 business days to schedule your Dream Discovery Call.
-              </p>
-              
-              <div className="flex justify-center">
-                <Link 
-                  href="/" 
-                  className="relative z-[1000] py-3 md:py-4 px-10 md:px-[51px] text-lg md:text-xl bg-white text-black border-none rounded-[46.55px] cursor-pointer hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 flex items-center justify-center font-medium group"
-                >
-                  Return to Homepage
-                  <Image 
-                    src="/icons/black-arrow.svg" 
-                    alt="Arrow" 
-                    width={13}
-                    height={13}
-                    className="ml-3 transform transition-transform duration-300 group-hover:translate-x-2"
-                  />
-                </Link>
-              </div>
             </motion.div>
           )}
         </form>

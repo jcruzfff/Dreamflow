@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import { usePricing } from '../../context/PricingContext';
 import { HexColorPicker } from 'react-colorful';
 
@@ -109,16 +110,19 @@ export default function WebsiteAppForm() {
       return;
     }
     
-    // Calculate price based on selections
+    // Calculate price based on new structure
     let basePrice = 0;
     
-    // Base price for project types
-    if (projectTypes.includes('desktop')) basePrice += 450;
-    if (projectTypes.includes('mobile')) basePrice += 350;
-    
-    // Additional costs based on theme complexity
-    if (themeStyles.includes('glass')) basePrice += 200;
-    if (themeStyles.includes('dark') && themeStyles.includes('light')) basePrice += 150;
+    // New pricing structure: $2500 base for desktop, +$500 if mobile is also selected
+    if (projectTypes.includes('desktop')) {
+      basePrice = 2500; // Base price for desktop
+      if (projectTypes.includes('mobile')) {
+        basePrice += 500; // Additional $500 if mobile is also selected
+      }
+    } else if (projectTypes.includes('mobile')) {
+      // If only mobile is selected (no desktop)
+      basePrice = 2500;
+    }
     
     // Format project types for display
     const typeLabels: { [key: string]: string } = {
@@ -159,10 +163,10 @@ export default function WebsiteAppForm() {
   };
   
   return (
-    <div className="space-y-8 font-['Helvetica_Neue']">
+    <div className="space-y-6  font-['Helvetica_Neue']">
       {/* Color Picker Modal */}
-      {showColorPicker && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+      {showColorPicker && typeof window !== 'undefined' && ReactDOM.createPortal(
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black bg-opacity-95" style={{ zIndex: 99999, position: 'fixed' }}>
           <div className="bg-[#1a1a1a] rounded-[20px] p-6 w-[400px] max-w-[90vw]">
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
@@ -243,10 +247,11 @@ export default function WebsiteAppForm() {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-[32px]">
         {/* Project Type Section */}
         <div>
           <h3 className="text-neutral-400 text-sm font-medium mb-4">
@@ -375,9 +380,9 @@ export default function WebsiteAppForm() {
       </div>
       
       {/* Options Row with Accent Color, Style, and Text Style */}
-      <div className="flex flex-wrap items-start justify-between mb-8">
+      <div className="flex flex-wrap items-start justify-between mb-[32px]">
         {/* Accent Color Section */}
-        <div className="w-full sm:w-auto mb-6 sm:mb-0">
+        <div className="w-full sm:w-auto mb-8 sm:mb-0">
           <h3 className="text-neutral-400 text-sm font-medium mb-4">
             Primary Color Selected: {
               accentColor === '#8065FA' ? 'Purple' :
@@ -389,7 +394,7 @@ export default function WebsiteAppForm() {
               accentColor
             }
           </h3>
-          <div className="flex items-center gap-4 cursor-pointer">
+          <div className="flex items-center gap-2 sm:gap-4 cursor-pointer">
             {['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].map((color) => (
               <button
                 key={color}
@@ -397,15 +402,15 @@ export default function WebsiteAppForm() {
                 onClick={() => setAccentColor(color)}
               >
                 <div 
-                  className={`w-[42px] h-[42px] rounded-full flex items-center justify-center`}
+                  className={`w-8 h-8 sm:w-[42px] sm:h-[42px] rounded-full flex items-center justify-center`}
                   style={{ backgroundColor: color }}
                 >
                   {accentColor === color && (
-                    <div className="w-6 h-6 rounded-full border-2 border-gray-800"></div>
+                    <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-full border-2 border-gray-800"></div>
                   )}
                 </div>
                 {accentColor === color && (
-                  <div className="h-[3px] w-6 bg-white mt-3"></div>
+                  <div className="h-[3px] w-4 sm:w-6 bg-white mt-2 sm:mt-3"></div>
                 )}
               </button>
             ))}
@@ -416,7 +421,7 @@ export default function WebsiteAppForm() {
               onClick={openColorPicker}
             >
               <div 
-                className={`w-[42px] h-[42px] rounded-full overflow-hidden flex items-center justify-center relative`}
+                className={`w-8 h-8 sm:w-[42px] sm:h-[42px] rounded-full overflow-hidden flex items-center justify-center relative`}
               >
                 {/* Show custom color if selected, otherwise show gradient wheel */}
                 {!['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) ? (
@@ -431,22 +436,22 @@ export default function WebsiteAppForm() {
                   />
                 )}
                 {!['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) && (
-                  <div className="w-6 h-6 rounded-full border-2 border-gray-800 z-10 absolute"></div>
+                  <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-full border-2 border-gray-800 z-10 absolute"></div>
                 )}
               </div>
               {!['#8065FA', '#14A5ED', '#04DEB5', '#FEA37F', '#F53A66'].includes(accentColor) && (
-                <div className="h-[3px] w-6 bg-white mt-3"></div>
+                <div className="h-[3px] w-4 sm:w-6 bg-white mt-2 sm:mt-3"></div>
               )}
             </button>
           </div>
         </div>
         
         {/* Style Section */}
-        <div className="w-full sm:w-auto mb-6 sm:mb-0 sm:ml-auto sm:mr-0">
+        <div className="w-full sm:w-auto mb-8 sm:mb-0 sm:ml-auto sm:mr-0">
           <h3 className="text-neutral-400 text-sm font-medium mb-4 whitespace-nowrap">
-            <div className="w-[200px] text-left">Style Selected: {style === 'gradient' ? 'Gradient' : 'Solid'}</div>
+            <div className="w-full sm:w-[200px] text-left">Style Selected: {style === 'gradient' ? 'Gradient' : 'Solid'}</div>
           </h3>
-          <div className="flex gap-4 cursor-pointer">
+          <div className="flex gap-4 cursor-pointer relative">
             {/* Solid/Flat Button (Now First) */}
             <button
               className={`rounded-[8px] overflow-hidden ${
@@ -480,10 +485,10 @@ export default function WebsiteAppForm() {
             
             {/* Indicator for selected style */}
             {style === 'flat' && (
-              <div className="h-[3px] w-6 bg-white mt-1 absolute -bottom-1 left-[30px]"></div>
+              <div className="h-[3px] w-6 bg-white absolute top-[62px] left-[18px]"></div>
             )}
             {style === 'gradient' && (
-              <div className="h-[3px] w-6 bg-white mt-1 absolute -bottom-1 left-[110px]"></div>
+              <div className="h-[3px] w-6 bg-white absolute top-[62px] left-[97px]"></div>
             )}
           </div>
         </div>
@@ -524,7 +529,7 @@ export default function WebsiteAppForm() {
       </div>
       
       {/* Project Message */}
-      <div>
+      <div className="mb-[32px]">
         <h3 className="text-neutral-400 text-sm font-medium mb-4">Describe your vision or link a reference.</h3>
         <textarea
           value={projectMessage}

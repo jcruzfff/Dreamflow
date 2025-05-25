@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useMemo, ReactNode } from '
 import toast from 'react-hot-toast';
 
 // Define types for our state
-export type Category = 'website' | 'branding' | 'marketing' | 'development';
+export type Category = 'website' | 'branding' | 'marketing';
 
 // Define more specific option types based on the forms
 export type FormOptionValue = string | string[] | number | boolean | undefined;

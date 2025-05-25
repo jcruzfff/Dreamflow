@@ -25,32 +25,6 @@ const UpsellBanner = ({ cartTotal, onCompareClick }: { cartTotal: number; onComp
   );
 };
 
-const CartItemComponent = ({ item, onRemove }: { item: CartItem; onRemove: () => void }) => (
-  <div className="flex items-start p-4 mb-4 bg-neutral-800 rounded-[20px]">
-    <div className="flex-1">
-      <div className="flex justify-between">
-        <div>
-          <h4 className="font-medium">{item.name}</h4>
-          <p className="text-sm text-neutral-400">{item.description}</p>
-        </div>
-        <div className="text-right">
-          <div className="font-medium">${item.price.toFixed(2)}</div>
-        </div>
-      </div>
-    </div>
-    <button 
-      onClick={onRemove}
-      className="ml-4 p-2 text-neutral-400 hover:text-neutral-200"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 6h18"></path>
-        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-      </svg>
-    </button>
-  </div>
-);
-
 const EmptyCart = () => (
   <div className="text-center py-8 text-neutral-400">
     <p>Your cart is empty</p>
@@ -96,14 +70,41 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
   const getItemOptions = (item: CartItem) => {
     const itemName = item.name.toLowerCase();
     
-    if (itemName.includes('website') && itemName.includes('desktop')) {
+    // Social media items should NEVER have dropdown options, regardless of animation
+    if (itemName.includes('social media')) {
+      return { hasOptions: false, options: [] };
+    }
+    
+    // Mockups should NEVER have dropdown options, regardless of motion
+    if (itemName.includes('mockup') || itemName.includes('marketing & content')) {
+      return { hasOptions: false, options: [] };
+    }
+    
+    if (itemName.includes('website')) {
+      // Get project types from item options to calculate pricing
+      const projectTypes = item.options?.projectTypes || ['desktop'];
+      const hasBothDesktopAndMobile = Array.isArray(projectTypes) && 
+        projectTypes.includes('desktop') && projectTypes.includes('mobile');
+      
       return {
         hasOptions: true,
         defaultOption: 'single_page',
         options: [
-          { value: 'single_page', label: 'Single page', basePrice: 600 },
-          { value: 'multi_page_3', label: 'Multi page (3)', basePrice: 1200 },
-          { value: 'multi_page_5', label: 'Multi page (5)', basePrice: 1800 }
+          { 
+            value: 'single_page', 
+            label: 'Single page', 
+            basePrice: hasBothDesktopAndMobile ? 3000 : 2500 
+          },
+          { 
+            value: 'multi_page_3', 
+            label: 'Multi page (3)', 
+            basePrice: hasBothDesktopAndMobile ? 4500 : 4000 
+          },
+          { 
+            value: 'multi_page_5', 
+            label: 'Multi page (5)', 
+            basePrice: hasBothDesktopAndMobile ? 5500 : 5000 
+          }
         ]
       };
     }
@@ -113,8 +114,8 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
         hasOptions: true,
         defaultOption: '10_page',
         options: [
-          { value: '10_page', label: '10 page', basePrice: 800 },
-          { value: '20_page', label: '20 page', basePrice: 1200 }
+          { value: '10_page', label: '10 page', basePrice: 1200 },
+          { value: '20_page', label: '20 page', basePrice: 2000 }
         ]
       };
     }
@@ -124,8 +125,8 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
         hasOptions: true,
         defaultOption: '10_page',
         options: [
-          { value: '10_page', label: '10 page', basePrice: 700 },
-          { value: '20_page_with_logo', label: '20 page (includes logo)', basePrice: 1400 }
+          { value: '10_page', label: '10 page', basePrice: 3500 },
+          { value: '20_page_with_logo', label: '20 page (includes logo)', basePrice: 5000 }
         ]
       };
     }
@@ -135,13 +136,14 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
         hasOptions: true,
         defaultOption: '10_15_secs',
         options: [
-          { value: '10_15_secs', label: '10 - 15 secs', basePrice: 350 },
-          { value: '30_secs_1min', label: '30 secs - 1min', basePrice: 600 },
-          { value: 'greater_than_1min', label: 'Greater than 1 min', basePrice: 900 }
+          { value: '10_15_secs', label: '10 - 15 secs', basePrice: 2500 },
+          { value: '15_30_secs', label: '15 - 30 secs', basePrice: 4000 },
+          { value: '30_secs_1min', label: '30 secs - 1min', basePrice: 5000 }
         ]
       };
     }
     
+    // All other items should not have dropdown options
     return { hasOptions: false, options: [] };
   };
 
@@ -172,7 +174,6 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
     return (
       <div className="mb-4 p-4 border border-[#333333] rounded-[20px]">
         <div className="flex items-start">
-          <div className="w-16 h-16 bg-neutral-800 rounded-[20px] mr-4 flex-shrink-0"></div>
           <div className="flex-1">
             <div className="flex justify-between mb-2">
               <h3 className="font-medium">{item.name}</h3>
@@ -258,7 +259,7 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
       <>
         <PricingModal 
           isOpen={showPricingModal} 
-          onClose={() => setShowPricingModal(false)} 
+          onCloseAction={() => setShowPricingModal(false)} 
         />
         <div className="flex flex-col h-full relative">
           {shouldShowUpsell && <UpsellBanner cartTotal={cartTotal} onCompareClick={() => setShowPricingModal(true)} />}
@@ -270,23 +271,19 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
             {cartItems.length === 0 ? (
               <EmptyCart />
             ) : (
-              <>
+              <div className="pr-1">
                 {cartItems.map((item) => (
-                  <CartItemComponent 
-                    key={item.id} 
-                    item={item} 
-                    onRemove={() => removeFromCart(item.id)} 
-                  />
+                  <CartItemWithControls key={item.id} item={item} />
                 ))}
-              </>
+              </div>
             )}
           </div>
           
           {cartItems.length > 0 && (
-            <div className="sticky bottom-0 bg-black pt-4 border-t border-neutral-700 z-10">
+            <div className="sticky bottom-0 bg-neutral-900 pt-4 border-t border-neutral-700 z-10">
               <div className="flex justify-between py-4">
                 <div className="font-medium">Total</div>
-                <div className="font-medium">${cartTotal.toFixed(2)}</div>
+                <div className="text-xl font-bold">${cartTotal.toFixed(2)}</div>
               </div>
               
               {showEmailInput ? (
@@ -327,7 +324,7 @@ export default function CartPanel({ isMobile = false }: CartPanelProps) {
     <>
       <PricingModal 
         isOpen={showPricingModal} 
-        onClose={() => setShowPricingModal(false)} 
+        onCloseAction={() => setShowPricingModal(false)} 
       />
       <div className="w-full h-full p-6 bg-neutral-900 flex flex-col relative">
         <div className="flex justify-between items-center mb-4">

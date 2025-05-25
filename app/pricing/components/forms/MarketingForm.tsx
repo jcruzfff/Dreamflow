@@ -118,18 +118,9 @@ export default function MarketingForm() {
 
   // Check if motion options should be shown
   const shouldShowMotions = () => {
-    return currentDeliverable !== 'pitch_deck';
-  };
-  
-  // Toggle selection function for multi-select
-  const toggleSelection = (value: string, currentValues: string[], setValues: React.Dispatch<React.SetStateAction<string[]>>) => {
-    if (currentValues.includes(value)) {
-      // Remove if already selected
-      setValues(currentValues.filter(v => v !== value));
-    } else {
-      // Add if not selected
-      setValues([...currentValues, value]);
-    }
+    return currentDeliverable !== 'pitch_deck' && 
+           currentDeliverable !== 'video_bg' && 
+           currentDeliverable !== '3d_animations';
   };
   
   // Handle deliverable toggle
@@ -150,7 +141,8 @@ export default function MarketingForm() {
   
   // Handle motion toggle
   const handleMotionToggle = (motion: string) => {
-    toggleSelection(motion, motions, setMotions);
+    // Only allow one motion selection at a time
+    setMotions([motion]);
   };
   
   // Update context when form changes
@@ -190,15 +182,28 @@ export default function MarketingForm() {
     const deliverable = deliverables[0]; // There will only be one deliverable
     
     // Base prices for deliverables
-    if (deliverable === 'pitch_deck') basePrice = 800;
-    else if (deliverable === 'social_media') basePrice = 600;
-    else if (deliverable === 'video_bg') basePrice = 350;
-    else if (deliverable === 'product_mockups') basePrice = 450;
-    else if (deliverable === '3d_animations') basePrice = 1200;
+    if (deliverable === 'pitch_deck') basePrice = 1200;
+    else if (deliverable === 'social_media') {
+      // Fixed pricing for social media: $700 for static, $1400 for animated/3D
+      const selectedMotion = motions[0];
+      if (selectedMotion === 'static') {
+        basePrice = 700;
+      } else if (selectedMotion === 'animated' || selectedMotion === '3d') {
+        basePrice = 1400;
+      } else {
+        basePrice = 700; // Default to static pricing
+      }
+    }
+    else if (deliverable === 'video_bg') basePrice = 2500;
+    else if (deliverable === 'product_mockups') basePrice = 1500;
+    else if (deliverable === '3d_animations') basePrice = 3000;
     
-    // Additional costs for motion
-    if (motions.includes('animated')) basePrice += 300;
-    if (motions.includes('3d')) basePrice += 600;
+    // Additional costs for motion (only for non-social media items)
+    if (deliverable !== 'social_media') {
+      const selectedMotion = motions[0];
+      if (selectedMotion === 'animated') basePrice += 300;
+      if (selectedMotion === '3d') basePrice += 600;
+    }
     
     // Deliverable labels for display
     const deliverableLabels: { [key: string]: string } = {
@@ -249,7 +254,6 @@ export default function MarketingForm() {
     
     // Format deliverables for display
     const selectedDeliverables = deliverables.map(d => deliverableLabels[d] || d);
-    const selectedMotions = motions.map(m => motionLabels[m] || m);
     
     // Create product name based on the selected deliverable
     let productName;
@@ -268,7 +272,7 @@ export default function MarketingForm() {
     }
     
     // Add motion type to name if relevant
-    if (motions.includes('animated') && !productName.includes('Animation')) {
+    if (motions[0] === 'animated' && !productName.includes('Animation')) {
       productName += ' with Animation';
     }
     
@@ -276,7 +280,7 @@ export default function MarketingForm() {
     addToCart({
       category: 'marketing',
       name: productName,
-      description: `${selectedDeliverables.join(', ')} in ${capitalize(style)} style. Format: ${formatLabels[format] || format}. Motion: ${selectedMotions.join('/')}${campaignDescription ? '. Notes: ' + campaignDescription.substring(0, 100) + (campaignDescription.length > 100 ? '...' : '') : ''}`,
+      description: `${selectedDeliverables.join(', ')} in ${capitalize(style)} style. Format: ${formatLabels[format] || format}. Motion: ${motionLabels[motions[0]] || motions[0]}${campaignDescription ? '. Notes: ' + campaignDescription.substring(0, 100) + (campaignDescription.length > 100 ? '...' : '') : ''}`,
       price: basePrice,
       options: {
         deliverables,
@@ -314,7 +318,7 @@ export default function MarketingForm() {
              '3D Animations') : 
             `${deliverables.length} services selected`}
         </h3>
-        <div className="grid grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
           <button
             className={`p-4 h-[120px] rounded-[20px] ${
               deliverables.includes('pitch_deck')
@@ -417,9 +421,9 @@ export default function MarketingForm() {
       </div>
       
       {/* Style, Format & Motion Row */}
-      <div className="flex items-start gap-4">
+      <div className="flex flex-col md:flex-row items-start gap-4 md:gap-4">
         {/* Style Section */}
-        <div className="w-[30%]">
+        <div className="w-full md:w-[30%]">
           <h3 className="text-neutral-400 text-sm font-medium mb-4">
             Style: {capitalize(style)}
           </h3>
@@ -443,7 +447,7 @@ export default function MarketingForm() {
         </div>
         
         {/* Format Section */}
-        <div className="w-[30%]">
+        <div className="w-full md:w-[30%]">
           <h3 className="text-neutral-400 text-sm font-medium mb-4">Format</h3>
           <div className="relative">
             <select 
@@ -467,9 +471,9 @@ export default function MarketingForm() {
         
         {/* Motion Section */}
         {shouldShowMotions() && (
-          <div className="w-[40%]">
+          <div className="w-full md:w-[40%]">
             <h3 className="text-neutral-400 text-sm font-medium mb-4">
-              Motion: {motions.length === 0 ? 'Select motion' : motions.map(m => capitalize(m)).join(' & ')}
+              Motion: {motions.length === 0 ? 'Select motion' : capitalize(motions[0])}
             </h3>
             <div className="flex gap-2">
               {getMotionOptions().map((option) => (

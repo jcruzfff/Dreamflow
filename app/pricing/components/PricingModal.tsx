@@ -17,10 +17,10 @@ type PricingData = {
 
 interface PricingModalProps {
   isOpen: boolean;
-  onClose: () => void;
+  onCloseAction: () => void;
 }
 
-export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
+export default function PricingModal({ isOpen, onCloseAction }: PricingModalProps) {
   const [selectedTier, setSelectedTier] = useState<PricingTier>('Essentials');
 
   // Pricing data for different tiers
@@ -93,7 +93,7 @@ export default function PricingModal({ isOpen, onClose }: PricingModalProps) {
       <div className="relative w-full max-w-[600px] max-h-[90vh] overflow-y-auto mx-4">
         {/* Close button */}
         <button
-          onClick={onClose}
+          onClick={onCloseAction}
           className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white transition-colors"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

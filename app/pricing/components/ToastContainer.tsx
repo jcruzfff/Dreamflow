@@ -31,7 +31,14 @@ export default function ToastContainer() {
         
         /* Custom positioning for react-hot-toast */
         [data-react-hot-toast] {
-          top: 100px !important;
+          top: 20px !important;
+        }
+        
+        /* Desktop positioning */
+        @media (min-width: 768px) {
+          [data-react-hot-toast] {
+            top: 100px !important;
+          }
         }
         
         /* Custom animation keyframes */
@@ -68,9 +75,9 @@ export default function ToastContainer() {
       `}</style>
       
       <Toaster
-        position="top-right"
+        position="top-center"
         containerStyle={{
-          top: '100px',
+          top: '20px',
         }}
         toastOptions={{
           duration: 3000,
@@ -79,14 +86,16 @@ export default function ToastContainer() {
             color: '#fff',
             fontWeight: '500',
             borderRadius: '12px',
-            padding: '16px 24px',
+            padding: '12px 20px',
             fontSize: '14px',
+            maxWidth: '90vw',
             animation: 'slideInFromRight 0.3s ease-out',
           },
           success: {
             style: {
               background: 'linear-gradient(to bottom, #32D74B, #28A745)',
               animation: 'slideInFromRight 0.3s ease-out',
+              maxWidth: '90vw',
             },
             iconTheme: {
               primary: '#fff',
@@ -97,6 +106,7 @@ export default function ToastContainer() {
             style: {
               background: 'linear-gradient(to bottom, #FF453A, #E03131)',
               animation: 'slideInFromRight 0.3s ease-out',
+              maxWidth: '90vw',
             },
             iconTheme: {
               primary: '#fff',

@@ -97,8 +97,6 @@ interface ParticlesJS {
 declare global {
   interface Window {
     particlesJS: ParticlesJS;
-    va?: (...args: unknown[]) => void;
-    vaq?: unknown[];
   }
 }
 
@@ -155,13 +153,6 @@ export default function Home() {
         applyScrollPosition();
       }, 50); // Short delay to let layout settle
     });
-    
-    // Setup Vercel Analytics if needed (simpler approach to avoid type issues)
-    if (typeof window !== 'undefined' && !window.va) {
-      window.va = function(...args) {
-        (window.vaq = window.vaq || []).push(args);
-      };
-    }
     
     // Initialize particles once the script is loaded
     const initParticles = () => {
@@ -357,13 +348,6 @@ export default function Home() {
         onLoad={() => {
           console.log("Particles.js loaded successfully");
         }}
-      />
-
-      {/* Vercel Analytics */}
-      <Script 
-        src="https://cdn.vercel-insights.com/v1/script.js" 
-        strategy="afterInteractive" 
-        defer
       />
       
       {/* Main Navigation */}

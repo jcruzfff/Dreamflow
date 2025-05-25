@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { squareClient } from '../../../../lib/square/client';
 import { squareConfig } from '../../../../lib/square/config';
 
 export async function GET() {
@@ -27,13 +26,24 @@ export async function GET() {
     
     if (squareConfig.accessToken && squareConfig.locationId) {
       try {
-        // Just retrieve location info as a simple test
-        const response = await squareClient.locationsApi.retrieveLocation(squareConfig.locationId);
-        apiTest = {
-          success: true,
-          message: 'Successfully connected to Square API',
-          locationName: response.result.location.name
-        };
+        // Use dynamic import to avoid build-time issues
+        const { getSquareClient } = await import('../../../../lib/square/client');
+        const squareClient = await getSquareClient();
+        
+        if (!squareClient) {
+          apiTest = {
+            success: false,
+            message: 'Square client could not be initialized'
+          };
+        } else {
+          // Just retrieve location info as a simple test
+          const response = await squareClient.locationsApi.retrieveLocation(squareConfig.locationId);
+          apiTest = {
+            success: true,
+            message: 'Successfully connected to Square API',
+            locationName: response.result.location.name
+          };
+        }
       } catch (apiError) {
         apiTest = {
           success: false,

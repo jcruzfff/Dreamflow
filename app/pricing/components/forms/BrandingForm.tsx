@@ -44,10 +44,10 @@ export default function BrandingForm() {
     const service = services[0]; // There will only be one service
     
     // Service pricing
-    if (service === 'logo') basePrice = 900;
-    else if (service === '3d_logo') basePrice = 1400;
-    else if (service === 'brand_kit') basePrice = 700;
-    else if (service === 'brand_strategy') basePrice = 1500;
+    if (service === 'logo') basePrice = 1500;
+    else if (service === '3d_logo') basePrice = 2000;
+    else if (service === 'brand_kit') basePrice = 3500;
+    else if (service === 'brand_strategy') basePrice = 250;
     else if (service === 'visual_direction') basePrice = 350;
     
     // Service labels for clean display
@@ -118,7 +118,7 @@ export default function BrandingForm() {
             'Visual Direction') : 
             `${services.length} services selected`}
         </h3>
-        <div className="grid grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
           <button
             className={`p-4 h-[120px] rounded-[20px] ${
               services.includes('logo')
