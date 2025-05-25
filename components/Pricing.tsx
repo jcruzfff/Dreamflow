@@ -220,7 +220,7 @@ const Pricing = () => {
                   <button 
                     className={`flex-1 h-9 md:h-11 lg:h-[44px] rounded-full transition-all duration-300 ease-in-out text-xs md:text-sm lg:text-[14px] cursor-pointer ${
                       selectedTier === 'Essentials' 
-                        ? 'bg-gradient-to-b from-[#3B3B3B] via-[#302F32] to-[#1C1C1C] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] text-white relative after:absolute after:inset-0 after:rounded-full after:border after:border-[#424242] after:pointer-events-none' 
+                        ? 'bg-gradient-to-b from-[#3B3B3B] via-[#302F32] to-[#1C1C1C] md:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] text-white relative after:absolute after:inset-0 after:rounded-full after:border after:border-[#424242] after:pointer-events-none' 
                         : 'text-[#787878] hover:text-white/80'
                     }`}
                     onClick={() => handleTierSelect('Essentials')}
@@ -230,7 +230,7 @@ const Pricing = () => {
                   <button 
                     className={`flex-1 h-9 md:h-11 lg:h-[44px] rounded-full transition-all duration-300 ease-in-out text-xs md:text-sm lg:text-[14px] flex items-center justify-center cursor-pointer gap-1 group ${
                       selectedTier === 'Elite' 
-                        ? 'bg-gold-gradient shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] text-black font-medium relative after:absolute after:inset-0 after:rounded-full after:border after:border-dreamflow-gold after:pointer-events-none' 
+                        ? 'bg-gold-gradient md:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] text-black font-medium relative after:absolute after:inset-0 after:rounded-full after:border after:border-dreamflow-gold after:pointer-events-none' 
                         : 'text-[#787878] hover:text-white/80'
                     }`}
                     onClick={() => handleTierSelect('Elite')}
@@ -257,7 +257,7 @@ const Pricing = () => {
                   <button 
                     className={`flex-1 h-9 md:h-11 lg:h-[44px] rounded-full transition-all duration-300 ease-in-out text-xs md:text-sm cursor-pointer lg:text-[14px] ${
                       selectedTier === 'Full-Stack' 
-                        ? 'bg-gradient-to-b from-[#3B3B3B] via-[#302F32] to-[#1C1C1C] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] text-white relative after:absolute after:inset-0 after:rounded-full after:border after:border-[#424242] after:pointer-events-none' 
+                        ? 'bg-gradient-to-b from-[#3B3B3B] via-[#302F32] to-[#1C1C1C] md:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.55)] text-white relative after:absolute after:inset-0 after:rounded-full after:border after:border-[#424242] after:pointer-events-none' 
                         : 'text-[#787878] hover:text-white/80'
                     }`}
                     onClick={() => handleTierSelect('Full-Stack')}
@@ -285,16 +285,25 @@ const Pricing = () => {
                 </div>
               </div>
               
-              {/* CTA Button Container - Fixed height to prevent layout shift */}
-              <div className="w-full h-[56px] sm:h-[60px] lg:h-[56px] lg:absolute lg:bottom-[42px] lg:left-[42px] lg:w-[256px]">
-                <Link 
-                  href={tierUrls[selectedTier]} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center transition-all duration-200"
-                >
-                  Secure your spot
-                </Link>
+              {/* CTA Button Container - Updated to include both buttons */}
+              <div className="w-full lg:absolute lg:bottom-[42px] lg:left-[42px] lg:w-auto">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6">
+                  <Link 
+                    href={tierUrls[selectedTier]} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-[256px] h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-[60px] font-medium shadow-md border-2 border-[#D9BB75] flex justify-center items-center transition-all duration-200 hover:shadow-lg"
+                  >
+                    Secure your spot
+                  </Link>
+                  
+                  <Link 
+                    href="/pricing?from=home"
+                    className="text-white font-medium transition-all duration-200 hover:text-white/80 underline decoration-white/60 underline-offset-4 hover:decoration-white/80 whitespace-nowrap"
+                  >
+                    Build your own package
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

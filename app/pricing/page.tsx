@@ -216,6 +216,34 @@ const ResponsivePricingLayout = () => {
   const submitted = searchParams.get('submitted');
   const [showSuccessOverlay, setShowSuccessOverlay] = useState(submitted === 'true');
   
+  // Check if user came from home page
+  const fromHome = searchParams.get('from') === 'home';
+  
+  // Back button component
+  const BackButton = () => (
+    <button 
+      onClick={() => window.history.back()}
+      className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-200 mb-6 group"
+    >
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        width="20" 
+        height="20" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+        className="transition-transform duration-200 group-hover:-translate-x-1"
+      >
+        <path d="m12 19-7-7 7-7"/>
+        <path d="M19 12H5"/>
+      </svg>
+      <span className="text-sm font-medium">Back</span>
+    </button>
+  );
+  
   // Initialize particles once the script is loaded
   const initParticles = () => {
     if (typeof window !== 'undefined' && window.particlesJS) {
@@ -377,6 +405,9 @@ const ResponsivePricingLayout = () => {
         <>
           <div className={`min-h-screen text-white px-4 sm:px-6 lg:px-8 ${cartItems.length > 0 ? 'pb-36' : 'pb-6'} md:pb-12 relative z-10`}>
             <div className="max-w-7xl mx-auto pt-8 sm:pt-12 md:pt-16">
+              {/* Back button - only show when coming from home page */}
+              {fromHome && <BackButton />}
+              
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Start building your own package</h1>
               <p className="text-neutral-400 mb-6 sm:mb-8 w-full sm:w-[80%] md:w-[60%] text-sm sm:text-base">Select as many services as you want. Add them to your cart. Order instantly.</p>
               
