@@ -211,7 +211,7 @@ export default function MarketingForm() {
       'social_media': 'Social Media Assets',
       'video_bg': 'Video Assets',
       'product_mockups': 'Product Mockups',
-      '3d_animations': '3D Animations'
+      'animations': 'Animations'
     };
     
     // Motion type labels
@@ -315,7 +315,7 @@ export default function MarketingForm() {
              deliverables.includes('social_media') ? 'Social Media Assets' : 
              deliverables.includes('video_bg') ? 'Video Assets' : 
              deliverables.includes('product_mockups') ? 'Mockups' : 
-             '3D Animations') : 
+             'Animations') : 
             `${deliverables.length} services selected`}
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
@@ -414,7 +414,7 @@ export default function MarketingForm() {
                   <path d="M12 11V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="text-sm text-center">3D Animations</span>
+              <span className="text-sm text-center">Animations</span>
             </div>
           </button>
         </div>
