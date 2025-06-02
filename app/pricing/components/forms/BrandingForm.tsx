@@ -48,7 +48,7 @@ export default function BrandingForm() {
     else if (service === '3d_logo') basePrice = 2000;
     else if (service === 'brand_kit') basePrice = 3500;
     else if (service === 'brand_strategy') basePrice = 250;
-    else if (service === 'visual_direction') basePrice = 350;
+    else if (service === 'illustrations') basePrice = 350;
     
     // Service labels for clean display
     const serviceLabels: { [key: string]: string } = {
