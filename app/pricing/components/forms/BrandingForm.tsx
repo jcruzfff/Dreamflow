@@ -115,7 +115,8 @@ export default function BrandingForm() {
             services.includes('3d_logo') ? '3D Logo' : 
             services.includes('brand_kit') ? 'Brand Kit' : 
             services.includes('brand_strategy') ? 'Brand Strategy' : 
-            'Illustrations') : 
+            services.includes('illustrations') ? 'Illustrations' :
+            'Brand Design') : 
             `${services.length} services selected`}
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
@@ -204,11 +205,11 @@ export default function BrandingForm() {
           
           <button
             className={`p-4 h-[120px] rounded-[20px] ${
-              services.includes('visual_direction')
+              services.includes('illustrations')
               ? 'border-2 border-[#303030]'
               : 'hover:bg-[#1a1a1a]'
             } flex items-center justify-center cursor-pointer`}
-            onClick={() => handleServiceToggle('visual_direction')}
+            onClick={() => handleServiceToggle('illustrations')}
           >
             <div className="flex flex-col items-center justify-center">
               <div className="w-8 h-8 mb-3 flex items-center justify-center">
