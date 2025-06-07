@@ -333,7 +333,7 @@ const Hero = () => {
             </p>
             <div className="flex justify-center">
               <Link 
-                href="#pricing" 
+                href="#calendar" 
                 className="inline-flex items-center justify-center bg-white text-black px-10 md:px-[51px] py-3 md:py-4 rounded-[46.55px] text-lg md:text-xl font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg w-full sm:w-[80%] md:w-[70%] lg:w-auto max-w-md group"
               >
                 <span className="md:hidden">Free Strategy Call</span>

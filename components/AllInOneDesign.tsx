@@ -17,7 +17,7 @@ const cards: CardData[] = [
     id: 0,
     title: "AI Workflow & AI Agents",
     description: "Plug-and-play AI workflows and smart systems for founders.",
-    image: "/images/automation.svg"
+    image: "/images/automation-design.png"
   },
   {
     id: 1,
