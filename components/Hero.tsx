@@ -268,20 +268,51 @@ const Hero = () => {
     <section className="relative min-h-[90vh] pt-13 md:pt-14 pb-12 md:pb-16 flex flex-col justify-start" id="home">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 mb-10 md:mb-16 pb-0 sm:pb-14 md:pb-20">
         <div className="max-w-[1117px] mx-auto ">
-          {/* Logo and brand */}
-          <div className="flex items-center justify-center lg:justify-start mb-12 md:mb-[180px] hero-top-content opacity-0">
-            <Image 
-              src="/icons/dreamflow-small-icon.svg" 
-              alt="Dreamflow Design logo" 
-              width={28}
-              height={28}
-              className="mr-1.5"
-            />
-            <p className="text-white text-lg font-medium">Dreamflow</p>
+          {/* Header with Logo and Navigation */}
+          <div className="flex items-center justify-center md:justify-between mb-12 md:mb-[180px] hero-top-content opacity-0">
+            {/* Logo and brand */}
+            <div className="flex items-center">
+              <Image 
+                src="/icons/dreamflow-small-icon.svg" 
+                alt="Dreamflow Design logo" 
+                width={28}
+                height={28}
+                className="mr-1.5"
+              />
+              <p className="text-white text-lg font-medium">Dreamflow</p>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <Link 
+                href="#allinone" 
+                className="text-[#86868B] hover:text-white transition-colors duration-200 text-base font-medium"
+              >
+                Product Design
+              </Link>
+              <Link 
+                href="#allinone" 
+                className="text-[#86868B] hover:text-white transition-colors duration-200 text-base font-medium"
+              >
+                AI Automations
+              </Link>
+              <Link 
+                href="#pricing" 
+                className="text-[#86868B] hover:text-white transition-colors duration-200 text-base font-medium"
+              >
+                Pricing
+              </Link>
+              <Link 
+                href="#pricing" 
+                className="text-[#86868B] hover:text-white transition-colors duration-200 text-base font-medium"
+              >
+                Apply now
+              </Link>
+            </nav>
           </div>
 
           {/* Hero content */}
-          <div className="text-center lg:text-left opacity-0 hero-main-content">
+          <div className="text-center opacity-0 hero-main-content">
             <h1 
               style={{
                 background: "radial-gradient(41% 80% at 50% 50%, #fff 42%, rgba(255, 255, 255, .4) 100%)",
@@ -293,19 +324,20 @@ const Hero = () => {
               }}
               className="text-4xl md:text-6xl lg:text-[72px] font-medium leading-[110%] tracking-[-1.4px] mb-3"
             >
-              World-Class Designs.<br />Delivered In 48 Hours.
+              The #1 Creative + AI Automation<br />Subscription For Founders.
             </h1>
             <p 
-              className="text-[#B2B2B2] text-xl md:text-2xl font-medium mb-8 md:mb-10 w-[90%] sm:w-[70%] md:w-[70%] max-w-3xl mx-auto lg:mx-0"
+              className="text-[#B2B2B2] text-xl md:text-2xl font-medium mb-8 md:mb-10 w-[100%] md:w-[90%] max-w-3xl mx-auto"
             >
-              The monthly design subscription built for Web3 & AI founders.
+              Get world-class branding,websites, and AI systems <span className="hidden md:inline"><br/></span>- delivered in as little as 48 hours.
             </p>
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center">
               <Link 
                 href="#pricing" 
                 className="inline-flex items-center justify-center bg-white text-black px-10 md:px-[51px] py-3 md:py-4 rounded-[46.55px] text-lg md:text-xl font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg w-full sm:w-[80%] md:w-[70%] lg:w-auto max-w-md group"
               >
-                See Pricing
+                <span className="md:hidden">Free Strategy Call</span>
+                <span className="hidden md:inline">Book a Free Strategy Call</span>
                 <Image 
                   src="/icons/black-arrow.svg" 
                   alt="Arrow" 

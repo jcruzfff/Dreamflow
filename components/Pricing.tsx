@@ -27,50 +27,51 @@ const Pricing = () => {
   // Pricing data for different tiers
   const pricingData: PricingData = {
     'Essentials': {
-      title: 'MVP Stage',
+      title: 'Early Stage',
       price: '$4,995',
       spotsLeft: 3,
       indicatorColor: 'bg-[#00ff66]',
       features: [
-        'One request at a time',
-        'Avg 3-4 day delivery',
-        'Unlimited brands',
-        'Webflow development',
-        'Unlimited requests',
+        '1 active task',
+        'Unlimited design requests',
         'Unlimited revisions',
-        'DreamGate™ Portal',
+        '3-day turnaround',
+        'Basic AI automation',
+        'DreamGate™ task portal',
+        '30-day money-back guarantee',
+        'Pause or cancel anytime'
       ]
     },
     'Elite': {
-      title: 'Seed Stage',
+      title: 'Scaling Startups',
       price: '$9,995',
       spotsLeft: 2,
       indicatorColor: 'bg-[#ffee00]',
       features: [
-        'Two requests at a time',
-        'Avg 48-hour delivery',
-        'Motion graphics included',
+        '2 active tasks',
+        'Everything in Essentials',
         'Front-end development',
-        'Unlimited brands',
-        'DreamGate™ Portal',
-        'Unlimited requests',
-        'Unlimited revisions',
+        '2-day turnaround',
+        'Advanced AI automation',
+        'Monthly strategy sessions',
+        '30-day money-back guarantee',
+        'Pause or cancel anytime'
       ]
     },
     'Full-Stack': {
-      title: 'Growth Stage',
+      title: 'High Growth',
       price: '$24,995',
       spotsLeft: 1,
       indicatorColor: 'bg-[#ff3e3e]',
       features: [
+        '2 active tasks',
         'Everything in Elite',
-        'Avg 24–48 hour delivery',
-        'Motion graphics',
         'Full-stack development',
-        'Videography + photography',
-        'Dedicated creative director',
-        'Unlimited brands',
-        'DreamGate™ Portal',
+        'Priority turnaround',
+        'Custom AI systems',
+        'Dedicated product team',
+        '30-day money-back guarantee',
+        'Pause or cancel anytime'
       ]
     }
   };
@@ -268,7 +269,7 @@ const Pricing = () => {
               </div>
               
               {/* Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-10 md:gap-20 lg:gap-[50px] mb-8 md:mb-10 flex-grow">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-10 md:gap-20 lg:gap-[30px] mb-8 md:mb-10 flex-grow">
                 <div>
                   <div className="space-y-3 md:space-y-5 lg:space-y-[18px]">
                     {pricingData[selectedTier].features.slice(0, 4).map((feature, index) => (

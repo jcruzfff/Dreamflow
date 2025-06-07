@@ -298,6 +298,26 @@ const Navbar = () => {
             How it works
           </a>
           <a 
+            href="#allinone" 
+            className="text-white text-2xl"
+            onClick={(e) => {
+              handleNavClick(e, '#allinone');
+              toggleMobileMenu();
+            }}
+          >
+            Product Design
+          </a>
+          <a 
+            href="#allinone" 
+            className="text-white text-2xl"
+            onClick={(e) => {
+              handleNavClick(e, '#allinone');
+              toggleMobileMenu();
+            }}
+          >
+            AI Automations
+          </a>
+          <a 
             href="#pricing" 
             className="text-white text-2xl"
             onClick={(e) => {

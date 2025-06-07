@@ -218,7 +218,7 @@ const ProcessSection = () => {
           }}
           className="text-[34px] md:text-5xl lg:text-[72px] font-medium text-center mb-10 md:mb-[30px] leading-[110%] tracking-[2%] mx-auto w-full md:w-4/5"
         >
-          Simple, Streamlined, and Startup-speed
+          Simple, Scalable Design & Agentic Automation
         </h2>
         
         {/* Desktop Layout */}
@@ -310,7 +310,7 @@ const ProcessSection = () => {
               className="process-step-mobile w-full text-left"
             >
               <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Subscribe</h3>
-              <p className="text-[#86868B] text-lg md:text-xl font-medium">Choose your plan. Get Unlimited requests and revisions.</p>
+              <p className="text-[#86868B] text-lg md:text-xl font-medium">Pick a plan. Get unlimited design, dev & automation support.</p>
             </div>
             
             {/* Request Step */}
@@ -327,7 +327,7 @@ const ProcessSection = () => {
               className="process-step-mobile w-full text-left"
             >
               <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Request</h3>
-              <p className="text-[#86868B] text-lg md:text-xl font-medium">Submit any task - branding, UI/UX, decks, websites & more.</p>
+              <p className="text-[#86868B] text-lg md:text-xl font-medium">Submit any task - branding, UI/UX websites, decks & more.</p>
             </div>
             
             {/* Receive Step */}
@@ -344,7 +344,7 @@ const ProcessSection = () => {
               className="process-step-mobile w-full text-left"
             >
               <h3 className="text-white font-medium text-[24px] md:text-[34px] leading-[120%] mb-2 tracking-[-2%]">Receive</h3>
-              <p className="text-[#86868B] text-lg md:text-xl">Get your dream design delivered in as little as 48 hours.</p>
+              <p className="text-[#86868B] text-lg md:text-xl">Get your deliverables in 2–3 days. Review, iterate, and scale.</p>
             </div>
           </div>
         </div>

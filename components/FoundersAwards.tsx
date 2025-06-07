@@ -105,13 +105,13 @@ const FoundersAwards = () => {
     if (projectsCounterRef.current) animateCounter(projectsCounterRef.current, 100, '', '+');
     if (fundingCounterRef.current) animateCounter(fundingCounterRef.current, 320, '$', 'M+');
     if (savingsCounterRef.current) animateCounter(savingsCounterRef.current, 1, '$', 'M+');
-    if (speedCounterRef.current) animateCounter(speedCounterRef.current, 3, '', '-5x');
+    if (speedCounterRef.current) animateCounter(speedCounterRef.current, 10, '', 'x');
     
     // Mobile counters
     if (projectsCounterMobileRef.current) animateCounter(projectsCounterMobileRef.current, 100, '', '+');
     if (fundingCounterMobileRef.current) animateCounter(fundingCounterMobileRef.current, 320, '$', 'M+');
     if (savingsCounterMobileRef.current) animateCounter(savingsCounterMobileRef.current, 1, '$', 'M+');
-    if (speedCounterMobileRef.current) animateCounter(speedCounterMobileRef.current, 3, '', '-5x');
+    if (speedCounterMobileRef.current) animateCounter(speedCounterMobileRef.current, 10, '', 'x');
 
     // Clean up animations on unmount
     return () => {
@@ -131,9 +131,9 @@ const FoundersAwards = () => {
           <div className="flex-1">
             <p 
               ref={quoteRef}
-              className="text-xl md:text-2xl lg:text-[36px] text-white font-normal leading-[1.3]"
+              className="text-xl md:text-2xl lg:text-[36px] text-white font- leading-[1.3]"
             >
-              &quot;We&apos;ve spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it.&quot;
+              &quot;We&apos;ve spent the last decade building and exiting startups, leading creative for Web3 and AI brands. Dreamflow was built for founders who move fast, think big, and want design, dev, and AI—without the hiring headache.”&quot;
             </p>
           </div>
           
@@ -178,7 +178,7 @@ const FoundersAwards = () => {
             ref={quoteRef}
             className="text-[32px] font-medium leading-[1.3] mb-10"
           >
-            &quot;We&apos;ve spent the last decade building startups and leading creative for Web3 and AI brands. We created Dreamflow for people like us: founders who move fast, value design, and need a team that just gets it.&quot;
+            &quot;We&apos;ve spent the last decade building and exiting startups, leading creative for Web3 and AI brands. Dreamflow was built for founders who move fast, think big, and want design, dev, and AI—without the hiring headache.”&quot;
           </p>
           
           <div 
@@ -228,10 +228,10 @@ const FoundersAwards = () => {
               
               <div className="absolute left-6 md:left-9 top-[80px] md:top-[102px] flex flex-wrap items-start justify-start">
                 <div ref={projectsCounterRef} className="text-white text-5xl md:text-[78px] font-medium">0</div>
-                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[93px] text-wrap">happy clients</div>
+                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[93px] text-wrap">Successful projects delivered</div>
               </div>
               
-              <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Successful Projects Delivered</div>
+              <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Launch ready brands, products, and systems</div>
             </div>
             
             {/* FUNDING IMPACT */}
@@ -240,7 +240,7 @@ const FoundersAwards = () => {
               
               <div className="absolute left-6 md:left-9 top-[80px] md:top-[102px] flex flex-wrap items-start justify-start">
                 <div ref={fundingCounterRef} className="text-white text-5xl md:text-[78px] font-medium">$0</div>
-                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[150px] text-wrap">Raised by Dreamflow-backed startups</div>
+                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[150px] text-wrap">Raised after Dreamflow rebrands</div>
               </div>
               
               <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Fueling visions from concept to capital</div>
@@ -255,7 +255,7 @@ const FoundersAwards = () => {
               
               <div className="absolute left-6 md:left-9 top-[90px] md:top-[120px] flex flex-wrap items-start justify-start">
                 <div ref={savingsCounterRef} className="text-white text-5xl md:text-[78px] font-medium">$0</div>
-                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[126px] text-wrap">saved vs hiring in-house teams</div>
+                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[156px] text-wrap">Saved by Dreamflow designs & automations</div>
               </div>
               
               <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Scaled design output without the overhead</div>
@@ -267,10 +267,10 @@ const FoundersAwards = () => {
               
               <div className="absolute left-6 md:left-9 top-[90px] md:top-[120px] flex flex-wrap items-start justify-start">
                 <div ref={speedCounterRef} className="text-white text-5xl md:text-[78px] font-medium">0</div>
-                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[160px] text-wrap">faster time-to-launch vs traditional agencies</div>
+                <div className="ml-4 md:ml-6 mt-2 text-[#86868B] text-sm md:text-base font-bold max-w-[160px] text-wrap">Faster than internal teams & agencies</div>
               </div>
               
-              <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Accelerate your journey from vision to reality</div>
+              <div className="absolute left-6 md:left-9 bottom-6 md:bottom-9 text-[#DEDEDE] text-[8px] md:text-[10px] font-normal">Go live in days, not months.</div>
             </div>
           </div>
         </div>
@@ -286,7 +286,7 @@ const FoundersAwards = () => {
             <div className="flex flex-wrap items-center">
               <div ref={projectsCounterMobileRef} className="text-white text-6xl font-medium">0</div>
             </div>
-              <div className="text-[#86868B] text-sm font-semibold mt-3">Projects delivered</div>
+              <div className="text-[#86868B] text-sm font-semibold mt-3">Successful projects delivered</div>
           
           </div>
           
@@ -297,7 +297,7 @@ const FoundersAwards = () => {
               <div ref={fundingCounterMobileRef} className="text-white text-6xl font-medium">$0</div>
             
             </div>
-            <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Raised by Dreamflow-backed startups</div>
+            <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Raised after Dreamflow rebrands</div>
           </div>
           
           {/* COST EFFICIENCY */}
@@ -307,7 +307,7 @@ const FoundersAwards = () => {
               <div ref={savingsCounterMobileRef} className="text-white text-6xl font-medium">$0</div>
            
             </div>
-               <div className="text-[#86868B] text-sm font-semibold  mt-3 text-wrap">Saved in hiring & design ops</div>
+               <div className="text-[#86868B] text-sm font-semibold  mt-3 text-wrap">Saved by Dreamflow designs & automations</div>
           </div>
           
           {/* SPEED TO LAUNCH */}
@@ -317,7 +317,7 @@ const FoundersAwards = () => {
               <div ref={speedCounterMobileRef} className="text-white text-6xl font-medium">0</div>
          
             </div>
-                 <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Faster time-to-launch vs traditional agencies</div>
+                 <div className="text-[#86868B] text-sm font-semibold mt-3 text-wrap">Faster than internal teams & agencies</div>
           </div>
         </div>
       </div>

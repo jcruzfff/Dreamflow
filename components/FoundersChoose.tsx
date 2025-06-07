@@ -442,7 +442,7 @@ const FoundersChoose = () => {
             }}
             className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center mb-14 md:mb-16 lg:mb-24 leading-[110%] tracking-[-2%]"
           >
-            Designed For<br/> High-Growth Startups
+            Why Top Startups<br/> Trust Dreamflow
           </h2>
           
           {/* Feature cards - conditional layout based on screen width */}
@@ -481,7 +481,7 @@ const FoundersChoose = () => {
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
                     All-in-One Creative Team
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">No extensive hiring needed</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Design, dev, and content - together.</p>
                 </div>
               </div>
               
@@ -507,9 +507,9 @@ const FoundersChoose = () => {
                     className="w-10 h-10 md:w-12 md:h-12 mb-2" 
                   />
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                    Award-Winning Designers
+                    Lightning-Fast Delivery
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Top 2% global design talent</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Launch-ready assets in 2–3 days.</p>
                 </div>
               </div>
               
@@ -541,33 +541,7 @@ const FoundersChoose = () => {
                 </div>
               </div>
               
-              <div className={`
-                founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
-                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
-              `}>
-                {isNarrowScreen && (
-                  <Image
-                    src="/icons/dg-icon-image.svg"
-                    alt="DreamGate Background"
-                    width={200}
-                    height={366}
-                    className="absolute right-0 top-0 h-full w-auto z-0"
-                  />
-                )}
-                <div className="relative z-10">
-                  <Image 
-                    src="/icons/dg-icon.svg" 
-                    alt="DreamGate Icon" 
-                    width={48}
-                    height={48}
-                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
-                  />
-                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                    DreamGate™ System
-                  </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">A portal to manage your projects</p>
-                </div>
-              </div>
+             
               
               <div className={`
                 founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
@@ -591,9 +565,37 @@ const FoundersChoose = () => {
                     className="w-10 h-10 md:w-12 md:h-12 mb-2" 
                   />
                   <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
-                    Web3 & AI Native
+                    AI-Automation Systems
                   </h3>
-                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">We use the latest Web3 & AI tools</p>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Custom workflows for ops and scale.</p>
+                </div>
+              </div>
+
+              <div className={`
+                founder-card p-5 md:p-6 rounded-3xl bg-card-gradient shadow-card flex flex-col items-left justify-center gap-2 text-left
+                ${isNarrowScreen ? 'h-[366px] w-[342px] flex-shrink-0 snap-center relative overflow-hidden' : 'h-[286px]'}
+              `}>
+                {isNarrowScreen && (
+                  <Image
+                    src="/icons/dg-icon-image.svg"
+                    alt="DreamGate Background"
+                    width={200}
+                    height={366}
+                    className="absolute right-0 top-0 h-full w-auto z-0"
+                  />
+                )}
+                <div className="relative z-10">
+                  <Image 
+                    src="/icons/dg-icon.svg" 
+                    alt="DreamGate Icon" 
+                    width={48}
+                    height={48}
+                    className="w-10 h-10 md:w-12 md:h-12 mb-2" 
+                  />
+                  <h3 className={`text-lg md:text-xl font-medium text-white leading-[120%] ${!isNarrowScreen ? 'max-w-[160px]' : ''}`}>
+                    DreamGate™ Portal
+                  </h3>
+                  <p className="text-[#86868B] text-[18px] font-medium leading-[120%] pt-3">Track tasks, assets, and requests.</p>
                 </div>
               </div>
             </div>

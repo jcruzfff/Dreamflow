@@ -15,33 +15,33 @@ type CardData = {
 const cards: CardData[] = [
   {
     id: 0,
-    title: "UX/UI Design",
-    description: "Mobile apps, dApps, demo-ready prototypes",
-    image: "/images/ux-design.png"
+    title: "AI Workflow & AI Agents",
+    description: "Plug-and-play AI workflows and smart systems for founders.",
+    image: "/images/automation.svg"
   },
   {
     id: 1,
-    title: "Brand Identity & Positioning",
-    description: "Logos, guidelines, and complete brand systems",
-    image: "/images/brand-design.png"
+    title: "Pitch Decks & Motion Graphics",
+    description: "Investor-decks, explainer videos, and social visuals.",
+    image: "/images/pitch-design.png"
   },
   {
     id: 2,
-    title: "Web Design & Development",
+    title: "Full-Stack Development",
     description: "Responsive websites and web applications",
     image: "/images/web-design.png"
   },
   {
     id: 3,
-    title: "Content & Motion Graphics",
-    description: "Social media content and promotional videos",
-    image: "/images/video-design.png"
+    title: "Mobile & Web UX/UI Design",
+    description: "Clean, high-converting product and marketing interfaces.",
+    image: "/images/ux-design.png"
   },
   {
     id: 4,
-    title: "Pitch Decks & Presentations",
-    description: "Investor-ready presentations and pitch materials",
-    image: "/images/pitch-design.png"
+    title: "Brand Strategy & Identity",
+    description: "Logos, guidelines, and positioning that stands out. ",
+    image: "/images/brand-design.png"
   },
 ];
 
@@ -186,6 +186,7 @@ const AllInOneDesign = () => {
   return (
     <section 
       ref={sectionRef}
+      id="allinone"
       className="py-12 pb-0 md:py-24 lg:py-32  px-4 md:px-8 lg:px-12 bg-black/60 min-h-[80vh] all-in-one-section"
     >
       <div className="container mx-auto max-w-6xl all-in-one-content">
@@ -201,7 +202,7 @@ const AllInOneDesign = () => {
           }}
           className="text-[34px] md:text-5xl lg:text-[72px] text-gradient font-medium text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] pt-4 md:pt-0 mb-[8px] md:mb-10 leading-[110%] w-[90%] md:w-full mx-auto"
         >
-          Your all-in-one design team
+          All-in-One Design &<br />Automation Systems
         </h2>
         
         <div 
