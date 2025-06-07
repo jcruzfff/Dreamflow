@@ -329,7 +329,7 @@ const Hero = () => {
             <p 
               className="text-[#B2B2B2] text-xl md:text-2xl font-medium mb-8 md:mb-10 w-[100%] md:w-[90%] max-w-3xl mx-auto"
             >
-              Get world-class branding,websites, and AI systems <span className="hidden md:inline"><br/></span>- delivered in as little as 48 hours.
+              Get world-class branding, websites, and AI systems <span className="hidden md:inline"><br/></span>- delivered in as little as 48 hours.
             </p>
             <div className="flex justify-center">
               <Link 
