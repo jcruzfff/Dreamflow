@@ -246,8 +246,11 @@ const AllInOneDesign = () => {
                     <Image 
                       src={card.image} 
                       alt={card.title}
-                      width={500}
-                      height={301}
+                      width={824}
+                      height={602}
+                      quality={95}
+                      priority={card.id === 0}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 412px"
                       className="w-full h-full object-cover card-image"
                     />
                   </div>
