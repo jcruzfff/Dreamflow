@@ -216,7 +216,7 @@ const ProcessSection = () => {
             fontFamily: "Helvetica Neue",
            
           }}
-          className="text-[34px] md:text-5xl lg:text-[72px] font-medium text-center mb-10 md:mb-[30px] leading-[110%] tracking-[2%] mx-auto w-full md:w-4/5"
+          className="text-[34px] md:text-5xl lg:text-[72px] font-medium text-center mb-10 md:mb-[30px] leading-[110%] tracking-[-2%] mx-auto w-full md:w-4/5"
         >
           Simple, Scalable Design & Automation
         </h2>

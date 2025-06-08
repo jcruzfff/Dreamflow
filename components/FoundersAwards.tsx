@@ -178,7 +178,7 @@ const FoundersAwards = () => {
             ref={quoteRef}
             className="text-[32px] font-medium leading-[1.3] mb-10"
           >
-            &quot;We&apos;ve spent the last decade building and exiting startups, leading creative for Web3 and AI brands. Dreamflow was built for founders who move fast, think big, and want design, dev, and AI—without the hiring headache.”&quot;
+            &quot;We&apos;ve spent the last decade building and exiting startups, leading creative for Web3 and AI brands. Dreamflow was built for founders who move fast, think big, and want design, dev, and AI without the hiring headache.&quot;
           </p>
           
           <div 

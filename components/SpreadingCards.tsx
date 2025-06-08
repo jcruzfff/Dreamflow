@@ -288,13 +288,13 @@ const SpreadingCards = () => {
                 color: "transparent",
                 fontFamily: "Helvetica Neue"
               }}
-               className="text-gradient w-[70%] md:w-[40%] mx-auto text-3xl md:text-4xl lg:text-5xl font-medium leading-[110%] tracking-[-2%]">
+               className="text-gradient w-[80%] md:w-[40%] mx-auto text-3xl md:text-4xl lg:text-5xl font-medium leading-[110%] tracking-[-2%]">
                 Join the #1 Design & AI Automation Team for Startups
               </p>
             </div>
           </div>
           
-          <p className="subtext text-[#B2B2B2] text-xl font-medium mb-2 md:mb-8">Apply now to scale faster—without hiring in-house</p>
+          <p className="subtext text-[#B2B2B2] text-xl w-[80%] md:w-[40%] mx-auto font-medium mb-2 md:mb-8">Apply now to scale faster without hiring in-house</p>
           
           <div className="btn relative z-40">
             <Link 

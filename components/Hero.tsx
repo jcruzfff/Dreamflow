@@ -322,14 +322,22 @@ const Hero = () => {
                 color: "transparent",
                 fontFamily: "Helvetica Neue"
               }}
-              className="text-4xl md:text-6xl lg:text-[72px] font-medium leading-[110%] tracking-[-1.4px] mb-3"
+              className="text-[28px] min-[380px]:text-[32px] min-[480px]:text-4xl md:text-6xl lg:text-[64px] xl:text-[72px] font-medium leading-[110%] tracking-[-1.4px] mb-3"
+
             >
-              The #1 Creative + AI Automation<br />Subscription For Founders.
+              <span className="block min-[520px]:hidden">
+                The #1 Creative + AI<br />
+                Automation Subscription<br />
+                For Founders
+              </span>
+              <span className="hidden min-[520px]:block">
+                The #1 Creative + AI Automation<br />Subscription For Founders
+              </span>
             </h1>
             <p 
-              className="text-[#B2B2B2] text-xl md:text-2xl font-medium mb-8 md:mb-10 w-[100%] md:w-[90%] max-w-3xl mx-auto"
+              className="text-[#B2B2B2] text-xl md:text-2xl font-medium mb-8 md:mb-10 w-[95%] md:w-[90%] max-w-3xl mx-auto"
             >
-              Get world-class branding, websites, and AI systems <span className="hidden md:inline"><br/></span>- delivered in as little as 48 hours.
+              Get world-class branding, websites, and AI systems<span className="hidden md:inline"><br/></span>, delivered in as little as 48 hours
             </p>
             <div className="flex justify-center">
               <Link 
