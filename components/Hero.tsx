@@ -339,7 +339,7 @@ const Hero = () => {
             >
               Get world-class branding, websites, and AI systems,<span className="hidden md:inline"><br/></span>delivered in as little as 48 hours
             </p>
-            <div className="flex justify-center flex-col md:flex-col gap-4 mx-auto items-center text-center">
+            <div className="flex flex-col items-center justify-center gap-4 w-full">
               <Link 
                 href="#calendar" 
                 className="inline-flex items-center justify-center bg-white text-black px-10 md:px-[51px] py-3 md:py-4 rounded-[46.55px] text-lg md:text-xl font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg w-full sm:w-[80%] md:w-[70%] lg:w-auto max-w-md group"
@@ -356,7 +356,7 @@ const Hero = () => {
               </Link>
               <Link 
                 href="#pricing" 
-                className="inline-flex text-[#d0d0d4] text-lg md:text-xl font-medium transition-all duration-300 hover:text-opacity-40 hover:shadow-lg w-full sm:w-[80%] md:w-[70%] lg:w-auto max-w-md group"
+                className="text-[#d0d0d4] text-lg md:text-xl font-medium transition-all duration-300 hover:text-opacity-70 text-center"
               >
                 <span>View Pricing Packages</span>
               </Link>
