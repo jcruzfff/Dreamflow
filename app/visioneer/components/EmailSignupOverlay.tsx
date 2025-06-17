@@ -26,16 +26,37 @@ const EmailSignupOverlay = ({ onClose }: EmailSignupOverlayProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsSuccess(true);
+        
+        // Close overlay after success message
+        setTimeout(() => {
+          onClose();
+        }, 3000);
+      } else {
+        console.error('Subscription failed:', data.error);
+        alert('Failed to subscribe. Please try again.');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error. Please check your connection and try again.');
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      
-      // Close overlay after success message
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-    }, 1000);
+    }
   };
 
   return (

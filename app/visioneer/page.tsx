@@ -9,23 +9,26 @@ const NewsletterPage = () => {
   const [showEmailOverlay, setShowEmailOverlay] = useState(false);
 
   const testimonials = [
+
+  
+    
     {
-      name: "Preston Lee",
-      title: "Co Founder | Soltar",
-      quote: "Dreamflow brought our prototype to life with polished design and animations that made it feel like a final product.",
-      image: "/images/jonathan.png" // Using existing image as placeholder
-    },
-    {
-      name: "Preston Lee",
+      name: "Preston L",
       title: "Co Founder | Soltar", 
-      quote: "Dreamflow brought our prototype to life with polished design and animations that made it feel like a final product.",
-      image: "/images/jonathan.png"
+      quote: "Visioneer is the only newsletter I use. Every drop gives us a proven system we implement real results, zero fluff, shared with my whole team",
+      image: "/images/soltar-founder.png"
     },
     {
-      name: "Preston Lee",
-      title: "Co Founder | Soltar",
-      quote: "Dreamflow brought our prototype to life with polished design and animations that made it feel like a final product.",
-      image: "/images/jonathan.png"
+      name: " Alex R",
+      title: "Founder | Deliberate Self",
+      quote: "Visioneer saved me over 20 hours in the first week. I used it to launch a clean, scalable brand with systems that actually work - without hiring a full team.",
+      image: "/images/deliberate-founder.png" // Using existing image as placeholder
+    },
+    {
+      name: "Zac B",
+      title: "Co Founder | Dexari",
+      quote: "We raised $3M in seed funding after launching with Dreamflow. The brand, UX, and systems did exactly what investors and users needed to say yes.",
+      image: "/images/dexari-founder.png"
     }
   ];
 
@@ -50,16 +53,16 @@ const NewsletterPage = () => {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 container mx-auto px-6 lg:px-[180px] mt-18">
+      <main className="relative z-10 container mx-auto px-6 lg:px-[180px] pt-4 lg:pt-14">
         {/* Hero Section */}
-        <div className="mb-24 lg:mb-24 flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
+        <div className="mb-16 lg:mb-24 flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
           {/* Left side - Text content */}
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl lg:text-[55px] font-medium font-['Helvetica_Neue'] capitalize leading-tight lg:leading-[55px] mb-8 lg:mb-12 max-w-[499px]">
+            <h1 className="text-4xl md:text-5xl lg:text-[55px] font-medium font-['Helvetica_Neue'] capitalize leading-tight lg:leading-[55px] mb-8  max-w-[499px]">
               The Newsletter To Help You Build A Profitable Brand.
             </h1>
             
-            <p className="text-lg lg:text-[22px] font-normal font-['Helvetica_Neue'] leading-8 lg:leading-9 text-[#e9e9e9] mb-12 lg:mb-16 max-w-[478px]">
+            <p className="text-lg lg:text-[22px] font-normal font-['Helvetica_Neue'] leading-8 lg:leading-9 text-[#e9e9e9] mb-12  max-w-[478px]">
               Every week, get the exact systems, design templates and AI workflows that save time, drive growth and unlock founder freedom.
             </p>
 
@@ -79,45 +82,39 @@ const NewsletterPage = () => {
           </div>
         </div>
 
-                {/* Testimonials Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 mt-16 lg:mb-24">
+        {/* Testimonials Section - matches hero container width */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4 mb-16 mt-16 lg:mb-24">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="w-[354px] h-[271px] relative mx-auto">
-              {/* Card with bg-card.svg background */}
-              <div 
-                className="w-[354px] h-[238px] absolute left-0 top-[33px] rounded-3xl"
-                style={{
-                  backgroundImage: "url('/images/bg-card.svg')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat"
-                }}
-              >
-                {/* Name and Title */}
-                <div className="absolute left-[156px] top-[20px] justify-start">
-                  <span className="text-white text-lg font-semibold font-['Helvetica_Neue']">
-                    {testimonial.name}<br/>
-                  </span>
-                  <span className="text-[#bababa] text-sm font-normal font-['Helvetica_Neue']">
-                    {testimonial.title}
-                  </span>
-                </div>
-                
-                {/* Quote */}
-                <div className="w-[306px] absolute left-[24px] top-[103px] justify-start text-[#fdfdfd] text-base font-normal font-['Helvetica_Neue'] leading-7">
-                  &quot;{testimonial.quote}&quot;
-                </div>
-              </div>
-              
-              {/* Profile Picture */}
-              <div className="w-[103px] h-[103px] absolute left-[24px] top-0 bg-[#8b8b8b] rounded-[651.16px] border-[0.65px] border-[#dddddd] overflow-hidden">
+            <div key={index} className="w-full max-w-[354px] lg:max-w-none mx-auto relative">
+              {/* Profile Picture - positioned to overlap card */}
+              <div className="w-[80px] h-[80px] lg:w-[103px] lg:h-[103px] bg-[#8b8b8b] rounded-full border-[0.65px] border-[#dddddd] overflow-hidden relative z-10 ml-6">
                 <Image 
                   src={testimonial.image}
                   alt={testimonial.name}
                   width={103}
                   height={103}
                   className="w-full h-full object-cover rounded-full"
+                  quality={100}
+                  unoptimized={true}
                 />
+              </div>
+
+              {/* Card with gradient background */}
+              <div className="w-full bg-gradient-to-b from-[#1F1F1F] to-[#111] rounded-3xl border border-[#393939] shadow-[0px_1.318px_2.635px_0px_#525154_inset] p-6 pt-12 -mt-[40px] lg:-mt-[51px] relative">
+                {/* Name and Title - stacked above quote on smaller screens, top-right on xl */}
+                <div className="mb-4 lg:pt-6 xl:absolute xl:top-6 xl:right-6 xl:mb-0 xl:pt-0">
+                  <h3 className="text-white text-lg font-semibold font-['Helvetica_Neue'] leading-tight xl:text-right">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-[#86868B] text-sm font-normal font-['Helvetica_Neue'] xl:text-right">
+                    {testimonial.title}
+                  </p>
+                </div>
+                
+                {/* Quote */}
+                <blockquote className="text-[#fdfdfd] text-base font-normal font-['Helvetica_Neue'] leading-7 pt-0 xl:pt-8">
+                  &quot;{testimonial.quote}&quot;
+                </blockquote>
               </div>
             </div>
           ))}
@@ -125,14 +122,14 @@ const NewsletterPage = () => {
 
       </main>
 
-      {/* Large preview image section - overhangs footer by 90px, outside container */}
-      <div className="mb-[-180px] relative z-20 w-full flex justify-center">
-        <div className="w-[90%] h-[400px] lg:h-[679px] relative rounded-2xl overflow-hidden">
+      {/* Large preview image section - overhangs footer by 90px, extends beyond page edges */}
+      <div className="mb-[-180px] relative z-20 flex justify-center overflow-hidden">
+        <div className="w-[120vw] lg:w-[80%] h-[400px] lg:h-[679px] relative rounded-2xl overflow-hidden">
           <Image 
             src="/images/systems-image.png"
             alt="Dreamflow AI-First Org Chart"
             fill
-            className="object-contain object-top"
+            className="object-cover lg:object-contain object-center"
             quality={100}
             priority
             unoptimized={true}
@@ -141,22 +138,45 @@ const NewsletterPage = () => {
       </div>
 
       {/* Footer */}
-      <footer className="relative z-30 w-full h-[88px] bg-[#e4e4e4] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.05)] flex items-center justify-between px-6 lg:px-[35px]">
-        <p className="text-black text-sm font-normal font-['Helvetica_Neue']">
-          Dreamflow Labs 2025 - All rights reserved
-        </p>
-        
-        <div className="hidden lg:flex items-center gap-6 text-black text-sm font-normal font-['Helvetica_Neue']">
-          <a href="#" className="hover:opacity-70">Visit Website</a>
-          <span>|</span>
-          <a href="#" className="hover:opacity-70">Join the Skool Community</a>
-          <span>|</span>
-          <a href="#" className="hover:opacity-70">Contact</a>
+      <footer className="relative z-30 w-full min-h-[88px] bg-[#e4e4e4] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.05)] px-6 lg:px-[35px] py-4 lg:py-0">
+        {/* Mobile Layout */}
+        <div className="flex lg:hidden flex-col items-center gap-4">
+          {/* Links on top for mobile */}
+          <div className="flex items-center gap-4 text-black text-sm font-normal font-['Helvetica_Neue']">
+            <a href="https://dreamflowlabs.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-70">Website</a>
+            <span>|</span>
+            <a href="https://skool.com/dreamflow" target="_blank" rel="noopener noreferrer" className="hover:opacity-70">Skool</a>
+            <span>|</span>
+            <a href="https://calendly.com/dreamflowlabs/free-ux-audit-fix-friction-boost-adoption" target="_blank" rel="noopener noreferrer" className="hover:opacity-70">Contact</a>
+          </div>
+          
+          {/* Bottom row for mobile */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-black text-sm font-normal font-['Helvetica_Neue'] text-center">
+            <p>Dreamflow Labs 2025</p>
+            <span className="hidden sm:inline">|</span>
+            <p>Privacy Policy - Terms of Use</p>
+          </div>
         </div>
 
-        <p className="text-black text-sm font-normal font-['Helvetica_Neue'] text-right">
-          Privacy Policy - Terms of Use
-        </p>
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex items-center justify-between h-[88px]">
+          <p className="text-black text-sm font-normal font-['Helvetica_Neue']">
+            Dreamflow Labs 2025 - All rights reserved
+          </p>
+          
+          {/* Centered links for desktop */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-6 text-black text-sm font-normal font-['Helvetica_Neue']">
+            <a href="https://dreamflowlabs.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-70">Visit Website</a>
+            <span>|</span>
+            <a href="https://skool.com/dreamflow" target="_blank" rel="noopener noreferrer" className="hover:opacity-70">Join the Skool Community</a>
+            <span>|</span>
+            <a href="https://calendly.com/dreamflowlabs/free-ux-audit-fix-friction-boost-adoption" target="_blank" rel="noopener noreferrer" className="hover:opacity-70">Contact</a>
+          </div>
+
+          <p className="text-black text-sm font-normal font-['Helvetica_Neue'] text-right">
+            Privacy Policy - Terms of Use
+          </p>
+        </div>
       </footer>
 
       {/* Email Signup Overlay */}
