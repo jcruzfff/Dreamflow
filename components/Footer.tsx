@@ -63,7 +63,7 @@ const Footer = () => {
             />
           </a>
           <a 
-            href="https://linkedin.com/company/dreamflowlabs" 
+            href="https://www.linkedin.com/company/dreamflow/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link hover:opacity-80 transition-opacity"
