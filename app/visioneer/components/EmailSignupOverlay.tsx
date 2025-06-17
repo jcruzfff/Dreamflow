@@ -99,7 +99,7 @@ const EmailSignupOverlay = ({ onClose }: EmailSignupOverlayProps) => {
                   color: "transparent"
                 }}
               >
-                Join The Visioneer
+                Join Dreamflow
               </h2>
               <p className="text-[#86868B] text-base font-['Helvetica_Neue']">
                 Get weekly systems, templates, and AI workflows
@@ -159,7 +159,7 @@ const EmailSignupOverlay = ({ onClose }: EmailSignupOverlayProps) => {
               </svg>
             </div>
             <h3 className="text-2xl font-medium font-['Helvetica_Neue'] text-white mb-3">
-              Welcome to The Visioneer!
+              Welcome to Dreamflow!
             </h3>
             <p className="text-[#86868B] font-['Helvetica_Neue'] text-base">
               Check your email for a confirmation link.
