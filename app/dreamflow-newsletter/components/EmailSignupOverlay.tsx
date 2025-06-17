@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface EmailSignupOverlayProps {
   onClose: () => void;
@@ -146,7 +146,7 @@ const EmailSignupOverlay = ({ onClose }: EmailSignupOverlayProps) => {
                 disabled={isSubmitting}
                 className="w-full h-[56px] bg-gradient-to-b from-[#F4CE84] via-[#E2B969] to-[#CEA24C] text-black rounded-full font-medium font-['Helvetica_Neue'] shadow-md border-2 border-[#D9BB75] hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 transition-all duration-200"
               >
-                {isSubmitting ? 'Joining...' : 'Join The Visioneer'}
+                {isSubmitting ? 'Joining...' : 'Join Dreamflow'}
               </button>
             </form>
           </>
