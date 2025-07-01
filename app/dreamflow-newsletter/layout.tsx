@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: "The Newsletter To Help You Build A Profitable Brand. Get weekly systems, design templates and AI workflows that save time, drive growth and unlock founder freedom.",
     images: [
       {
-        url: "https://dreamflowlabs.com/images/visioneer-og.png", // You'll need to create this image
+        url: "https://dreamflowlabs.com/images/newsletter-og-chase.png", // You'll need to create this image
         width: 1200,
         height: 630,
         alt: "The Dreamflow Newsletter - Build A Profitable Brand",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Visioneer Newsletter | Dreamflow",
+    title: "The Dreamflow Newsletter",
     description: "The Newsletter To Help You Build A Profitable Brand. Get weekly systems, design templates and AI workflows.",
-    images: ["https://dreamflowlabs.com/images/visioneer-og.png"],
+    images: ["https://dreamflowlabs.com/images/newsletter-og-chase.png"],
     creator: "@dreamflowlabs",
   },
 };
