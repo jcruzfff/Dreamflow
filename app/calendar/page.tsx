@@ -67,7 +67,7 @@ const CalendarPage = () => {
             ref={subtitleRef}
             className="text-[#B2B2B2] text-xl md:text-2xl font-medium w-[100%] max-w-3xl mx-auto mb-6"
           >
-            Get a free UX & growth teardown to boost conversions & scale smarter.
+            Get a free UX & growth teardown to boost conversions, save time & scale smarter.
           </p>
         </div>
         
@@ -78,7 +78,7 @@ const CalendarPage = () => {
           {/* Calendly inline widget */}
           <div 
             className="calendly-inline-widget w-full" 
-            data-url="https://calendly.com/dreamflowlabs/free-ux-audit-fix-friction-boost-adoption?hide_gdpr_banner=1&background_color=111111&text_color=ffffff&primary_color=e2b969" 
+            data-url="https://calendly.com/dreamflowlabs/dream-discovery-call-1?hide_gdpr_banner=1&background_color=111111&text_color=ffffff&primary_color=e2b969" 
             style={{ minWidth: '320px', width: '100%', height: '700px', maxHeight: '90vh' }}
           />
           
