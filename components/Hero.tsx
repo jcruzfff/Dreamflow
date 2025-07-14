@@ -303,7 +303,7 @@ const Hero = () => {
                 Pricing
               </Link>
               <Link 
-                href="#pricing" 
+                href="/intake" 
                 className="text-[#86868B] hover:text-white transition-colors duration-200 text-base font-medium"
               >
                 Apply now
