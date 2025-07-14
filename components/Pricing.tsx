@@ -51,7 +51,7 @@ const Pricing = () => {
         '2 active tasks',
         'Everything in Essentials',
         'Front-end development',
-        '2-day turnaround',
+        '4-day turnaround',
         'Advanced AI automation',
         'Monthly strategy sessions',
         '30-day money-back guarantee',
