@@ -78,9 +78,9 @@ const Pricing = () => {
   
   // URLs for each pricing tier
   const tierUrls = {
-    'Essentials': 'https://square.link/u/iQZulIHV',
-    'Elite': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/PDCEFJCGE2SGG4DKYNQYSDKV',
-    'Full-Stack': 'https://square.link/u/8cOYVXEs'
+    'Essentials': 'https://square.link/u/gP3dHzCx',
+    'Elite': '',
+    'Full-Stack': ''
   };
   
   // Handle tier selection
