@@ -27,7 +27,7 @@ export default function PricingModal({ isOpen, onCloseAction }: PricingModalProp
   const pricingData: PricingData = {
     'Essentials': {
       title: 'Launch Ready',
-      price: '$4,995',
+      price: '$9,995',
       spotsLeft: 3,
       indicatorColor: 'bg-[#00ff66]',
       features: [
@@ -43,7 +43,7 @@ export default function PricingModal({ isOpen, onCloseAction }: PricingModalProp
     },
     'Elite': {
       title: 'Seed Stage',
-      price: '$9,995',
+      price: '$19,995',
       spotsLeft: 2,
       indicatorColor: 'bg-[#ffee00]',
       features: [
@@ -59,7 +59,7 @@ export default function PricingModal({ isOpen, onCloseAction }: PricingModalProp
     },
     'Full-Stack': {
       title: 'Growth Stage',
-      price: '$24,995',
+      price: '$44,995',
       spotsLeft: 1,
       indicatorColor: 'bg-[#ff3e3e]',
       features: [

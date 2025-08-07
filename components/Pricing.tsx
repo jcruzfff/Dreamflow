@@ -28,7 +28,7 @@ const Pricing = () => {
   const pricingData: PricingData = {
     'Essentials': {
       title: 'Early Stage',
-      price: '$4,995',
+      price: '$9,995',
       spotsLeft: 3,
       indicatorColor: 'bg-[#00ff66]',
       features: [
@@ -44,7 +44,7 @@ const Pricing = () => {
     },
     'Elite': {
       title: 'Scaling Startups',
-      price: '$9,995',
+      price: '$19,995',
       spotsLeft: 2,
       indicatorColor: 'bg-[#ffee00]',
       features: [
@@ -60,7 +60,7 @@ const Pricing = () => {
     },
     'Full-Stack': {
       title: 'High Growth',
-      price: '$24,995',
+      price: '$44,995',
       spotsLeft: 1,
       indicatorColor: 'bg-[#ff3e3e]',
       features: [

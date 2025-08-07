@@ -5,7 +5,7 @@ import { usePricing, CartItem } from '../context/PricingContext';
 import PricingModal from './PricingModal';
 
 // Essentials plan pricing
-const ESSENTIALS_PLAN_PRICE = 4995;
+const ESSENTIALS_PLAN_PRICE = 9995;
 
 const UpsellBanner = ({ cartTotal, onCompareClick }: { cartTotal: number; onCompareClick: () => void }) => {
   const savingsAmount = cartTotal - ESSENTIALS_PLAN_PRICE;
