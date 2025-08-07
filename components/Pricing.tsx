@@ -78,9 +78,9 @@ const Pricing = () => {
   
   // URLs for each pricing tier
   const tierUrls = {
-    'Essentials': 'https://square.link/u/gP3dHzCx',
-    'Elite': '',
-    'Full-Stack': ''
+    'Essentials': 'https://square.link/u/Qb2ltVIn',
+    'Elite': 'https://square.link/u/OEkmfQdV',
+    'Full-Stack': 'https://square.link/u/8cOYVXEs'
   };
   
   // Handle tier selection

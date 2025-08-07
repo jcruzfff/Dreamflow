@@ -77,8 +77,8 @@ export default function PricingModal({ isOpen, onCloseAction }: PricingModalProp
 
   // URLs for each pricing tier
   const tierUrls = {
-    'Essentials': 'https://square.link/u/iQZulIHV',
-    'Elite': 'https://checkout.square.site/merchant/ML5NF5BNR8C7E/checkout/PDCEFJCGE2SGG4DKYNQYSDKV',
+    'Essentials': 'https://square.link/u/Qb2ltVIn',
+    'Elite': 'https://square.link/u/OEkmfQdV',
     'Full-Stack': 'https://square.link/u/8cOYVXEs'
   };
 
